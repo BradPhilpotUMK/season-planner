@@ -1215,7 +1215,50 @@ function showSplash(){
   clearTimeout(sp._t);sp._t=setTimeout(hideSplash,2600);
 }
 function hideSplash(){const sp=$("#splash");clearTimeout(sp._t);sp.classList.add("out")}
-$("#splash").onclick=hideSplash;
+/* KZ two-stroke revving up and snapping up a gear, made in code (no sound file) */
+function kzShift(){
+  let C;try{C=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return}
+  try{C.resume()}catch(e){}
+  const t0=C.currentTime+0.02,out=C.createGain();out.gain.value=0.55;out.connect(C.destination);
+  // engine voice: saw + square, distorted, filtered like an exhaust
+  const shaper=C.createWaveShaper(),curve=new Float32Array(1024);
+  for(let i=0;i<1024;i++){const x=i/512-1;curve[i]=Math.tanh(3.2*x)}shaper.curve=curve;
+  const lp=C.createBiquadFilter();lp.type="lowpass";lp.frequency.value=2600;lp.Q.value=1.2;
+  const body=C.createBiquadFilter();body.type="peaking";body.frequency.value=620;body.gain.value=7;body.Q.value=1.4;
+  const amp=C.createGain();amp.gain.value=0;
+  shaper.connect(body);body.connect(lp);lp.connect(amp);amp.connect(out);
+  const o1=C.createOscillator();o1.type="sawtooth";
+  const o2=C.createOscillator();o2.type="square";const g2=C.createGain();g2.gain.value=0.35;
+  const o3=C.createOscillator();o3.type="sawtooth";const g3=C.createGain();g3.gain.value=0.25;o3.detune.value=-1200;
+  o1.connect(shaper);o2.connect(g2);g2.connect(shaper);o3.connect(g3);g3.connect(shaper);
+  // rasp: noise through a band filter, follows the engine
+  const len=C.sampleRate*2,nb=C.createBuffer(1,len,C.sampleRate),nd=nb.getChannelData(0);for(let i=0;i<len;i++)nd[i]=Math.random()*2-1;
+  const ns=C.createBufferSource();ns.buffer=nb;const nbp=C.createBiquadFilter();nbp.type="bandpass";nbp.frequency.value=3200;nbp.Q.value=0.8;
+  const ng=C.createGain();ng.gain.value=0.18;ns.connect(nbp);nbp.connect(ng);ng.connect(amp);
+  // wobble so it sounds mechanical, not like a synth
+  const lfo=C.createOscillator();lfo.frequency.value=31;const lg=C.createGain();lg.gain.value=9;lfo.connect(lg);
+  [o1,o2,o3].forEach(o=>lg.connect(o.frequency));
+  const f=(t,v,ramp)=>[o1,o2,o3].forEach(o=>ramp?o.frequency.exponentialRampToValueAtTime(v,t):o.frequency.setValueAtTime(v,t));
+  // first gear pull
+  const T1=t0+0.62,T2=T1+0.11,T3=T2+0.62;
+  f(t0,118);f(T1,292,true);
+  amp.gain.setValueAtTime(0,t0);amp.gain.linearRampToValueAtTime(0.9,t0+0.06);amp.gain.setValueAtTime(0.9,T1);
+  lp.frequency.setValueAtTime(1400,t0);lp.frequency.exponentialRampToValueAtTime(3400,T1);
+  // ignition cut "brap" while the revs drop for the shift
+  for(let k=0;k<4;k++){const a=T1+k*0.026;amp.gain.setValueAtTime(k%2?0.85:0.12,a)}
+  f(T1+0.02,292);f(T2,205,true);
+  // gear clunk: knock + metallic tick
+  const th=C.createOscillator();th.type="sine";const tg=C.createGain();th.frequency.setValueAtTime(95,T1+0.04);th.frequency.exponentialRampToValueAtTime(45,T1+0.14);
+  tg.gain.setValueAtTime(0.0001,T1+0.04);tg.gain.exponentialRampToValueAtTime(0.9,T1+0.05);tg.gain.exponentialRampToValueAtTime(0.0001,T1+0.16);th.connect(tg);tg.connect(out);
+  const cs=C.createBufferSource();cs.buffer=nb;const cbp=C.createBiquadFilter();cbp.type="bandpass";cbp.frequency.value=1900;cbp.Q.value=6;const cg=C.createGain();
+  cg.gain.setValueAtTime(0.0001,T1+0.04);cg.gain.exponentialRampToValueAtTime(0.7,T1+0.045);cg.gain.exponentialRampToValueAtTime(0.0001,T1+0.09);cs.connect(cbp);cbp.connect(cg);cg.connect(out);
+  // second gear pull and fade away
+  amp.gain.setValueAtTime(0.9,T2);f(T3,300,true);lp.frequency.setValueAtTime(2200,T2);lp.frequency.exponentialRampToValueAtTime(3600,T3);
+  amp.gain.setValueAtTime(0.9,T3-0.15);amp.gain.exponentialRampToValueAtTime(0.0001,T3+0.45);
+  const end=T3+0.5;[o1,o2,o3,lfo,ns,th,cs].forEach(n=>{n.start(t0);n.stop(end)});
+  setTimeout(()=>{try{C.close()}catch(e){}},(end-C.currentTime+0.3)*1000);
+}
+$("#splash").onclick=()=>{if(!$("#splash").classList.contains("out"))kzShift();hideSplash()};
 async function uploadSplash(){
   const inp=document.createElement("input");inp.type="file";inp.accept="image/*";
   inp.onchange=async()=>{const f=inp.files[0];if(!f)return;
@@ -1229,6 +1272,7 @@ async function uploadSplash(){
 
 function applySkin(){S.skin="";document.documentElement.dataset.skin="";const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=S.skin==="pink"?"#D8159E":"#1F2126"}
 
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
 loadLocal();applySkin();showSplash();if(seedClubs())save();render();connect();
 })();
 </script>
