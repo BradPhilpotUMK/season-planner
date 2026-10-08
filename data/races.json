@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T21:38Z",
+ "updated": "2026-10-08T21:40Z",
  "series": [
   {
    "id": "access-karting",
@@ -35,7 +35,7 @@
    "id": "rye-house-prokart-endurance",
    "name": "Rye House ProKart Endurance Series",
    "venue": "Rye House, Hertfordshire",
-   "kind": "national",
+   "kind": "club",
    "color": "#8B6CF0",
    "short": "RHPK",
    "checked": 1791495296885,
@@ -581,7 +581,9 @@
    "venue": "Christchurch, Dorset",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "SCK"
+   "short": "SCK",
+   "checked": 1791495622231,
+   "note": "Winter series dates not published yet"
   },
   {
    "id": "tockwith-outdoor-karting",
@@ -589,7 +591,9 @@
    "venue": "Tockwith, North Yorkshire",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "TOC"
+   "short": "TOC",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "kartworld-skegness",
@@ -617,7 +621,9 @@
    "venue": "Worcester",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "MH"
+   "short": "MH",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "parkwood-karting",
@@ -625,7 +631,9 @@
    "venue": "Sheffield, South Yorkshire",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "PW"
+   "short": "PW",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "stretton-circuit",
@@ -633,7 +641,9 @@
    "venue": "Great Stretton, Leicestershire",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "STR"
+   "short": "STR",
+   "checked": 1791495622231,
+   "note": "Runs SCSS/Non Owners Cup series (R7 27 Sep 2026) and Winter Cup; no dated rounds in window"
   },
   {
    "id": "formula-kart-blackpool",
@@ -681,7 +691,9 @@
    "venue": "Hereford",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "HER"
+   "short": "HER",
+   "checked": 1791495622231,
+   "note": "Runs junior/open GP/endurance championships; 2026/27 winter dates not yet published"
   },
   {
    "id": "kinsham-raceway",
@@ -689,7 +701,9 @@
    "venue": "Presteigne, Herefordshire",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "KIN"
+   "short": "KIN",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "brentwood-karting",
@@ -697,7 +711,9 @@
    "venue": "Brentwood, Essex",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "BRE"
+   "short": "BRE",
+   "checked": 1791495622231,
+   "note": "Runs race leagues and Essex Endurance Championship; no dates published"
   },
   {
    "id": "karttrak-cromer",
@@ -745,7 +761,9 @@
    "venue": "Mile End, London",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "REV"
+   "short": "REV",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "race-kart-centre-blyton",
@@ -753,7 +771,9 @@
    "venue": "Gainsborough, Lincolnshire",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "BLY"
+   "short": "BLY",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "anglia-karting-centre",
@@ -761,7 +781,9 @@
    "venue": "Swaffham, Norfolk",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "AKC"
+   "short": "AKC",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "k-team-karting",
@@ -789,7 +811,9 @@
    "venue": "Boyndie, Aberdeenshire",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "BOY"
+   "short": "BOY",
+   "checked": 1791495622231,
+   "note": "No rental race events; hosts Grampian Kart Club meetings"
   },
   {
    "id": "pf-international-rental",
@@ -807,7 +831,9 @@
    "venue": "Liskeard, Cornwall",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "AQ"
+   "short": "AQ",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "dunkeswell-rental",
@@ -853,7 +879,9 @@
    "venue": "Chippenham, Wiltshire",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "CC"
+   "short": "CC",
+   "checked": 1791495622231,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "right-track-project-karting",
@@ -861,7 +889,9 @@
    "venue": "Stockwell, London",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "RTP"
+   "short": "RTP",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "deeside-activity-park",
@@ -879,7 +909,9 @@
    "venue": "Markethill, Northern Ireland",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "GOS"
+   "short": "GOS",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "lakeland-karting",
@@ -897,7 +929,9 @@
    "venue": "St Eval, Cornwall",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "SEV"
+   "short": "SEV",
+   "checked": 1791495622231,
+   "note": "Runs Pro70 Championship and open races; no dates in range published"
   },
   {
    "id": "surbiton-raceway",
@@ -1021,7 +1055,9 @@
    "venue": "Coseley, West Midlands",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "CAN"
+   "short": "CAN",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "gridline-racing",
@@ -1029,7 +1065,9 @@
    "venue": "Lincoln",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "GRL"
+   "short": "GRL",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "formula-fast-karting",
@@ -1077,7 +1115,9 @@
    "venue": "Newport, Wales",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "SUP"
+   "short": "SUP",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "eddie-irvine-sports",
@@ -1115,7 +1155,9 @@
    "venue": "Colne, Lancashire",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "PGK"
+   "short": "PGK",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "topgear-karting",
@@ -1123,7 +1165,9 @@
    "venue": "Durham",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "TGK"
+   "short": "TGK",
+   "checked": 1791495622231,
+   "note": "No race events"
   },
   {
    "id": "need-4-speed-karting",
@@ -1157,7 +1201,9 @@
    "venue": "Haverfordwest, Wales",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "WWK"
+   "short": "WWK",
+   "checked": 1791495622231,
+   "note": "Mentions adult race leagues; no dates published"
   },
   {
    "id": "club73-karting-championships",
@@ -2889,6 +2935,114 @@
    "start": "2026-10-17",
    "end": "2026-10-18",
    "location": "Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "south-coast-karting-2026-10-21-adult-wednesday-seri",
+   "seriesId": "south-coast-karting",
+   "title": "Adult Wednesday Series Rd 5",
+   "start": "2026-10-21",
+   "end": "2026-10-21",
+   "location": "South Coast Karting",
+   "kind": "race"
+  },
+  {
+   "id": "south-coast-karting-2026-10-25-junior---adult-sunda",
+   "seriesId": "south-coast-karting",
+   "title": "Junior & Adult Sunday Championship Rd 5",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "South Coast Karting",
+   "kind": "race"
+  },
+  {
+   "id": "south-coast-karting-2026-11-01-cadet-championship-r",
+   "seriesId": "south-coast-karting",
+   "title": "Cadet Championship Rd 5",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "South Coast Karting",
+   "kind": "race"
+  },
+  {
+   "id": "south-coast-karting-2026-11-22-cadet-championship-r",
+   "seriesId": "south-coast-karting",
+   "title": "Cadet Championship Rd 6",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "South Coast Karting",
+   "kind": "race"
+  },
+  {
+   "id": "south-coast-karting-2026-11-25-adult-wednesday-seri",
+   "seriesId": "south-coast-karting",
+   "title": "Adult Wednesday Series Rd 6",
+   "start": "2026-11-25",
+   "end": "2026-11-25",
+   "location": "South Coast Karting",
+   "kind": "race"
+  },
+  {
+   "id": "south-coast-karting-2026-11-29-junior---adult-sunda",
+   "seriesId": "south-coast-karting",
+   "title": "Junior & Adult Sunday Championship Rd 6",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "location": "South Coast Karting",
+   "kind": "race"
+  },
+  {
+   "id": "castle-combe-karting-2026-10-25-cckc-round-9",
+   "seriesId": "castle-combe-karting",
+   "title": "CCKC Round 9",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "Castle Combe",
+   "kind": "race"
+  },
+  {
+   "id": "castle-combe-karting-2026-11-22-cckc-round-10",
+   "seriesId": "castle-combe-karting",
+   "title": "CCKC Round 10",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Castle Combe",
+   "kind": "race"
+  },
+  {
+   "id": "castle-combe-karting-2026-10-18-junior-championship-",
+   "seriesId": "castle-combe-karting",
+   "title": "Junior Championship Round 7",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Castle Combe",
+   "kind": "race"
+  },
+  {
+   "id": "castle-combe-karting-2026-11-01-junior-championship-",
+   "seriesId": "castle-combe-karting",
+   "title": "Junior Championship Round 8",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Castle Combe",
+   "kind": "race"
+  },
+  {
+   "id": "castle-combe-karting-2026-11-15-junior-championship-",
+   "seriesId": "castle-combe-karting",
+   "title": "Junior Championship Round 9",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "location": "Castle Combe",
+   "kind": "race"
+  },
+  {
+   "id": "castle-combe-karting-2026-12-06-junior-championship-",
+   "seriesId": "castle-combe-karting",
+   "title": "Junior Championship Round 10",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "location": "Castle Combe",
    "kind": "race"
   }
  ]
