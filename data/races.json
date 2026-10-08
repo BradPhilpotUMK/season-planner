@@ -586,56 +586,6 @@
    "note": "Winter series dates not published yet"
   },
   {
-   "id": "tockwith-outdoor-karting",
-   "name": "Tockwith Outdoor Karting",
-   "venue": "Tockwith, North Yorkshire",
-   "kind": "rtrack",
-   "color": "#4C7DFF",
-   "short": "TOC",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "kartworld-skegness",
-   "name": "Kartworld Skegness",
-   "venue": "Skegness, Lincolnshire",
-   "kind": "rtrack",
-   "color": "#3BD16F",
-   "short": "KWS",
-   "checked": 1791494792653,
-   "note": "No race events published (no active official site found)"
-  },
-  {
-   "id": "midland-karting",
-   "name": "Midland Karting",
-   "venue": "Lichfield, Staffordshire",
-   "kind": "rtrack",
-   "color": "#8B6CF0",
-   "short": "MID",
-   "checked": 1791493114941,
-   "note": "No dated race events listed on site"
-  },
-  {
-   "id": "march-hare-leisure",
-   "name": "March Hare Leisure",
-   "venue": "Worcester",
-   "kind": "rtrack",
-   "color": "#F26B3A",
-   "short": "MH",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "parkwood-karting",
-   "name": "Parkwood Karting",
-   "venue": "Sheffield, South Yorkshire",
-   "kind": "rtrack",
-   "color": "#22C3B0",
-   "short": "PW",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
    "id": "stretton-circuit",
    "name": "Stretton Circuit",
    "venue": "Great Stretton, Leicestershire",
@@ -644,26 +594,6 @@
    "short": "STR",
    "checked": 1791495622231,
    "note": "Runs SCSS/Non Owners Cup series (R7 27 Sep 2026) and Winter Cup; no dated rounds in window"
-  },
-  {
-   "id": "formula-kart-blackpool",
-   "name": "Formula Kart Blackpool",
-   "venue": "Blackpool, Lancashire",
-   "kind": "rtrack",
-   "color": "#4C7DFF",
-   "short": "FKB",
-   "checked": 1791494792653,
-   "note": "No race events published"
-  },
-  {
-   "id": "nottingham-raceway-karting",
-   "name": "Nottingham Raceway Karting",
-   "venue": "Upper Broughton, Leicestershire",
-   "kind": "rtrack",
-   "color": "#E040C8",
-   "short": "NR",
-   "checked": 1791494792653,
-   "note": "No race events published (site unreachable; searches found only bookable sessions)"
   },
   {
    "id": "karting-at-ancaster",
@@ -696,16 +626,6 @@
    "note": "Runs junior/open GP/endurance championships; 2026/27 winter dates not yet published"
   },
   {
-   "id": "kinsham-raceway",
-   "name": "Kinsham Raceway",
-   "venue": "Presteigne, Herefordshire",
-   "kind": "rtrack",
-   "color": "#8B6CF0",
-   "short": "KIN",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
    "id": "brentwood-karting",
    "name": "Brentwood Karting",
    "venue": "Brentwood, Essex",
@@ -726,96 +646,6 @@
    "note": "Site lists monthly leagues but no dated calendar"
   },
   {
-   "id": "rednal-karting",
-   "name": "Rednal Karting",
-   "venue": "Oswestry, Shropshire",
-   "kind": "rtrack",
-   "color": "#FF5C8A",
-   "short": "RED",
-   "checked": 1791494792653,
-   "note": "No race events published (only bookable GP packages)"
-  },
-  {
-   "id": "chequered-flag-karting",
-   "name": "Chequered Flag Karting",
-   "venue": "Grimsby, Lincolnshire",
-   "kind": "rtrack",
-   "color": "#E040C8",
-   "short": "CFK",
-   "checked": 1791494792653,
-   "note": "No race events published (group bookings only)"
-  },
-  {
-   "id": "hull-karting",
-   "name": "Hull Karting",
-   "venue": "Hull, East Yorkshire",
-   "kind": "rtrack",
-   "color": "#3BD16F",
-   "short": "HUL",
-   "checked": 1791493114941,
-   "note": "No race events listed with dates"
-  },
-  {
-   "id": "revolution-karting",
-   "name": "Revolution Karting",
-   "venue": "Mile End, London",
-   "kind": "rtrack",
-   "color": "#F2A93B",
-   "short": "REV",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "race-kart-centre-blyton",
-   "name": "Race Kart Centre Blyton",
-   "venue": "Gainsborough, Lincolnshire",
-   "kind": "rtrack",
-   "color": "#3BB3E0",
-   "short": "BLY",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "anglia-karting-centre",
-   "name": "Anglia Karting Centre",
-   "venue": "Swaffham, Norfolk",
-   "kind": "rtrack",
-   "color": "#8B6CF0",
-   "short": "AKC",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "k-team-karting",
-   "name": "K-Team Karting",
-   "venue": "Kilrea, Northern Ireland",
-   "kind": "rtrack",
-   "color": "#F26B3A",
-   "short": "KTM",
-   "checked": 1791494792653,
-   "note": "No race events published"
-  },
-  {
-   "id": "tattershall-karting-centre",
-   "name": "Tattershall Karting Centre",
-   "venue": "Tattershall, Lincolnshire",
-   "kind": "rtrack",
-   "color": "#22C3B0",
-   "short": "TAT",
-   "checked": 1791494792653,
-   "note": "No race events found (site unreachable)"
-  },
-  {
-   "id": "boyndie-drome",
-   "name": "Boyndie Drome",
-   "venue": "Boyndie, Aberdeenshire",
-   "kind": "rtrack",
-   "color": "#D9D23A",
-   "short": "BOY",
-   "checked": 1791495622231,
-   "note": "No rental race events; hosts Grampian Kart Club meetings"
-  },
-  {
    "id": "pf-international-rental",
    "name": "PF International (rental)",
    "venue": "Brandon, Lincolnshire",
@@ -826,16 +656,6 @@
    "note": "2027 dates not published yet"
   },
   {
-   "id": "kartworld-adrenaline-quarry",
-   "name": "Kartworld Adrenaline Quarry",
-   "venue": "Liskeard, Cornwall",
-   "kind": "rtrack",
-   "color": "#4C7DFF",
-   "short": "AQ",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
    "id": "dunkeswell-rental",
    "name": "Dunkeswell (rental)",
    "venue": "Honiton, Devon",
@@ -844,26 +664,6 @@
    "short": "DUN",
    "checked": 1791493114941,
    "note": "Winter Cup Jan-Feb dates shown without a year; 2027 not published"
-  },
-  {
-   "id": "heatherton-karting",
-   "name": "Heatherton Karting",
-   "venue": "Tenby, Wales",
-   "kind": "rtrack",
-   "color": "#3BB3E0",
-   "short": "HTN",
-   "checked": 1791494792653,
-   "note": "No race events published"
-  },
-  {
-   "id": "sandham-karts",
-   "name": "Sandham Karts",
-   "venue": "Sandown, Isle of Wight",
-   "kind": "rtrack",
-   "color": "#8B6CF0",
-   "short": "SAN",
-   "checked": 1791494792653,
-   "note": "No race events found"
   },
   {
    "id": "adventure-sports-warwick",
@@ -884,46 +684,6 @@
    "note": "2027 dates not published yet"
   },
   {
-   "id": "right-track-project-karting",
-   "name": "Right Track Project Karting",
-   "venue": "Stockwell, London",
-   "kind": "rtrack",
-   "color": "#4C7DFF",
-   "short": "RTP",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "deeside-activity-park",
-   "name": "Deeside Activity Park",
-   "venue": "Aboyne, Aberdeenshire",
-   "kind": "rtrack",
-   "color": "#3BD16F",
-   "short": "DEE",
-   "checked": 1791494792653,
-   "note": "No race events published"
-  },
-  {
-   "id": "gosford-karting",
-   "name": "Gosford Karting",
-   "venue": "Markethill, Northern Ireland",
-   "kind": "rtrack",
-   "color": "#3BB3E0",
-   "short": "GOS",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "lakeland-karting",
-   "name": "Lakeland Karting",
-   "venue": "Kesh, Northern Ireland",
-   "kind": "rtrack",
-   "color": "#8B6CF0",
-   "short": "LKL",
-   "checked": 1791494792653,
-   "note": "No race events published (group GP bookings only)"
-  },
-  {
    "id": "st-eval-kart-circuit",
    "name": "St Eval Kart Circuit",
    "venue": "St Eval, Cornwall",
@@ -934,26 +694,6 @@
    "note": "Runs Pro70 Championship and open races; no dates in range published"
   },
   {
-   "id": "surbiton-raceway",
-   "name": "Surbiton Raceway",
-   "venue": "Worcester Park, Surrey",
-   "kind": "rtrack",
-   "color": "#4C7DFF",
-   "short": "SUR",
-   "checked": 1791494792653,
-   "note": "No dated race events published (only bookable GP/open race formats)"
-  },
-  {
-   "id": "traq-motor-racing",
-   "name": "Traq Motor Racing",
-   "venue": "Croydon, Surrey",
-   "kind": "rtrack",
-   "color": "#E040C8",
-   "short": "TRQ",
-   "checked": 1791494792653,
-   "note": "No race events published (only bookable GP/enduro packages)"
-  },
-  {
    "id": "wight-karting",
    "name": "Wight Karting",
    "venue": "Ryde, Isle of Wight",
@@ -962,16 +702,6 @@
    "short": "WIG",
    "checked": 1791493114941,
    "note": "Monthly championships (final Fri/Sun of month) but calendar only in booking system; no dated list readable"
-  },
-  {
-   "id": "teamworks-karting-all-venues",
-   "name": "Teamworks Karting (all venues)",
-   "venue": "UK, indoor",
-   "kind": "rtrack",
-   "color": "#F2A93B",
-   "short": "TW",
-   "checked": 1791493114941,
-   "note": "No dated race events listed"
   },
   {
    "id": "absolutely-karting-bristol-maidenhead",
@@ -992,82 +722,12 @@
    "note": "GP race events listed without dates"
   },
   {
-   "id": "capital-karts-star-city",
-   "name": "Capital Karts Star City",
-   "venue": "Birmingham, indoor",
-   "kind": "rtrack",
-   "color": "#22C3B0",
-   "short": "CKB",
-   "checked": 1791493114941,
-   "note": "No dated events on TeamSport page (BIKC page not read)"
-  },
-  {
-   "id": "apex-kart-chester",
-   "name": "Apex Kart Chester",
-   "venue": "Sandycroft, Cheshire",
-   "kind": "rtrack",
-   "color": "#D9D23A",
-   "short": "APX",
-   "checked": 1791493114941,
-   "note": "No dated race events listed"
-  },
-  {
-   "id": "m4-karting",
-   "name": "M4 Karting",
-   "venue": "Chippenham, Wiltshire",
-   "kind": "rtrack",
-   "color": "#FF5C8A",
-   "short": "M4",
-   "checked": 1791494792653,
-   "note": "No race events published (only private GP packages)"
-  },
-  {
    "id": "raceworld-karting",
    "name": "Raceworld Karting",
    "venue": "Exeter, Devon",
    "kind": "rtrack",
    "color": "#4C7DFF",
    "short": "RW"
-  },
-  {
-   "id": "fast-lane-karting-stoke",
-   "name": "Fast Lane Karting Stoke",
-   "venue": "Stoke-on-Trent",
-   "kind": "rtrack",
-   "color": "#3BD16F",
-   "short": "FLS",
-   "checked": 1791493114941,
-   "note": "No dated race events listed"
-  },
-  {
-   "id": "west-coast-karting",
-   "name": "West Coast Karting",
-   "venue": "Cumbria",
-   "kind": "rtrack",
-   "color": "#F2A93B",
-   "short": "WCK",
-   "checked": 1791493114941,
-   "note": "No dated race events listed"
-  },
-  {
-   "id": "cannon-raceway",
-   "name": "Cannon Raceway",
-   "venue": "Coseley, West Midlands",
-   "kind": "rtrack",
-   "color": "#3BB3E0",
-   "short": "CAN",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "gridline-racing",
-   "name": "Gridline Racing",
-   "venue": "Lincoln",
-   "kind": "rtrack",
-   "color": "#8B6CF0",
-   "short": "GRL",
-   "checked": 1791495622231,
-   "note": "No race events"
   },
   {
    "id": "formula-fast-karting",
@@ -1090,16 +750,6 @@
    "note": "Only 2024 events listed"
   },
   {
-   "id": "kartworld-burscough",
-   "name": "Kartworld Burscough",
-   "venue": "Burscough, Lancashire",
-   "kind": "rtrack",
-   "color": "#FF5C8A",
-   "short": "KWB",
-   "checked": 1791494792653,
-   "note": "No race events published"
-  },
-  {
    "id": "indoor-super-karting",
    "name": "Indoor Super Karting",
    "venue": "Burscough, Lancashire",
@@ -1108,16 +758,6 @@
    "short": "ISK",
    "checked": 1791493114941,
    "note": "Endurance/GP offered, no dates listed"
-  },
-  {
-   "id": "supakart",
-   "name": "Supakart",
-   "venue": "Newport, Wales",
-   "kind": "rtrack",
-   "color": "#E040C8",
-   "short": "SUP",
-   "checked": 1791495622231,
-   "note": "No race events"
   },
   {
    "id": "eddie-irvine-sports",
@@ -1148,36 +788,6 @@
    "short": "RVK",
    "checked": 1791493114941,
    "note": "Grid League 6 rounds, no dates published"
-  },
-  {
-   "id": "prestige-go-karting",
-   "name": "Prestige Go Karting",
-   "venue": "Colne, Lancashire",
-   "kind": "rtrack",
-   "color": "#F26B3A",
-   "short": "PGK",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "topgear-karting",
-   "name": "TopGear Karting",
-   "venue": "Durham",
-   "kind": "rtrack",
-   "color": "#FF5C8A",
-   "short": "TGK",
-   "checked": 1791495622231,
-   "note": "No race events"
-  },
-  {
-   "id": "need-4-speed-karting",
-   "name": "Need 4 Speed Karting",
-   "venue": "Doagh, Northern Ireland",
-   "kind": "rtrack",
-   "color": "#4C7DFF",
-   "short": "N4S",
-   "checked": 1791493114941,
-   "note": "No dated race events listed"
   },
   {
    "id": "gt-karting-leeds",
