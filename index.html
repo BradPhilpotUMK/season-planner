@@ -1216,10 +1216,8 @@ function showSplash(){
 }
 function hideSplash(){const sp=$("#splash");clearTimeout(sp._t);sp.classList.add("out")}
 /* KZ two-stroke revving up and snapping up a gear, made in code (no sound file) */
-function kzShift(){
-  let C;try{C=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return}
-  try{C.resume()}catch(e){}
-  const t0=C.currentTime+0.02,out=C.createGain();out.gain.value=0.55;out.connect(C.destination);
+function kzGraph(C){
+  const t0=0.02,out=C.createGain();out.gain.value=0.3;out.connect(C.destination);
   // engine voice: saw + square, distorted, filtered like an exhaust
   const shaper=C.createWaveShaper(),curve=new Float32Array(1024);
   for(let i=0;i<1024;i++){const x=i/512-1;curve[i]=Math.tanh(3.2*x)}shaper.curve=curve;
@@ -1256,8 +1254,33 @@ function kzShift(){
   amp.gain.setValueAtTime(0.9,T2);f(T3,300,true);lp.frequency.setValueAtTime(2200,T2);lp.frequency.exponentialRampToValueAtTime(3600,T3);
   amp.gain.setValueAtTime(0.9,T3-0.15);amp.gain.exponentialRampToValueAtTime(0.0001,T3+0.45);
   const end=T3+0.5;[o1,o2,o3,lfo,ns,th,cs].forEach(n=>{n.start(t0);n.stop(end)});
-  setTimeout(()=>{try{C.close()}catch(e){}},(end-C.currentTime+0.3)*1000);
+  return end;
 }
+/* Render once to a WAV and play it like a video: iPhones play that even with the silent switch on */
+let kzAudio=null;
+async function prepKZ(){
+  try{
+    const OAC=window.OfflineAudioContext||window.webkitOfflineAudioContext;if(!OAC)return;
+    const sr=44100,C=new OAC(1,Math.ceil(sr*2.0),sr);kzGraph(C);
+    const buf=await C.startRendering(),d=buf.getChannelData(0),n=d.length;
+    const ab=new ArrayBuffer(44+n*2),v=new DataView(ab),w=(o,t)=>{for(let i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))};
+    w(0,"RIFF");v.setUint32(4,36+n*2,true);w(8,"WAVE");w(12,"fmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+    v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,"data");v.setUint32(40,n*2,true);
+    for(let i=0;i<n;i++){const x=Math.max(-1,Math.min(1,d[i]));v.setInt16(44+i*2,x<0?x*0x8000:x*0x7fff,true)}
+    const a=new Audio(URL.createObjectURL(new Blob([ab],{type:"audio/wav"})));a.preload="auto";a.volume=1;kzAudio=a;
+  }catch(e){}
+}
+function kzShift(){
+  try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}
+  if(kzAudio){try{kzAudio.currentTime=0;const p=kzAudio.play();if(p&&p.catch)p.catch(liveKZ);return}catch(e){}}
+  liveKZ();
+}
+function liveKZ(){
+  let C;try{C=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return}
+  try{C.resume()}catch(e){}
+  const end=kzGraph(C);setTimeout(()=>{try{C.close()}catch(e){}},(end+0.5)*1000);
+}
+prepKZ();
 $("#splash").onclick=()=>{if(!$("#splash").classList.contains("out"))kzShift();hideSplash()};
 async function uploadSplash(){
   const inp=document.createElement("input");inp.type="file";inp.accept="image/*";
