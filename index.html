@@ -1258,7 +1258,9 @@ function kzGraph(C){
 }
 /* Render once to a WAV and play it like a video: iPhones play that even with the silent switch on */
 let kzAudio=null;
+const KZ_SRC="kz.mp3";
 async function prepKZ(){
+  try{const a=new Audio(KZ_SRC);a.preload="auto";a.volume=0.9;kzAudio=a;return}catch(e){}
   try{
     const OAC=window.OfflineAudioContext||window.webkitOfflineAudioContext;if(!OAC)return;
     const sr=44100,C=new OAC(1,Math.ceil(sr*2.0),sr);kzGraph(C);
