@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T20:07Z",
+ "updated": "2026-10-08T20:58Z",
  "series": [
   {
    "id": "whilton-mill-kart-club",
@@ -388,7 +388,9 @@
    "venue": "Chatham, Kent",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "BP"
+   "short": "BP",
+   "checked": 1791493114941,
+   "note": "24 Hours 2027 date TBA"
   },
   {
    "id": "kart-silverstone",
@@ -570,7 +572,9 @@
    "venue": "Sutton in the Elms, Leicestershire",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "SUT"
+   "short": "SUT",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "kartworld-skegness",
@@ -586,7 +590,9 @@
    "venue": "Crumlin, Northern Ireland",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "NC"
+   "short": "NC",
+   "checked": 1791493114941,
+   "note": "No race events listed on official site"
   },
   {
    "id": "lydd-rental",
@@ -594,7 +600,9 @@
    "venue": "Lydd, Kent",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "LYD"
+   "short": "LYD",
+   "checked": 1791493114941,
+   "note": "Official calendar shows only hire sessions and club (owner-driver) races; no rental race events listed"
   },
   {
    "id": "midland-karting",
@@ -602,7 +610,9 @@
    "venue": "Lichfield, Staffordshire",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "MID"
+   "short": "MID",
+   "checked": 1791493114941,
+   "note": "No dated race events listed on site"
   },
   {
    "id": "march-hare-leisure",
@@ -634,7 +644,9 @@
    "venue": "Sparkford, Somerset",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "SWK"
+   "short": "SWK",
+   "checked": 1791493114941,
+   "note": "No race events listed (public sessions and private GPs only)"
   },
   {
    "id": "formula-kart-blackpool",
@@ -658,7 +670,9 @@
    "venue": "Grantham, Lincolnshire",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "ANC"
+   "short": "ANC",
+   "checked": 1791493114941,
+   "note": "Monthly evening racing; later dates not listed"
   },
   {
    "id": "red-lodge-karting",
@@ -666,7 +680,9 @@
    "venue": "Bury St Edmunds, Suffolk",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "RL"
+   "short": "RL",
+   "checked": 1791493114941,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "herefordshire-raceway",
@@ -698,7 +714,9 @@
    "venue": "Cromer, Norfolk",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "CRO"
+   "short": "CRO",
+   "checked": 1791493114941,
+   "note": "Site lists monthly leagues but no dated calendar"
   },
   {
    "id": "knockhill-karting",
@@ -706,7 +724,9 @@
    "venue": "Dunfermline, Fife",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "KNO"
+   "short": "KNO",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "rednal-karting",
@@ -722,7 +742,9 @@
    "venue": "Aviemore, Highlands",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "AVI"
+   "short": "AVI",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "chequered-flag-karting",
@@ -738,7 +760,9 @@
    "venue": "Hull, East Yorkshire",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "HUL"
+   "short": "HUL",
+   "checked": 1791493114941,
+   "note": "No race events listed with dates"
   },
   {
    "id": "revolution-karting",
@@ -810,7 +834,9 @@
    "venue": "Newark, Nottinghamshire",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "ELK"
+   "short": "ELK",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "dunkeswell-rental",
@@ -818,7 +844,9 @@
    "venue": "Honiton, Devon",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "DUN"
+   "short": "DUN",
+   "checked": 1791493114941,
+   "note": "Winter Cup Jan-Feb dates shown without a year; 2027 not published"
   },
   {
    "id": "smart-kart-raceway-elgin",
@@ -826,7 +854,9 @@
    "venue": "Elgin, Moray",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "SKE"
+   "short": "SKE",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "heatherton-karting",
@@ -858,7 +888,9 @@
    "venue": "Pontypool, Wales",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "GF"
+   "short": "GF",
+   "checked": 1791493114941,
+   "note": "Events page empty"
   },
   {
    "id": "lochter-karting",
@@ -866,7 +898,9 @@
    "venue": "Oldmeldrum, Aberdeenshire",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "LOC"
+   "short": "LOC",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "castle-combe-karting",
@@ -890,7 +924,9 @@
    "venue": "Hayle, Cornwall",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "C2C"
+   "short": "C2C",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "deeside-activity-park",
@@ -906,7 +942,9 @@
    "venue": "Pwllheli, Wales",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "GLA"
+   "short": "GLA",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "gosford-karting",
@@ -930,7 +968,9 @@
    "venue": "Newark, Nottinghamshire",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "LWH"
+   "short": "LWH",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "lyons-karting",
@@ -938,7 +978,9 @@
    "venue": "Hillsborough, Northern Ireland",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "LYO"
+   "short": "LYO",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "railway-karting",
@@ -946,7 +988,9 @@
    "venue": "Moneymore, Northern Ireland",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "RWK"
+   "short": "RWK",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "st-eval-kart-circuit",
@@ -978,7 +1022,9 @@
    "venue": "Ryde, Isle of Wight",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "WIG"
+   "short": "WIG",
+   "checked": 1791493114941,
+   "note": "Monthly championships (final Fri/Sun of month) but calendar only in booking system; no dated list readable"
   },
   {
    "id": "teamworks-karting-all-venues",
@@ -986,7 +1032,9 @@
    "venue": "UK, indoor",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "TW"
+   "short": "TW",
+   "checked": 1791493114941,
+   "note": "No dated race events listed"
   },
   {
    "id": "absolutely-karting-bristol-maidenhead",
@@ -1002,7 +1050,9 @@
    "venue": "Scotland, indoor",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "XK"
+   "short": "XK",
+   "checked": 1791493114941,
+   "note": "GP race events listed without dates"
   },
   {
    "id": "k1-speed-canary-wharf",
@@ -1010,7 +1060,9 @@
    "venue": "London, indoor",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "K1"
+   "short": "K1",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "capital-karts-star-city",
@@ -1018,7 +1070,9 @@
    "venue": "Birmingham, indoor",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "CKB"
+   "short": "CKB",
+   "checked": 1791493114941,
+   "note": "No dated events on TeamSport page (BIKC page not read)"
   },
   {
    "id": "apex-kart-chester",
@@ -1026,7 +1080,9 @@
    "venue": "Sandycroft, Cheshire",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "APX"
+   "short": "APX",
+   "checked": 1791493114941,
+   "note": "No dated race events listed"
   },
   {
    "id": "m4-karting",
@@ -1050,7 +1106,9 @@
    "venue": "Stourbridge, West Midlands",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "FTR"
+   "short": "FTR",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "fast-lane-karting-stoke",
@@ -1058,7 +1116,9 @@
    "venue": "Stoke-on-Trent",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "FLS"
+   "short": "FLS",
+   "checked": 1791493114941,
+   "note": "No dated race events listed"
   },
   {
    "id": "west-coast-karting",
@@ -1066,7 +1126,9 @@
    "venue": "Cumbria",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "WCK"
+   "short": "WCK",
+   "checked": 1791493114941,
+   "note": "No dated race events listed"
   },
   {
    "id": "cannon-raceway",
@@ -1090,7 +1152,9 @@
    "venue": "Swinton, South Yorkshire",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "AVG"
+   "short": "AVG",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "formula-fast-karting",
@@ -1098,7 +1162,9 @@
    "venue": "Milton Keynes",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "FF"
+   "short": "FF",
+   "checked": 1791493114941,
+   "note": "No dated events on site; hosts BRKC (dates not found)"
   },
   {
    "id": "anglia-indoor-karting",
@@ -1106,7 +1172,9 @@
    "venue": "Ipswich, Suffolk",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "AIK"
+   "short": "AIK",
+   "checked": 1791493114941,
+   "note": "Only 2024 events listed"
   },
   {
    "id": "kartworld-burscough",
@@ -1122,7 +1190,9 @@
    "venue": "Burscough, Lancashire",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "ISK"
+   "short": "ISK",
+   "checked": 1791493114941,
+   "note": "Endurance/GP offered, no dates listed"
   },
   {
    "id": "supakart",
@@ -1138,7 +1208,9 @@
    "venue": "Gloucester",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "JDR"
+   "short": "JDR",
+   "checked": 1791493114941,
+   "note": "No race events listed (only Cadet Academy training)"
   },
   {
    "id": "eddie-irvine-sports",
@@ -1146,7 +1218,9 @@
    "venue": "Bangor, Northern Ireland",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "EIS"
+   "short": "EIS",
+   "checked": 1791493114941,
+   "note": "Only 2024 championship shown"
   },
   {
    "id": "teamkarting-rochdale",
@@ -1162,7 +1236,9 @@
    "venue": "Ballymena, Northern Ireland",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "RVK"
+   "short": "RVK",
+   "checked": 1791493114941,
+   "note": "Grid League 6 rounds, no dates published"
   },
   {
    "id": "prestige-go-karting",
@@ -1178,7 +1254,9 @@
    "venue": "Aylesbury, Buckinghamshire",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "RLK"
+   "short": "RLK",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "fast-lane-indoor-raceways",
@@ -1186,7 +1264,9 @@
    "venue": "Aberdeen",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "FLA"
+   "short": "FLA",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "topgear-karting",
@@ -1202,7 +1282,9 @@
    "venue": "Doagh, Northern Ireland",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "N4S"
+   "short": "N4S",
+   "checked": 1791493114941,
+   "note": "No dated race events listed"
   },
   {
    "id": "pmg-karting-world",
@@ -1210,7 +1292,9 @@
    "venue": "Walsall",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "PMG"
+   "short": "PMG",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "arkartz",
@@ -1218,7 +1302,9 @@
    "venue": "Burgess Hill, West Sussex",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "ARK"
+   "short": "ARK",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "inverness-kart-raceway",
@@ -1226,7 +1312,9 @@
    "venue": "Inverness",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "INV"
+   "short": "INV",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "gt-karting-leeds",
@@ -1242,7 +1330,9 @@
    "venue": "Llandow, Wales",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "KK"
+   "short": "KK",
+   "checked": 1791493114941,
+   "note": "No race events listed (Access Karting Championship R6 17-18 Oct 2026 at Llandow Kart Circuit may be separate venue)"
   },
   {
    "id": "kartsport-ballymoney",
@@ -1258,7 +1348,9 @@
    "venue": "Kilmarnock",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "GAR"
+   "short": "GAR",
+   "checked": 1791493114941,
+   "note": "No race events listed"
   },
   {
    "id": "wakefield-indoor-karting",
@@ -1266,7 +1358,9 @@
    "venue": "Wakefield",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "WIK"
+   "short": "WIK",
+   "checked": 1791493114941,
+   "note": "Only open sessions/past 2026 results; nothing future"
   },
   {
    "id": "west-wales-karting",
@@ -1282,7 +1376,9 @@
    "venue": "UK, multiple venues",
    "kind": "rental",
    "color": "#4C7DFF",
-   "short": "C73"
+   "short": "C73",
+   "checked": 1791493114941,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "fat-karting-league-uk",
@@ -1290,7 +1386,9 @@
    "venue": "UK, multiple venues",
    "kind": "rental",
    "color": "#E040C8",
-   "short": "FAT"
+   "short": "FAT",
+   "checked": 1791493114941,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "elite-karting-series",
@@ -1576,7 +1674,7 @@
   {
    "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
    "seriesId": "teesside-autodrome-karting",
-   "title": "Round 8/9 \u2013 Double Header Weekend",
+   "title": "Round 8/9 – Double Header Weekend",
    "start": "2026-10-23",
    "end": "2026-10-25",
    "location": "Teesside Autodrome",
@@ -2570,6 +2668,204 @@
    "start": "2027-03-06",
    "end": "2027-03-06",
    "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "karting-at-ancaster-2026-10-15-thursday-evening-rac",
+   "seriesId": "karting-at-ancaster",
+   "title": "Thursday Evening Racing",
+   "start": "2026-10-15",
+   "end": "2026-10-15",
+   "location": "Ancaster Karting",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-10-18-young-starz-round-7",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 7",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-11-01-young-starz-round-8",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 8",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-11-07-club2000-round-12",
+   "seriesId": "red-lodge-karting",
+   "title": "Club2000 Round 12",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-11-15-young-starz-round-9",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 9",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-12-06-young-starz-round-10",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 10",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-12-20-young-starz-round-11",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 11",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-10-10-junior-championship-",
+   "seriesId": "dunkeswell-rental",
+   "title": "Junior Championship Round 4",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-10-11-rental-championship-",
+   "seriesId": "dunkeswell-rental",
+   "title": "Rental Championship Round 8",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-11-08-rental-winter-cup-ro",
+   "seriesId": "dunkeswell-rental",
+   "title": "Rental Winter Cup Round 1",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-11-14-junior---women-s-win",
+   "seriesId": "dunkeswell-rental",
+   "title": "Junior & Women's Winter Cup R1",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-12-12-junior---women-s-win",
+   "seriesId": "dunkeswell-rental",
+   "title": "Junior & Women's Winter Cup R2",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-12-13-rental-winter-cup-ro",
+   "seriesId": "dunkeswell-rental",
+   "title": "Rental Winter Cup Round 2",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-10-10-weekend-r9---enduran",
+   "seriesId": "club73-karting-championships",
+   "title": "Weekend R9 & Endurance R7",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-10-14-midweek-championship",
+   "seriesId": "club73-karting-championships",
+   "title": "Midweek Championship Round 9",
+   "start": "2026-10-14",
+   "end": "2026-10-14",
+   "location": "Buckmore Park Kart Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-11-11-midweek-championship",
+   "seriesId": "club73-karting-championships",
+   "title": "Midweek Championship Round 10",
+   "start": "2026-11-11",
+   "end": "2026-11-11",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-11-28-weekend-r10---endura",
+   "seriesId": "club73-karting-championships",
+   "title": "Weekend R10 & Endurance R8",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "location": "Dunkeswell Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-12-20-weekend-r11---endura",
+   "seriesId": "club73-karting-championships",
+   "title": "Weekend R11 & Endurance R9",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Buckmore Park Kart Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-10-10-regional-round-7",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Regional Round 7",
+   "start": "2026-10-10",
+   "end": "2026-10-11",
+   "location": "Shenington Kart Club",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-10-24-regional-round-8",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Regional Round 8",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "Shenington Kart Club",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-11-07-pro-round-9",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Pro Round 9",
+   "start": "2026-11-07",
+   "end": "2026-11-08",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-11-14-regional-round-9",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Regional Round 9",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "Buckmore Park",
    "kind": "race"
   },
   {
