@@ -1,13 +1,41 @@
 {
- "updated": "2026-10-08T20:58Z",
+ "updated": "2026-10-08T21:27Z",
  "series": [
+  {
+   "id": "access-karting",
+   "name": "Access Karting",
+   "venue": "UK, multiple venues",
+   "kind": "national",
+   "color": "#3BD16F",
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet"
+  },
+  {
+   "id": "national-kart-cup",
+   "name": "NKC National Kart Cup",
+   "venue": "UK, multiple venues",
+   "kind": "national",
+   "color": "#F2A93B",
+   "short": "NKC",
+   "checked": 1791494792653
+  },
+  {
+   "id": "rmc-ukc",
+   "name": "Rotax RMC UKC",
+   "venue": "UK, multiple venues",
+   "kind": "national",
+   "color": "#3BB3E0",
+   "short": "UKC",
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet"
+  },
   {
    "id": "whilton-mill-kart-club",
    "name": "Whilton Mill Kart Club",
    "venue": "Whilton Mill, Northamptonshire",
    "kind": "club",
    "color": "#E040C8",
-   "checked": 1791488991936,
+   "checked": 1791494792653,
    "note": "2027 dates not published yet"
   },
   {
@@ -25,7 +53,7 @@
    "venue": "PFi, Lincolnshire",
    "kind": "club",
    "color": "#F2A93B",
-   "checked": 1791488991936,
+   "checked": 1791494792653,
    "note": "2027 dates not published yet"
   },
   {
@@ -34,7 +62,7 @@
    "venue": "Fulbeck, Lincolnshire",
    "kind": "club",
    "color": "#3BB3E0",
-   "checked": 1791488991936,
+   "checked": 1791494792653,
    "note": "2027 dates not published yet"
   },
   {
@@ -43,7 +71,7 @@
    "venue": "Kimbolton, Cambridgeshire",
    "kind": "club",
    "color": "#8B6CF0",
-   "checked": 1791488991936,
+   "checked": 1791494792653,
    "note": "2027 dates not published yet"
   },
   {
@@ -52,8 +80,8 @@
    "venue": "Rye House, Hertfordshire",
    "kind": "club",
    "color": "#F26B3A",
-   "checked": 1791488991936,
-   "note": "2026 championship ended 20 Sep; no later dates published"
+   "checked": 1791494792653,
+   "note": "2026 season finished (R8 Sep 20); 2027 dates not published yet"
   },
   {
    "id": "buckmore-park-kart-club",
@@ -61,8 +89,8 @@
    "venue": "Buckmore Park, Kent",
    "kind": "club",
    "color": "#22C3B0",
-   "checked": 1791453019226,
-   "note": "Only one race meeting found with explicit date in range. Text shows calendar grids for Oct"
+   "checked": 1791494792653,
+   "note": "Owner-driver club now run by Champions Kart Club; 2027 dates not published yet"
   },
   {
    "id": "bayford-meadows-kart-club",
@@ -79,7 +107,7 @@
    "venue": "Lydd, Kent",
    "kind": "club",
    "color": "#FF5C8A",
-   "checked": 1791488991936,
+   "checked": 1791494792653,
    "note": "2027 dates not published yet"
   },
   {
@@ -97,7 +125,7 @@
    "venue": "Clay Pigeon, Dorset",
    "kind": "club",
    "color": "#E040C8",
-   "checked": 1791488991936,
+   "checked": 1791494792653,
    "note": "2027 dates not published yet"
   },
   {
@@ -124,8 +152,8 @@
    "venue": "Three Sisters, Wigan",
    "kind": "club",
    "color": "#3BB3E0",
-   "checked": 1791488991936,
-   "note": "2027 dates not published yet"
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet; winter sprint dates to follow"
   },
   {
    "id": "sunderland-and-district-kart-club",
@@ -133,8 +161,8 @@
    "venue": "Warden Law, Sunderland",
    "kind": "club",
    "color": "#8B6CF0",
-   "checked": 1791488991936,
-   "note": "No future club dates found (Warden Law Kart Club page shows none); 2027 not published"
+   "checked": 1791494792653,
+   "note": "No published race calendar found for remaining 2026 or 2027"
   },
   {
    "id": "cumbria-kart-racing-club",
@@ -203,16 +231,16 @@
    "id": "super-one-series",
    "name": "Super One Series",
    "venue": "National championship",
-   "kind": "club",
+   "kind": "national",
    "color": "#F2A93B",
-   "checked": 1791488991936,
-   "note": "2026 season finished; 2027 calendar 'coming soon'"
+   "checked": 1791494792653,
+   "note": "2026 season finished (last rounds at Shenington); 2027 calendar 'coming soon'"
   },
   {
    "id": "wera-tools-british-kart-championships",
    "name": "Wera Tools British Kart Championships",
    "venue": "National championship",
-   "kind": "club",
+   "kind": "national",
    "color": "#3BB3E0",
    "checked": 1791488991936,
    "note": "2027 dates not published yet"
@@ -221,10 +249,10 @@
    "id": "kartmasters-british-grand-prix",
    "name": "Kartmasters British Grand Prix",
    "venue": "National event",
-   "kind": "club",
+   "kind": "national",
    "color": "#8B6CF0",
-   "checked": 1791488991936,
-   "note": "2026 held 30 Jul-2 Aug; 2027 dates not published yet"
+   "checked": 1791494792653,
+   "note": "2026 event was 30 Jul-2 Aug; 2027 dates not published yet"
   },
   {
    "id": "teesside-autodrome-karting",
@@ -300,8 +328,8 @@
    "kind": "rental",
    "color": "#F2A93B",
    "short": "LM24",
-   "checked": 1791488991936,
-   "note": "2027 karting edition dates not found (old entry was the car 24h race, removed)"
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "spa-24-hours-karting",
@@ -349,8 +377,7 @@
    "kind": "rtrack",
    "color": "#D9D23A",
    "short": "DSP",
-   "checked": 1791488991936,
-   "note": "Season 2 only; 2027 season 1 not published"
+   "checked": 1791494792653
   },
   {
    "id": "daytona-tamworth",
@@ -439,8 +466,8 @@
    "kind": "rtrack",
    "color": "#4C7DFF",
    "short": "CP",
-   "checked": 1791488991936,
-   "note": "2027 dates not published yet"
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet (owner-driver CPKC/ProKart rounds excluded)"
   },
   {
    "id": "ellough-park-rental",
@@ -489,8 +516,8 @@
    "kind": "rtrack",
    "color": "#8B6CF0",
    "short": "3S",
-   "checked": 1791488991936,
-   "note": "3S Winter Sprint (3 races) and 3S360 dates 'to follow'; 2027 not published"
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet; winter sprint dates to follow"
   },
   {
    "id": "warden-law-rental",
@@ -499,8 +526,8 @@
    "kind": "rtrack",
    "color": "#F26B3A",
    "short": "WL",
-   "checked": 1791488991936,
-   "note": "2027 dates not published yet"
+   "checked": 1791494792653,
+   "note": "KNE Sprint round dates only in image; 2027 R1 'February' (no date); ProKart 6hr not re-ver"
   },
   {
    "id": "glan-y-gors-rental",
@@ -518,7 +545,9 @@
    "venue": "Larkhall, Scotland",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "LCI"
+   "short": "LCI",
+   "checked": 1791494792653,
+   "note": "Rental championship calendar only as image; no clearly dated race events found"
   },
   {
    "id": "bayford-meadows-rental",
@@ -552,7 +581,9 @@
    "venue": "Skegness, Lincolnshire",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "KWS"
+   "short": "KWS",
+   "checked": 1791494792653,
+   "note": "No race events published (no active official site found)"
   },
   {
    "id": "midland-karting",
@@ -594,7 +625,9 @@
    "venue": "Blackpool, Lancashire",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "FKB"
+   "short": "FKB",
+   "checked": 1791494792653,
+   "note": "No race events published"
   },
   {
    "id": "nottingham-raceway-karting",
@@ -602,7 +635,9 @@
    "venue": "Upper Broughton, Leicestershire",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "NR"
+   "short": "NR",
+   "checked": 1791494792653,
+   "note": "No race events published (site unreachable; searches found only bookable sessions)"
   },
   {
    "id": "karting-at-ancaster",
@@ -664,7 +699,9 @@
    "venue": "Oswestry, Shropshire",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "RED"
+   "short": "RED",
+   "checked": 1791494792653,
+   "note": "No race events published (only bookable GP packages)"
   },
   {
    "id": "chequered-flag-karting",
@@ -672,7 +709,9 @@
    "venue": "Grimsby, Lincolnshire",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "CFK"
+   "short": "CFK",
+   "checked": 1791494792653,
+   "note": "No race events published (group bookings only)"
   },
   {
    "id": "hull-karting",
@@ -714,7 +753,9 @@
    "venue": "Kilrea, Northern Ireland",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "KTM"
+   "short": "KTM",
+   "checked": 1791494792653,
+   "note": "No race events published"
   },
   {
    "id": "tattershall-karting-centre",
@@ -722,7 +763,9 @@
    "venue": "Tattershall, Lincolnshire",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "TAT"
+   "short": "TAT",
+   "checked": 1791494792653,
+   "note": "No race events found (site unreachable)"
   },
   {
    "id": "boyndie-drome",
@@ -738,7 +781,9 @@
    "venue": "Brandon, Lincolnshire",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "PFi"
+   "short": "PFi",
+   "checked": 1791494792653,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "kartworld-adrenaline-quarry",
@@ -764,7 +809,9 @@
    "venue": "Tenby, Wales",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "HTN"
+   "short": "HTN",
+   "checked": 1791494792653,
+   "note": "No race events published"
   },
   {
    "id": "sandham-karts",
@@ -772,7 +819,9 @@
    "venue": "Sandown, Isle of Wight",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "SAN"
+   "short": "SAN",
+   "checked": 1791494792653,
+   "note": "No race events found"
   },
   {
    "id": "adventure-sports-warwick",
@@ -804,7 +853,9 @@
    "venue": "Aboyne, Aberdeenshire",
    "kind": "rtrack",
    "color": "#3BD16F",
-   "short": "DEE"
+   "short": "DEE",
+   "checked": 1791494792653,
+   "note": "No race events published"
   },
   {
    "id": "gosford-karting",
@@ -820,7 +871,9 @@
    "venue": "Kesh, Northern Ireland",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "LKL"
+   "short": "LKL",
+   "checked": 1791494792653,
+   "note": "No race events published (group GP bookings only)"
   },
   {
    "id": "st-eval-kart-circuit",
@@ -836,7 +889,9 @@
    "venue": "Worcester Park, Surrey",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "SUR"
+   "short": "SUR",
+   "checked": 1791494792653,
+   "note": "No dated race events published (only bookable GP/open race formats)"
   },
   {
    "id": "traq-motor-racing",
@@ -844,7 +899,9 @@
    "venue": "Croydon, Surrey",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "TRQ"
+   "short": "TRQ",
+   "checked": 1791494792653,
+   "note": "No race events published (only bookable GP/enduro packages)"
   },
   {
    "id": "wight-karting",
@@ -910,7 +967,9 @@
    "venue": "Chippenham, Wiltshire",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "M4"
+   "short": "M4",
+   "checked": 1791494792653,
+   "note": "No race events published (only private GP packages)"
   },
   {
    "id": "raceworld-karting",
@@ -982,7 +1041,9 @@
    "venue": "Burscough, Lancashire",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "KWB"
+   "short": "KWB",
+   "checked": 1791494792653,
+   "note": "No race events published"
   },
   {
    "id": "indoor-super-karting",
@@ -1018,7 +1079,9 @@
    "venue": "Rochdale",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "TKR"
+   "short": "TKR",
+   "checked": 1791494792653,
+   "note": "No dated race events with year published (NWKC listed 6 Mar, no year)"
   },
   {
    "id": "raceview-karting",
@@ -1121,246 +1184,12 @@
  ],
  "events": [
   {
-   "id": "whilton-mill-kart-club-2026-10-24-round-8",
-   "seriesId": "whilton-mill-kart-club",
-   "title": "Round 8",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "whilton-mill-kart-club-2026-11-21-wm-plate",
-   "seriesId": "whilton-mill-kart-club",
-   "title": "WM Plate",
-   "start": "2026-11-21",
-   "end": "2026-11-22",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "whilton-mill-kart-club-2026-12-19-wm-christmas-special",
-   "seriesId": "whilton-mill-kart-club",
-   "title": "WM Christmas Special",
-   "start": "2026-12-19",
-   "end": "2026-12-20",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "shenington-kart-racing-club-2026-10-17-the-haunted-spring--",
-   "seriesId": "shenington-kart-racing-club",
-   "title": "The Haunted Spring [Round 9]",
-   "start": "2026-10-17",
-   "end": "2026-10-18",
-   "location": "Shenington",
-   "kind": "race"
-  },
-  {
-   "id": "shenington-kart-racing-club-2026-11-14-final-charge--round-",
-   "seriesId": "shenington-kart-racing-club",
-   "title": "Final Charge [Round 10]",
-   "start": "2026-11-14",
-   "end": "2026-11-15",
-   "location": "Shenington",
-   "kind": "race"
-  },
-  {
-   "id": "trent-valley-kart-club-2026-10-31-club-championship-r7",
-   "seriesId": "trent-valley-kart-club",
-   "title": "Club Championship R7",
-   "start": "2026-10-31",
-   "end": "2026-11-01",
-   "location": "PF International",
-   "kind": "race"
-  },
-  {
-   "id": "trent-valley-kart-club-2026-12-05-festive-cup",
-   "seriesId": "trent-valley-kart-club",
-   "title": "Festive Cup",
-   "start": "2026-12-05",
-   "end": "2026-12-06",
-   "location": "PF International",
-   "kind": "race"
-  },
-  {
-   "id": "fulbeck-kart-club-2026-10-24-round-8",
-   "seriesId": "fulbeck-kart-club",
-   "title": "Round 8",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "location": "Fulbeck",
-   "kind": "race"
-  },
-  {
-   "id": "hunts-kart-racing-club-2026-10-10-round-8",
-   "seriesId": "hunts-kart-racing-club",
-   "title": "Round 8",
-   "start": "2026-10-10",
-   "end": "2026-10-11",
-   "location": "Kimbolton",
-   "kind": "race"
-  },
-  {
-   "id": "hunts-kart-racing-club-2026-11-07-round-9",
-   "seriesId": "hunts-kart-racing-club",
-   "title": "Round 9",
-   "start": "2026-11-07",
-   "end": "2026-11-08",
-   "location": "Kimbolton",
-   "kind": "race"
-  },
-  {
-   "id": "hunts-kart-racing-club-2026-12-12-round-10",
-   "seriesId": "hunts-kart-racing-club",
-   "title": "Round 10",
-   "start": "2026-12-12",
-   "end": "2026-12-13",
-   "location": "Kimbolton",
-   "kind": "race"
-  },
-  {
-   "id": "bayford-meadows-kart-club-2026-10-17-round-8",
-   "seriesId": "bayford-meadows-kart-club",
-   "title": "Round 8",
-   "start": "2026-10-17",
-   "end": "2026-10-18",
-   "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "bayford-meadows-kart-club-2026-11-14-round-9",
-   "seriesId": "bayford-meadows-kart-club",
-   "title": "Round 9",
-   "start": "2026-11-14",
-   "end": "2026-11-15",
-   "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "lydd-kart-club-2026-10-11-round-6",
-   "seriesId": "lydd-kart-club",
-   "title": "Round 6",
-   "start": "2026-10-11",
-   "end": "2026-10-11",
-   "location": "Lydd Kart Circuit",
-   "kind": "race"
-  },
-  {
-   "id": "lydd-kart-club-2026-11-08-round-7",
-   "seriesId": "lydd-kart-club",
-   "title": "Round 7",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
-   "location": "Lydd Kart Circuit",
-   "kind": "race"
-  },
-  {
-   "id": "lydd-kart-club-2026-12-13-christmas-bash",
-   "seriesId": "lydd-kart-club",
-   "title": "Christmas Bash",
-   "start": "2026-12-13",
-   "end": "2026-12-13",
-   "location": "Lydd Kart Circuit",
-   "kind": "race"
-  },
-  {
-   "id": "clay-pigeon-kart-club-2026-10-11-round-8",
-   "seriesId": "clay-pigeon-kart-club",
-   "title": "Round 8",
-   "start": "2026-10-11",
-   "end": "2026-10-11",
-   "location": "Clay Pigeon Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "clay-pigeon-kart-club-2026-11-08-round-9-season-final",
-   "seriesId": "clay-pigeon-kart-club",
-   "title": "Round 9 - Season Finale",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
-   "location": "Clay Pigeon Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-kart-club-racing-2026-10-23-iron-league",
-   "seriesId": "ellough-park-kart-club-racing",
-   "title": "Iron League",
-   "start": "2026-10-23",
-   "end": "2026-10-23",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-kart-club-racing-2026-11-27-iron-league",
-   "seriesId": "ellough-park-kart-club-racing",
-   "title": "Iron League",
-   "start": "2026-11-27",
-   "end": "2026-11-27",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-kart-club-racing-2026-12-18-iron-league",
-   "seriesId": "ellough-park-kart-club-racing",
-   "title": "Iron League",
-   "start": "2026-12-18",
-   "end": "2026-12-18",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "three-sisters-kart-club-racing-2026-10-13-3s-40-championship-2",
-   "seriesId": "three-sisters-kart-club-racing",
-   "title": "3S 40 Championship 2026 (R.8)",
-   "start": "2026-10-13",
-   "end": "2026-10-13",
-   "location": "Three Sisters",
-   "kind": "race"
-  },
-  {
-   "id": "three-sisters-kart-club-racing-2026-10-21-3s-120-open-te-champ",
-   "seriesId": "three-sisters-kart-club-racing",
-   "title": "3S 120 Open TE Championship 2026 (R.8)",
-   "start": "2026-10-21",
-   "end": "2026-10-21",
-   "location": "Three Sisters",
-   "kind": "race"
-  },
-  {
-   "id": "cumbria-kart-racing-club-2026-11-01-club-championship-ro",
-   "seriesId": "cumbria-kart-racing-club",
-   "title": "Club Championship Round 6",
-   "start": "2026-11-01",
-   "end": "2026-11-01",
-   "location": "Rowrah",
-   "kind": "race"
-  },
-  {
-   "id": "cumbria-kart-racing-club-2026-11-29-rowrah-o-plate-ikr-m",
-   "seriesId": "cumbria-kart-racing-club",
-   "title": "Rowrah O Plate - IKR Meeting",
-   "start": "2026-11-29",
-   "end": "2026-11-29",
-   "location": "Rowrah",
-   "kind": "race"
-  },
-  {
-   "id": "nutts-corner-kart-club-racing-2026-10-10-solmatix-renewables-",
-   "seriesId": "nutts-corner-kart-club-racing",
-   "title": "Solmatix Renewables UKC Round 7",
-   "start": "2026-10-10",
-   "end": "2026-10-10",
-   "location": "Nutts Corner, Northern Ireland",
-   "kind": "race"
-  },
-  {
-   "id": "nutts-corner-kart-club-racing-2026-10-31-solmatix-renewables-",
-   "seriesId": "nutts-corner-kart-club-racing",
-   "title": "Solmatix Renewables UKC Round 8",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "location": "Nutts Corner, Northern Ireland",
+   "id": "rye-house-rental-2026-10-08-imola-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R8",
+   "start": "2026-10-08",
+   "end": "2026-10-08",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -1382,21 +1211,12 @@
    "kind": "race"
   },
   {
-   "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
-   "seriesId": "teesside-autodrome-karting",
-   "title": "Round 8/9 \u2013 Double Header Weekend",
-   "start": "2026-10-23",
-   "end": "2026-10-25",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "british-rental-kart-championship-2027-02-26-brkc-2027",
-   "seriesId": "british-rental-kart-championship",
-   "title": "BRKC 2027",
-   "start": "2027-02-26",
-   "end": "2027-02-28",
-   "location": "Formula Fast",
+   "id": "rye-house-rental-2026-10-09-sutton-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Sutton Cup R8",
+   "start": "2026-10-09",
+   "end": "2026-10-09",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -1409,138 +1229,57 @@
    "kind": "race"
   },
   {
-   "id": "british-indoor-karting-championship-2026-10-17-regional-finals--wee",
-   "seriesId": "british-indoor-karting-championship",
-   "title": "Regional Finals (weekend 2)",
-   "start": "2026-10-17",
-   "end": "2026-10-18",
-   "location": "TeamSport Gosport, High Wycombe, Nottingham",
+   "id": "club73-karting-championships-2026-10-10-weekend-r9---enduran",
+   "seriesId": "club73-karting-championships",
+   "title": "Weekend R9 & Endurance R7",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
-   "id": "british-indoor-karting-championship-2026-10-24-regional-finals--wee",
-   "seriesId": "british-indoor-karting-championship",
-   "title": "Regional Finals (weekend 3)",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "location": "TeamSport Crawley, Birmingham, Stockton",
+   "id": "dunkeswell-rental-2026-10-10-junior-championship-",
+   "seriesId": "dunkeswell-rental",
+   "title": "Junior Championship Round 4",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Dunkeswell Airfield",
    "kind": "race"
   },
   {
-   "id": "british-indoor-karting-championship-2026-11-14-national-finals",
-   "seriesId": "british-indoor-karting-championship",
-   "title": "National Finals",
-   "start": "2026-11-14",
-   "end": "2026-11-15",
-   "location": "TeamSport (venue TBC)",
+   "id": "elite-karting-series-2026-10-10-round-10",
+   "seriesId": "elite-karting-series",
+   "title": "Round 10",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Glan-y-Gors",
    "kind": "race"
   },
   {
-   "id": "club100-sprint-championship-2026-11-08-sprint-southern-rd-8",
-   "seriesId": "club100-sprint-championship",
-   "title": "Sprint Southern Rd 8",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
-   "location": "Silverstone Circuit",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-02-14-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 1",
-   "start": "2027-02-14",
-   "end": "2027-02-14",
-   "location": "Buckmore Park",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-04-11-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 2",
-   "start": "2027-04-11",
-   "end": "2027-04-11",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-05-23-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 3",
-   "start": "2027-05-23",
-   "end": "2027-05-23",
-   "location": "Dunkeswell",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-06-20-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 4",
-   "start": "2027-06-20",
-   "end": "2027-06-20",
-   "location": "Lydd",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-07-04-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 5",
-   "start": "2027-07-04",
-   "end": "2027-07-04",
-   "location": "Clay Pigeon",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-08-08-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 6",
-   "start": "2027-08-08",
-   "end": "2027-08-08",
-   "location": "Glan Y Gors",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-08-30-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 7",
-   "start": "2027-08-30",
-   "end": "2027-08-30",
-   "location": "PF International",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-09-26-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 8",
-   "start": "2027-09-26",
-   "end": "2027-09-26",
-   "location": "Buckmore Park",
-   "kind": "race"
-  },
-  {
-   "id": "club100-sprint-championship-2027-10-31-senior-sprint-nation",
-   "seriesId": "club100-sprint-championship",
-   "title": "Senior Sprint National Round 9",
-   "start": "2027-10-31",
-   "end": "2027-10-31",
-   "location": "Warden Law",
-   "kind": "race"
-  },
-  {
-   "id": "sodi-world-series-uk-2026-10-11-sws-endurance",
-   "seriesId": "sodi-world-series-uk",
-   "title": "SWS Endurance",
-   "start": "2026-10-11",
+   "id": "fat-karting-league-uk-2026-10-10-regional-round-7",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Regional Round 7",
+   "start": "2026-10-10",
    "end": "2026-10-11",
-   "location": "Kart Silverstone",
+   "location": "Shenington Kart Club",
    "kind": "race"
   },
   {
-   "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
-   "seriesId": "spanish-24-hours-karting",
-   "title": "Campillos 24 Hour",
-   "start": "2027-05-07",
-   "end": "2027-05-09",
-   "location": "Kart Center Campillos",
+   "id": "hunts-kart-racing-club-2026-10-10-round-8",
+   "seriesId": "hunts-kart-racing-club",
+   "title": "Round 8",
+   "start": "2026-10-10",
+   "end": "2026-10-11",
+   "location": "Kimbolton",
+   "kind": "race"
+  },
+  {
+   "id": "nutts-corner-kart-club-racing-2026-10-10-solmatix-renewables-",
+   "seriesId": "nutts-corner-kart-club-racing",
+   "title": "Solmatix Renewables UKC Round 7",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Nutts Corner, Northern Ireland",
    "kind": "race"
   },
   {
@@ -1553,120 +1292,21 @@
    "kind": "race"
   },
   {
-   "id": "daytona-milton-keynes-2026-10-24-d600-10-hour-enduran",
-   "seriesId": "daytona-milton-keynes",
-   "title": "D600 10 Hour Endurance Race",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "location": "Daytona Milton Keynes",
+   "id": "teamsport-go-karting-all-venues-2026-10-10-bikc-regional-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC Regional Finals",
+   "start": "2026-10-10",
+   "end": "2026-10-11",
+   "location": "Farnborough / Leicester / Liverpool",
    "kind": "race"
   },
   {
-   "id": "daytona-milton-keynes-2026-12-20-adult-xmas-festival-",
-   "seriesId": "daytona-milton-keynes",
-   "title": "Adult Xmas Festival Endurance Race",
-   "start": "2026-12-20",
-   "end": "2026-12-20",
-   "location": "Daytona Milton Keynes",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-milton-keynes-2026-12-20-cadet---junior-chris",
-   "seriesId": "daytona-milton-keynes",
-   "title": "Cadet & Junior Christmas Endurance Race",
-   "start": "2026-12-20",
-   "end": "2026-12-20",
-   "location": "Daytona Milton Keynes",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-milton-keynes-2027-02-06-race-of-champions-20",
-   "seriesId": "daytona-milton-keynes",
-   "title": "Race of Champions 2026/27",
-   "start": "2027-02-06",
-   "end": "2027-02-07",
-   "location": "Daytona Milton Keynes",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-milton-keynes-2027-05-29-daytona-24-hours-202",
-   "seriesId": "daytona-milton-keynes",
-   "title": "Daytona 24 Hours 2027",
-   "start": "2027-05-29",
-   "end": "2027-05-30",
-   "location": "Daytona Milton Keynes",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2026-10-25-inkart-round-3",
-   "seriesId": "daytona-sandown-park",
-   "title": "InKart Round 3",
-   "start": "2026-10-25",
-   "end": "2026-10-25",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2026-10-30-junior-n32-cup-ii",
-   "seriesId": "daytona-sandown-park",
-   "title": "Junior N32 Cup II",
-   "start": "2026-10-30",
-   "end": "2026-10-30",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2026-11-01-inkart-round-4",
-   "seriesId": "daytona-sandown-park",
-   "title": "InKart Round 4",
-   "start": "2026-11-01",
-   "end": "2026-11-01",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2026-11-22-sandown-park-3-hour-",
-   "seriesId": "daytona-sandown-park",
-   "title": "Sandown Park 3 Hour Endurance",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2026-12-06-inkart-round-5",
-   "seriesId": "daytona-sandown-park",
-   "title": "InKart Round 5",
-   "start": "2026-12-06",
-   "end": "2026-12-06",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2026-12-20-inkart-round-6",
-   "seriesId": "daytona-sandown-park",
-   "title": "InKart Round 6",
-   "start": "2026-12-20",
-   "end": "2026-12-20",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2027-01-10-inkart-round-7",
-   "seriesId": "daytona-sandown-park",
-   "title": "InKart Round 7",
-   "start": "2027-01-10",
-   "end": "2027-01-10",
-   "location": "Daytona Sandown Park",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-sandown-park-2027-01-24-inkart-round-8",
-   "seriesId": "daytona-sandown-park",
-   "title": "InKart Round 8",
-   "start": "2027-01-24",
-   "end": "2027-01-24",
-   "location": "Daytona Sandown Park",
+   "id": "clay-pigeon-kart-club-2026-10-11-round-8",
+   "seriesId": "clay-pigeon-kart-club",
+   "title": "Round 8",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Clay Pigeon Raceway",
    "kind": "race"
   },
   {
@@ -1679,264 +1319,39 @@
    "kind": "race"
   },
   {
-   "id": "daytona-tamworth-2026-10-25-inkart-round-3",
-   "seriesId": "daytona-tamworth",
-   "title": "InKart Round 3",
-   "start": "2026-10-25",
-   "end": "2026-10-25",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2026-11-08-inkart-round-4",
-   "seriesId": "daytona-tamworth",
-   "title": "InKart Round 4",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2026-11-15-superchamps-round-3",
-   "seriesId": "daytona-tamworth",
-   "title": "SuperChamps Round 3",
-   "start": "2026-11-15",
-   "end": "2026-11-15",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2026-11-29-superchamps-round-4",
-   "seriesId": "daytona-tamworth",
-   "title": "SuperChamps Round 4",
-   "start": "2026-11-29",
-   "end": "2026-11-29",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2026-12-06-inkart-round-5",
-   "seriesId": "daytona-tamworth",
-   "title": "InKart Round 5",
-   "start": "2026-12-06",
-   "end": "2026-12-06",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2026-12-13-superchamps-round-5",
-   "seriesId": "daytona-tamworth",
-   "title": "SuperChamps Round 5",
-   "start": "2026-12-13",
-   "end": "2026-12-13",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2026-12-20-inkart-round-6",
-   "seriesId": "daytona-tamworth",
-   "title": "InKart Round 6",
-   "start": "2026-12-20",
-   "end": "2026-12-20",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2027-01-03-superchamps-round-6",
-   "seriesId": "daytona-tamworth",
-   "title": "SuperChamps Round 6",
-   "start": "2027-01-03",
-   "end": "2027-01-03",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2027-01-10-inkart-round-7",
-   "seriesId": "daytona-tamworth",
-   "title": "InKart Round 7",
-   "start": "2027-01-10",
-   "end": "2027-01-10",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2027-01-17-superchamps-round-7",
-   "seriesId": "daytona-tamworth",
-   "title": "SuperChamps Round 7",
-   "start": "2027-01-17",
-   "end": "2027-01-17",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2027-01-24-inkart-round-8",
-   "seriesId": "daytona-tamworth",
-   "title": "InKart Round 8",
-   "start": "2027-01-24",
-   "end": "2027-01-24",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "daytona-tamworth-2027-01-31-superchamps-round-8",
-   "seriesId": "daytona-tamworth",
-   "title": "SuperChamps Round 8",
-   "start": "2027-01-31",
-   "end": "2027-01-31",
-   "location": "Daytona Tamworth",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2026-10-31-nrg-6hr-round-1",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "NRG 6hr Round 1",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2026-11-22-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 1",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2026-12-13-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 2",
-   "start": "2026-12-13",
-   "end": "2026-12-13",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2027-01-17-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 3",
-   "start": "2027-01-17",
-   "end": "2027-01-17",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2027-03-07-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 4",
-   "start": "2027-03-07",
-   "end": "2027-03-07",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2027-08-06-british-24h--hire-ka",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "British 24H (Hire Kart Championship)",
-   "start": "2027-08-06",
-   "end": "2027-08-08",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teamsport-go-karting-all-venues-2026-10-10-bikc-regional-finals",
-   "seriesId": "teamsport-go-karting-all-venues",
-   "title": "BIKC Regional Finals",
-   "start": "2026-10-10",
+   "id": "dunkeswell-rental-2026-10-11-rental-championship-",
+   "seriesId": "dunkeswell-rental",
+   "title": "Rental Championship Round 8",
+   "start": "2026-10-11",
    "end": "2026-10-11",
-   "location": "Farnborough / Leicester / Liverpool",
+   "location": "Dunkeswell Airfield",
    "kind": "race"
   },
   {
-   "id": "teamsport-go-karting-all-venues-2026-10-17-bikc-regional-finals",
-   "seriesId": "teamsport-go-karting-all-venues",
-   "title": "BIKC Regional Finals",
-   "start": "2026-10-17",
-   "end": "2026-10-18",
-   "location": "Gosport / High Wycombe / Nottingham",
+   "id": "elite-karting-series-2026-10-11-round-11",
+   "seriesId": "elite-karting-series",
+   "title": "Round 11",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Three Sisters",
    "kind": "race"
   },
   {
-   "id": "teamsport-go-karting-all-venues-2026-10-24-bikc-regional-finals",
-   "seriesId": "teamsport-go-karting-all-venues",
-   "title": "BIKC Regional Finals",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "location": "Crawley / Birmingham / Stockton",
+   "id": "lydd-kart-club-2026-10-11-round-6",
+   "seriesId": "lydd-kart-club",
+   "title": "Round 6",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Lydd Kart Circuit",
    "kind": "race"
   },
   {
-   "id": "teamsport-go-karting-all-venues-2026-11-14-bikc-national-finals",
-   "seriesId": "teamsport-go-karting-all-venues",
-   "title": "BIKC National Finals",
-   "start": "2026-11-14",
-   "end": "2026-11-15",
-   "location": "TeamSport (venue TBC)",
-   "kind": "race"
-  },
-  {
-   "id": "thruxton-karting-2026-10-18-individual-endurance",
-   "seriesId": "thruxton-karting",
-   "title": "Individual Endurance",
-   "start": "2026-10-18",
-   "end": "2026-10-18",
-   "location": "Thruxton Karting",
-   "kind": "race"
-  },
-  {
-   "id": "thruxton-karting-2026-10-25-4-hour-team-enduranc",
-   "seriesId": "thruxton-karting",
-   "title": "4 Hour Team Endurance",
-   "start": "2026-10-25",
-   "end": "2026-10-25",
-   "location": "Thruxton Karting",
-   "kind": "race"
-  },
-  {
-   "id": "thruxton-karting-2026-11-15-individual-endurance",
-   "seriesId": "thruxton-karting",
-   "title": "Individual Endurance",
-   "start": "2026-11-15",
-   "end": "2026-11-15",
-   "location": "Thruxton Karting",
-   "kind": "race"
-  },
-  {
-   "id": "forest-edge-rental-2026-11-01-round-9",
-   "seriesId": "forest-edge-rental",
-   "title": "Round 9",
-   "start": "2026-11-01",
-   "end": "2026-11-01",
-   "location": "Forest Edge",
-   "kind": "race"
-  },
-  {
-   "id": "clay-pigeon-rental-2026-10-24-ikr-round-5",
-   "seriesId": "clay-pigeon-rental",
-   "title": "IKR Round 5",
-   "start": "2026-10-24",
-   "end": "2026-10-24",
-   "location": "Clay Pigeon Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "clay-pigeon-rental-2026-11-21-ikr-round-6",
-   "seriesId": "clay-pigeon-rental",
-   "title": "IKR Round 6",
-   "start": "2026-11-21",
-   "end": "2026-11-21",
-   "location": "Clay Pigeon Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "clay-pigeon-rental-2026-12-12-turkey-trot-2026",
-   "seriesId": "clay-pigeon-rental",
-   "title": "Turkey Trot 2026",
-   "start": "2026-12-12",
-   "end": "2026-12-13",
-   "location": "Clay Pigeon Raceway",
+   "id": "sodi-world-series-uk-2026-10-11-sws-endurance",
+   "seriesId": "sodi-world-series-uk",
+   "title": "SWS Endurance",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Kart Silverstone",
    "kind": "race"
   },
   {
@@ -1949,12 +1364,156 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2026-10-13-monza-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R8",
+   "start": "2026-10-13",
+   "end": "2026-10-13",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "three-sisters-kart-club-racing-2026-10-13-3s-40-championship-2",
+   "seriesId": "three-sisters-kart-club-racing",
+   "title": "3S 40 Championship 2026 (R.8)",
+   "start": "2026-10-13",
+   "end": "2026-10-13",
+   "location": "Three Sisters",
+   "kind": "race"
+  },
+  {
+   "id": "three-sisters-rental-2026-10-13-3s40-individual-endu",
+   "seriesId": "three-sisters-rental",
+   "title": "3S40 Individual Enduro Round 8",
+   "start": "2026-10-13",
+   "end": "2026-10-13",
+   "location": "Three Sisters",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-10-14-midweek-championship",
+   "seriesId": "club73-karting-championships",
+   "title": "Midweek Championship Round 9",
+   "start": "2026-10-14",
+   "end": "2026-10-14",
+   "location": "Buckmore Park Kart Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "karting-at-ancaster-2026-10-15-thursday-evening-rac",
+   "seriesId": "karting-at-ancaster",
+   "title": "Thursday Evening Racing",
+   "start": "2026-10-15",
+   "end": "2026-10-15",
+   "location": "Ancaster Karting",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2026-10-15-bugatti-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R8",
+   "start": "2026-10-15",
+   "end": "2026-10-15",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "ellough-park-rental-2026-10-16-kids-club-cadet---ju",
    "seriesId": "ellough-park-rental",
    "title": "Kids Club Cadet & Junior",
    "start": "2026-10-16",
    "end": "2026-10-16",
    "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "rmc-ukc-2026-10-16-rotax-national-troph",
+   "seriesId": "rmc-ukc",
+   "title": "Rotax National Trophy",
+   "start": "2026-10-16",
+   "end": "2026-10-16",
+   "location": "Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2026-10-17-round-6-dragon-cup",
+   "seriesId": "access-karting",
+   "title": "Round 6 Dragon Cup",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Llandow",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-kart-club-2026-10-17-round-8",
+   "seriesId": "bayford-meadows-kart-club",
+   "title": "Round 8",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2026-10-17-bayford-50",
+   "seriesId": "bayford-meadows-rental",
+   "title": "Bayford 50",
+   "start": "2026-10-17",
+   "end": "2026-10-17",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "british-indoor-karting-championship-2026-10-17-regional-finals--wee",
+   "seriesId": "british-indoor-karting-championship",
+   "title": "Regional Finals (weekend 2)",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "TeamSport Gosport, High Wycombe, Nottingham",
+   "kind": "race"
+  },
+  {
+   "id": "shenington-kart-racing-club-2026-10-17-the-haunted-spring--",
+   "seriesId": "shenington-kart-racing-club",
+   "title": "The Haunted Spring [Round 9]",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Shenington",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-10-17-bikc-regional-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC Regional Finals",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Gosport / High Wycombe / Nottingham",
+   "kind": "race"
+  },
+  {
+   "id": "glan-y-gors-rental-2026-10-18-gyg-championship-rou",
+   "seriesId": "glan-y-gors-rental",
+   "title": "GYG Championship Round 7",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-10-18-young-starz-round-7",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 7",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "thruxton-karting-2026-10-18-individual-endurance",
+   "seriesId": "thruxton-karting",
+   "title": "Individual Endurance",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Thruxton Karting",
    "kind": "race"
   },
   {
@@ -1967,12 +1526,165 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2026-10-20-jenson-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Jenson Cup R8",
+   "start": "2026-10-20",
+   "end": "2026-10-20",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "three-sisters-kart-club-racing-2026-10-21-3s-120-open-te-champ",
+   "seriesId": "three-sisters-kart-club-racing",
+   "title": "3S 120 Open TE Championship Round 8",
+   "start": "2026-10-21",
+   "end": "2026-10-21",
+   "location": "Three Sisters",
+   "kind": "race"
+  },
+  {
+   "id": "three-sisters-rental-2026-10-21-3s120-team-enduro-ro",
+   "seriesId": "three-sisters-rental",
+   "title": "3S120 Team Enduro Round 8",
+   "start": "2026-10-21",
+   "end": "2026-10-21",
+   "location": "Three Sisters",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-kart-club-racing-2026-10-23-iron-league",
+   "seriesId": "ellough-park-kart-club-racing",
+   "title": "Iron League",
+   "start": "2026-10-23",
+   "end": "2026-10-23",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
    "id": "ellough-park-rental-2026-10-23-iron-league",
    "seriesId": "ellough-park-rental",
    "title": "Iron League",
    "start": "2026-10-23",
    "end": "2026-10-23",
    "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
+   "seriesId": "teesside-autodrome-karting",
+   "title": "Round 8/9 \u2013 Double Header Weekend",
+   "start": "2026-10-23",
+   "end": "2026-10-25",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "british-indoor-karting-championship-2026-10-24-regional-finals--wee",
+   "seriesId": "british-indoor-karting-championship",
+   "title": "Regional Finals (weekend 3)",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "TeamSport Crawley, Birmingham, Stockton",
+   "kind": "race"
+  },
+  {
+   "id": "clay-pigeon-rental-2026-10-24-ikr-round-5",
+   "seriesId": "clay-pigeon-rental",
+   "title": "IKR Round 5",
+   "start": "2026-10-24",
+   "end": "2026-10-24",
+   "location": "Clay Pigeon Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-milton-keynes-2026-10-24-d600-10-hour-enduran",
+   "seriesId": "daytona-milton-keynes",
+   "title": "D600 10 Hour Endurance Race",
+   "start": "2026-10-24",
+   "end": "2026-10-24",
+   "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-10-24-regional-round-8",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Regional Round 8",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "Shenington Kart Club",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-10-24-bikc-regional-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC Regional Finals",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "Crawley / Birmingham / Stockton",
+   "kind": "race"
+  },
+  {
+   "id": "whilton-mill-kart-club-2026-10-24-round-8",
+   "seriesId": "whilton-mill-kart-club",
+   "title": "Round 8",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "whilton-mill-rental-2026-10-24-round-8",
+   "seriesId": "whilton-mill-rental",
+   "title": "Round 8",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-sandown-park-2026-10-25-inkart-round-3",
+   "seriesId": "daytona-sandown-park",
+   "title": "InKart Round 3",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-10-25-inkart-round-3",
+   "seriesId": "daytona-tamworth",
+   "title": "InKart Round 3",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "fulbeck-kart-club-2026-10-25-round-8",
+   "seriesId": "fulbeck-kart-club",
+   "title": "Round 8",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "Fulbeck",
+   "kind": "race"
+  },
+  {
+   "id": "pf-international-rental-2026-10-25-sunday-100-team-race",
+   "seriesId": "pf-international-rental",
+   "title": "Sunday 100 team race",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "thruxton-karting-2026-10-25-4-hour-team-enduranc",
+   "seriesId": "thruxton-karting",
+   "title": "4 Hour Team Endurance",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "Thruxton Karting",
    "kind": "race"
   },
   {
@@ -1994,174 +1706,12 @@
    "kind": "race"
   },
   {
-   "id": "ellough-park-rental-2026-11-03-junior-rookie-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Junior Rookie League",
-   "start": "2026-11-03",
-   "end": "2026-11-03",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-06-kids-club-cadet---ju",
-   "seriesId": "ellough-park-rental",
-   "title": "Kids Club Cadet & Junior",
-   "start": "2026-11-06",
-   "end": "2026-11-06",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-10-pro-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Pro League",
-   "start": "2026-11-10",
-   "end": "2026-11-10",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-17-junior-rookie-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Junior Rookie League",
-   "start": "2026-11-17",
-   "end": "2026-11-17",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-20-kids-club-cadet---ju",
-   "seriesId": "ellough-park-rental",
-   "title": "Kids Club Cadet & Junior",
-   "start": "2026-11-20",
-   "end": "2026-11-20",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-24-junior-pro-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Junior Pro League",
-   "start": "2026-11-24",
-   "end": "2026-11-24",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-27-iron-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Iron League",
-   "start": "2026-11-27",
-   "end": "2026-11-27",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-11-30-open-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Open League",
-   "start": "2026-11-30",
-   "end": "2026-11-30",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-12-08-pro-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Pro League",
-   "start": "2026-12-08",
-   "end": "2026-12-08",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-12-14-open-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Open League",
-   "start": "2026-12-14",
-   "end": "2026-12-14",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "ellough-park-rental-2026-12-18-iron-league",
-   "seriesId": "ellough-park-rental",
-   "title": "Iron League",
-   "start": "2026-12-18",
-   "end": "2026-12-18",
-   "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "whilton-mill-rental-2026-10-24-round-8",
-   "seriesId": "whilton-mill-rental",
-   "title": "Round 8",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "whilton-mill-rental-2026-11-21-wm-plate",
-   "seriesId": "whilton-mill-rental",
-   "title": "WM Plate",
-   "start": "2026-11-21",
-   "end": "2026-11-22",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "whilton-mill-rental-2026-12-19-christmas-special",
-   "seriesId": "whilton-mill-rental",
-   "title": "Christmas Special",
-   "start": "2026-12-19",
-   "end": "2026-12-20",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "rye-house-rental-2026-10-08-imola-cup-r8",
-   "seriesId": "rye-house-rental",
-   "title": "Imola Cup R8",
-   "start": "2026-10-08",
-   "end": "2026-10-08",
-   "location": "Rye House Kart Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "rye-house-rental-2026-10-09-sutton-cup-r8",
-   "seriesId": "rye-house-rental",
-   "title": "Sutton Cup R8",
-   "start": "2026-10-09",
-   "end": "2026-10-09",
-   "location": "Rye House Kart Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "rye-house-rental-2026-10-13-monza-cup-r8",
-   "seriesId": "rye-house-rental",
-   "title": "Monza Cup R8",
-   "start": "2026-10-13",
-   "end": "2026-10-13",
-   "location": "Rye House Kart Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "rye-house-rental-2026-10-15-bugatti-cup-r8",
-   "seriesId": "rye-house-rental",
-   "title": "Bugatti Cup R8",
-   "start": "2026-10-15",
-   "end": "2026-10-15",
-   "location": "Rye House Kart Raceway",
-   "kind": "race"
-  },
-  {
-   "id": "rye-house-rental-2026-10-20-jenson-cup-r8",
-   "seriesId": "rye-house-rental",
-   "title": "Jenson Cup R8",
-   "start": "2026-10-20",
-   "end": "2026-10-20",
-   "location": "Rye House Kart Raceway",
+   "id": "elite-karting-series-2026-10-28-silverstone-champion",
+   "seriesId": "elite-karting-series",
+   "title": "Silverstone Championship Round 7",
+   "start": "2026-10-28",
+   "end": "2026-10-28",
+   "location": "Kart Silverstone",
    "kind": "race"
   },
   {
@@ -2174,12 +1724,111 @@
    "kind": "race"
   },
   {
+   "id": "daytona-sandown-park-2026-10-30-junior-n32-cup-ii",
+   "seriesId": "daytona-sandown-park",
+   "title": "Junior N32 Cup II",
+   "start": "2026-10-30",
+   "end": "2026-10-30",
+   "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
    "id": "rye-house-rental-2026-10-30-mexico-cup-r8",
    "seriesId": "rye-house-rental",
    "title": "Mexico Cup R8",
    "start": "2026-10-30",
    "end": "2026-10-30",
    "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2026-10-31-superpro-summer-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Summer Cup Round 8",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "glan-y-gors-rental-2026-10-31-halloween-endurance-",
+   "seriesId": "glan-y-gors-rental",
+   "title": "Halloween Endurance Open Event",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "nutts-corner-kart-club-racing-2026-10-31-solmatix-renewables-",
+   "seriesId": "nutts-corner-kart-club-racing",
+   "title": "Solmatix Renewables UKC Round 8",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Nutts Corner, Northern Ireland",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2026-10-31-nrg-6hr-round-1",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "NRG 6hr Round 1",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "trent-valley-kart-club-2026-10-31-club-championship-r7",
+   "seriesId": "trent-valley-kart-club",
+   "title": "Club Championship R7",
+   "start": "2026-10-31",
+   "end": "2026-11-01",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "cumbria-kart-racing-club-2026-11-01-club-championship-ro",
+   "seriesId": "cumbria-kart-racing-club",
+   "title": "Club Championship Round 6",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-sandown-park-2026-11-01-inkart-round-4",
+   "seriesId": "daytona-sandown-park",
+   "title": "InKart Round 4",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
+   "id": "forest-edge-rental-2026-11-01-round-9",
+   "seriesId": "forest-edge-rental",
+   "title": "Round 9",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Forest Edge",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-11-01-young-starz-round-8",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 8",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-11-03-junior-rookie-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Junior Rookie League",
+   "start": "2026-11-03",
+   "end": "2026-11-03",
+   "location": "Ellough Park",
    "kind": "race"
   },
   {
@@ -2201,11 +1850,119 @@
    "kind": "race"
   },
   {
+   "id": "ellough-park-rental-2026-11-06-kids-club-cadet---ju",
+   "seriesId": "ellough-park-rental",
+   "title": "Kids Club Cadet & Junior",
+   "start": "2026-11-06",
+   "end": "2026-11-06",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-11-07-pro-round-9",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Pro Round 9",
+   "start": "2026-11-07",
+   "end": "2026-11-08",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "hunts-kart-racing-club-2026-11-07-round-9",
+   "seriesId": "hunts-kart-racing-club",
+   "title": "Round 9",
+   "start": "2026-11-07",
+   "end": "2026-11-08",
+   "location": "Kimbolton",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-11-07-club2000-round-12",
+   "seriesId": "red-lodge-karting",
+   "title": "Club2000 Round 12",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "clay-pigeon-kart-club-2026-11-08-round-9-season-final",
+   "seriesId": "clay-pigeon-kart-club",
+   "title": "Round 9 - Season Finale",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Clay Pigeon Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2026-11-08-sprint-southern-rd-8",
+   "seriesId": "club100-sprint-championship",
+   "title": "Sprint Southern Rd 8",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Silverstone Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-11-08-inkart-round-4",
+   "seriesId": "daytona-tamworth",
+   "title": "InKart Round 4",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-11-08-rental-winter-cup-ro",
+   "seriesId": "dunkeswell-rental",
+   "title": "Rental Winter Cup Round 1",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "elite-karting-series-2026-11-08-round-12",
+   "seriesId": "elite-karting-series",
+   "title": "Round 12",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "lydd-kart-club-2026-11-08-round-7",
+   "seriesId": "lydd-kart-club",
+   "title": "Round 7",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Lydd Kart Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-11-10-pro-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Pro League",
+   "start": "2026-11-10",
+   "end": "2026-11-10",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
    "id": "rye-house-rental-2026-11-10-monza-cup-r9",
    "seriesId": "rye-house-rental",
    "title": "Monza Cup R9",
    "start": "2026-11-10",
    "end": "2026-11-10",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "club73-karting-championships-2026-11-11-midweek-championship",
+   "seriesId": "club73-karting-championships",
+   "title": "Midweek Championship Round 10",
+   "start": "2026-11-11",
+   "end": "2026-11-11",
    "location": "Rye House Kart Raceway",
    "kind": "race"
   },
@@ -2228,6 +1985,96 @@
    "kind": "race"
   },
   {
+   "id": "bayford-meadows-kart-club-2026-11-14-round-9",
+   "seriesId": "bayford-meadows-kart-club",
+   "title": "Round 9",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "british-indoor-karting-championship-2026-11-14-national-finals",
+   "seriesId": "british-indoor-karting-championship",
+   "title": "National Finals",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "TeamSport (venue TBC)",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-11-14-junior---women-s-win",
+   "seriesId": "dunkeswell-rental",
+   "title": "Junior & Women's Winter Cup R1",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "fat-karting-league-uk-2026-11-14-regional-round-9",
+   "seriesId": "fat-karting-league-uk",
+   "title": "Regional Round 9",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "Buckmore Park",
+   "kind": "race"
+  },
+  {
+   "id": "shenington-kart-racing-club-2026-11-14-final-charge--round-",
+   "seriesId": "shenington-kart-racing-club",
+   "title": "Final Charge [Round 10]",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "Shenington",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-11-14-bikc-national-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC National Finals",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "TeamSport (venue TBC)",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-11-15-superchamps-round-3",
+   "seriesId": "daytona-tamworth",
+   "title": "SuperChamps Round 3",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-11-15-young-starz-round-9",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 9",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "thruxton-karting-2026-11-15-individual-endurance",
+   "seriesId": "thruxton-karting",
+   "title": "Individual Endurance",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "location": "Thruxton Karting",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-11-17-junior-rookie-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Junior Rookie League",
+   "start": "2026-11-17",
+   "end": "2026-11-17",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
    "id": "rye-house-rental-2026-11-17-jenson-cup-r9",
    "seriesId": "rye-house-rental",
    "title": "Jenson Cup R9",
@@ -2246,75 +2093,66 @@
    "kind": "race"
   },
   {
-   "id": "rye-house-rental-2026-11-26-monaco-cup-r9",
-   "seriesId": "rye-house-rental",
-   "title": "Monaco Cup R9",
-   "start": "2026-11-26",
-   "end": "2026-11-26",
-   "location": "Rye House Kart Raceway",
+   "id": "ellough-park-rental-2026-11-20-kids-club-cadet---ju",
+   "seriesId": "ellough-park-rental",
+   "title": "Kids Club Cadet & Junior",
+   "start": "2026-11-20",
+   "end": "2026-11-20",
+   "location": "Ellough Park",
    "kind": "race"
   },
   {
-   "id": "rye-house-rental-2026-11-27-mexico-cup-r9",
-   "seriesId": "rye-house-rental",
-   "title": "Mexico Cup R9",
-   "start": "2026-11-27",
-   "end": "2026-11-27",
-   "location": "Rye House Kart Raceway",
+   "id": "buckmore-park-kart-club-2026-11-21-the-winter-cup",
+   "seriesId": "buckmore-park-kart-club",
+   "title": "The Winter Cup",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "location": "Buckmore Park",
    "kind": "race"
   },
   {
-   "id": "three-sisters-rental-2026-10-13-3s40-individual-endu",
-   "seriesId": "three-sisters-rental",
-   "title": "3S40 Individual Enduro Round 8",
-   "start": "2026-10-13",
-   "end": "2026-10-13",
-   "location": "Three Sisters",
+   "id": "clay-pigeon-rental-2026-11-21-ikr-round-6",
+   "seriesId": "clay-pigeon-rental",
+   "title": "IKR Round 6",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "location": "Clay Pigeon Raceway",
    "kind": "race"
   },
   {
-   "id": "three-sisters-rental-2026-10-21-3s120-team-enduro-ro",
-   "seriesId": "three-sisters-rental",
-   "title": "3S120 Team Enduro Round 8",
-   "start": "2026-10-21",
-   "end": "2026-10-21",
-   "location": "Three Sisters",
+   "id": "whilton-mill-kart-club-2026-11-21-wm-plate",
+   "seriesId": "whilton-mill-kart-club",
+   "title": "WM Plate",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "location": "Whilton Mill",
    "kind": "race"
   },
   {
-   "id": "warden-law-rental-2026-11-01-british-prokart-endu",
-   "seriesId": "warden-law-rental",
-   "title": "British ProKart Endurance Championship - 6 Hours of Warden Law",
-   "start": "2026-11-01",
-   "end": "2026-11-01",
-   "location": "Warden Law",
+   "id": "whilton-mill-rental-2026-11-21-wm-plate",
+   "seriesId": "whilton-mill-rental",
+   "title": "WM Plate",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "location": "Whilton Mill",
    "kind": "race"
   },
   {
-   "id": "warden-law-rental-2026-12-06-kne-hire-kart-sprint",
-   "seriesId": "warden-law-rental",
-   "title": "KNE Hire Kart Sprint Championship Trophy Race",
-   "start": "2026-12-06",
-   "end": "2026-12-06",
-   "location": "Warden Law",
+   "id": "daytona-sandown-park-2026-11-22-sandown-park-3-hour-",
+   "seriesId": "daytona-sandown-park",
+   "title": "Sandown Park 3 Hour Endurance",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Daytona Sandown Park",
    "kind": "race"
   },
   {
-   "id": "glan-y-gors-rental-2026-10-18-gyg-championship-rou",
-   "seriesId": "glan-y-gors-rental",
-   "title": "GYG Championship Round 7",
-   "start": "2026-10-18",
-   "end": "2026-10-18",
-   "location": "Glan y Gors",
-   "kind": "race"
-  },
-  {
-   "id": "glan-y-gors-rental-2026-10-31-halloween-endurance-",
-   "seriesId": "glan-y-gors-rental",
-   "title": "Halloween Endurance Open Event",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "location": "Glan y Gors",
+   "id": "fulbeck-kart-club-2026-11-22-round-9",
+   "seriesId": "fulbeck-kart-club",
+   "title": "Round 9",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Fulbeck",
    "kind": "race"
   },
   {
@@ -2327,200 +2165,56 @@
    "kind": "race"
   },
   {
-   "id": "bayford-meadows-rental-2026-10-17-bayford-50",
-   "seriesId": "bayford-meadows-rental",
-   "title": "Bayford 50",
-   "start": "2026-10-17",
-   "end": "2026-10-17",
-   "location": "Bayford Meadows",
+   "id": "teesside-autodrome-rental-2026-11-22-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 1",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Teesside Autodrome",
    "kind": "race"
   },
   {
-   "id": "bayford-meadows-rental-2026-10-31-superpro-summer-cup-",
-   "seriesId": "bayford-meadows-rental",
-   "title": "SuperPro Summer Cup Round 8",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "location": "Bayford Meadows",
+   "id": "ellough-park-rental-2026-11-24-junior-pro-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Junior Pro League",
+   "start": "2026-11-24",
+   "end": "2026-11-24",
+   "location": "Ellough Park",
    "kind": "race"
   },
   {
-   "id": "bayford-meadows-rental-2026-12-05-superpro-winter-cup-",
-   "seriesId": "bayford-meadows-rental",
-   "title": "SuperPro Winter Cup Round 1",
-   "start": "2026-12-05",
-   "end": "2026-12-05",
-   "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "bayford-meadows-rental-2027-01-02-superpro-winter-cup-",
-   "seriesId": "bayford-meadows-rental",
-   "title": "SuperPro Winter Cup Round 2",
-   "start": "2027-01-02",
-   "end": "2027-01-02",
-   "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "bayford-meadows-rental-2027-02-06-superpro-winter-cup-",
-   "seriesId": "bayford-meadows-rental",
-   "title": "SuperPro Winter Cup Round 3",
-   "start": "2027-02-06",
-   "end": "2027-02-06",
-   "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "bayford-meadows-rental-2027-03-06-superpro-winter-cup-",
-   "seriesId": "bayford-meadows-rental",
-   "title": "SuperPro Winter Cup Round 4",
-   "start": "2027-03-06",
-   "end": "2027-03-06",
-   "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "karting-at-ancaster-2026-10-15-thursday-evening-rac",
-   "seriesId": "karting-at-ancaster",
-   "title": "Thursday Evening Racing",
-   "start": "2026-10-15",
-   "end": "2026-10-15",
-   "location": "Ancaster Karting",
-   "kind": "race"
-  },
-  {
-   "id": "red-lodge-karting-2026-10-18-young-starz-round-7",
-   "seriesId": "red-lodge-karting",
-   "title": "Young Starz Round 7",
-   "start": "2026-10-18",
-   "end": "2026-10-18",
-   "location": "Red Lodge Karting",
-   "kind": "race"
-  },
-  {
-   "id": "red-lodge-karting-2026-11-01-young-starz-round-8",
-   "seriesId": "red-lodge-karting",
-   "title": "Young Starz Round 8",
-   "start": "2026-11-01",
-   "end": "2026-11-01",
-   "location": "Red Lodge Karting",
-   "kind": "race"
-  },
-  {
-   "id": "red-lodge-karting-2026-11-07-club2000-round-12",
-   "seriesId": "red-lodge-karting",
-   "title": "Club2000 Round 12",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "location": "Red Lodge Karting",
-   "kind": "race"
-  },
-  {
-   "id": "red-lodge-karting-2026-11-15-young-starz-round-9",
-   "seriesId": "red-lodge-karting",
-   "title": "Young Starz Round 9",
-   "start": "2026-11-15",
-   "end": "2026-11-15",
-   "location": "Red Lodge Karting",
-   "kind": "race"
-  },
-  {
-   "id": "red-lodge-karting-2026-12-06-young-starz-round-10",
-   "seriesId": "red-lodge-karting",
-   "title": "Young Starz Round 10",
-   "start": "2026-12-06",
-   "end": "2026-12-06",
-   "location": "Red Lodge Karting",
-   "kind": "race"
-  },
-  {
-   "id": "red-lodge-karting-2026-12-20-young-starz-round-11",
-   "seriesId": "red-lodge-karting",
-   "title": "Young Starz Round 11",
-   "start": "2026-12-20",
-   "end": "2026-12-20",
-   "location": "Red Lodge Karting",
-   "kind": "race"
-  },
-  {
-   "id": "dunkeswell-rental-2026-10-10-junior-championship-",
-   "seriesId": "dunkeswell-rental",
-   "title": "Junior Championship Round 4",
-   "start": "2026-10-10",
-   "end": "2026-10-10",
-   "location": "Dunkeswell Airfield",
-   "kind": "race"
-  },
-  {
-   "id": "dunkeswell-rental-2026-10-11-rental-championship-",
-   "seriesId": "dunkeswell-rental",
-   "title": "Rental Championship Round 8",
-   "start": "2026-10-11",
-   "end": "2026-10-11",
-   "location": "Dunkeswell Airfield",
-   "kind": "race"
-  },
-  {
-   "id": "dunkeswell-rental-2026-11-08-rental-winter-cup-ro",
-   "seriesId": "dunkeswell-rental",
-   "title": "Rental Winter Cup Round 1",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
-   "location": "Dunkeswell Airfield",
-   "kind": "race"
-  },
-  {
-   "id": "dunkeswell-rental-2026-11-14-junior---women-s-win",
-   "seriesId": "dunkeswell-rental",
-   "title": "Junior & Women's Winter Cup R1",
-   "start": "2026-11-14",
-   "end": "2026-11-14",
-   "location": "Dunkeswell Airfield",
-   "kind": "race"
-  },
-  {
-   "id": "dunkeswell-rental-2026-12-12-junior---women-s-win",
-   "seriesId": "dunkeswell-rental",
-   "title": "Junior & Women's Winter Cup R2",
-   "start": "2026-12-12",
-   "end": "2026-12-12",
-   "location": "Dunkeswell Airfield",
-   "kind": "race"
-  },
-  {
-   "id": "dunkeswell-rental-2026-12-13-rental-winter-cup-ro",
-   "seriesId": "dunkeswell-rental",
-   "title": "Rental Winter Cup Round 2",
-   "start": "2026-12-13",
-   "end": "2026-12-13",
-   "location": "Dunkeswell Airfield",
-   "kind": "race"
-  },
-  {
-   "id": "club73-karting-championships-2026-10-10-weekend-r9---enduran",
-   "seriesId": "club73-karting-championships",
-   "title": "Weekend R9 & Endurance R7",
-   "start": "2026-10-10",
-   "end": "2026-10-10",
+   "id": "rye-house-rental-2026-11-26-monaco-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Monaco Cup R9",
+   "start": "2026-11-26",
+   "end": "2026-11-26",
    "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
-   "id": "club73-karting-championships-2026-10-14-midweek-championship",
-   "seriesId": "club73-karting-championships",
-   "title": "Midweek Championship Round 9",
-   "start": "2026-10-14",
-   "end": "2026-10-14",
-   "location": "Buckmore Park Kart Circuit",
+   "id": "ellough-park-kart-club-racing-2026-11-27-iron-league",
+   "seriesId": "ellough-park-kart-club-racing",
+   "title": "Iron League",
+   "start": "2026-11-27",
+   "end": "2026-11-27",
+   "location": "Ellough Park",
    "kind": "race"
   },
   {
-   "id": "club73-karting-championships-2026-11-11-midweek-championship",
-   "seriesId": "club73-karting-championships",
-   "title": "Midweek Championship Round 10",
-   "start": "2026-11-11",
-   "end": "2026-11-11",
+   "id": "ellough-park-rental-2026-11-27-iron-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Iron League",
+   "start": "2026-11-27",
+   "end": "2026-11-27",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2026-11-27-mexico-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R9",
+   "start": "2026-11-27",
+   "end": "2026-11-27",
    "location": "Rye House Kart Raceway",
    "kind": "race"
   },
@@ -2534,6 +2228,222 @@
    "kind": "race"
   },
   {
+   "id": "elite-karting-series-2026-11-28-round-13",
+   "seriesId": "elite-karting-series",
+   "title": "Round 13",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "location": "Kart Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "cumbria-kart-racing-club-2026-11-29-rowrah-o-plate-ikr-m",
+   "seriesId": "cumbria-kart-racing-club",
+   "title": "Rowrah O Plate - IKR Meeting",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-11-29-superchamps-round-4",
+   "seriesId": "daytona-tamworth",
+   "title": "SuperChamps Round 4",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "pf-international-rental-2026-11-29-sunday-100-team-race",
+   "seriesId": "pf-international-rental",
+   "title": "Sunday 100 team race",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-11-30-open-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Open League",
+   "start": "2026-11-30",
+   "end": "2026-11-30",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2026-12-05-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 1",
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "trent-valley-kart-club-2026-12-05-festive-cup",
+   "seriesId": "trent-valley-kart-club",
+   "title": "Festive Cup",
+   "start": "2026-12-05",
+   "end": "2026-12-06",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-sandown-park-2026-12-06-inkart-round-5",
+   "seriesId": "daytona-sandown-park",
+   "title": "InKart Round 5",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-12-06-inkart-round-5",
+   "seriesId": "daytona-tamworth",
+   "title": "InKart Round 5",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-12-06-young-starz-round-10",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 10",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "warden-law-rental-2026-12-06-kne-hire-kart-sprint",
+   "seriesId": "warden-law-rental",
+   "title": "KNE Winter Race Day",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "location": "Warden Law",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-12-08-pro-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Pro League",
+   "start": "2026-12-08",
+   "end": "2026-12-08",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "clay-pigeon-rental-2026-12-12-turkey-trot-2026",
+   "seriesId": "clay-pigeon-rental",
+   "title": "Turkey Trot 2026",
+   "start": "2026-12-12",
+   "end": "2026-12-13",
+   "location": "Clay Pigeon Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-12-12-junior---women-s-win",
+   "seriesId": "dunkeswell-rental",
+   "title": "Junior & Women's Winter Cup R2",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "hunts-kart-racing-club-2026-12-12-round-10",
+   "seriesId": "hunts-kart-racing-club",
+   "title": "Round 10",
+   "start": "2026-12-12",
+   "end": "2026-12-13",
+   "location": "Kimbolton",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-12-13-superchamps-round-5",
+   "seriesId": "daytona-tamworth",
+   "title": "SuperChamps Round 5",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "dunkeswell-rental-2026-12-13-rental-winter-cup-ro",
+   "seriesId": "dunkeswell-rental",
+   "title": "Rental Winter Cup Round 2",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Dunkeswell Airfield",
+   "kind": "race"
+  },
+  {
+   "id": "lydd-kart-club-2026-12-13-christmas-bash",
+   "seriesId": "lydd-kart-club",
+   "title": "Christmas Bash",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Lydd Kart Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2026-12-13-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 2",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-12-14-open-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Open League",
+   "start": "2026-12-14",
+   "end": "2026-12-14",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-kart-club-racing-2026-12-18-iron-league",
+   "seriesId": "ellough-park-kart-club-racing",
+   "title": "Iron League",
+   "start": "2026-12-18",
+   "end": "2026-12-18",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "ellough-park-rental-2026-12-18-iron-league",
+   "seriesId": "ellough-park-rental",
+   "title": "Iron League",
+   "start": "2026-12-18",
+   "end": "2026-12-18",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "whilton-mill-kart-club-2026-12-19-wm-christmas-special",
+   "seriesId": "whilton-mill-kart-club",
+   "title": "WM Christmas Special",
+   "start": "2026-12-19",
+   "end": "2026-12-20",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "whilton-mill-rental-2026-12-19-christmas-special",
+   "seriesId": "whilton-mill-rental",
+   "title": "Christmas Special",
+   "start": "2026-12-19",
+   "end": "2026-12-20",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
    "id": "club73-karting-championships-2026-12-20-weekend-r11---endura",
    "seriesId": "club73-karting-championships",
    "title": "Weekend R11 & Endurance R9",
@@ -2543,84 +2453,345 @@
    "kind": "race"
   },
   {
-   "id": "fat-karting-league-uk-2026-10-10-regional-round-7",
-   "seriesId": "fat-karting-league-uk",
-   "title": "Regional Round 7",
-   "start": "2026-10-10",
-   "end": "2026-10-11",
-   "location": "Shenington Kart Club",
+   "id": "daytona-milton-keynes-2026-12-20-adult-xmas-festival-",
+   "seriesId": "daytona-milton-keynes",
+   "title": "Adult Xmas Festival Endurance Race",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Daytona Milton Keynes",
    "kind": "race"
   },
   {
-   "id": "fat-karting-league-uk-2026-10-24-regional-round-8",
-   "seriesId": "fat-karting-league-uk",
-   "title": "Regional Round 8",
-   "start": "2026-10-24",
-   "end": "2026-10-25",
-   "location": "Shenington Kart Club",
+   "id": "daytona-milton-keynes-2026-12-20-cadet---junior-chris",
+   "seriesId": "daytona-milton-keynes",
+   "title": "Cadet & Junior Christmas Endurance Race",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Daytona Milton Keynes",
    "kind": "race"
   },
   {
-   "id": "fat-karting-league-uk-2026-11-07-pro-round-9",
-   "seriesId": "fat-karting-league-uk",
-   "title": "Pro Round 9",
-   "start": "2026-11-07",
-   "end": "2026-11-08",
-   "location": "Whilton Mill",
+   "id": "daytona-sandown-park-2026-12-20-inkart-round-6",
+   "seriesId": "daytona-sandown-park",
+   "title": "InKart Round 6",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Daytona Sandown Park",
    "kind": "race"
   },
   {
-   "id": "fat-karting-league-uk-2026-11-14-regional-round-9",
-   "seriesId": "fat-karting-league-uk",
-   "title": "Regional Round 9",
-   "start": "2026-11-14",
-   "end": "2026-11-15",
+   "id": "daytona-tamworth-2026-12-20-inkart-round-6",
+   "seriesId": "daytona-tamworth",
+   "title": "InKart Round 6",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "red-lodge-karting-2026-12-20-young-starz-round-11",
+   "seriesId": "red-lodge-karting",
+   "title": "Young Starz Round 11",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Red Lodge Karting",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2027-01-02-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 2",
+   "start": "2027-01-02",
+   "end": "2027-01-02",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2027-01-03-superchamps-round-6",
+   "seriesId": "daytona-tamworth",
+   "title": "SuperChamps Round 6",
+   "start": "2027-01-03",
+   "end": "2027-01-03",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-sandown-park-2027-01-10-inkart-round-7",
+   "seriesId": "daytona-sandown-park",
+   "title": "InKart Round 7",
+   "start": "2027-01-10",
+   "end": "2027-01-10",
+   "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2027-01-10-inkart-round-7",
+   "seriesId": "daytona-tamworth",
+   "title": "InKart Round 7",
+   "start": "2027-01-10",
+   "end": "2027-01-10",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2027-01-17-superchamps-round-7",
+   "seriesId": "daytona-tamworth",
+   "title": "SuperChamps Round 7",
+   "start": "2027-01-17",
+   "end": "2027-01-17",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2027-01-17-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 3",
+   "start": "2027-01-17",
+   "end": "2027-01-17",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-sandown-park-2027-01-24-inkart-round-8",
+   "seriesId": "daytona-sandown-park",
+   "title": "InKart Round 8",
+   "start": "2027-01-24",
+   "end": "2027-01-24",
+   "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2027-01-24-inkart-round-8",
+   "seriesId": "daytona-tamworth",
+   "title": "InKart Round 8",
+   "start": "2027-01-24",
+   "end": "2027-01-24",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2027-01-31-superchamps-round-8",
+   "seriesId": "daytona-tamworth",
+   "title": "SuperChamps Round 8",
+   "start": "2027-01-31",
+   "end": "2027-01-31",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2027-02-06-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 3",
+   "start": "2027-02-06",
+   "end": "2027-02-06",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-milton-keynes-2027-02-06-race-of-champions-20",
+   "seriesId": "daytona-milton-keynes",
+   "title": "Race of Champions 2026/27",
+   "start": "2027-02-06",
+   "end": "2027-02-07",
+   "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-02-14-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 1",
+   "start": "2027-02-14",
+   "end": "2027-02-14",
    "location": "Buckmore Park",
    "kind": "race"
   },
   {
-   "id": "elite-karting-series-2026-10-10-round-10",
-   "seriesId": "elite-karting-series",
-   "title": "Round 10",
-   "start": "2026-10-10",
-   "end": "2026-10-10",
-   "location": "Glan-y-Gors",
+   "id": "british-rental-kart-championship-2027-02-26-brkc-2027",
+   "seriesId": "british-rental-kart-championship",
+   "title": "BRKC 2027",
+   "start": "2027-02-26",
+   "end": "2027-02-28",
+   "location": "Formula Fast",
    "kind": "race"
   },
   {
-   "id": "elite-karting-series-2026-10-11-round-11",
-   "seriesId": "elite-karting-series",
-   "title": "Round 11",
-   "start": "2026-10-11",
-   "end": "2026-10-11",
+   "id": "bayford-meadows-rental-2027-03-06-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 4",
+   "start": "2027-03-06",
+   "end": "2027-03-06",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2027-03-07-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 4",
+   "start": "2027-03-07",
+   "end": "2027-03-07",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "national-kart-cup-2027-03-19-round-1",
+   "seriesId": "national-kart-cup",
+   "title": "Round 1",
+   "start": "2027-03-19",
+   "end": "2027-03-21",
+   "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-04-11-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 2",
+   "start": "2027-04-11",
+   "end": "2027-04-11",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "national-kart-cup-2027-04-23-round-2",
+   "seriesId": "national-kart-cup",
+   "title": "Round 2",
+   "start": "2027-04-23",
+   "end": "2027-04-25",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
+   "seriesId": "spanish-24-hours-karting",
+   "title": "Campillos 24 Hour",
+   "start": "2027-05-07",
+   "end": "2027-05-09",
+   "location": "Kart Center Campillos",
+   "kind": "race"
+  },
+  {
+   "id": "national-kart-cup-2027-05-21-round-3",
+   "seriesId": "national-kart-cup",
+   "title": "Round 3",
+   "start": "2027-05-21",
+   "end": "2027-05-23",
    "location": "Three Sisters",
    "kind": "race"
   },
   {
-   "id": "elite-karting-series-2026-10-28-silverstone-champion",
-   "seriesId": "elite-karting-series",
-   "title": "Silverstone Championship Round 7",
-   "start": "2026-10-28",
-   "end": "2026-10-28",
-   "location": "Kart Silverstone",
+   "id": "club100-sprint-championship-2027-05-23-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 3",
+   "start": "2027-05-23",
+   "end": "2027-05-23",
+   "location": "Dunkeswell",
    "kind": "race"
   },
   {
-   "id": "elite-karting-series-2026-11-08-round-12",
-   "seriesId": "elite-karting-series",
-   "title": "Round 12",
-   "start": "2026-11-08",
-   "end": "2026-11-08",
+   "id": "daytona-milton-keynes-2027-05-29-daytona-24-hours-202",
+   "seriesId": "daytona-milton-keynes",
+   "title": "Daytona 24 Hours 2027",
+   "start": "2027-05-29",
+   "end": "2027-05-30",
+   "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "national-kart-cup-2027-06-18-round-4",
+   "seriesId": "national-kart-cup",
+   "title": "Round 4",
+   "start": "2027-06-18",
+   "end": "2027-06-20",
+   "location": "Forest Edge",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-06-20-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 4",
+   "start": "2027-06-20",
+   "end": "2027-06-20",
+   "location": "Lydd",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-07-04-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 5",
+   "start": "2027-07-04",
+   "end": "2027-07-04",
+   "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "national-kart-cup-2027-07-16-o-plate",
+   "seriesId": "national-kart-cup",
+   "title": "O Plate",
+   "start": "2027-07-16",
+   "end": "2027-07-18",
+   "location": "Llandow",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2027-08-06-british-24h--hire-ka",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "British 24H (Hire Kart Championship)",
+   "start": "2027-08-06",
+   "end": "2027-08-08",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-08-08-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 6",
+   "start": "2027-08-08",
+   "end": "2027-08-08",
+   "location": "Glan Y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "national-kart-cup-2027-08-13-round-5",
+   "seriesId": "national-kart-cup",
+   "title": "Round 5",
+   "start": "2027-08-13",
+   "end": "2027-08-15",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-08-30-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 7",
+   "start": "2027-08-30",
+   "end": "2027-08-30",
    "location": "PF International",
    "kind": "race"
   },
   {
-   "id": "elite-karting-series-2026-11-28-round-13",
-   "seriesId": "elite-karting-series",
-   "title": "Round 13",
-   "start": "2026-11-28",
-   "end": "2026-11-28",
-   "location": "Kart Silverstone",
+   "id": "national-kart-cup-2027-09-25-round-6",
+   "seriesId": "national-kart-cup",
+   "title": "Round 6",
+   "start": "2027-09-25",
+   "end": "2027-09-26",
+   "location": "Dunkeswell",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-09-26-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 8",
+   "start": "2027-09-26",
+   "end": "2027-09-26",
+   "location": "Buckmore Park",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-10-31-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 9",
+   "start": "2027-10-31",
+   "end": "2027-10-31",
+   "location": "Warden Law",
    "kind": "race"
   }
  ]

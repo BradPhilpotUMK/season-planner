@@ -201,6 +201,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .flaghead h3{margin:0}
 .flaghead p{margin:2px 0 0}
 .emptylogo{display:block;width:110px;height:auto;margin:4px auto 10px;opacity:.95}
+.emptyicon{display:block;width:72px;height:72px;margin:4px auto 10px;color:var(--muted)}
 .brand .mark{width:30px;height:30px;border-radius:7px;flex:none;background:repeating-linear-gradient(135deg,var(--kerb) 0 6px,var(--kerbW) 6px 12px);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
 .brand img{height:46px;width:auto;max-width:150px;display:block;flex:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
 .brand .sub{font-family:var(--display);font-size:15px;color:var(--muted);font-weight:500;display:block;margin-top:2px}
@@ -362,6 +363,10 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
     <div class="suggest" id="suggest"></div>
     <div id="seriesList"></div>
     <p class="note" id="aiNote"></p>
+    <h2 class="sect">National series</h2>
+    <p class="hint">UK national owner-driver championships. Tap one to see its rounds and tick the ones you'll race.</p>
+    <div id="natScan"></div>
+    <div id="natList"></div>
     <h2 class="sect">UK club racing</h2>
     <div id="clubScan"></div>
     <div id="clubList"></div>
@@ -376,8 +381,8 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
   <button class="on" data-tab="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button>
   <button data-tab="week"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Weekends</button>
   <button data-tab="rental"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.2"/><path d="M3.5 10.5h6.3M14.2 10.5h6.3M12 14.2V21"/></svg>Rental</button>
+  <button data-tab="series"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Owner</button>
   <button data-tab="clash"><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17.5v.5"/></svg>Clashes<span id="clashBadge"></span></button>
-  <button data-tab="series"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Series</button>
 </div></nav>
 
 <div class="scrim" id="scrim"></div>
@@ -458,7 +463,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="20261008222406";
+const BUILD="20261008212733";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -482,7 +487,7 @@ const todayIso=isoOf(TODAY);
 const validIso=s=>/^\d{4}-\d{2}-\d{2}$/.test(s||"")&&!isNaN(dn(s));
 const fmt=(iso,opt)=>new Date(dn(iso)*864e5).toLocaleDateString("en-GB",Object.assign({timeZone:"UTC"},opt));
 const ser=id=>S.series.find(s=>s.id===id);
-const isClub=s=>!!s&&(s.kind==="club"||s.kind==="rental"||s.kind==="rtrack");
+const isClub=s=>!!s&&(s.kind==="club"||s.kind==="national"||s.kind==="rental"||s.kind==="rtrack");
 const isRental=s=>!!s&&(s.kind==="rental"||s.kind==="rtrack");
 const isRacing=e=>{if(e.racing===true)return true;if(e.racing===false)return false;const s=ser(e.seriesId);return !isClub(s)||!!s.racing};
 const colorOf=e=>isRacing(e)?(ser(e.seriesId)?.color||"#9EA3AD"):GREY;
@@ -766,7 +771,7 @@ function renderSeries(){
       <button class="btn" data-editser="${s.id}">Edit</button>
       ${assets?`<button class="btn" data-logo="${s.id}">${s.logo?"Change logo":"Add logo"}</button>`:""}
       <button class="btn ghost danger" data-rmseries="${s.id}">Remove</button></div></div>`;
-  }).join(""):`<div class="card" style="text-align:center"><img class="emptylogo" alt="" src="${BRAND}"><h3 style="justify-content:center">No series yet</h3><p>Add one above, or tap a suggestion.</p></div>`;
+  }).join(""):`<div class="card" style="text-align:center"><svg class="emptyicon" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38a22 22 0 0 1 44 0v8a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6z"/><path d="M14 34h36v6a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z" fill="currentColor" fill-opacity=".12"/><circle cx="25" cy="38.5" r="1.6" fill="currentColor" stroke="none"/><circle cx="39" cy="38.5" r="1.6" fill="currentColor" stroke="none"/><path d="M22 35l5 1.5M42 35l-5 1.5" stroke-width="2"/><path d="M26 49q6-4 12 0" stroke-width="2.5"/></svg><h3 style="justify-content:center">No series yet</h3><p>Add one above, or tap a suggestion.</p></div>`;
   renderClubs();
   $("#aiNote").textContent=!sample?"":mcp?"Find dates online searches the web and reads the series' own calendar page. If a series hasn't published yet, import the calendar once it's out.":"Finding dates online needs the Parallel Search connector on your Claude account. You can still import a calendar.";
 }
@@ -812,17 +817,17 @@ function renderWeekends(){
 }
 
 /* ---------- UK club scan ---------- */
-function renderClubs(){renderGroup("club","#clubScan","#clubList");renderGroup("rental","#rentScan","#rentList");renderGroup("rtrack","#trackScan","#trackList")}
+function renderClubs(){renderGroup("national","#natScan","#natList");renderGroup("club","#clubScan","#clubList");renderGroup("rental","#rentScan","#rentList");renderGroup("rtrack","#trackScan","#trackList")}
 function renderGroup(kind,scanSel,listSel){
-  const R=kind!=="club",T=kind==="rtrack";
+  const N=kind==="national",R=kind==="rental"||kind==="rtrack",T=kind==="rtrack";
   const clubs=S.series.filter(s=>s.kind===kind).sort((a,b)=>a.name.localeCompare(b.name,"en",{sensitivity:"base"}));
   const last=clubs.map(c=>c.checked||0).reduce((a,b)=>Math.max(a,b),0);
   const can=sample&&mcp;
   let head;
   if(scan&&scan.kinds.has(kind))head=`<div class="scan"><strong>Checking ${scan.done} of ${scan.total}</strong><div class="prog"><i style="width:${Math.round(scan.done/scan.total*100)}%"></i></div><p class="note">${scan.wait?"Search is busy, waiting "+scan.wait+"s then carrying on":esc(scan.now.join(", ")||"Finishing up")}</p><div class="row"><button class="btn" data-scanstop="1">Stop</button></div></div>`;
-  else head=`<div class="scan"><strong>${last?(T?"Track events":R?"Rental calendars":"Club calendars")+" last checked "+new Date(last).toLocaleDateString("en-GB",{day:"numeric",month:"short"}):(T?"Find every race event at UK rental tracks":R?"Find every rental championship round":"Fill your calendar with every club round")}</strong><p class="note" style="margin:4px 0 10px">${!can&&WEB?("Dates are found automatically and updated every week"+(S.masterUpdated?", last on "+new Date(S.masterUpdated).toLocaleDateString("en-GB",{day:"numeric",month:"short"}):"")+". Tap any one to see its rounds."):can?(T?"Searches each track's website for its leagues, grands prix and endurance races. Checks one at a time, so it takes a while. You can keep using the app.":R?"Searches each championship's website for its race dates. Takes a few minutes.":"Searches each club's website for its race dates. Takes a few minutes. Clubs usually publish next year's dates between November and January, so check again then."):"Needs the Parallel Search connector on your Claude account."}</p>${can?(()=>{const left=clubs.filter(c=>!c.checked||c.failed).length;
+  else head=`<div class="scan"><strong>${last?(T?"Track events":R?"Rental calendars":N?"National calendars":"Club calendars")+" last checked "+new Date(last).toLocaleDateString("en-GB",{day:"numeric",month:"short"}):(T?"Find every race event at UK rental tracks":R?"Find every rental championship round":N?"Find every national championship round":"Fill your calendar with every club round")}</strong><p class="note" style="margin:4px 0 10px">${!can&&WEB?("Dates are found automatically and updated every week"+(S.masterUpdated?", last on "+new Date(S.masterUpdated).toLocaleDateString("en-GB",{day:"numeric",month:"short"}):"")+". Tap any one to see its rounds."):can?(T?"Searches each track's website for its leagues, grands prix and endurance races. Checks one at a time, so it takes a while. You can keep using the app.":R?"Searches each championship's website for its race dates. Takes a few minutes.":"Searches each club's website for its race dates. Takes a few minutes. Clubs usually publish next year's dates between November and January, so check again then."):"Needs the Parallel Search connector on your Claude account."}</p>${can?(()=>{const left=clubs.filter(c=>!c.checked||c.failed).length;
     return (last&&left?`<div class="row"><button class="btn primary" data-scanrest="${kind}">Check the ${left} remaining</button><button class="btn" data-scanall="${kind}">Check all again</button></div>`
-      :`<button class="btn primary" data-scanall="${kind}">${last?"Check all again":T?"Load track events":R?"Load rental calendars":"Load UK club calendars"}</button>`)})():""}</div>`;
+      :`<button class="btn primary" data-scanall="${kind}">${last?"Check all again":T?"Load track events":R?"Load rental calendars":N?"Load national calendars":"Load UK club calendars"}</button>`)})():""}</div>`;
   $(scanSel).innerHTML=head;
   $(listSel).innerHTML=clubs.map(c=>{
     const n=S.events.filter(e=>e.seriesId===c.id).length;
@@ -1191,8 +1196,8 @@ document.addEventListener("click",ev=>{
     toast(on?"Marked as racing":"Removed from your races");return}
   if(d.club){clubSheet(d.club);return}
   if(d.serrace){const c=ser(d.serrace);if(!c)return;c.racing=!c.racing;if(c.racing)S.events.forEach(e=>{if(e.seriesId===c.id&&e.racing===false)delete e.racing});else S.events.forEach(e=>{if(e.seriesId===c.id&&e.racing===true)delete e.racing});save();render();if(document.querySelector(".sheet.on .dayopts[data-club]"))clubSheet(c.id);toast(c.racing?"Racing every "+c.name+" round":"Unticked "+c.name);return}
-  if(d.scanrest){const k=["rental","rtrack"].includes(d.scanrest)?d.scanrest:"club";runScan(S.series.filter(c=>c.kind===k&&(!c.checked||c.failed)).map(c=>c.id));return}
-  if(d.scanall){const k=["rental","rtrack"].includes(d.scanall)?d.scanall:"club";runScan(S.series.filter(c=>c.kind===k).map(c=>c.id));return}
+  if(d.scanrest){const k=["rental","rtrack","national"].includes(d.scanrest)?d.scanrest:"club";runScan(S.series.filter(c=>c.kind===k&&(!c.checked||c.failed)).map(c=>c.id));return}
+  if(d.scanall){const k=["rental","rtrack","national"].includes(d.scanall)?d.scanall:"club";runScan(S.series.filter(c=>c.kind===k).map(c=>c.id));return}
   if(d.scanone){runScan([d.scanone]);return}
   if(d.scanstop){scan?.ctl.abort();return}
   if(d.jump){document.getElementById("m"+d.jump)?.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});return}
