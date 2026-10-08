@@ -164,7 +164,7 @@
   {
    "id": "larkhall-kart-club-racing",
    "name": "Larkhall kart club racing",
-   "venue": "Mansell Raceway, Larkhall",
+   "venue": "Larkhall Circuit International, Larkhall",
    "kind": "club",
    "color": "#FF5C8A",
    "checked": 1791448090167,
@@ -427,14 +427,6 @@
    "short": "THX"
   },
   {
-   "id": "lakeside-karting",
-   "name": "Lakeside Karting",
-   "venue": "Thurrock, Essex",
-   "kind": "rtrack",
-   "color": "#D9D23A",
-   "short": "LAK"
-  },
-  {
    "id": "forest-edge-rental",
    "name": "Forest Edge (rental)",
    "venue": "Hampshire",
@@ -524,11 +516,11 @@
   },
   {
    "id": "mansell-raceway-rental",
-   "name": "Mansell Raceway (rental)",
+   "name": "Larkhall Circuit International (rental)",
    "venue": "Larkhall, Scotland",
    "kind": "rtrack",
    "color": "#D9D23A",
-   "short": "MR"
+   "short": "LCI"
   },
   {
    "id": "bayford-meadows-rental",
@@ -537,6 +529,750 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "BM"
+  },
+  {
+   "id": "south-coast-karting",
+   "name": "South Coast Karting",
+   "venue": "Christchurch, Dorset",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "SCK"
+  },
+  {
+   "id": "tockwith-outdoor-karting",
+   "name": "Tockwith Outdoor Karting",
+   "venue": "Tockwith, North Yorkshire",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "TOC"
+  },
+  {
+   "id": "sutton-circuit",
+   "name": "Sutton Circuit",
+   "venue": "Sutton in the Elms, Leicestershire",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "SUT"
+  },
+  {
+   "id": "kartworld-skegness",
+   "name": "Kartworld Skegness",
+   "venue": "Skegness, Lincolnshire",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "KWS"
+  },
+  {
+   "id": "nutts-corner-rental",
+   "name": "Nutts Corner (rental)",
+   "venue": "Crumlin, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "NC"
+  },
+  {
+   "id": "lydd-rental",
+   "name": "Lydd (rental)",
+   "venue": "Lydd, Kent",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "LYD"
+  },
+  {
+   "id": "midland-karting",
+   "name": "Midland Karting",
+   "venue": "Lichfield, Staffordshire",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "MID"
+  },
+  {
+   "id": "march-hare-leisure",
+   "name": "March Hare Leisure",
+   "venue": "Worcester",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "MH"
+  },
+  {
+   "id": "parkwood-karting",
+   "name": "Parkwood Karting",
+   "venue": "Sheffield, South Yorkshire",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "PW"
+  },
+  {
+   "id": "stretton-circuit",
+   "name": "Stretton Circuit",
+   "venue": "Great Stretton, Leicestershire",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "STR"
+  },
+  {
+   "id": "south-west-karting-at-haynes",
+   "name": "South West Karting at Haynes",
+   "venue": "Sparkford, Somerset",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "SWK"
+  },
+  {
+   "id": "formula-kart-blackpool",
+   "name": "Formula Kart Blackpool",
+   "venue": "Blackpool, Lancashire",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "FKB"
+  },
+  {
+   "id": "nottingham-raceway-karting",
+   "name": "Nottingham Raceway Karting",
+   "venue": "Upper Broughton, Leicestershire",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "NR"
+  },
+  {
+   "id": "karting-at-ancaster",
+   "name": "Karting at Ancaster",
+   "venue": "Grantham, Lincolnshire",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "ANC"
+  },
+  {
+   "id": "red-lodge-karting",
+   "name": "Red Lodge Karting",
+   "venue": "Bury St Edmunds, Suffolk",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "RL"
+  },
+  {
+   "id": "herefordshire-raceway",
+   "name": "Herefordshire Raceway",
+   "venue": "Hereford",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "HER"
+  },
+  {
+   "id": "kinsham-raceway",
+   "name": "Kinsham Raceway",
+   "venue": "Presteigne, Herefordshire",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "KIN"
+  },
+  {
+   "id": "brentwood-karting",
+   "name": "Brentwood Karting",
+   "venue": "Brentwood, Essex",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "BRE"
+  },
+  {
+   "id": "karttrak-cromer",
+   "name": "Karttrak Cromer",
+   "venue": "Cromer, Norfolk",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "CRO"
+  },
+  {
+   "id": "knockhill-karting",
+   "name": "Knockhill Karting",
+   "venue": "Dunfermline, Fife",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "KNO"
+  },
+  {
+   "id": "rednal-karting",
+   "name": "Rednal Karting",
+   "venue": "Oswestry, Shropshire",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "RED"
+  },
+  {
+   "id": "aviemore-kart-raceway",
+   "name": "Aviemore Kart Raceway",
+   "venue": "Aviemore, Highlands",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "AVI"
+  },
+  {
+   "id": "chequered-flag-karting",
+   "name": "Chequered Flag Karting",
+   "venue": "Grimsby, Lincolnshire",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "CFK"
+  },
+  {
+   "id": "hull-karting",
+   "name": "Hull Karting",
+   "venue": "Hull, East Yorkshire",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "HUL"
+  },
+  {
+   "id": "revolution-karting",
+   "name": "Revolution Karting",
+   "venue": "Mile End, London",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "REV"
+  },
+  {
+   "id": "race-kart-centre-blyton",
+   "name": "Race Kart Centre Blyton",
+   "venue": "Gainsborough, Lincolnshire",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "BLY"
+  },
+  {
+   "id": "anglia-karting-centre",
+   "name": "Anglia Karting Centre",
+   "venue": "Swaffham, Norfolk",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "AKC"
+  },
+  {
+   "id": "k-team-karting",
+   "name": "K-Team Karting",
+   "venue": "Kilrea, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "KTM"
+  },
+  {
+   "id": "tattershall-karting-centre",
+   "name": "Tattershall Karting Centre",
+   "venue": "Tattershall, Lincolnshire",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "TAT"
+  },
+  {
+   "id": "boyndie-drome",
+   "name": "Boyndie Drome",
+   "venue": "Boyndie, Aberdeenshire",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "BOY"
+  },
+  {
+   "id": "pf-international-rental",
+   "name": "PF International (rental)",
+   "venue": "Brandon, Lincolnshire",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "PFi"
+  },
+  {
+   "id": "kartworld-adrenaline-quarry",
+   "name": "Kartworld Adrenaline Quarry",
+   "venue": "Liskeard, Cornwall",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "AQ"
+  },
+  {
+   "id": "elk-motorsport",
+   "name": "ELK Motorsport",
+   "venue": "Newark, Nottinghamshire",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "ELK"
+  },
+  {
+   "id": "dunkeswell-rental",
+   "name": "Dunkeswell (rental)",
+   "venue": "Honiton, Devon",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "DUN"
+  },
+  {
+   "id": "smart-kart-raceway-elgin",
+   "name": "Smart Kart Raceway Elgin",
+   "venue": "Elgin, Moray",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "SKE"
+  },
+  {
+   "id": "heatherton-karting",
+   "name": "Heatherton Karting",
+   "venue": "Tenby, Wales",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "HTN"
+  },
+  {
+   "id": "sandham-karts",
+   "name": "Sandham Karts",
+   "venue": "Sandown, Isle of Wight",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "SAN"
+  },
+  {
+   "id": "adventure-sports-warwick",
+   "name": "Adventure Sports Warwick",
+   "venue": "Warwick",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "ASW"
+  },
+  {
+   "id": "g-force-karting",
+   "name": "G-Force Karting",
+   "venue": "Pontypool, Wales",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "GF"
+  },
+  {
+   "id": "lochter-karting",
+   "name": "Lochter Karting",
+   "venue": "Oldmeldrum, Aberdeenshire",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "LOC"
+  },
+  {
+   "id": "castle-combe-karting",
+   "name": "Castle Combe Karting",
+   "venue": "Chippenham, Wiltshire",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "CC"
+  },
+  {
+   "id": "right-track-project-karting",
+   "name": "Right Track Project Karting",
+   "venue": "Stockwell, London",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "RTP"
+  },
+  {
+   "id": "coast-2-coast-karting",
+   "name": "Coast 2 Coast Karting",
+   "venue": "Hayle, Cornwall",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "C2C"
+  },
+  {
+   "id": "deeside-activity-park",
+   "name": "Deeside Activity Park",
+   "venue": "Aboyne, Aberdeenshire",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "DEE"
+  },
+  {
+   "id": "glasfryn-parc",
+   "name": "Glasfryn Parc",
+   "venue": "Pwllheli, Wales",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "GLA"
+  },
+  {
+   "id": "gosford-karting",
+   "name": "Gosford Karting",
+   "venue": "Markethill, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "GOS"
+  },
+  {
+   "id": "lakeland-karting",
+   "name": "Lakeland Karting",
+   "venue": "Kesh, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "LKL"
+  },
+  {
+   "id": "lockwell-hill-karting",
+   "name": "Lockwell Hill Karting",
+   "venue": "Newark, Nottinghamshire",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "LWH"
+  },
+  {
+   "id": "lyons-karting",
+   "name": "Lyons Karting",
+   "venue": "Hillsborough, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "LYO"
+  },
+  {
+   "id": "railway-karting",
+   "name": "Railway Karting",
+   "venue": "Moneymore, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "RWK"
+  },
+  {
+   "id": "st-eval-kart-circuit",
+   "name": "St Eval Kart Circuit",
+   "venue": "St Eval, Cornwall",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "SEV"
+  },
+  {
+   "id": "surbiton-raceway",
+   "name": "Surbiton Raceway",
+   "venue": "Worcester Park, Surrey",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "SUR"
+  },
+  {
+   "id": "traq-motor-racing",
+   "name": "Traq Motor Racing",
+   "venue": "Croydon, Surrey",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "TRQ"
+  },
+  {
+   "id": "wight-karting",
+   "name": "Wight Karting",
+   "venue": "Ryde, Isle of Wight",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "WIG"
+  },
+  {
+   "id": "teamworks-karting-all-venues",
+   "name": "Teamworks Karting (all venues)",
+   "venue": "UK, indoor",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "TW"
+  },
+  {
+   "id": "absolutely-karting-bristol-maidenhead",
+   "name": "Absolutely Karting (Bristol & Maidenhead)",
+   "venue": "UK, indoor",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "ABK"
+  },
+  {
+   "id": "xtreme-karting-edinburgh-falkirk",
+   "name": "Xtreme Karting (Edinburgh & Falkirk)",
+   "venue": "Scotland, indoor",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "XK"
+  },
+  {
+   "id": "k1-speed-canary-wharf",
+   "name": "K1 Speed Canary Wharf",
+   "venue": "London, indoor",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "K1"
+  },
+  {
+   "id": "capital-karts-star-city",
+   "name": "Capital Karts Star City",
+   "venue": "Birmingham, indoor",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "CKB"
+  },
+  {
+   "id": "apex-kart-chester",
+   "name": "Apex Kart Chester",
+   "venue": "Sandycroft, Cheshire",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "APX"
+  },
+  {
+   "id": "m4-karting",
+   "name": "M4 Karting",
+   "venue": "Chippenham, Wiltshire",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "M4"
+  },
+  {
+   "id": "raceworld-karting",
+   "name": "Raceworld Karting",
+   "venue": "Exeter, Devon",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "RW"
+  },
+  {
+   "id": "full-throttle-raceway",
+   "name": "Full Throttle Raceway",
+   "venue": "Stourbridge, West Midlands",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "FTR"
+  },
+  {
+   "id": "fast-lane-karting-stoke",
+   "name": "Fast Lane Karting Stoke",
+   "venue": "Stoke-on-Trent",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "FLS"
+  },
+  {
+   "id": "west-coast-karting",
+   "name": "West Coast Karting",
+   "venue": "Cumbria",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "WCK"
+  },
+  {
+   "id": "cannon-raceway",
+   "name": "Cannon Raceway",
+   "venue": "Coseley, West Midlands",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "CAN"
+  },
+  {
+   "id": "gridline-racing",
+   "name": "Gridline Racing",
+   "venue": "Lincoln",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "GRL"
+  },
+  {
+   "id": "avago-indoor-karting",
+   "name": "Avago Indoor Karting",
+   "venue": "Swinton, South Yorkshire",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "AVG"
+  },
+  {
+   "id": "formula-fast-karting",
+   "name": "Formula Fast Karting",
+   "venue": "Milton Keynes",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "FF"
+  },
+  {
+   "id": "anglia-indoor-karting",
+   "name": "Anglia Indoor Karting",
+   "venue": "Ipswich, Suffolk",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "AIK"
+  },
+  {
+   "id": "kartworld-burscough",
+   "name": "Kartworld Burscough",
+   "venue": "Burscough, Lancashire",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "KWB"
+  },
+  {
+   "id": "indoor-super-karting",
+   "name": "Indoor Super Karting",
+   "venue": "Burscough, Lancashire",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "ISK"
+  },
+  {
+   "id": "supakart",
+   "name": "Supakart",
+   "venue": "Newport, Wales",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "SUP"
+  },
+  {
+   "id": "jdr-karting",
+   "name": "JDR Karting",
+   "venue": "Gloucester",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "JDR"
+  },
+  {
+   "id": "eddie-irvine-sports",
+   "name": "Eddie Irvine Sports",
+   "venue": "Bangor, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "EIS"
+  },
+  {
+   "id": "teamkarting-rochdale",
+   "name": "TeamKarting Rochdale",
+   "venue": "Rochdale",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "TKR"
+  },
+  {
+   "id": "raceview-karting",
+   "name": "Raceview Karting",
+   "venue": "Ballymena, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "RVK"
+  },
+  {
+   "id": "prestige-go-karting",
+   "name": "Prestige Go Karting",
+   "venue": "Colne, Lancashire",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "PGK"
+  },
+  {
+   "id": "rogue-leisure-karting",
+   "name": "Rogue Leisure Karting",
+   "venue": "Aylesbury, Buckinghamshire",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "RLK"
+  },
+  {
+   "id": "fast-lane-indoor-raceways",
+   "name": "Fast Lane Indoor Raceways",
+   "venue": "Aberdeen",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "FLA"
+  },
+  {
+   "id": "topgear-karting",
+   "name": "TopGear Karting",
+   "venue": "Durham",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "TGK"
+  },
+  {
+   "id": "need-4-speed-karting",
+   "name": "Need 4 Speed Karting",
+   "venue": "Doagh, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#4C7DFF",
+   "short": "N4S"
+  },
+  {
+   "id": "pmg-karting-world",
+   "name": "PMG Karting World",
+   "venue": "Walsall",
+   "kind": "rtrack",
+   "color": "#E040C8",
+   "short": "PMG"
+  },
+  {
+   "id": "arkartz",
+   "name": "ARKARTZ",
+   "venue": "Burgess Hill, West Sussex",
+   "kind": "rtrack",
+   "color": "#3BD16F",
+   "short": "ARK"
+  },
+  {
+   "id": "inverness-kart-raceway",
+   "name": "Inverness Kart Raceway",
+   "venue": "Inverness",
+   "kind": "rtrack",
+   "color": "#F2A93B",
+   "short": "INV"
+  },
+  {
+   "id": "gt-karting-leeds",
+   "name": "GT Karting Leeds",
+   "venue": "Leeds",
+   "kind": "rtrack",
+   "color": "#3BB3E0",
+   "short": "GTK"
+  },
+  {
+   "id": "kart-kingdom",
+   "name": "Kart Kingdom",
+   "venue": "Llandow, Wales",
+   "kind": "rtrack",
+   "color": "#8B6CF0",
+   "short": "KK"
+  },
+  {
+   "id": "kartsport-ballymoney",
+   "name": "KartSport Ballymoney",
+   "venue": "Ballymoney, Northern Ireland",
+   "kind": "rtrack",
+   "color": "#F26B3A",
+   "short": "KSB"
+  },
+  {
+   "id": "the-garage-kilmarnock",
+   "name": "The Garage Kilmarnock",
+   "venue": "Kilmarnock",
+   "kind": "rtrack",
+   "color": "#22C3B0",
+   "short": "GAR"
+  },
+  {
+   "id": "wakefield-indoor-karting",
+   "name": "Wakefield Indoor Karting",
+   "venue": "Wakefield",
+   "kind": "rtrack",
+   "color": "#D9D23A",
+   "short": "WIK"
+  },
+  {
+   "id": "west-wales-karting",
+   "name": "West Wales Karting",
+   "venue": "Haverfordwest, Wales",
+   "kind": "rtrack",
+   "color": "#FF5C8A",
+   "short": "WWK"
+  },
+  {
+   "id": "club73-karting-championships",
+   "name": "Club73 Karting Championships",
+   "venue": "UK, multiple venues",
+   "kind": "rental",
+   "color": "#4C7DFF",
+   "short": "C73"
+  },
+  {
+   "id": "fat-karting-league-uk",
+   "name": "FAT Karting League UK",
+   "venue": "UK, multiple venues",
+   "kind": "rental",
+   "color": "#E040C8",
+   "short": "FAT"
   }
  ],
  "events": [
@@ -804,7 +1540,7 @@
   {
    "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
    "seriesId": "teesside-autodrome-karting",
-   "title": "Round 8/9 – Double Header Weekend",
+   "title": "Round 8/9 \u2013 Double Header Weekend",
    "start": "2026-10-23",
    "end": "2026-10-25",
    "location": "Teesside Autodrome",

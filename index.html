@@ -446,7 +446,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="20261008220000";
+const BUILD="20261008210453";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -705,18 +705,18 @@ function evRow(e,C){
 }
 
 /* Race flag icon for the clashes page: green = all clear, yellow = tight turnaround, red = clash */
-function flagSvg(c,label){return `<svg class="raceflag" viewBox="0 0 64 64" role="img" aria-label="${label}"><rect x="12" y="6" width="4" height="54" rx="2" fill="var(--muted)"/><path d="M16 9c8-4 15 4 23 0s12-3 17-1v26c-5-2-9-3-17 1s-15-4-23 0z" fill="${c}"/></svg>`}
+function raceFlagSvg(c,label){return `<svg class="raceflag" viewBox="0 0 64 64" role="img" aria-label="${label}"><rect x="12" y="6" width="4" height="54" rx="2" fill="var(--muted)"/><path d="M16 9c8-4 15 4 23 0s12-3 17-1v26c-5-2-9-3-17 1s-15-4-23 0z" fill="${c}"/></svg>`}
 function renderClashes(){
   const C=computeClashes();
-  if(!C.clashes.length&&!C.tight.length){$("#clashList").innerHTML=`<div class="card" style="text-align:center">${flagSvg("#3BD16F","Green flag")}<h3 style="justify-content:center">All clear</h3><p>No overlapping events in your calendar right now.</p></div>`;return}
+  if(!C.clashes.length&&!C.tight.length){$("#clashList").innerHTML=`<div class="card" style="text-align:center">${raceFlagSvg("#3BD16F","Green flag")}<h3 style="justify-content:center">All clear</h3><p>No overlapping events in your calendar right now.</p></div>`;return}
   const item=(c,warn)=>{
     const range=c.from===c.to||warn?fmt(isoOf(c.from),{weekday:"short",day:"numeric",month:"short",year:"numeric"}):`${fmt(isoOf(c.from),{day:"numeric",month:"short"})} to ${fmt(isoOf(c.to),{day:"numeric",month:"short",year:"numeric"})}`;
     const row=e=>`<button data-ev="${e.id}"><i style="--c:${colorOf(e)}"></i>${esc(e.title)} <span class="note">${esc(ser(e.seriesId)?.name||KINDS[e.kind]||"")}</span></button>`;
     return `<div class="clashcard"><span class="k${warn?" warn":""}"></span><div class="b"><div class="d">${warn?"Back to back, "+esc(range):esc(range)}</div>${row(c.a)}${row(c.b)}</div></div>`;
   };
   const nc=C.clashes.length,nt=C.tight.length;
-  const head=nc?`<div class="card flaghead">${flagSvg("#E3342F","Red flag")}<div><h3>${nc} clash${nc>1?"es":""}</h3><p>Events on the same day${nt?`, plus ${nt} tight turnaround${nt>1?"s":""}`:""}.</p></div></div>`
-    :`<div class="card flaghead">${flagSvg("#F2A93B","Yellow flag")}<div><h3>${nt} tight turnaround${nt>1?"s":""}</h3><p>No same-day clashes, but some back-to-back race days.</p></div></div>`;
+  const head=nc?`<div class="card flaghead">${raceFlagSvg("#E3342F","Red flag")}<div><h3>${nc} clash${nc>1?"es":""}</h3><p>Events on the same day${nt?`, plus ${nt} tight turnaround${nt>1?"s":""}`:""}.</p></div></div>`
+    :`<div class="card flaghead">${raceFlagSvg("#F2A93B","Yellow flag")}<div><h3>${nt} tight turnaround${nt>1?"s":""}</h3><p>No same-day clashes, but some back-to-back race days.</p></div></div>`;
   $("#clashList").innerHTML=head+C.clashes.map(c=>item(c,false)).join("")+C.tight.map(c=>item(c,true)).join("");
 }
 
