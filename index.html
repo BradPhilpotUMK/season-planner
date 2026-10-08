@@ -458,7 +458,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="20261008211114";
+const BUILD="20261008222406";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -601,6 +601,9 @@ function applyMaster(M){
     if(p){if(p.racing!==undefined)e.racing=p.racing;if(p.notes)e.notes=p.notes}
     S.events.push(e)});
   prev.forEach((p,id)=>{if(!seen.has(id)&&(p.racing===true||p.notes))S.events.push(p)});
+  /* drop entries the shared list no longer has, unless you're racing in them */
+  const mids=new Set(M.series.map(x=>x.id));
+  S.series=S.series.filter(x=>!x.master||mids.has(x.id)||x.racing||S.events.some(e=>e.seriesId===x.id&&(e.racing===true||e.notes)));
   S.masterUpdated=M.updated||"";
 }
 async function connect(){await loadMaster();return;
