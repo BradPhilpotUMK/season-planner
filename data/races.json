@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T21:37Z",
+ "updated": "2026-10-08T21:38Z",
  "series": [
   {
    "id": "access-karting",
@@ -39,7 +39,8 @@
    "color": "#8B6CF0",
    "short": "RHPK",
    "checked": 1791495296885,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "logoUrl": "logos/rye-house-prokart-endurance.png"
   },
   {
    "id": "whilton-mill-kart-club",
