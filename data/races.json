@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T21:27Z",
+ "updated": "2026-10-08T21:34Z",
  "series": [
   {
    "id": "access-karting",
@@ -7,8 +7,7 @@
    "venue": "UK, multiple venues",
    "kind": "national",
    "color": "#3BD16F",
-   "checked": 1791494792653,
-   "note": "2027 dates not published yet"
+   "checked": 1791495296885
   },
   {
    "id": "national-kart-cup",
@@ -27,6 +26,16 @@
    "color": "#3BB3E0",
    "short": "UKC",
    "checked": 1791494792653,
+   "note": "2027 dates not published yet"
+  },
+  {
+   "id": "rye-house-prokart-endurance",
+   "name": "Rye House ProKart Endurance Series",
+   "venue": "Rye House, Hertfordshire",
+   "kind": "national",
+   "color": "#8B6CF0",
+   "short": "RHPK",
+   "checked": 1791495296885,
    "note": "2027 dates not published yet"
   },
   {
@@ -2792,6 +2801,87 @@
    "start": "2027-10-31",
    "end": "2027-10-31",
    "location": "Warden Law",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-02-27-macey-cup",
+   "seriesId": "access-karting",
+   "title": "Macey Cup",
+   "start": "2027-02-27",
+   "end": "2027-02-28",
+   "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-04-17-round-1",
+   "seriesId": "access-karting",
+   "title": "Round 1",
+   "start": "2027-04-17",
+   "end": "2027-04-18",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-05-22-o-plate",
+   "seriesId": "access-karting",
+   "title": "O Plate",
+   "start": "2027-05-22",
+   "end": "2027-05-23",
+   "location": "Buckmore Park",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-06-12-round-2",
+   "seriesId": "access-karting",
+   "title": "Round 2",
+   "start": "2027-06-12",
+   "end": "2027-06-13",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-07-17-round-3",
+   "seriesId": "access-karting",
+   "title": "Round 3",
+   "start": "2027-07-17",
+   "end": "2027-07-18",
+   "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-08-14-round-4",
+   "seriesId": "access-karting",
+   "title": "Round 4",
+   "start": "2027-08-14",
+   "end": "2027-08-15",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-09-11-round-5",
+   "seriesId": "access-karting",
+   "title": "Round 5",
+   "start": "2027-09-11",
+   "end": "2027-09-12",
+   "location": "Fulbeck",
+   "kind": "race"
+  },
+  {
+   "id": "access-karting-2027-10-16-round-6",
+   "seriesId": "access-karting",
+   "title": "Round 6",
+   "start": "2027-10-16",
+   "end": "2027-10-17",
+   "location": "Ellough Park",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-prokart-endurance-2026-11-07-round-9",
+   "seriesId": "rye-house-prokart-endurance",
+   "title": "Round 9",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "location": "Rye House",
    "kind": "race"
   }
  ]
