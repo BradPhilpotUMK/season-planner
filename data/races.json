@@ -1291,6 +1291,24 @@
    "kind": "rental",
    "color": "#E040C8",
    "short": "FAT"
+  },
+  {
+   "id": "elite-karting-series",
+   "name": "Elite Karting Series (EKS)",
+   "venue": "England and Wales, multiple venues",
+   "kind": "rental",
+   "color": "#3BB3E0",
+   "short": "EKS",
+   "checked": 1791490266313,
+   "note": "2027 dates not published yet"
+  },
+  {
+   "id": "southern-rental-kart-championship",
+   "name": "Southern Rental Kart Championship (SRK)",
+   "venue": "South of England, multiple venues",
+   "kind": "rental",
+   "color": "#FF5C8A",
+   "short": "SRK"
   }
  ],
  "events": [
@@ -1558,7 +1576,7 @@
   {
    "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
    "seriesId": "teesside-autodrome-karting",
-   "title": "Round 8/9 – Double Header Weekend",
+   "title": "Round 8/9 \u2013 Double Header Weekend",
    "start": "2026-10-23",
    "end": "2026-10-25",
    "location": "Teesside Autodrome",
@@ -2552,6 +2570,51 @@
    "start": "2027-03-06",
    "end": "2027-03-06",
    "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "elite-karting-series-2026-10-10-round-10",
+   "seriesId": "elite-karting-series",
+   "title": "Round 10",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Glan-y-Gors",
+   "kind": "race"
+  },
+  {
+   "id": "elite-karting-series-2026-10-11-round-11",
+   "seriesId": "elite-karting-series",
+   "title": "Round 11",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Three Sisters",
+   "kind": "race"
+  },
+  {
+   "id": "elite-karting-series-2026-10-28-silverstone-champion",
+   "seriesId": "elite-karting-series",
+   "title": "Silverstone Championship Round 7",
+   "start": "2026-10-28",
+   "end": "2026-10-28",
+   "location": "Kart Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "elite-karting-series-2026-11-08-round-12",
+   "seriesId": "elite-karting-series",
+   "title": "Round 12",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "elite-karting-series-2026-11-28-round-13",
+   "seriesId": "elite-karting-series",
+   "title": "Round 13",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "location": "Kart Silverstone",
    "kind": "race"
   }
  ]

@@ -65,6 +65,18 @@ header.top h1{font-family:var(--display);font-weight:700;font-size:clamp(17px,5.
 .tape-m.has-clash::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:repeating-linear-gradient(90deg,var(--kerb) 0 5px,var(--kerbW) 5px 10px)}
 .tape-l{display:grid;grid-template-columns:repeat(13,1fr);gap:3px;margin-top:5px;font-family:var(--display);font-size:11px;color:var(--muted);text-align:center}
 .next{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;gap:10px}
+.cd{margin:0 0 4px;cursor:pointer;flex:1;min-width:0}
+.cd-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cd-top .t{min-width:0;flex:1}
+.cd-top .lbl{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.cd-top b{display:block;font-family:var(--display);font-size:17px;line-height:1.2;font-weight:700;overflow-wrap:anywhere}
+.cd-top small{display:block;color:var(--muted);font-size:13px}
+.cd-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.cd-nums div{background:var(--surface2);border-radius:10px;padding:8px 0 6px;text-align:center}
+.cd-nums b{display:block;font-family:var(--display);font-size:clamp(22px,7.5vw,34px);line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
+.cd-nums span{display:block;font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.04em}
+.cd.live .cd-nums b{color:var(--accent)}
+.cd-now{font-family:var(--display);font-size:22px;color:var(--accent);text-align:center;padding:10px 0 4px}
 .next b{font-family:var(--display);font-size:16px;line-height:1.25;font-weight:600}
 .next span{color:var(--muted);font-size:14px;white-space:nowrap}
 
@@ -446,7 +458,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="20261008210453";
+const BUILD="20261008211114";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -634,14 +646,33 @@ function rangeMonths(){const out=[];const y=now.getFullYear(),m=now.getMonth();f
 
 function render(){renderTop();renderMonths();renderWeekends();renderClashes();renderSeries()}
 
+/* Live countdown to the next race you're doing (counts to 8am on the first day) */
+let cdTarget=null,cdTimer=null;
+function tickCountdown(){
+  const box=document.getElementById("cdBox");if(!box||!cdTarget){clearInterval(cdTimer);cdTimer=null;return}
+  const [y,m,d]=cdTarget.start.split("-").map(Number),[y2,m2,d2]=(cdTarget.end||cdTarget.start).split("-").map(Number);
+  const start=new Date(y,m-1,d,8,0,0),end=new Date(y2,m2-1,d2,23,59,59),now=new Date();
+  const card=box.parentNode;
+  if(now>=start&&now<=end){card.classList.add("live");box.innerHTML=`<div class="cd-now">Race day. Go get 'em!</div>`}
+  else{
+    card.classList.remove("live");
+    let t=Math.max(0,Math.floor((start-now)/1000));const D=Math.floor(t/86400);t%=86400;const H=Math.floor(t/3600);t%=3600;const M=Math.floor(t/60),Sx=t%60;
+    const p=v=>String(v).padStart(2,"0");
+    box.innerHTML=`<div class="cd-nums"><div><b>${D}</b><span>${D===1?"DAY":"DAYS"}</span></div><div><b>${p(H)}</b><span>HRS</span></div><div><b>${p(M)}</b><span>MINS</span></div><div><b>${p(Sx)}</b><span>SECS</span></div></div>`;
+  }
+  if(!cdTimer)cdTimer=setInterval(tickCountdown,1000);
+}
 function renderTop(){
   const C=computeClashes();
   const up=S.events.filter(e=>visible(e)&&isRacing(e)&&e.kind!=="release"&&dn(e.end||e.start)>=TODAY).sort((a,b)=>dn(a.start)-dn(b.start));
   const n=up[0];
+  cdTarget=n||null;
   if(n){
-    const d=dn(n.start)-TODAY;
-    const when=d<=0?"On now":d===1?"Tomorrow":"In "+d+" days";
-    const ns=ser(n.seriesId);$("#next").innerHTML=`<b>${esc(ns?ns.name+", "+n.title:n.title)}</b><span>${when}</span>`;
+    const ns=ser(n.seriesId),multi=(n.end||n.start)!==n.start;
+    const when=fmt(n.start,{weekday:"short",day:"numeric",month:"short"})+(multi?" to "+fmt(n.end,{weekday:"short",day:"numeric",month:"short"}):"");
+    const where=[ns&&ns.name!==n.title?ns.name:"",n.location||ns?.venue||""].filter(Boolean).map(esc).join(", ");
+    $("#next").innerHTML=`<div class="cd" data-ev="${n.id}"><div class="cd-top">${evBadge(n,38)}<div class="t"><span class="lbl">Next race</span><b>${esc(n.title)}</b><small>${when}${where?", "+where:""}</small></div></div><div id="cdBox"></div></div>`;
+    tickCountdown();
   }else $("#next").innerHTML=`<b>No races ticked yet</b><span>See Weekends</span>`;
   const ms=rangeMonths();
   $("#tape").innerHTML=ms.map(([y,m],i)=>{
