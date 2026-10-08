@@ -382,7 +382,7 @@ const CLUBS=[
  ["Hooton Park Kart Club","Hooton Park, Cheshire"],["Three Sisters kart club racing","Three Sisters, Wigan"],
  ["Sunderland and District Kart Club","Warden Law, Sunderland"],["Cumbria Kart Racing Club","Rowrah, Cumbria"],
  ["Glan y Gors Kart Club","Glan y Gors, Wales"],["Llandow Kart Club","Llandow, Wales"],
- ["Larkhall kart club racing","Mansell Raceway, Larkhall"],["Fife Kart Club","Lochgelly, Fife"],
+ ["Larkhall kart club racing","Larkhall Circuit International, Larkhall"],["Fife Kart Club","Lochgelly, Fife"],
  ["Highland Kart Club","Golspie, Highlands"],["Nutts Corner kart club racing","Nutts Corner, Northern Ireland"],
  ["Super One Series","National championship"],["Wera Tools British Kart Championships","National championship"],
  ["Kartmasters British Grand Prix","National event"],
@@ -428,7 +428,7 @@ const RTRACKS=[
  ["Three Sisters (rental)","Wigan","3S"],
  ["Warden Law (rental)","Sunderland","WL"],
  ["Glan y Gors (rental)","Cerrigydrudion, Wales","GYG"],
- ["Mansell Raceway (rental)","Larkhall, Scotland","MR"],
+ ["Larkhall Circuit International (rental)","Larkhall, Scotland","LCI"],
  ["Bayford Meadows (rental)","Sittingbourne, Kent","BM"]
 ];
 const CLUB_ADDS=[[2,["Hooton Park Kart Club","Teesside Autodrome karting"]],[3,RENTAL.map(r=>r[0])],[4,RTRACKS.map(r=>r[0])]];
@@ -441,6 +441,10 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
+const BUILD="20261008204947";
+/* Load the newest version: phones may keep an old saved copy of the page */
+(async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
+  if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
 const LOGO=document.getElementById("umkLogo").src;
 const BRAND=document.getElementById("umkStack").src;
 
