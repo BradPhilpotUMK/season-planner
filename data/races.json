@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T21:34Z",
+ "updated": "2026-10-08T21:37Z",
  "series": [
   {
    "id": "access-karting",
@@ -7,7 +7,8 @@
    "venue": "UK, multiple venues",
    "kind": "national",
    "color": "#3BD16F",
-   "checked": 1791495296885
+   "checked": 1791495296885,
+   "logoUrl": "logos/access-karting.png"
   },
   {
    "id": "national-kart-cup",
@@ -16,17 +17,19 @@
    "kind": "national",
    "color": "#F2A93B",
    "short": "NKC",
-   "checked": 1791494792653
+   "checked": 1791494792653,
+   "logoUrl": "logos/national-kart-cup.png"
   },
   {
    "id": "rmc-ukc",
-   "name": "Rotax RMC UKC",
+   "name": "Ultimate Karting Championship",
    "venue": "UK, multiple venues",
    "kind": "national",
    "color": "#3BB3E0",
    "short": "UKC",
-   "checked": 1791494792653,
-   "note": "2027 dates not published yet"
+   "checked": 1791495452988,
+   "note": "2026 season finished; 2027 dates not published yet",
+   "logoUrl": "logos/rmc-ukc.png"
   },
   {
    "id": "rye-house-prokart-endurance",
@@ -243,7 +246,8 @@
    "kind": "national",
    "color": "#F2A93B",
    "checked": 1791494792653,
-   "note": "2026 season finished (last rounds at Shenington); 2027 calendar 'coming soon'"
+   "note": "2026 season finished (last rounds at Shenington); 2027 calendar 'coming soon'",
+   "logoUrl": "logos/super-one-series.png"
   },
   {
    "id": "wera-tools-british-kart-championships",
@@ -252,7 +256,8 @@
    "kind": "national",
    "color": "#3BB3E0",
    "checked": 1791488991936,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "logoUrl": "logos/wera-tools-british-kart-championships.png"
   },
   {
    "id": "kartmasters-british-grand-prix",
@@ -261,7 +266,8 @@
    "kind": "national",
    "color": "#8B6CF0",
    "checked": 1791494792653,
-   "note": "2026 event was 30 Jul-2 Aug; 2027 dates not published yet"
+   "note": "2026 event was 30 Jul-2 Aug; 2027 dates not published yet",
+   "logoUrl": "logos/kartmasters-british-grand-prix.png"
   },
   {
    "id": "teesside-autodrome-karting",
@@ -1433,15 +1439,6 @@
    "start": "2026-10-16",
    "end": "2026-10-16",
    "location": "Ellough Park",
-   "kind": "race"
-  },
-  {
-   "id": "rmc-ukc-2026-10-16-rotax-national-troph",
-   "seriesId": "rmc-ukc",
-   "title": "Rotax National Trophy",
-   "start": "2026-10-16",
-   "end": "2026-10-16",
-   "location": "Silverstone",
    "kind": "race"
   },
   {
@@ -2882,6 +2879,15 @@
    "start": "2026-11-07",
    "end": "2026-11-07",
    "location": "Rye House",
+   "kind": "race"
+  },
+  {
+   "id": "rmc-ukc-2026-10-17-rotax-trophy",
+   "seriesId": "rmc-ukc",
+   "title": "Rotax Trophy",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Silverstone",
    "kind": "race"
   }
  ]
