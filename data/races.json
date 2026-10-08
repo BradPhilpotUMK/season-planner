@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T19:49Z",
+ "updated": "2026-10-08T20:07Z",
  "series": [
   {
    "id": "whilton-mill-kart-club",
@@ -114,7 +114,9 @@
    "name": "Hooton Park Kart Club",
    "venue": "Hooton Park, Cheshire",
    "kind": "club",
-   "color": "#F2A93B"
+   "color": "#F2A93B",
+   "checked": 1791490020751,
+   "note": "No upcoming dates listed; 2027 not published"
   },
   {
    "id": "three-sisters-kart-club-racing",
@@ -149,8 +151,8 @@
    "venue": "Glan y Gors, Wales",
    "kind": "club",
    "color": "#22C3B0",
-   "checked": 1791414318400,
-   "note": "No race meetings for Glan y Gors Kart Club found in the provided text for the date range 2"
+   "checked": 1791490020751,
+   "note": "No upcoming dates listed; 2027 not published"
   },
   {
    "id": "llandow-kart-club",
@@ -258,7 +260,8 @@
    "venue": "UK, multiple venues",
    "kind": "rental",
    "color": "#FF5C8A",
-   "short": "C100"
+   "short": "C100",
+   "checked": 1791490020751
   },
   {
    "id": "british-universities-karting-championship",
@@ -267,8 +270,8 @@
    "kind": "rental",
    "color": "#4C7DFF",
    "short": "BUKC",
-   "checked": 1791483871853,
-   "note": "No British Universities Karting Championship race meetings found with confirmed dates betw"
+   "checked": 1791490020751,
+   "note": "2026-27 dates not published yet"
   },
   {
    "id": "sodi-world-series-uk",
@@ -277,8 +280,8 @@
    "kind": "rental",
    "color": "#E040C8",
    "short": "SWS",
-   "checked": 1791484668877,
-   "note": "No Sodi World Series UK race meetings found with clear dates between 2026-10-08 and 2027-1"
+   "checked": 1791490020751,
+   "note": "2027 UK dates not published yet"
   },
   {
    "id": "sodi-world-finals",
@@ -317,8 +320,7 @@
    "kind": "rental",
    "color": "#8B6CF0",
    "short": "ES24",
-   "checked": 1791484703991,
-   "note": "No 'Spanish 24 Hours Karting' championship rounds found with clear years in the specified "
+   "checked": 1791490020751
   },
   {
    "id": "sicily-25-hours",
@@ -327,8 +329,8 @@
    "kind": "rental",
    "color": "#F26B3A",
    "short": "S25",
-   "checked": 1791483904928,
-   "note": "No 'Sicily 25 Hours' race meetings found in the provided web text. The text contains infor"
+   "checked": 1791490020751,
+   "note": "2027 date not published yet"
   },
   {
    "id": "daytona-milton-keynes",
@@ -376,7 +378,9 @@
    "venue": "Brighton, East Sussex",
    "kind": "rtrack",
    "color": "#E040C8",
-   "short": "BRI"
+   "short": "BRI",
+   "checked": 1791490020751,
+   "note": "Dates listed without a year; 2027 not published"
   },
   {
    "id": "buckmore-park-rental",
@@ -392,7 +396,9 @@
    "venue": "Silverstone, Northamptonshire",
    "kind": "rtrack",
    "color": "#F2A93B",
-   "short": "KS"
+   "short": "KS",
+   "checked": 1791490020751,
+   "note": "Dates listed without a year; 2027 not published"
   },
   {
    "id": "teesside-autodrome-rental",
@@ -400,7 +406,9 @@
    "venue": "Middlesbrough",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "TA"
+   "short": "TA",
+   "checked": 1791490020751,
+   "note": "2027 calendar partly published"
   },
   {
    "id": "capital-karts",
@@ -408,7 +416,9 @@
    "venue": "London",
    "kind": "rtrack",
    "color": "#8B6CF0",
-   "short": "CAP"
+   "short": "CAP",
+   "checked": 1791490020751,
+   "note": "No race events listed"
   },
   {
    "id": "teamsport-go-karting-all-venues",
@@ -416,7 +426,9 @@
    "venue": "UK, indoor",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "TS"
+   "short": "TS",
+   "checked": 1791490020751,
+   "note": "2027 BIKC dates not published yet"
   },
   {
    "id": "thruxton-karting",
@@ -424,7 +436,9 @@
    "venue": "Andover, Hampshire",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "THX"
+   "short": "THX",
+   "checked": 1791490020751,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "forest-edge-rental",
@@ -512,7 +526,9 @@
    "venue": "Cerrigydrudion, Wales",
    "kind": "rtrack",
    "color": "#22C3B0",
-   "short": "GYG"
+   "short": "GYG",
+   "checked": 1791490020751,
+   "note": "2027 dates not published yet"
   },
   {
    "id": "mansell-raceway-rental",
@@ -528,7 +544,9 @@
    "venue": "Sittingbourne, Kent",
    "kind": "rtrack",
    "color": "#FF5C8A",
-   "short": "BM"
+   "short": "BM",
+   "checked": 1791490020751,
+   "note": "Dates to Mar 2027 published"
   },
   {
    "id": "south-coast-karting",
@@ -1540,7 +1558,7 @@
   {
    "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
    "seriesId": "teesside-autodrome-karting",
-   "title": "Round 8/9 \u2013 Double Header Weekend",
+   "title": "Round 8/9 – Double Header Weekend",
    "start": "2026-10-23",
    "end": "2026-10-25",
    "location": "Teesside Autodrome",
@@ -1589,6 +1607,123 @@
    "start": "2026-11-14",
    "end": "2026-11-15",
    "location": "TeamSport (venue TBC)",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2026-11-08-sprint-southern-rd-8",
+   "seriesId": "club100-sprint-championship",
+   "title": "Sprint Southern Rd 8",
+   "start": "2026-11-08",
+   "end": "2026-11-08",
+   "location": "Silverstone Circuit",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-02-14-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 1",
+   "start": "2027-02-14",
+   "end": "2027-02-14",
+   "location": "Buckmore Park",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-04-11-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 2",
+   "start": "2027-04-11",
+   "end": "2027-04-11",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-05-23-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 3",
+   "start": "2027-05-23",
+   "end": "2027-05-23",
+   "location": "Dunkeswell",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-06-20-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 4",
+   "start": "2027-06-20",
+   "end": "2027-06-20",
+   "location": "Lydd",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-07-04-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 5",
+   "start": "2027-07-04",
+   "end": "2027-07-04",
+   "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-08-08-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 6",
+   "start": "2027-08-08",
+   "end": "2027-08-08",
+   "location": "Glan Y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-08-30-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 7",
+   "start": "2027-08-30",
+   "end": "2027-08-30",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-09-26-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 8",
+   "start": "2027-09-26",
+   "end": "2027-09-26",
+   "location": "Buckmore Park",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-10-31-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 9",
+   "start": "2027-10-31",
+   "end": "2027-10-31",
+   "location": "Warden Law",
+   "kind": "race"
+  },
+  {
+   "id": "sodi-world-series-uk-2026-10-11-sws-endurance",
+   "seriesId": "sodi-world-series-uk",
+   "title": "SWS Endurance",
+   "start": "2026-10-11",
+   "end": "2026-10-11",
+   "location": "Kart Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
+   "seriesId": "spanish-24-hours-karting",
+   "title": "Campillos 24 Hour",
+   "start": "2027-05-07",
+   "end": "2027-05-09",
+   "location": "Kart Center Campillos",
+   "kind": "race"
+  },
+  {
+   "id": "sicily-25-hours-2026-10-10-sicily-25-hours",
+   "seriesId": "sicily-25-hours",
+   "title": "Sicily 25 Hours",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "location": "Circuito Sole Luna, Vittoria",
    "kind": "race"
   },
   {
@@ -1823,6 +1958,123 @@
    "start": "2027-01-31",
    "end": "2027-01-31",
    "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2026-10-31-nrg-6hr-round-1",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "NRG 6hr Round 1",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2026-11-22-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 1",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2026-12-13-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 2",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2027-01-17-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 3",
+   "start": "2027-01-17",
+   "end": "2027-01-17",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2027-03-07-winter-enduro-round-",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "Winter Enduro Round 4",
+   "start": "2027-03-07",
+   "end": "2027-03-07",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-autodrome-rental-2027-08-06-british-24h--hire-ka",
+   "seriesId": "teesside-autodrome-rental",
+   "title": "British 24H (Hire Kart Championship)",
+   "start": "2027-08-06",
+   "end": "2027-08-08",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-10-10-bikc-regional-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC Regional Finals",
+   "start": "2026-10-10",
+   "end": "2026-10-11",
+   "location": "Farnborough / Leicester / Liverpool",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-10-17-bikc-regional-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC Regional Finals",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Gosport / High Wycombe / Nottingham",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-10-24-bikc-regional-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC Regional Finals",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "location": "Crawley / Birmingham / Stockton",
+   "kind": "race"
+  },
+  {
+   "id": "teamsport-go-karting-all-venues-2026-11-14-bikc-national-finals",
+   "seriesId": "teamsport-go-karting-all-venues",
+   "title": "BIKC National Finals",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "location": "TeamSport (venue TBC)",
+   "kind": "race"
+  },
+  {
+   "id": "thruxton-karting-2026-10-18-individual-endurance",
+   "seriesId": "thruxton-karting",
+   "title": "Individual Endurance",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Thruxton Karting",
+   "kind": "race"
+  },
+  {
+   "id": "thruxton-karting-2026-10-25-4-hour-team-enduranc",
+   "seriesId": "thruxton-karting",
+   "title": "4 Hour Team Endurance",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "location": "Thruxton Karting",
+   "kind": "race"
+  },
+  {
+   "id": "thruxton-karting-2026-11-15-individual-endurance",
+   "seriesId": "thruxton-karting",
+   "title": "Individual Endurance",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "location": "Thruxton Karting",
    "kind": "race"
   },
   {
@@ -2219,6 +2471,87 @@
    "start": "2026-12-06",
    "end": "2026-12-06",
    "location": "Warden Law",
+   "kind": "race"
+  },
+  {
+   "id": "glan-y-gors-rental-2026-10-18-gyg-championship-rou",
+   "seriesId": "glan-y-gors-rental",
+   "title": "GYG Championship Round 7",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "glan-y-gors-rental-2026-10-31-halloween-endurance-",
+   "seriesId": "glan-y-gors-rental",
+   "title": "Halloween Endurance Open Event",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "glan-y-gors-rental-2026-11-22-charity-endurance-ev",
+   "seriesId": "glan-y-gors-rental",
+   "title": "Charity Endurance Event (Ty Gobaith)",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2026-10-17-bayford-50",
+   "seriesId": "bayford-meadows-rental",
+   "title": "Bayford 50",
+   "start": "2026-10-17",
+   "end": "2026-10-17",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2026-10-31-superpro-summer-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Summer Cup Round 8",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2026-12-05-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 1",
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2027-01-02-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 2",
+   "start": "2027-01-02",
+   "end": "2027-01-02",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2027-02-06-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 3",
+   "start": "2027-02-06",
+   "end": "2027-02-06",
+   "location": "Bayford Meadows",
+   "kind": "race"
+  },
+  {
+   "id": "bayford-meadows-rental-2027-03-06-superpro-winter-cup-",
+   "seriesId": "bayford-meadows-rental",
+   "title": "SuperPro Winter Cup Round 4",
+   "start": "2027-03-06",
+   "end": "2027-03-06",
+   "location": "Bayford Meadows",
    "kind": "race"
   }
  ]
