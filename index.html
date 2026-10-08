@@ -183,6 +183,11 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .brand img.wm{display:block;width:min(170px,46vw);height:auto;margin:0 0 5px;filter:none}
 .avatar{width:42px;height:42px;flex:none;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .brand .logo{width:44px;height:auto;flex:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+.raceflag{display:block;width:72px;height:72px;margin:4px auto 8px}
+.flaghead{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.flaghead .raceflag{width:48px;height:48px;margin:0;flex:none}
+.flaghead h3{margin:0}
+.flaghead p{margin:2px 0 0}
 .emptylogo{display:block;width:110px;height:auto;margin:4px auto 10px;opacity:.95}
 .brand .mark{width:30px;height:30px;border-radius:7px;flex:none;background:repeating-linear-gradient(135deg,var(--kerb) 0 6px,var(--kerbW) 6px 12px);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
 .brand img{height:46px;width:auto;max-width:150px;display:block;flex:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
@@ -441,7 +446,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="20261008204947";
+const BUILD="20261008220000";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -699,15 +704,20 @@ function evRow(e,C){
   return `<button class="ev" data-ev="${e.id}" style="--c:${colorOf(e)}"><span class="stripe"></span><span class="when"><b>${big}</b><small>${small}</small></span><span class="what"><span class="tt">${evBadge(e,22)}<strong>${esc(e.title)}</strong></span>${sub?`<small>${sub}</small>`:""}<span class="pills">${pills.join("")}</span></span></button>`;
 }
 
+/* Race flag icon for the clashes page: green = all clear, yellow = tight turnaround, red = clash */
+function flagSvg(c,label){return `<svg class="raceflag" viewBox="0 0 64 64" role="img" aria-label="${label}"><rect x="12" y="6" width="4" height="54" rx="2" fill="var(--muted)"/><path d="M16 9c8-4 15 4 23 0s12-3 17-1v26c-5-2-9-3-17 1s-15-4-23 0z" fill="${c}"/></svg>`}
 function renderClashes(){
   const C=computeClashes();
-  if(!C.clashes.length&&!C.tight.length){$("#clashList").innerHTML=`<div class="card" style="text-align:center"><img class="emptylogo" alt="" src="${BRAND}"><h3 style="justify-content:center">All clear</h3><p>No overlapping events in your calendar right now.</p></div>`;return}
+  if(!C.clashes.length&&!C.tight.length){$("#clashList").innerHTML=`<div class="card" style="text-align:center">${flagSvg("#3BD16F","Green flag")}<h3 style="justify-content:center">All clear</h3><p>No overlapping events in your calendar right now.</p></div>`;return}
   const item=(c,warn)=>{
     const range=c.from===c.to||warn?fmt(isoOf(c.from),{weekday:"short",day:"numeric",month:"short",year:"numeric"}):`${fmt(isoOf(c.from),{day:"numeric",month:"short"})} to ${fmt(isoOf(c.to),{day:"numeric",month:"short",year:"numeric"})}`;
     const row=e=>`<button data-ev="${e.id}"><i style="--c:${colorOf(e)}"></i>${esc(e.title)} <span class="note">${esc(ser(e.seriesId)?.name||KINDS[e.kind]||"")}</span></button>`;
     return `<div class="clashcard"><span class="k${warn?" warn":""}"></span><div class="b"><div class="d">${warn?"Back to back, "+esc(range):esc(range)}</div>${row(c.a)}${row(c.b)}</div></div>`;
   };
-  $("#clashList").innerHTML=C.clashes.map(c=>item(c,false)).join("")+C.tight.map(c=>item(c,true)).join("");
+  const nc=C.clashes.length,nt=C.tight.length;
+  const head=nc?`<div class="card flaghead">${flagSvg("#E3342F","Red flag")}<div><h3>${nc} clash${nc>1?"es":""}</h3><p>Events on the same day${nt?`, plus ${nt} tight turnaround${nt>1?"s":""}`:""}.</p></div></div>`
+    :`<div class="card flaghead">${flagSvg("#F2A93B","Yellow flag")}<div><h3>${nt} tight turnaround${nt>1?"s":""}</h3><p>No same-day clashes, but some back-to-back race days.</p></div></div>`;
+  $("#clashList").innerHTML=head+C.clashes.map(c=>item(c,false)).join("")+C.tight.map(c=>item(c,true)).join("");
 }
 
 function renderSeries(){
