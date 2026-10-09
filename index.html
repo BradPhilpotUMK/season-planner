@@ -455,7 +455,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1791524238";
+const BUILD="1791524524";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -509,14 +509,19 @@ const COUNTRY=[
  ["pt",/\b(portugal|portuguese|portim[aã]o|braga)\b/i],
  ["se",/\b(sweden|swedish|kristianstad)\b/i],
  ["ie",/\b(republic of ireland|dublin|mondello|athboy|watergrasshill)\b/i],
+ ["bg",/\b(bulgaria|bulgarian|kyustendil)\b/i],
  ["at",/\b(austria|austrian)\b/i],["pl",/\b(poland|polish)\b/i],["dk",/\b(denmark|danish)\b/i],
  ["us",/\b(usa|united states|florida|indianapolis)\b/i],["ae",/\b(uae|dubai|abu dhabi|bahrain)\b/i]
 ];
 function countryOf(txt){if(!txt)return null;for(const [c,re] of COUNTRY)if(re.test(txt))return c;return null}
-function eventCountry(e){const sr=ser(e.seriesId);return countryOf([e.location,e.title].join(" "))||seriesCountry(sr)}
+function countriesIn(txt){if(!txt)return [];return COUNTRY.filter(([c,re])=>re.test(txt)).map(([c])=>c)}
+function seriesCountries(sr){if(!sr)return [];return [...new Set([...countriesIn(sr.name+" "+(sr.venue||"")),...S.events.filter(e=>e.seriesId===sr.id).map(e=>countryOf([e.location,e.title].join(" "))).filter(Boolean)])]}
+function eventCountry(e){const sr=ser(e.seriesId);const own=countryOf([e.location,e.title].join(" "));if(own)return own;
+  /* a UK round of a series that also races abroad gets a Union flag */
+  if(sr&&seriesCountries(sr).length>1)return "gb";return seriesCountry(sr)}
 function seriesCountry(sr){
   if(!sr)return null;
-  const own=countryOf(sr.name+" "+(sr.venue||""));if(own)return own;
+  const own=[...new Set(countriesIn(sr.name+" "+(sr.venue||"")))];if(own.length>1)return null;if(own.length===1)return own[0];
   const cs=[...new Set(S.events.filter(e=>e.seriesId===sr.id).map(e=>countryOf([e.location,e.title].join(" "))))];
   return cs.length===1&&cs[0]?cs[0]:null;
 }
@@ -524,11 +529,12 @@ function flagSvg(c){
   const v=(a,b,d)=>`<svg viewBox="0 0 3 2" preserveAspectRatio="none"><rect width="1" height="2" fill="${a}"/><rect x="1" width="1" height="2" fill="${b}"/><rect x="2" width="1" height="2" fill="${d}"/></svg>`;
   const h=(a,b,d)=>`<svg viewBox="0 0 3 3" preserveAspectRatio="none"><rect width="3" height="1" fill="${a}"/><rect y="1" width="3" height="1" fill="${b}"/><rect y="2" width="3" height="1" fill="${d}"/></svg>`;
   return {fr:v("#0055A4","#fff","#EF4135"),be:v("#000","#FDDA24","#EF3340"),it:v("#009246","#fff","#CE2B37"),ie:v("#169B62","#fff","#FF883E"),
-    de:h("#000","#DD0000","#FFCE00"),nl:h("#AE1C28","#fff","#21468B"),at:h("#ED2939","#fff","#ED2939"),
+    de:h("#000","#DD0000","#FFCE00"),bg:h("#fff","#00966E","#D62612"),nl:h("#AE1C28","#fff","#21468B"),at:h("#ED2939","#fff","#ED2939"),
     es:`<svg viewBox="0 0 4 4" preserveAspectRatio="none"><rect width="4" height="4" fill="#AA151B"/><rect y="1" width="4" height="2" fill="#F1BF00"/></svg>`,
     pl:`<svg viewBox="0 0 2 2" preserveAspectRatio="none"><rect width="2" height="1" fill="#fff"/><rect y="1" width="2" height="1" fill="#DC143C"/></svg>`,
     pt:`<svg viewBox="0 0 5 2" preserveAspectRatio="none"><rect width="5" height="2" fill="#FF0000"/><rect width="2" height="2" fill="#006600"/><circle cx="2" cy="1" r=".45" fill="#FFE000"/></svg>`,
     se:`<svg viewBox="0 0 16 10" preserveAspectRatio="none"><rect width="16" height="10" fill="#006AA7"/><rect x="5" width="2" height="10" fill="#FECC00"/><rect y="4" width="16" height="2" fill="#FECC00"/></svg>`,
+    gb:`<svg viewBox="0 0 60 30" preserveAspectRatio="none"><clipPath id="ukc"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>`,
     dk:`<svg viewBox="0 0 37 28" preserveAspectRatio="none"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg>`
   }[c]||null;
 }
