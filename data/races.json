@@ -282,11 +282,12 @@
   {
    "id": "british-rental-kart-championship",
    "name": "British Rental Kart Championship",
-   "venue": "UK, multiple venues",
+   "venue": "Formula Fast, Milton Keynes",
    "kind": "rental",
    "color": "#22C3B0",
    "short": "BRKC",
-   "checked": 1791488991936
+   "checked": 1791488991936,
+   "note": "Single weekend event. UK qualifier for the Kart World Championship"
   },
   {
    "id": "british-indoor-karting-championship",
@@ -1236,7 +1237,7 @@
   {
    "id": "teesside-autodrome-karting-2026-10-23-round-8-9-double-hea",
    "seriesId": "teesside-autodrome-karting",
-   "title": "Round 8/9 \u2013 Double Header Weekend",
+   "title": "Round 8/9 – Double Header Weekend",
    "start": "2026-10-23",
    "end": "2026-10-25",
    "location": "Teesside Autodrome",
@@ -2274,7 +2275,7 @@
    "title": "BRKC 2027",
    "start": "2027-02-26",
    "end": "2027-02-28",
-   "location": "Formula Fast",
+   "location": "Formula Fast, Milton Keynes",
    "kind": "race"
   },
   {
@@ -2655,5 +2656,8 @@
    "location": "Castle Combe",
    "kind": "race"
   }
+ ],
+ "restore": [
+  "british-rental-kart-championship"
  ]
 }

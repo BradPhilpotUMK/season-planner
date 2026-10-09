@@ -458,7 +458,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="20261009062919";
+const BUILD="1791523942";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -553,7 +553,7 @@ function badge(s,z){
 
 /* ---------- storage ---------- */
 function loadLocal(){try{const r=localStorage.getItem(LS);if(r)S=normal(JSON.parse(r))}catch(e){}}
-function normal(x){return {series:Array.isArray(x?.series)?x.series:[],events:Array.isArray(x?.events)?x.events:[],hidden:Array.isArray(x?.hidden)?x.hidden:[],splash:x?.splash||null,skin:x?.skin||"",clubsSeeded:!!x?.clubsSeeded,seedVer:x?.seedVer||1,removed:Array.isArray(x?.removed)?x.removed:[],masterUpdated:x?.masterUpdated||""}}
+function normal(x){return {series:Array.isArray(x?.series)?x.series:[],events:Array.isArray(x?.events)?x.events:[],hidden:Array.isArray(x?.hidden)?x.hidden:[],splash:x?.splash||null,skin:x?.skin||"",clubsSeeded:!!x?.clubsSeeded,seedVer:x?.seedVer||1,removed:Array.isArray(x?.removed)?x.removed:[],masterUpdated:x?.masterUpdated||"",restored:Array.isArray(x?.restored)?x.restored:[]}}
 function nextColor(){const used=S.series.map(s=>s.color);return COLORS.find(c=>!used.includes(c))||COLORS[S.series.length%COLORS.length]}
 function seedClubs(){return false;
   let changed=false;
@@ -586,6 +586,7 @@ async function loadMaster(){
 }
 function applyMaster(M){
   if(!M||!Array.isArray(M.series)||!Array.isArray(M.events))return;
+  if(Array.isArray(M.restore)){S.restored=S.restored||[];M.restore.forEach(id=>{if(!S.restored.includes(id)){S.removed=(S.removed||[]).filter(x=>x!==id);S.restored.push(id)}})}
   const rm=new Set(S.removed||[]);
   M.series.forEach(ms=>{if(rm.has(ms.id))return;
     let s=S.series.find(x=>x.id===ms.id);
