@@ -339,43 +339,14 @@
    "note": "2026 finals already held; 2027 not found"
   },
   {
-   "id": "24-heures-karting-le-mans",
-   "name": "24 Heures Karting Le Mans",
-   "venue": "Le Mans, France",
-   "kind": "rental",
-   "color": "#F2A93B",
-   "short": "LM24",
-   "checked": 1791494792653,
-   "note": "2027 dates not published yet"
-  },
-  {
-   "id": "spa-24-hours-karting",
-   "name": "Spa 24 Hours Karting",
-   "venue": "Spa-Francorchamps, Belgium",
+   "id": "24-hour-series",
+   "name": "24 Hour Series",
+   "venue": "Le Mans, Spa, Campillos and Sicily",
    "kind": "rental",
    "color": "#3BB3E0",
-   "short": "SPA",
-   "checked": 1791488991936,
-   "note": "2026 editions (13-14 Jun, 5-6 Sep) already past; 2027 not published"
-  },
-  {
-   "id": "spanish-24-hours-karting",
-   "name": "Spanish 24 Hours Karting",
-   "venue": "Campillos, Spain",
-   "kind": "rental",
-   "color": "#8B6CF0",
-   "short": "ES24",
-   "checked": 1791490020751
-  },
-  {
-   "id": "sicily-25-hours",
-   "name": "Sicily 25 Hours",
-   "venue": "Sicily, Italy",
-   "kind": "rental",
-   "color": "#F26B3A",
-   "short": "S25",
-   "checked": 1791490020751,
-   "note": "2027 date not published yet"
+   "short": "24H",
+   "checked": 1791494792653,
+   "note": "Le Mans and Spa dates not published yet"
   },
   {
    "id": "daytona-milton-keynes",
@@ -957,7 +928,7 @@
   },
   {
    "id": "sicily-25-hours-2026-10-10-sicily-25-hours",
-   "seriesId": "sicily-25-hours",
+   "seriesId": "24-hour-series",
    "title": "Sicily 25 Hours",
    "start": "2026-10-10",
    "end": "2026-10-10",
@@ -2325,8 +2296,8 @@
   },
   {
    "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
-   "seriesId": "spanish-24-hours-karting",
-   "title": "Campillos 24 Hour",
+   "seriesId": "24-hour-series",
+   "title": "Spanish 24 Hours (Campillos)",
    "start": "2027-05-07",
    "end": "2027-05-09",
    "location": "Kart Center Campillos",
