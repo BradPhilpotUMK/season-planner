@@ -341,12 +341,70 @@
   {
    "id": "24-hour-series",
    "name": "24 Hour Series",
-   "venue": "Le Mans, Spa, Campillos and Sicily",
+   "venue": "Campillos, Le Mans, Teesside and Spa",
    "kind": "rental",
    "color": "#3BB3E0",
    "short": "24H",
-   "checked": 1791494792653,
-   "note": "Le Mans and Spa dates not published yet"
+   "checked": 1791524238475,
+   "note": "24H Karting Championship (Teesside Motorsports)"
+  },
+  {
+   "id": "sicily-25-hours",
+   "name": "Sicily 25 Hours",
+   "venue": "Circuito Sole Luna, Vittoria, Italy",
+   "kind": "rental",
+   "color": "#E10600",
+   "short": "S25",
+   "checked": 1791524238475
+  },
+  {
+   "id": "bulgaria-25-hours",
+   "name": "Bulgaria 25 Hours",
+   "venue": "Karting Track Pautalia, Kyustendil, Bulgaria",
+   "kind": "rental",
+   "color": "#F5A623",
+   "short": "BG25",
+   "checked": 1791524238475,
+   "note": "2027 date not published yet"
+  },
+  {
+   "id": "karting-genk-24-hours",
+   "name": "Karting Genk 24 Hours",
+   "venue": "Karting Genk, Belgium",
+   "kind": "rental",
+   "color": "#7ED321",
+   "short": "GK24",
+   "checked": 1791524238475
+  },
+  {
+   "id": "dutch-24h",
+   "name": "Dutch 24H",
+   "venue": "Kartcentrum Lelystad, Netherlands",
+   "kind": "rental",
+   "color": "#4A90E2",
+   "short": "NL24",
+   "checked": 1791524238475,
+   "note": "2027 date not published yet"
+  },
+  {
+   "id": "crg-24-hours-karting-italy",
+   "name": "24 Hours Karting of Italy (CRG)",
+   "venue": "7 Laghi Kart, Castelletto di Branduzzo, Italy",
+   "kind": "rental",
+   "color": "#BD10E0",
+   "short": "IT24",
+   "checked": 1791524238475,
+   "note": "2027 date not published yet"
+  },
+  {
+   "id": "wek-25-hours-jesolo",
+   "name": "WEK 25 Hours Jesolo",
+   "venue": "Pista Azzurra, Jesolo, Italy",
+   "kind": "rental",
+   "color": "#50E3C2",
+   "short": "JE25",
+   "checked": 1791524238475,
+   "note": "2027 date not published yet"
   },
   {
    "id": "daytona-milton-keynes",
@@ -924,15 +982,6 @@
    "start": "2026-10-10",
    "end": "2026-10-10",
    "location": "Nutts Corner, Northern Ireland",
-   "kind": "race"
-  },
-  {
-   "id": "sicily-25-hours-2026-10-10-sicily-25-hours",
-   "seriesId": "24-hour-series",
-   "title": "Sicily 25 Hours",
-   "start": "2026-10-10",
-   "end": "2026-10-10",
-   "location": "Circuito Sole Luna, Vittoria",
    "kind": "race"
   },
   {
@@ -2295,15 +2344,6 @@
    "kind": "race"
   },
   {
-   "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
-   "seriesId": "24-hour-series",
-   "title": "Spanish 24 Hours (Campillos)",
-   "start": "2027-05-07",
-   "end": "2027-05-09",
-   "location": "Kart Center Campillos",
-   "kind": "race"
-  },
-  {
    "id": "national-kart-cup-2027-05-21-round-3",
    "seriesId": "national-kart-cup",
    "title": "Round 3",
@@ -2626,9 +2666,64 @@
    "end": "2026-12-06",
    "location": "Castle Combe",
    "kind": "race"
+  },
+  {
+   "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
+   "seriesId": "24-hour-series",
+   "title": "Campillos 24H",
+   "start": "2027-05-07",
+   "end": "2027-05-09",
+   "location": "Kart Center Campillos, Spain",
+   "kind": "race"
+  },
+  {
+   "id": "24-hour-series-2027-07-09-le-mans-24h",
+   "seriesId": "24-hour-series",
+   "title": "Le Mans 24H",
+   "start": "2027-07-09",
+   "end": "2027-07-11",
+   "location": "Karting des 24 Heures, Le Mans, France",
+   "kind": "race"
+  },
+  {
+   "id": "24-hour-series-2027-08-06-british-24h",
+   "seriesId": "24-hour-series",
+   "title": "British 24H",
+   "start": "2027-08-06",
+   "end": "2027-08-08",
+   "location": "Teesside Autodrome, Middlesbrough",
+   "kind": "race"
+  },
+  {
+   "id": "24-hour-series-2027-09-03-spa-24h--date-tbc-",
+   "seriesId": "24-hour-series",
+   "title": "Spa 24H (date TBC)",
+   "start": "2027-09-03",
+   "end": "2027-09-05",
+   "location": "Spa-Francorchamps, Belgium",
+   "kind": "race"
+  },
+  {
+   "id": "sicily-25-hours-2026-10-10-sicily-25-hours",
+   "seriesId": "sicily-25-hours",
+   "title": "Sicily 25 Hours",
+   "start": "2026-10-10",
+   "end": "2026-10-11",
+   "location": "Circuito Sole Luna, Vittoria",
+   "kind": "race"
+  },
+  {
+   "id": "karting-genk-24-hours-2027-05-01-24-hours-of-karting-",
+   "seriesId": "karting-genk-24-hours",
+   "title": "24 Hours of Karting Genk",
+   "start": "2027-05-01",
+   "end": "2027-05-02",
+   "location": "Karting Genk",
+   "kind": "race"
   }
  ],
  "restore": [
-  "british-rental-kart-championship"
+  "british-rental-kart-championship",
+  "sicily-25-hours"
  ]
 }

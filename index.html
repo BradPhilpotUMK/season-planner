@@ -417,7 +417,7 @@ const RENTAL=[
  ["Kart Silverstone 24 Hours","Kart Silverstone, UK","KS24"],
  ["Teesside Autodrome endurance races","Teesside Autodrome, Middlesbrough","TA"],
  ["Sodi World Finals","Europe","SWS"],
- ["24 Hour Series","Le Mans, Spa, Campillos and Sicily","24H"],
+ ["24 Hour Series","Campillos, Le Mans, Teesside and Spa","24H"],
 ];
 /* UK rental / arrive-and-drive tracks: their own leagues, grands prix and endurance races. Editable in the app. */
 const RTRACKS=[
@@ -455,7 +455,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1791524115";
+const BUILD="1791524238";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
