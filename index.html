@@ -455,7 +455,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1791524524";
+const BUILD="1791526227";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -484,7 +484,7 @@ const isRental=s=>!!s&&(s.kind==="rental"||s.kind==="rtrack");
 const isRacing=e=>{if(e.racing===true)return true;if(e.racing===false)return false;const s=ser(e.seriesId);return !isClub(s)||!!s.racing};
 const colorOf=e=>isRacing(e)?(ser(e.seriesId)?.color||"#9EA3AD"):GREY;
 const visible=e=>!e.seriesId||!S.hidden.includes(e.seriesId);
-const STOP=new Set(["kart","karting","club","racing","racing","series","the","and","of","district","international","championships","championship","national","event","british","uk"]);
+const STOP=new Set(["kart","karting","club","racing","racing","series","the","and","des","les","heures","hours","of","district","international","championships","championship","national","event","british","uk"]);
 function initials(s){
   if(!s)return "?";
   if(s.short)return s.short;
@@ -632,6 +632,13 @@ async function connect(){await loadMaster();return;
 }
 
 /* ---------- clash logic ---------- */
+/* the same race listed twice (e.g. your own series and the shared list) is not a clash */
+const LOC_SKIP=new Set(["karting","kart","karts","circuit","raceway","track","international","park","centre","center","motorsport","motorsports","autodrome","indoor","outdoor","racing","the","and","france","spain","belgium","italy","netherlands","germany","portugal"]);
+function locWords(e){return new Set((e.location||"").toLowerCase().replace(/[^a-z ]/g," ").split(/\s+/).filter(w=>w.length>=3&&!LOC_SKIP.has(w)))}
+function sameEvent(a,b){
+  if(a.seriesId===b.seriesId||a.start!==b.start||(a.end||a.start)!==(b.end||b.start))return false;
+  const wa=locWords(a);return [...locWords(b)].some(w=>wa.has(w));
+}
 function computeClashes(){
   const evs=S.events.filter(e=>visible(e)&&isRacing(e)&&!NO_CLASH.has(e.kind)).map(e=>({e,s:dn(e.start),t:dn(e.end||e.start)})).sort((a,b)=>a.s-b.s);
   const clashes=[],tight=[];
@@ -639,6 +646,7 @@ function computeClashes(){
     for(let j=i+1;j<evs.length;j++){
       const a=evs[i],b=evs[j];
       if(b.s>a.t+1)break;
+      if(sameEvent(a.e,b.e))continue;
       if(b.s<=a.t)clashes.push({a:a.e,b:b.e,from:Math.max(a.s,b.s),to:Math.min(a.t,b.t)});
       else if(b.s===a.t+1&&a.e.kind==="race"&&b.e.kind==="race"&&a.e.seriesId!==b.e.seriesId&&a.t-a.s+b.t-b.s>0)tight.push({a:a.e,b:b.e,from:a.t,to:b.s});
     }
