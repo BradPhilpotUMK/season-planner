@@ -419,6 +419,16 @@
    "checked": 1791799057131
   },
   {
+   "id": "kart-silverstone-24-hours",
+   "name": "Kart Silverstone 24 Hours",
+   "venue": "Kart Silverstone, Northamptonshire",
+   "kind": "rental",
+   "color": "#F2A93B",
+   "short": "KS24",
+   "checked": 1791799078604,
+   "note": "2027 date not published yet. 2026 ran 15 to 17 May, alongside the BRSCC 24 Hour"
+  },
+  {
    "id": "daytona-milton-keynes",
    "name": "Daytona Milton Keynes",
    "venue": "Milton Keynes, Buckinghamshire",
