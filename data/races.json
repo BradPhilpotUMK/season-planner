@@ -410,6 +410,15 @@
    "note": "2027 date not published yet"
   },
   {
+   "id": "daytona-milton-keynes-24-hours",
+   "name": "Daytona Milton Keynes 24 Hours",
+   "venue": "Daytona Milton Keynes",
+   "kind": "rental",
+   "color": "#3BD16F",
+   "short": "MK24",
+   "checked": 1791799057131
+  },
+  {
    "id": "daytona-milton-keynes",
    "name": "Daytona Milton Keynes",
    "venue": "Milton Keynes, Buckinghamshire",
@@ -2365,15 +2374,6 @@
    "kind": "race"
   },
   {
-   "id": "daytona-milton-keynes-2027-05-29-daytona-24-hours-202",
-   "seriesId": "daytona-milton-keynes",
-   "title": "Daytona 24 Hours 2027",
-   "start": "2027-05-29",
-   "end": "2027-05-30",
-   "location": "Daytona Milton Keynes",
-   "kind": "race"
-  },
-  {
    "id": "national-kart-cup-2027-06-18-round-4",
    "seriesId": "national-kart-cup",
    "title": "Round 4",
@@ -2857,6 +2857,15 @@
    "start": "2026-12-17",
    "end": "2026-12-17",
    "location": "Daytona Sandown Park",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-milton-keynes-24-hours-2027-05-28-daytona-24-hours",
+   "seriesId": "daytona-milton-keynes-24-hours",
+   "title": "Daytona 24 Hours",
+   "start": "2027-05-28",
+   "end": "2027-05-30",
+   "location": "Daytona Milton Keynes",
    "kind": "race"
   }
  ],

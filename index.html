@@ -447,7 +447,7 @@ const RTRACKS=[
 ];
 const CLUB_ADDS=[[2,["Hooton Park Kart Club","Teesside Autodrome karting"]],[3,RENTAL.map(r=>r[0])],[4,RTRACKS.map(r=>r[0])]];
 /* Championship entries now covered by a whole-track entry; dropped on upgrade if untouched */
-const RETIRED=["Daytona Milton Keynes 24 Hours","Kart Silverstone 24 Hours","Teesside Autodrome endurance races"];
+const RETIRED=["Kart Silverstone 24 Hours","Teesside Autodrome endurance races"];
 const KINDS={race:"Race",test:"Testing",filming:"Filming",release:"Video release",personal:"Personal"};
 const NO_CLASH=new Set(["release"]);
 const SUGGEST=["Super One Senior Rotax","GX-UK Seniors","24H Series karting","KartMania","London Cup Rotax Max"];
@@ -455,7 +455,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1791526227";
+const BUILD="1791799057";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
