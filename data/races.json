@@ -426,7 +426,7 @@
    "color": "#F2A93B",
    "short": "KS24",
    "checked": 1791799078604,
-   "note": "2027 date not published yet. 2026 ran 15 to 17 May, alongside the BRSCC 24 Hour"
+   "note": "2027 date provisional, not confirmed yet"
   },
   {
    "id": "daytona-milton-keynes",
@@ -2876,6 +2876,15 @@
    "start": "2027-05-28",
    "end": "2027-05-30",
    "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "kart-silverstone-24-hours-2027-05-21-silverstone-24-hours",
+   "seriesId": "kart-silverstone-24-hours",
+   "title": "Silverstone 24 Hours (provisional)",
+   "start": "2027-05-21",
+   "end": "2027-05-23",
+   "location": "Kart Silverstone",
    "kind": "race"
   }
  ],
