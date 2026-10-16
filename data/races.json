@@ -281,6 +281,16 @@
    "note": "Adds winter Enduro + Winter Series; 2027 sprint season not published"
   },
   {
+   "id": "teesside-motorsports-winter-series",
+   "name": "Teesside Motorsports Winter Series",
+   "venue": "Rowrah, Teesside, Whilton Mill and GYG",
+   "kind": "club",
+   "color": "#2F6BFF",
+   "short": "TWS",
+   "checked": 1792134115559,
+   "note": "Bambino to Senior, two stroke and four stroke"
+  },
+  {
    "id": "british-rental-kart-championship",
    "name": "British Rental Kart Championship",
    "venue": "Formula Fast, Milton Keynes",
@@ -904,6 +914,16 @@
    "kind": "rental",
    "color": "#FF5C8A",
    "short": "SRK"
+  },
+  {
+   "id": "teesside-winter-enduro",
+   "name": "Teesside Winter Enduro",
+   "venue": "Teesside Autodrome, Middlesbrough",
+   "kind": "rental",
+   "color": "#29A8E0",
+   "short": "TWE",
+   "checked": 1792134115559,
+   "note": "Owner and hire Pro karts"
   }
  ],
  "events": [
@@ -1871,15 +1891,6 @@
    "kind": "race"
   },
   {
-   "id": "teesside-autodrome-rental-2026-11-22-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 1",
-   "start": "2026-11-22",
-   "end": "2026-11-22",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
    "id": "ellough-park-rental-2026-11-24-junior-pro-league",
    "seriesId": "ellough-park-rental",
    "title": "Junior Pro League",
@@ -2096,15 +2107,6 @@
    "kind": "race"
   },
   {
-   "id": "teesside-autodrome-rental-2026-12-13-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 2",
-   "start": "2026-12-13",
-   "end": "2026-12-13",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
    "id": "ellough-park-rental-2026-12-14-open-league",
    "seriesId": "ellough-park-rental",
    "title": "Open League",
@@ -2249,15 +2251,6 @@
    "kind": "race"
   },
   {
-   "id": "teesside-autodrome-rental-2027-01-17-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 3",
-   "start": "2027-01-17",
-   "end": "2027-01-17",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
    "id": "daytona-sandown-park-2027-01-24-inkart-round-8",
    "seriesId": "daytona-sandown-park",
    "title": "InKart Round 8",
@@ -2327,15 +2320,6 @@
    "start": "2027-03-06",
    "end": "2027-03-06",
    "location": "Bayford Meadows",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-rental-2027-03-07-winter-enduro-round-",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "Winter Enduro Round 4",
-   "start": "2027-03-07",
-   "end": "2027-03-07",
-   "location": "Teesside Autodrome",
    "kind": "race"
   },
   {
@@ -2885,6 +2869,78 @@
    "start": "2027-05-21",
    "end": "2027-05-23",
    "location": "Kart Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-winter-enduro-2026-11-22-round-1",
+   "seriesId": "teesside-winter-enduro",
+   "title": "Round 1",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-winter-enduro-2026-12-13-round-2",
+   "seriesId": "teesside-winter-enduro",
+   "title": "Round 2",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-winter-enduro-2027-01-17-round-3",
+   "seriesId": "teesside-winter-enduro",
+   "title": "Round 3",
+   "start": "2027-01-17",
+   "end": "2027-01-17",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-winter-enduro-2027-03-07-round-4",
+   "seriesId": "teesside-winter-enduro",
+   "title": "Round 4",
+   "start": "2027-03-07",
+   "end": "2027-03-07",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2026-12-05-round-1",
+   "seriesId": "teesside-motorsports-winter-series",
+   "title": "Round 1",
+   "start": "2026-12-05",
+   "end": "2026-12-06",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2026-12-28-round-2",
+   "seriesId": "teesside-motorsports-winter-series",
+   "title": "Round 2",
+   "start": "2026-12-28",
+   "end": "2026-12-29",
+   "location": "Teesside Autodrome",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2027-01-30-round-3",
+   "seriesId": "teesside-motorsports-winter-series",
+   "title": "Round 3",
+   "start": "2027-01-30",
+   "end": "2027-01-31",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2027-02-20-round-4",
+   "seriesId": "teesside-motorsports-winter-series",
+   "title": "Round 4",
+   "start": "2027-02-20",
+   "end": "2027-02-21",
+   "location": "GYG, Llandow",
    "kind": "race"
   }
  ],
