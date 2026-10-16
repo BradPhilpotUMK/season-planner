@@ -455,7 +455,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792135044";
+const BUILD="1792135078";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -556,7 +556,7 @@ function badge(s,z){
 
 /* ---------- storage ---------- */
 function loadLocal(){try{const r=localStorage.getItem(LS);if(r)S=normal(JSON.parse(r))}catch(e){}}
-function normal(x){return {series:Array.isArray(x?.series)?x.series:[],events:Array.isArray(x?.events)?x.events:[],hidden:Array.isArray(x?.hidden)?x.hidden:[],splash:x?.splash||null,skin:x?.skin||"",clubsSeeded:!!x?.clubsSeeded,seedVer:x?.seedVer||1,removed:Array.isArray(x?.removed)?x.removed:[],masterUpdated:x?.masterUpdated||"",restored:Array.isArray(x?.restored)?x.restored:[]}}
+function normal(x){return {series:Array.isArray(x?.series)?x.series:[],events:Array.isArray(x?.events)?x.events:[],hidden:Array.isArray(x?.hidden)?x.hidden:[],splash:x?.splash||null,skin:x?.skin||"",clubsSeeded:!!x?.clubsSeeded,seedVer:x?.seedVer||1,removed:Array.isArray(x?.removed)?x.removed:[],masterUpdated:x?.masterUpdated||"",migRental:!!x?.migRental,restored:Array.isArray(x?.restored)?x.restored:[]}}
 function nextColor(){const used=S.series.map(s=>s.color);return COLORS.find(c=>!used.includes(c))||COLORS[S.series.length%COLORS.length]}
 function seedClubs(){return false;
   let changed=false;
@@ -587,7 +587,9 @@ function save(){
 async function loadMaster(){
   try{const r=await fetch("data/races.json",{cache:"no-cache"});if(!r.ok)return;applyMaster(await r.json());save();render()}catch(e){}
 }
-function applyMaster(M){
+function migrateRental(){if(S.migRental)return;S.migRental=true;
+  S.series.forEach(s=>{if(!s.master&&(s.kind==="mine"||!s.kind)&&/\b(rental|hire)\b/i.test(s.name))setSeriesKind(s,"rental")})}
+function applyMaster(M){migrateRental();
   if(!M||!Array.isArray(M.series)||!Array.isArray(M.events))return;
   if(Array.isArray(M.restore)){S.restored=S.restored||[];M.restore.forEach(id=>{if(!S.restored.includes(id)){S.removed=(S.removed||[]).filter(x=>x!==id);S.restored.push(id)}})}
   const rm=new Set(S.removed||[]);
@@ -911,21 +913,30 @@ function clubSheet(id){
 }
 
 /* ---------- edit a series or club ---------- */
+/* move one of your own series between the Owner and Rental tabs, keeping which rounds you're racing */
+function setSeriesKind(s,kind){
+  if(kind==="rental"&&s.kind!=="rental")S.events.forEach(e=>{if(e.seriesId===s.id&&e.racing===undefined)e.racing=true});
+  s.kind=kind;
+}
 function editSeries(id){
   const s=ser(id);if(!s)return;const club=isClub(s);
   openSheet(`<h2>Edit ${s.kind==="rtrack"?"track":isRental(s)?"championship":club?"club":"series"}</h2>
   <label class="f" for="eN">Name</label><input type="text" id="eN" value="${esc(s.name)}">
   <label class="f" for="eV">${club?"Circuit and area":"Country or main venue (optional)"}</label><input type="text" id="eV" value="${esc(s.venue||"")}" placeholder="${club?"Whilton Mill, Northamptonshire":"e.g. Sicily, Italy"}">
+  ${!s.master&&(s.kind==="mine"||!s.kind||s.kind==="rental")?`<label class="f">Show it under</label><div class="row" id="eK"><button type="button" class="btn${s.kind==="rental"?"":" primary"}" data-ek="mine">Owner</button><button type="button" class="btn${s.kind==="rental"?" primary":""}" data-ek="rental">Rental</button></div>`:""}
   <label class="f">Colour</label><div class="row" id="eC">${COLORS.map(c=>`<button type="button" data-ecol="${c}" aria-label="Colour ${c}" style="width:34px;height:34px;border-radius:50%;border:3px solid ${c===s.color?"var(--text)":"transparent"};background:${c};padding:0"></button>`).join("")}</div>
   <div class="actions"><button class="btn" id="eCancel">Cancel</button><button class="btn primary" id="eSave">Save changes</button></div>`);
-  let col=s.color;
+  let col=s.color,kind=s.kind;
+  if($("#eK"))$("#eK").onclick=ev=>{const b=ev.target.closest("[data-ek]");if(!b)return;kind=b.dataset.ek;$("#eK").querySelectorAll("button").forEach(x=>x.classList.toggle("primary",x.dataset.ek===kind))};
   $("#eC").onclick=ev=>{const b=ev.target.closest("[data-ecol]");if(!b)return;col=b.dataset.ecol;$("#eC").querySelectorAll("button").forEach(x=>x.style.borderColor=x.dataset.ecol===col?"var(--text)":"transparent")};
   $("#eCancel").onclick=()=>club?clubSheet(id):closeSheet();
   $("#eSave").onclick=()=>{
     const n=$("#eN").value.trim();if(!n){$("#eN").focus();return}
     if(S.series.some(x=>x.id!==id&&x.name.toLowerCase()===n.toLowerCase())){toast("Another series already has that name");return}
     const old=s.name;S.events.forEach(e=>{if(e.seriesId===id&&e.title===old)e.title=n});
-    if(n!==s.name)s.userEdited=true;s.name=n;s.venue=$("#eV").value.trim();s.color=col;save();render();toast("Changes saved");
+    if(n!==s.name)s.userEdited=true;s.name=n;s.venue=$("#eV").value.trim();s.color=col;
+    if(kind&&kind!==s.kind){setSeriesKind(s,kind);save();render();toast(kind==="rental"?"Moved to Rental":"Moved to Owner");closeSheet();return}
+    save();render();toast("Changes saved");
     if(club)clubSheet(id);else closeSheet();
   };
 }
