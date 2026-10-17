@@ -237,6 +237,9 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 #wfull .wfh small{display:block;font-family:inherit;font-size:13px;color:var(--muted);font-weight:400}
 #wfull .wfm{font-family:var(--display);font-size:15px;font-weight:700;color:var(--muted);margin:14px 2px 6px;letter-spacing:.04em;text-transform:uppercase}
 #wfull .wfg{display:grid;gap:5px}
+#wfull .wfm{display:flex;align-items:center;justify-content:space-between}
+#wfull .wfart{width:30px;height:30px;color:var(--muted);opacity:.75;flex:none;margin:-4px 0}
+#wfull .wfb{position:relative;overflow:hidden}
 #wfull .wfb{border-radius:14px;padding:2px 8px 10px;margin:0 -8px 6px}
 #wfull .wfb.alt{background:#363A42;box-shadow:inset 0 0 0 1px var(--line)}
 #wfull .wfb .wfm{margin-top:10px}
@@ -496,7 +499,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792275733";
+const BUILD="1792275976";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -877,6 +880,22 @@ function shortEvName(e){
   if(base&&t.length<=10&&!t.toLowerCase().includes(base.toLowerCase()))return base+" "+t;
   return t;
 }
+/* small line drawings for each month on the season page */
+const MONTH_ART=[
+ /* Jan snowflake */ '<path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3.6 10.4l3.4-1-1-3.4M17 18.6l1-3.4 3.4-1M3.6 13.6l3.4 1-1 3.4M17 5.4l1 3.4 3.4 1"/>',
+ /* Feb heart */ '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/>',
+ /* Mar spring shoots */ '<path d="M12 21v-9"/><path d="M12 12c0-4-3-6.5-7-6.5 0 4 3 6.5 7 6.5zM12 15c0-3.5 2.5-5.5 6.5-5.5 0 3.5-2.5 5.5-6.5 5.5z"/><path d="M7 21h10"/>',
+ /* Apr umbrella and rain */ '<path d="M3 12a9 9 0 0 1 18 0H3z"/><path d="M12 12v6.5a2 2 0 0 1-4 0M12 3V2"/><path d="M5 16l-1 2M19 16l-1 2M16 19l-1 2"/>',
+ /* May tulip */ '<path d="M7 4l2.5 2.5L12 3l2.5 3.5L17 4v5a5 5 0 0 1-10 0z"/><path d="M12 14v8M12 20c-2-2-4-2.5-6-2M12 18c2-2 4-2.5 6-2"/>',
+ /* Jun sun */ '<circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>',
+ /* Jul ice lolly */ '<path d="M8 10a4 4 0 0 1 8 0v7H8z"/><path d="M12 17v5M8 13h8"/><path d="M11 6.5c.5-.7 1.3-1 2-1"/>',
+ /* Aug beach wave */ '<path d="M2 15c2 0 2-1.5 4-1.5S8 15 10 15s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 19.5c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><circle cx="17" cy="6.5" r="2.5"/>',
+ /* Sep falling leaf */ '<path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15z"/><path d="M5 19l9-9M9 15h3M11 13V10"/>',
+ /* Oct pumpkin */ '<ellipse cx="8.6" cy="14" rx="4.6" ry="6"/><ellipse cx="15.4" cy="14" rx="4.6" ry="6"/><ellipse cx="12" cy="14" rx="2.6" ry="6.2"/><path d="M12 7.8V5c0-1.2.8-2 2-2"/><path d="M13 5.5c1.5-.3 3 .3 3.5 1.5"/>',
+ /* Nov fireworks */ '<path d="M12 7V3M12 17v4M7 12H3M17 12h4M8.5 8.5 5.6 5.6M15.5 15.5l2.9 2.9M8.5 15.5l-2.9 2.9M15.5 8.5l2.9-2.9"/><circle cx="12" cy="12" r="1.3"/><circle cx="12" cy="3" r=".4"/><circle cx="21" cy="12" r=".4"/>',
+ /* Dec Christmas tree */ '<path d="M12 2l4 5h-2.5l4 5H15l4.5 5h-15L9 12H6.5l4-5H8z"/><path d="M12 17v4M10 21h4"/>'
+];
+function monthArt(m){return `<svg class="wfart" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${MONTH_ART[m]}</svg>`}
 function openSeason(){
   const W=weekends();const nR=W.filter(w=>w.racing.length).length;
   let html=`<div class="wfh"><h2>Your season<small>Racing ${nR} of ${W.length} weekends. Tap a weekend for details.</small></h2><button class="iconbtn" data-wfclose="1" aria-label="Close">×</button></div>`;
@@ -884,7 +903,7 @@ function openSeason(){
   const months=[];
   W.forEach(w=>{const d=new Date(w.sat*864e5),k=d.getUTCFullYear()*12+d.getUTCMonth();let m=months[months.length-1];if(!m||m.k!==k){m={k,d,ws:[]};months.push(m)}m.ws.push(w)});
   months.forEach(m=>{
-    html+=`<section class="wfb${months.indexOf(m)%2?" alt":""}"><div class="wfm">${MONTHS[m.d.getUTCMonth()]} ${m.d.getUTCFullYear()}</div><div class="wfg" style="grid-template-columns:repeat(${Math.max(4,m.ws.length)},minmax(0,1fr))">`;
+    html+=`<section class="wfb${months.indexOf(m)%2?" alt":""}"><div class="wfm"><span>${MONTHS[m.d.getUTCMonth()]} ${m.d.getUTCFullYear()}</span>${monthArt(m.d.getUTCMonth())}</div><div class="wfg" style="grid-template-columns:repeat(${Math.max(4,m.ws.length)},minmax(0,1fr))">`;
     m.ws.forEach(w=>{
       const cls=w.clash?"clash":w.racing.length?"race":w.opts.length?"o":"nf";
       const sd=new Date(w.sat*864e5),ud=new Date(w.sun*864e5);
