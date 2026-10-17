@@ -236,18 +236,17 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 #wfull .wfh h2{font-family:var(--display);font-size:22px;margin:0;flex:1}
 #wfull .wfh small{display:block;font-family:inherit;font-size:13px;color:var(--muted);font-weight:400}
 #wfull .wfm{font-family:var(--display);font-size:15px;font-weight:700;color:var(--muted);margin:14px 2px 6px;letter-spacing:.04em;text-transform:uppercase}
-#wfull .wfg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-@media (min-width:600px){#wfull .wfg{grid-template-columns:repeat(5,1fr)}}
-.wt{position:relative;min-height:92px;border-radius:10px;border:none;padding:8px 8px 10px;text-align:left;color:inherit;font:inherit;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;gap:3px}
-.wt .wd{font-family:var(--display);font-size:13px;font-weight:700;line-height:1.1}
+#wfull .wfg{display:grid;gap:5px}
+.wt{position:relative;min-height:86px;border-radius:9px;border:none;padding:7px 6px 10px;min-width:0;text-align:left;color:inherit;font:inherit;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;gap:3px}
+.wt .wd{font-family:var(--display);font-size:14px;white-space:nowrap;font-weight:700;line-height:1.1}
 .wt.race{background:var(--accent);color:#fff}
 .wt.o{background:var(--surface2)}
 .wt.o .wn{color:var(--muted)}
 .wt.clash{background:var(--surface2);box-shadow:inset 0 -7px 0 0 var(--kerb)}
 .wt.clash::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:repeating-linear-gradient(90deg,var(--kerb) 0 6px,var(--kerbW) 6px 12px)}
-.wt .wn{font-size:12.5px;line-height:1.2;display:flex;align-items:flex-start;gap:5px}
-.wt .wn b{font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
-.wt .wn i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--c);margin-top:4px}
+.wt .wn{font-size:11px;line-height:1.2;display:flex;align-items:flex-start;gap:3px;min-width:0}
+.wt .wn b{font-weight:500;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.wt .wn i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--c);margin-top:3px}
 .wt.race .wn i{box-shadow:0 0 0 1.5px #fff}
 .wt .wx{color:var(--kerb);font-weight:700;font-size:18px;margin-top:auto}
 .wt .wmo{font-size:11px;opacity:.85}
@@ -491,7 +490,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792275525";
+const BUILD="1792275571";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -875,19 +874,23 @@ function shortEvName(e){
 function openSeason(){
   const W=weekends();const nR=W.filter(w=>w.racing.length).length;
   let html=`<div class="wfh"><h2>Your season<small>Racing ${nR} of ${W.length} weekends. Tap a weekend for details.</small></h2><button class="iconbtn" data-wfclose="1" aria-label="Close">×</button></div>`;
-  let curM=-1,open=false;
-  W.forEach(w=>{
-    const d=new Date(w.sat*864e5),m=d.getUTCMonth();
-    if(m!==curM){if(open)html+=`</div>`;html+=`<div class="wfm">${MONTHS[m]} ${d.getUTCFullYear()}</div><div class="wfg">`;curM=m;open=true}
-    const cls=w.clash?"clash":w.racing.length?"race":w.opts.length?"o":"nf";
-    const date=`${fmt(isoOf(w.sat),{day:"numeric"})} to ${fmt(isoOf(w.sun),{day:"numeric",month:"short"})}`;
-    let body;
-    if(w.racing.length)body=w.racing.slice(0,4).map(e=>`<span class="wn" style="--c:${colorOf(e)}"><i></i><b>${esc(shortEvName(e))}</b></span>`).join("")+(w.racing.length>4?`<span class="wmo">+${w.racing.length-4} more</span>`:"");
-    else if(w.opts.length)body=`<span class="wn">${w.opts.length} race${w.opts.length>1?"s":""} on</span>`;
-    else body=`<span class="wx" aria-label="Nothing found">×</span>`;
-    html+=`<button class="wt ${cls}" data-wfj="${w.i}"><span class="wd">${date}</span>${body}</button>`;
+  /* one row per month: 4 or 5 weekends side by side */
+  const months=[];
+  W.forEach(w=>{const d=new Date(w.sat*864e5),k=d.getUTCFullYear()*12+d.getUTCMonth();let m=months[months.length-1];if(!m||m.k!==k){m={k,d,ws:[]};months.push(m)}m.ws.push(w)});
+  months.forEach(m=>{
+    html+=`<div class="wfm">${MONTHS[m.d.getUTCMonth()]} ${m.d.getUTCFullYear()}</div><div class="wfg" style="grid-template-columns:repeat(${Math.max(4,m.ws.length)},minmax(0,1fr))">`;
+    m.ws.forEach(w=>{
+      const cls=w.clash?"clash":w.racing.length?"race":w.opts.length?"o":"nf";
+      const sd=new Date(w.sat*864e5),ud=new Date(w.sun*864e5);
+      const date=`${sd.getUTCDate()}-${ud.getUTCDate()}${ud.getUTCMonth()!==sd.getUTCMonth()?" "+MONTHS[ud.getUTCMonth()].slice(0,3):""}`;
+      let body;
+      if(w.racing.length)body=w.racing.slice(0,3).map(e=>`<span class="wn" style="--c:${colorOf(e)}"><i></i><b>${esc(shortEvName(e))}</b></span>`).join("")+(w.racing.length>3?`<span class="wmo">+${w.racing.length-3} more</span>`:"");
+      else if(w.opts.length)body=`<span class="wn">${w.opts.length} on</span>`;
+      else body=`<span class="wx" aria-label="Nothing found">×</span>`;
+      html+=`<button class="wt ${cls}" data-wfj="${w.i}" aria-label="${fmt(isoOf(w.sat),{day:"numeric",month:"short"})}"><span class="wd">${date}</span>${body}</button>`;
+    });
+    html+=`</div>`;
   });
-  if(open)html+=`</div>`;
   const el=$("#wfull");el.innerHTML=html;el.classList.add("on");el.scrollTop=0;
 }
 function closeSeason(){$("#wfull").classList.remove("on")}
