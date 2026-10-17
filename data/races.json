@@ -247,8 +247,8 @@
    "venue": "National championship",
    "kind": "national",
    "color": "#F2A93B",
-   "checked": 1791784067293,
-   "note": "2026 season finished; 2027 dates not published yet",
+   "checked": 1792273897055,
+   "note": "2027 calendar from superoneseries.com",
    "logoUrl": "logos/super-one-series.png"
   },
   {
@@ -2941,6 +2941,69 @@
    "start": "2027-02-20",
    "end": "2027-02-21",
    "location": "GYG (Glan Y Gors), North Wales",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-03-27--o--plate",
+   "seriesId": "super-one-series",
+   "title": "'O' Plate",
+   "start": "2027-03-27",
+   "end": "2027-03-28",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-04-03-rounds-1---2",
+   "seriesId": "super-one-series",
+   "title": "Rounds 1 & 2",
+   "start": "2027-04-03",
+   "end": "2027-04-04",
+   "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-05-01-rounds-3---4",
+   "seriesId": "super-one-series",
+   "title": "Rounds 3 & 4",
+   "start": "2027-05-01",
+   "end": "2027-05-02",
+   "location": "GYG (Glan Y Gors), North Wales",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-06-05-rounds-5---6",
+   "seriesId": "super-one-series",
+   "title": "Rounds 5 & 6",
+   "start": "2027-06-05",
+   "end": "2027-06-06",
+   "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-07-03-rounds-7---8",
+   "seriesId": "super-one-series",
+   "title": "Rounds 7 & 8",
+   "start": "2027-07-03",
+   "end": "2027-07-04",
+   "location": "Fulbeck",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-07-31-rounds-9---10",
+   "seriesId": "super-one-series",
+   "title": "Rounds 9 & 10",
+   "start": "2027-07-31",
+   "end": "2027-08-01",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "super-one-series-2027-08-28-rounds-11---12",
+   "seriesId": "super-one-series",
+   "title": "Rounds 11 & 12",
+   "start": "2027-08-28",
+   "end": "2027-08-29",
+   "location": "Shenington",
    "kind": "race"
   }
  ],
