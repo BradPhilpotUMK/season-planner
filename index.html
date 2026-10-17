@@ -153,9 +153,13 @@ label.f{display:block;font-size:14px;color:var(--muted);margin:10px 0 4px}
 .clashcard .k.warn{background:repeating-linear-gradient(180deg,#F2A93B 0 8px,var(--kerbW) 8px 16px)}
 .clashcard .b{padding:12px 14px;flex:1;min-width:0}
 .clashcard .d{font-family:var(--display);font-size:15px;font-weight:600}
-.clashcard button{display:block;width:100%;text-align:left;background:none;border:none;padding:6px 0;border-top:1px solid var(--line)}
-.clashcard button:first-of-type{border-top:none}
-.clashcard button i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:7px}
+button.clashcard{width:100%;text-align:left;padding:0;color:inherit;font:inherit;cursor:pointer}
+.clashcard .b{display:block}
+.clashcard .d{display:block}
+.clashcard .cr{display:block;padding:6px 0;border-top:1px solid var(--line)}
+.clashcard .d+.cr{border-top:none}
+.clashcard .pick{display:block;margin-top:6px;color:var(--muted);font-size:13px}
+.clashcard i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:7px}
 
 nav.tabs{position:relative;flex:none;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding:6px 8px max(18px,env(safe-area-inset-bottom,0px))}
 nav.tabs div{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
@@ -455,7 +459,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792273897";
+const BUILD="1792274163";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -700,8 +704,8 @@ function renderTop(){
     return `<button class="tape-m${clash?" has-clash":""}" data-jump="${i}" aria-label="${MONTHS[m]} ${y}, ${evs.length} events">${ticks}</button>`;
   }).join("");
   $("#tapeL").innerHTML=ms.map(([y,m])=>`<span>${MONTHS[m][0]}</span>`).join("");
-  const nc=C.clashes.length;
-  $("#clashBar").innerHTML=nc?`<button class="clashbar" data-tab="clash"><span class="k"></span><span class="t"><strong>${nc} clash${nc>1?"es":""}</strong><small>Tap to see what overlaps</small></span></button>`:"";
+  const nc=clashGroups(C).length;
+  $("#clashBar").innerHTML=nc?`<button class="clashbar" data-tab="clash"><span class="k"></span><span class="t"><strong>${nc} clash${nc>1?"es":""}</strong><small>Tap to choose which you're doing</small></span></button>`:"";
   $("#clashBadge").innerHTML=nc?`<span class="badge">${nc}</span>`:"";
   $("#chips").innerHTML=S.series.filter(s=>!isClub(s)||s.racing||S.events.some(e=>e.seriesId===s.id&&e.racing===true)).map(s=>`<button class="chip${S.hidden.includes(s.id)?" off":""}" data-toggle="${s.id}" style="--c:${s.color}"><i></i>${esc(s.name)}</button>`).join("");
 }
@@ -754,18 +758,40 @@ function evRow(e,C){
 
 /* Race flag icon for the clashes page: green = all clear, yellow = tight turnaround, red = clash */
 function raceFlagSvg(c,label){return `<svg class="raceflag" viewBox="0 0 64 64" role="img" aria-label="${label}"><rect x="12" y="6" width="4" height="54" rx="2" fill="var(--muted)"/><path d="M16 9c8-4 15 4 23 0s12-3 17-1v26c-5-2-9-3-17 1s-15-4-23 0z" fill="${c}"/></svg>`}
+function clashGroups(C){
+  /* join pairs that share an event, so a three-way clash shows as one card */
+  const groups=[];
+  C.clashes.forEach(c=>{
+    let g=groups.find(g=>g.ids.has(c.a.id)||g.ids.has(c.b.id));
+    if(!g){g={ids:new Set(),evs:[],from:c.from,to:c.to};groups.push(g)}
+    [c.a,c.b].forEach(e=>{if(!g.ids.has(e.id)){g.ids.add(e.id);g.evs.push(e)}});
+    g.from=Math.min(g.from,c.from);g.to=Math.max(g.to,c.to);
+  });
+  return groups;
+}
 function renderClashes(){
   const C=computeClashes();
   if(!C.clashes.length&&!C.tight.length){$("#clashList").innerHTML=`<div class="card" style="text-align:center">${raceFlagSvg("#3BD16F","Green flag")}<h3 style="justify-content:center">All clear</h3><p>No overlapping events in your calendar right now.</p></div>`;return}
-  const item=(c,warn)=>{
-    const range=c.from===c.to||warn?fmt(isoOf(c.from),{weekday:"short",day:"numeric",month:"short",year:"numeric"}):`${fmt(isoOf(c.from),{day:"numeric",month:"short"})} to ${fmt(isoOf(c.to),{day:"numeric",month:"short",year:"numeric"})}`;
-    const row=e=>`<button data-ev="${e.id}"><i style="--c:${colorOf(e)}"></i>${esc(e.title)} <span class="note">${esc(ser(e.seriesId)?.name||KINDS[e.kind]||"")}</span></button>`;
-    return `<div class="clashcard"><span class="k${warn?" warn":""}"></span><div class="b"><div class="d">${warn?"Back to back, "+esc(range):esc(range)}</div>${row(c.a)}${row(c.b)}</div></div>`;
-  };
-  const nc=C.clashes.length,nt=C.tight.length;
-  const head=nc?`<div class="card flaghead">${raceFlagSvg("#E3342F","Red flag")}<div><h3>${nc} clash${nc>1?"es":""}</h3><p>Events on the same day${nt?`, plus ${nt} tight turnaround${nt>1?"s":""}`:""}.</p></div></div>`
+  const rangeOf=(from,to,warn)=>from===to||warn?fmt(isoOf(from),{weekday:"short",day:"numeric",month:"short",year:"numeric"}):`${fmt(isoOf(from),{day:"numeric",month:"short"})} to ${fmt(isoOf(to),{day:"numeric",month:"short",year:"numeric"})}`;
+  const row=e=>`<span class="cr"><i style="--c:${colorOf(e)}"></i>${esc(e.title)} <span class="note">${esc(ser(e.seriesId)?.name||KINDS[e.kind]||"")}</span></span>`;
+  const card=(evs,label,warn)=>`<button class="clashcard" data-pickclash="${evs.map(e=>e.id).join(",")}" data-cl="${esc(label)}"><span class="k${warn?" warn":""}"></span><span class="b"><span class="d">${esc(label)}</span>${evs.map(row).join("")}<span class="pick">${warn?"Tap to choose, or keep both":"Tap to choose which one you're doing"} ›</span></span></button>`;
+  const G=clashGroups(C);
+  const nc=G.length,nt=C.tight.length;
+  const head=nc?`<div class="card flaghead">${raceFlagSvg("#E3342F","Red flag")}<div><h3>${nc} clash${nc>1?"es":""}</h3><p>Events on the same day${nt?`, plus ${nt} tight turnaround${nt>1?"s":""}`:""}. Tap one to pick which you're doing.</p></div></div>`
     :`<div class="card flaghead">${raceFlagSvg("#F2A93B","Yellow flag")}<div><h3>${nt} tight turnaround${nt>1?"s":""}</h3><p>No same-day clashes, but some back-to-back race days.</p></div></div>`;
-  $("#clashList").innerHTML=head+C.clashes.map(c=>item(c,false)).join("")+C.tight.map(c=>item(c,true)).join("");
+  $("#clashList").innerHTML=head+G.map(g=>card(g.evs,rangeOf(g.from,g.to,false),false)).join("")+C.tight.map(c=>card([c.a,c.b],"Back to back, "+rangeOf(c.from,c.to,true),true)).join("");
+}
+function clashSheet(ids,label){
+  const evs=ids.map(id=>S.events.find(e=>e.id===id)).filter(Boolean);if(evs.length<2)return;
+  const when=e=>{const s=e.start,t=e.end||e.start;return s===t?fmt(s,{weekday:"short",day:"numeric",month:"short"}):`${fmt(s,{day:"numeric",month:"short"})} to ${fmt(t,{day:"numeric",month:"short"})}`};
+  openSheet(`<h2>Which one are you doing?</h2><p class="note" style="margin:0 0 12px">${esc(label)}. Tap a name for its details.</p>
+  <div id="pickList">${evs.map(e=>{const s=ser(e.seriesId),where=[e.location,s?.name].filter(Boolean).map(esc).join(". ");
+    return `<div class="opt" style="--c:${colorOf(e)}">${evBadge(e,30)||badge(s,30)}<button class="nm" data-ev="${e.id}" style="background:none;border:none;text-align:left;padding:0;flex:1;min-width:0"><strong>${esc(e.title)}</strong><small>${when(e)}${where?". "+where:""}</small></button><button class="tick" data-pickev="${e.id}" aria-label="Do ${esc(e.title)}"><i></i>Do this</button></div>`}).join("")}</div>
+  <div class="actions"><button class="btn" id="pkBoth">Keep both for now</button></div>`);
+  $("#pickList").onclick=ev=>{const b=ev.target.closest("[data-pickev]");if(!b)return;const keep=b.dataset.pickev;
+    evs.forEach(e=>{e.racing=e.id===keep});save();render();closeSheet();
+    toast("Racing "+(evs.find(e=>e.id===keep)?.title||"that one")+". The other"+(evs.length>2?"s are":" is")+" unticked")};
+  $("#pkBoth").onclick=()=>closeSheet();
 }
 
 function renderSeries(){
@@ -1217,6 +1243,7 @@ document.addEventListener("click",ev=>{
   if(d.logo){pickLogo(d.logo);return}
   if(d.backup){backup();return}
   if(d.restore){const inp=document.createElement("input");inp.type="file";inp.accept="application/json,.json";inp.onchange=async()=>{const f=inp.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x.series)||!Array.isArray(x.events))throw 0;S=normal(x);save();render();await loadMaster();toast("Backup restored")}catch(e){toast("That file isn't a Season Planner backup")}};inp.click();return}
+  if(d.pickclash){clashSheet(d.pickclash.split(","),d.cl||"");return}
   if(d.editser){editSeries(d.editser);return}
   if(d.splashup){if(assets)uploadSplash();return}
   if(d.splashrm){const o=S.splash;S.splash=null;save();splashBtns();if(o&&assets)assets.delete(o).catch(()=>{});toast("Back to the drawn track");return}

@@ -2404,15 +2404,6 @@
    "kind": "race"
   },
   {
-   "id": "teesside-autodrome-rental-2027-08-06-british-24h--hire-ka",
-   "seriesId": "teesside-autodrome-rental",
-   "title": "British 24H (Hire Kart Championship)",
-   "start": "2027-08-06",
-   "end": "2027-08-08",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
    "id": "club100-sprint-championship-2027-08-08-senior-sprint-nation",
    "seriesId": "club100-sprint-championship",
    "title": "Senior Sprint National Round 6",
@@ -2734,42 +2725,6 @@
    "start": "2026-11-22",
    "end": "2026-11-22",
    "location": "Larkhall Circuit International",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-karting-2026-12-05-winter-series-round-",
-   "seriesId": "teesside-autodrome-karting",
-   "title": "Winter Series Round 1",
-   "start": "2026-12-05",
-   "end": "2026-12-06",
-   "location": "Rowrah",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-karting-2026-12-28-winter-series-round-",
-   "seriesId": "teesside-autodrome-karting",
-   "title": "Winter Series Round 2 – Teesside O Plate",
-   "start": "2026-12-28",
-   "end": "2026-12-29",
-   "location": "Teesside Autodrome",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-karting-2027-01-30-winter-series-round-",
-   "seriesId": "teesside-autodrome-karting",
-   "title": "Winter Series Round 3",
-   "start": "2027-01-30",
-   "end": "2027-01-31",
-   "location": "Whilton Mill",
-   "kind": "race"
-  },
-  {
-   "id": "teesside-autodrome-karting-2027-02-20-winter-series-round-",
-   "seriesId": "teesside-autodrome-karting",
-   "title": "Winter Series Round 4",
-   "start": "2027-02-20",
-   "end": "2027-02-21",
-   "location": "Glan Y Gors",
    "kind": "race"
   },
   {
