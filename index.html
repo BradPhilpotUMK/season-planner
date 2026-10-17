@@ -237,6 +237,12 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 #wfull .wfh small{display:block;font-family:inherit;font-size:13px;color:var(--muted);font-weight:400}
 #wfull .wfm{font-family:var(--display);font-size:15px;font-weight:700;color:var(--muted);margin:14px 2px 6px;letter-spacing:.04em;text-transform:uppercase}
 #wfull .wfg{display:grid;gap:5px}
+#wfull .wfb{border-radius:14px;padding:2px 8px 10px;margin:0 -8px 6px}
+#wfull .wfb.alt{background:#363A42;box-shadow:inset 0 0 0 1px var(--line)}
+#wfull .wfb .wfm{margin-top:10px}
+#wfull .wfb.alt .wt.nf{background:var(--bg)}
+#wfull .wfb.alt .wt.o{background:#4A4E57}
+#wfull .wfb.alt .wfm{color:var(--text)}
 .wt{position:relative;min-height:86px;border-radius:9px;border:none;padding:7px 6px 10px;min-width:0;text-align:left;color:inherit;font:inherit;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;gap:3px}
 .wt .wd{font-family:var(--display);font-size:14px;white-space:nowrap;font-weight:700;line-height:1.1}
 .wt.race{background:var(--accent);color:#fff}
@@ -245,7 +251,7 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 .wt.clash{background:var(--surface2);box-shadow:inset 0 -7px 0 0 var(--kerb)}
 .wt.clash::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:repeating-linear-gradient(90deg,var(--kerb) 0 6px,var(--kerbW) 6px 12px)}
 .wt .wn{font-size:11px;line-height:1.2;display:flex;align-items:flex-start;gap:3px;min-width:0}
-.wt .wn b{font-weight:500;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.wt .wn b{font-weight:500;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}
 .wt .wn i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--c);margin-top:3px}
 .wt.race .wn i{box-shadow:0 0 0 1.5px #fff}
 .wt .wx{color:var(--kerb);font-weight:700;font-size:18px;margin-top:auto}
@@ -490,7 +496,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792275571";
+const BUILD="1792275733";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -864,7 +870,7 @@ function optRow(e,inClub){
 }
 function shortEvName(e){
   const s=ser(e.seriesId),t=(e.title||"").trim();
-  const base=s?s.name.replace(/\((.*?)\)/g,"").replace(/\b(series|championships?|karting|kart|club|racing)\b/gi,"").replace(/\s+/g," ").trim()||s.name:"";
+  const base=s?s.name.replace(/\((.*?)\)/g,"").replace(/\b(series|championships?|karting|kart|club|racing|motorsports?)\b/gi,"").replace(/\s+/g," ").trim()||s.name:"";
   const rnd=t.match(/^(rounds?|rd|r)\s*([\d\s&,\-to]+)$/i);
   if(rnd)return (base?base+" ":"")+"R"+rnd[2].replace(/\s*(&|and|,)\s*/g,"&").replace(/\s*(-|to)\s*/g,"-").trim();
   if(!t||(s&&t===s.name))return base||t;
@@ -878,7 +884,7 @@ function openSeason(){
   const months=[];
   W.forEach(w=>{const d=new Date(w.sat*864e5),k=d.getUTCFullYear()*12+d.getUTCMonth();let m=months[months.length-1];if(!m||m.k!==k){m={k,d,ws:[]};months.push(m)}m.ws.push(w)});
   months.forEach(m=>{
-    html+=`<div class="wfm">${MONTHS[m.d.getUTCMonth()]} ${m.d.getUTCFullYear()}</div><div class="wfg" style="grid-template-columns:repeat(${Math.max(4,m.ws.length)},minmax(0,1fr))">`;
+    html+=`<section class="wfb${months.indexOf(m)%2?" alt":""}"><div class="wfm">${MONTHS[m.d.getUTCMonth()]} ${m.d.getUTCFullYear()}</div><div class="wfg" style="grid-template-columns:repeat(${Math.max(4,m.ws.length)},minmax(0,1fr))">`;
     m.ws.forEach(w=>{
       const cls=w.clash?"clash":w.racing.length?"race":w.opts.length?"o":"nf";
       const sd=new Date(w.sat*864e5),ud=new Date(w.sun*864e5);
@@ -889,7 +895,7 @@ function openSeason(){
       else body=`<span class="wx" aria-label="Nothing found">×</span>`;
       html+=`<button class="wt ${cls}" data-wfj="${w.i}" aria-label="${fmt(isoOf(w.sat),{day:"numeric",month:"short"})}"><span class="wd">${date}</span>${body}</button>`;
     });
-    html+=`</div>`;
+    html+=`</div></section>`;
   });
   const el=$("#wfull");el.innerHTML=html;el.classList.add("on");el.scrollTop=0;
 }
