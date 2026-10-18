@@ -519,7 +519,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792306516";
+const BUILD="1792306720";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -887,6 +887,9 @@ function renderSeries(){
     const mine=S.series.filter(s=>!isClub(s));
   $("#seriesList").innerHTML=mine.length?mine.map(s=>{
     const n=S.events.filter(e=>e.seriesId===s.id).length;
+    const own=S.events.filter(e=>e.seriesId===s.id),twins=own.map(e=>S.events.find(x=>x.source==="master"&&sameEvent(e,x)));
+    if(n&&!sharedMatch(s)&&twins.every(Boolean)){const tw=twins[0],ts=ser(tw.seriesId);
+      return `<div class="card" style="--c:${s.color}"><h3>${badge(s,32)}${esc(s.name)}</h3><p>${n===1?"This event is":"These events are"} also in the app${ts?` under <b>${esc(ts.name)}</b>`:""}${n===1?` as "${esc(tw.title)}"`:""}, which gets date changes every week. Use the app's copy to keep just one.</p><div class="row"><button class="btn primary" data-mergeev="${s.id}">Use the app's copy</button><button class="btn" data-editser="${s.id}">Edit</button><button class="btn ghost danger" data-rmseries="${s.id}">Remove</button></div></div>`}
     const dup=n?sharedMatch(s):null;
     if(dup){const dn2=S.events.filter(e=>e.seriesId===dup.id).length;
       return `<div class="card" style="--c:${s.color}"><h3>${badge(s,32)}${esc(s.name)}</h3><p>${n} event${n>1?"s":""} in your calendar. The app also has these under <b>${esc(dup.name)}</b>${dn2?` (${dn2} date${dn2>1?"s":""})`:""}, which gets date changes every week. Merge to keep one copy: your ticks and notes move across.</p><div class="row"><button class="btn primary" data-merge="${s.id}" data-into="${dup.id}">Merge into ${esc(dup.name)}</button><button class="btn" data-addto="${s.id}">Add date</button><button class="btn" data-editser="${s.id}">Edit</button><button class="btn ghost danger" data-rmseries="${s.id}">Remove</button></div></div>`}
@@ -1093,6 +1096,13 @@ function mergeSeries(fromId,intoId){
   });
   S.series=S.series.filter(x=>x.id!==fromId);S.hidden=S.hidden.filter(h=>h!==fromId);
   save();render();toast(`Merged into ${into.name}${moved?`. ${moved} extra date${moved>1?"s":""} kept`:""}`);
+}
+function mergeEvents(fromId){
+  const from=ser(fromId);if(!from)return;let n=0;
+  S.events.filter(e=>e.seriesId===fromId).forEach(e=>{const m=S.events.find(x=>x.source==="master"&&sameEvent(e,x));if(!m)return;
+    m.racing=e.racing!==false;if(e.notes&&!m.notes)m.notes=e.notes;S.events=S.events.filter(x=>x!==e);n++});
+  if(!S.events.some(e=>e.seriesId===fromId)){S.series=S.series.filter(x=>x.id!==fromId);S.hidden=S.hidden.filter(h=>h!==fromId)}
+  save();render();toast(n?"Switched to the app's copy, still ticked":"Nothing to switch");
 }
 function editSeries(id){
   const s=ser(id);if(!s)return;const club=isClub(s);
@@ -1438,6 +1448,7 @@ document.addEventListener("click",ev=>{
   if(d.restore){const inp=document.createElement("input");inp.type="file";inp.accept="application/json,.json";inp.onchange=async()=>{const f=inp.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x.series)||!Array.isArray(x.events))throw 0;S=normal(x);save();render();await loadMaster();toast("Backup restored")}catch(e){toast("That file isn't a Season Planner backup")}};inp.click();return}
   if(d.pickclash){clashSheet(d.pickclash.split(","),d.cl||"");return}
   if(d.merge){mergeSeries(d.merge,d.into);return}
+  if(d.mergeev){mergeEvents(d.mergeev);return}
   if(d.editser){editSeries(d.editser);return}
   if(d.splashup){if(assets)uploadSplash();return}
   if(d.splashrm){const o=S.splash;S.splash=null;save();splashBtns();if(o&&assets)assets.delete(o).catch(()=>{});toast("Back to the drawn track");return}
