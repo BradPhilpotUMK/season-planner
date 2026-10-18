@@ -400,9 +400,12 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
   <section class="panel" id="p-rental">
     <h2 class="sect" style="margin-top:6px">Championships and endurance races</h2>
     <p class="hint">The main UK and European rental and arrive-and-drive championships and endurance races. Tap one to see its rounds and tick the ones you'll race. They also show up in Weekends.</p>
+    <div class="addseries">
+      <input type="text" id="nrName" placeholder="Add your own championship" autocomplete="off" enterkeyhint="done">
+      <button class="btn primary" id="nrAdd">Add</button>
+    </div>
     <div id="rentScan"></div>
     <div id="rentList"></div>
-    <div class="addclub"><input type="text" id="nrName" placeholder="Championship or event"><input type="text" id="nrVenue" placeholder="Where (optional)"><button class="btn" id="nrAdd">Add</button></div>
     <h2 class="sect">UK rental tracks</h2>
     <p class="hint">Race events at each track: leagues, grands prix and endurance races.</p>
     <div id="trackScan"></div>
@@ -519,7 +522,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792306720";
+const BUILD="1792307251";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -873,18 +876,18 @@ function clashSheet(ids,label){
   $("#pkBoth").onclick=()=>closeSheet();
 }
 
+/* an empty series you added yourself that's already in the shared list (e.g. "Super One Senior Rotax" vs "Super One Series") */
+function coreName(n){return n.toLowerCase().replace(/\(.*?\)/g," ").replace(/\b(19|20)\d\d\b/g," ").replace(/\b(series|senior|seniors|junior|juniors|cadet|rotax|max|iame|x30|honda|tkm|championships?|karting|kart|club|racing|uk|the|national)\b/g," ").replace(/[^a-z0-9]+/g," ").trim()}
+function sharedMatch(s){
+  const c=coreName(s.name);if(c.length<3)return null;
+  const cw=c.split(" ");
+return S.series.find(x=>{if(!x.master||x.id===s.id||!isClub(x))return false;const m=coreName(x.name);if(m.length<3)return false;if(m===c)return true;
+  const mw=m.split(" "),[a,b]=cw.length<=mw.length?[cw,mw]:[mw,cw];return a[0]===b[0]&&a.every(w=>b.includes(w))})||null;
+}
 function renderSeries(){
   const used=new Set(S.series.map(s=>s.name.toLowerCase()));
   $("#suggest").innerHTML=SUGGEST.filter(n=>!used.has(n.toLowerCase())).map(n=>`<button data-suggest="${esc(n)}">+ ${esc(n)}</button>`).join("");
-/* an empty series you added yourself that's already in the shared list (e.g. "Super One Senior Rotax" vs "Super One Series") */
-  function coreName(n){return n.toLowerCase().replace(/\(.*?\)/g," ").replace(/\b(19|20)\d\d\b/g," ").replace(/\b(series|senior|seniors|junior|juniors|cadet|rotax|max|iame|x30|honda|tkm|championships?|karting|kart|club|racing|uk|the|national)\b/g," ").replace(/[^a-z0-9]+/g," ").trim()}
-  function sharedMatch(s){
-    const c=coreName(s.name);if(c.length<3)return null;
-    const cw=c.split(" ");
-  return S.series.find(x=>{if(!x.master||x.id===s.id||!isClub(x))return false;const m=coreName(x.name);if(m.length<3)return false;if(m===c)return true;
-    const mw=m.split(" "),[a,b]=cw.length<=mw.length?[cw,mw]:[mw,cw];return a[0]===b[0]&&a.every(w=>b.includes(w))})||null;
-  }
-    const mine=S.series.filter(s=>!isClub(s));
+  const mine=S.series.filter(s=>!isClub(s));
   $("#seriesList").innerHTML=mine.length?mine.map(s=>{
     const n=S.events.filter(e=>e.seriesId===s.id).length;
     const own=S.events.filter(e=>e.seriesId===s.id),twins=own.map(e=>S.events.find(x=>x.source==="master"&&sameEvent(e,x)));
@@ -1489,8 +1492,11 @@ $("#dataBtn").onclick=()=>openSheet(`<h2>Your data</h2><p class="note" style="ma
 $("#askForm").onsubmit=ev=>{ev.preventDefault();const q=$("#askIn").value;$("#askIn").value="";if(q.trim())askQ(q);else askSheet()};
 $("#ntAdd").onclick=()=>{const n=$("#ntName").value.trim();if(!n)return;if(S.series.some(s=>s.name.toLowerCase()===n.toLowerCase())){toast("Already in the list");return}
   const c={id:uid(),name:n,venue:$("#ntVenue").value.trim(),kind:"rtrack",racing:false,color:nextColor()};S.series.push(c);$("#ntName").value="";$("#ntVenue").value="";save();render();if(sample&&mcp)runScan([c.id])};
-$("#nrAdd").onclick=()=>{const n=$("#nrName").value.trim();if(!n)return;if(S.series.some(s=>s.name.toLowerCase()===n.toLowerCase())){toast("Already in the list");return}
-  const c={id:uid(),name:n,venue:$("#nrVenue").value.trim(),kind:"rental",racing:false,color:nextColor()};S.series.push(c);$("#nrName").value="";$("#nrVenue").value="";save();render();if(sample&&mcp)runScan([c.id])};
+$("#nrAdd").onclick=()=>{const n=$("#nrName").value.trim();if(!n)return;
+  const ex=S.series.find(s=>s.name.toLowerCase()===n.toLowerCase())||(()=>{const tmp={id:"_",name:n};return sharedMatch(tmp)})();
+  if(ex){toast("Already in the app as "+ex.name);$("#nrName").value="";clubSheet(ex.id);return}
+  const c={id:uid(),name:n,venue:"",kind:"rental",racing:true,color:nextColor()};S.series.push(c);$("#nrName").value="";save();render();toast("Added. Now add its dates");clubSheet(c.id);if(sample&&mcp)runScan([c.id])};
+$("#nrName").addEventListener("keydown",ev=>{if(ev.key==="Enter"){ev.preventDefault();$("#nrAdd").click()}});
 $("#ncAdd").onclick=()=>{const n=$("#ncName").value.trim();if(!n)return;if(S.series.some(s=>s.name.toLowerCase()===n.toLowerCase())){toast("Already in the list");return}
   const c={id:uid(),name:n,venue:$("#ncVenue").value.trim(),kind:"club",racing:false,color:nextColor()};S.series.push(c);$("#ncName").value="";$("#ncVenue").value="";save();render();if(sample&&mcp)runScan([c.id])};
 $("#scrim").onclick=closeSheet;
