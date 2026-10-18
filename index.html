@@ -514,12 +514,12 @@ const CLUB_ADDS=[[2,["Hooton Park Kart Club","Teesside Autodrome karting"]],[3,R
 const RETIRED=["Teesside Autodrome endurance races"];
 const KINDS={race:"Race",test:"Testing",filming:"Filming",release:"Video release",personal:"Personal"};
 const NO_CLASH=new Set(["release"]);
-const SUGGEST=["Super One Senior Rotax","GX-UK Seniors","24H Series karting","KartMania","London Cup Rotax Max"];
+const SUGGEST=["GX-UK Seniors","KartMania","London Cup Rotax Max"];
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792305899";
+const BUILD="1792306388";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -876,9 +876,20 @@ function clashSheet(ids,label){
 function renderSeries(){
   const used=new Set(S.series.map(s=>s.name.toLowerCase()));
   $("#suggest").innerHTML=SUGGEST.filter(n=>!used.has(n.toLowerCase())).map(n=>`<button data-suggest="${esc(n)}">+ ${esc(n)}</button>`).join("");
-  const mine=S.series.filter(s=>!isClub(s));
+/* an empty series you added yourself that's already in the shared list (e.g. "Super One Senior Rotax" vs "Super One Series") */
+  function coreName(n){return n.toLowerCase().replace(/\(.*?\)/g," ").replace(/\b(19|20)\d\d\b/g," ").replace(/\b(series|senior|seniors|junior|juniors|cadet|rotax|max|iame|x30|honda|tkm|championships?|karting|kart|club|racing|uk|the|national)\b/g," ").replace(/[^a-z0-9]+/g," ").trim()}
+  function sharedMatch(s){
+    const c=coreName(s.name);if(c.length<4)return null;
+    const cw=c.split(" ");
+  return S.series.find(x=>{if(!x.master||x.id===s.id||!isClub(x))return false;const m=coreName(x.name);if(m.length<4)return false;if(m===c)return true;
+    const mw=m.split(" "),[a,b]=cw.length<=mw.length?[cw,mw]:[mw,cw];return a[0]===b[0]&&a.every(w=>b.includes(w))})||null;
+  }
+    const mine=S.series.filter(s=>!isClub(s));
   $("#seriesList").innerHTML=mine.length?mine.map(s=>{
     const n=S.events.filter(e=>e.seriesId===s.id).length;
+    const twin=!n?sharedMatch(s):null;
+    if(twin){const tn=S.events.filter(e=>e.seriesId===twin.id).length;
+      return `<div class="card" style="--c:${s.color}"><h3>${badge(s,32)}${esc(s.name)}</h3><p>The dates are already in the app under <b>${esc(twin.name)}</b>${tn?` (${tn} date${tn>1?"s":""})`:""}. Tick the rounds you're doing there, then you can remove this one.</p><div class="row"><button class="btn primary" data-club="${twin.id}">Show ${esc(twin.name)}</button><button class="btn" data-editser="${s.id}">Edit</button><button class="btn ghost danger" data-rmseries="${s.id}">Remove</button></div></div>`}
     return `<div class="card" style="--c:${s.color}"><h3>${badge(s,32)}${esc(s.name)}</h3><p>${n?n+" event"+(n>1?"s":"")+" in your calendar":"No dates yet"}</p><div class="row">
       ${sample&&mcp?`<button class="btn primary" data-find="${s.id}">Find dates online</button>`:""}${sample?`<button class="btn${mcp?"":" primary"}" data-import="${s.id}">Import calendar</button>`:""}
       <button class="btn" data-addto="${s.id}">Add date</button>
