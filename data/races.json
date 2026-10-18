@@ -246,10 +246,11 @@
    "name": "Super One Series",
    "venue": "National championship",
    "kind": "national",
-   "color": "#F2A93B",
+   "color": "#3D52E0",
    "checked": 1792273897055,
    "note": "2027 calendar from superoneseries.com",
-   "logoUrl": "logos/super-one-series.png"
+   "logoUrl": "logos/super-one-series.png",
+   "brand": "#3D52E0"
   },
   {
    "id": "wera-tools-british-kart-championships",

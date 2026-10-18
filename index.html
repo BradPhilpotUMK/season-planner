@@ -522,7 +522,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792307251";
+const BUILD="1792308419";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -664,8 +664,8 @@ function applyMaster(M){migrateRental();
   const rm=new Set(S.removed||[]);
   M.series.forEach(ms=>{if(rm.has(ms.id))return;
     let s=S.series.find(x=>x.id===ms.id);
-    if(!s){S.series.push(Object.assign({},ms,{racing:false,master:true}));return}
-    s.master=true;["venue","short","kind","checked","note","logoUrl"].forEach(k=>{if(ms[k]!==undefined)s[k]=ms[k]});
+    if(!s){S.series.push(Object.assign({},ms,{racing:false,master:true},ms.brand?{color:ms.brand}:{}));return}
+    s.master=true;["venue","short","kind","checked","note","logoUrl"].forEach(k=>{if(ms[k]!==undefined)s[k]=ms[k]});if(ms.brand&&!s.userColor)s.color=ms.brand;
     if(!s.userEdited)s.name=ms.name;
   });
   const prev=new Map(S.events.filter(e=>e.source==="master").map(e=>[e.id,e]));
@@ -1123,7 +1123,7 @@ function editSeries(id){
     const n=$("#eN").value.trim();if(!n){$("#eN").focus();return}
     if(S.series.some(x=>x.id!==id&&x.name.toLowerCase()===n.toLowerCase())){toast("Another series already has that name");return}
     const old=s.name;S.events.forEach(e=>{if(e.seriesId===id&&e.title===old)e.title=n});
-    if(n!==s.name)s.userEdited=true;s.name=n;s.venue=$("#eV").value.trim();s.color=col;
+    if(n!==s.name)s.userEdited=true;if(col!==s.color)s.userColor=true;s.name=n;s.venue=$("#eV").value.trim();s.color=col;
     if(kind&&kind!==s.kind){setSeriesKind(s,kind);save();render();toast(kind==="rental"?"Moved to Rental":"Moved to Owner");closeSheet();return}
     save();render();toast("Changes saved");
     if(club)clubSheet(id);else closeSheet();
