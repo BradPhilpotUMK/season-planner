@@ -1,0 +1,335 @@
+{
+ "updated": "2026-10-18T06:43:40+00:00",
+ "races": [
+  {
+   "id": "access-karting-2026-10-17-round-6-dragon-cup",
+   "seriesId": "access-karting",
+   "series": "Access Karting",
+   "color": "#3BD16F",
+   "title": "Round 6 Dragon Cup",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "location": "Llandow"
+  },
+  {
+   "id": "aj0hprq8",
+   "seriesId": "",
+   "series": "",
+   "color": "#E5007E",
+   "title": "London Cup",
+   "start": "2026-10-30",
+   "end": "2026-11-01",
+   "location": "Rye House"
+  },
+  {
+   "id": "9n06mu3p",
+   "seriesId": "",
+   "series": "",
+   "color": "#E5007E",
+   "title": "Kartmania",
+   "start": "2026-11-13",
+   "end": "2026-11-15",
+   "location": "Silverstone Wing"
+  },
+  {
+   "id": "b8mu9uuw",
+   "seriesId": "jagkeh2w",
+   "series": "Daytona Sandown with DNH",
+   "color": "#F26B3A",
+   "title": "3 Hours of Sandown",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Daytona Sandown"
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2026-12-05-round-1",
+   "seriesId": "teesside-motorsports-winter-series",
+   "series": "Teesside Motorsports Winter Series",
+   "color": "#2F6BFF",
+   "title": "Round 1",
+   "start": "2026-12-05",
+   "end": "2026-12-06",
+   "location": "Rowrah"
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2027-01-30-round-3",
+   "seriesId": "teesside-motorsports-winter-series",
+   "series": "Teesside Motorsports Winter Series",
+   "color": "#2F6BFF",
+   "title": "Round 3",
+   "start": "2027-01-30",
+   "end": "2027-01-31",
+   "location": "Whilton Mill"
+  },
+  {
+   "id": "nb5f599e",
+   "seriesId": "4he9my0d",
+   "series": "French Rental Kart Championship",
+   "color": "#3BB3E0",
+   "title": "French Rental Kart Championship",
+   "start": "2027-02-05",
+   "end": "2027-02-07",
+   "location": ""
+  },
+  {
+   "id": "teesside-motorsports-winter-series-2027-02-20-round-4",
+   "seriesId": "teesside-motorsports-winter-series",
+   "series": "Teesside Motorsports Winter Series",
+   "color": "#2F6BFF",
+   "title": "Round 4",
+   "start": "2027-02-20",
+   "end": "2027-02-21",
+   "location": "GYG (Glan Y Gors), North Wales"
+  },
+  {
+   "id": "british-rental-kart-championship-2027-02-26-brkc-2027",
+   "seriesId": "british-rental-kart-championship",
+   "series": "British Rental Kart Championship",
+   "color": "#22C3B0",
+   "title": "BRKC 2027",
+   "start": "2027-02-26",
+   "end": "2027-02-28",
+   "location": "Formula Fast, Milton Keynes"
+  },
+  {
+   "id": "national-kart-cup-2027-03-19-round-1",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "Round 1",
+   "start": "2027-03-19",
+   "end": "2027-03-21",
+   "location": "Clay Pigeon"
+  },
+  {
+   "id": "super-one-series-2027-03-27--o--plate",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "'O' Plate",
+   "start": "2027-03-27",
+   "end": "2027-03-28",
+   "location": "Rowrah"
+  },
+  {
+   "id": "super-one-series-2027-04-03-rounds-1---2",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "Rounds 1 & 2",
+   "start": "2027-04-03",
+   "end": "2027-04-04",
+   "location": "Rowrah"
+  },
+  {
+   "id": "access-karting-2027-04-17-round-1",
+   "seriesId": "access-karting",
+   "series": "Access Karting",
+   "color": "#3BD16F",
+   "title": "Round 1",
+   "start": "2027-04-17",
+   "end": "2027-04-18",
+   "location": "Whilton Mill"
+  },
+  {
+   "id": "national-kart-cup-2027-04-23-round-2",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "Round 2",
+   "start": "2027-04-23",
+   "end": "2027-04-25",
+   "location": "Rowrah"
+  },
+  {
+   "id": "super-one-series-2027-05-01-rounds-3---4",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "Rounds 3 & 4",
+   "start": "2027-05-01",
+   "end": "2027-05-02",
+   "location": "GYG (Glan Y Gors), North Wales"
+  },
+  {
+   "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
+   "seriesId": "24-hour-series",
+   "series": "24 Hour Series",
+   "color": "#3BB3E0",
+   "title": "Campillos 24H",
+   "start": "2027-05-07",
+   "end": "2027-05-09",
+   "location": "Kart Center Campillos, Spain"
+  },
+  {
+   "id": "vbi4dbyr",
+   "seriesId": "bncq7jxi",
+   "series": "FIA European Karting Championship Silverstone",
+   "color": "#4C7DFF",
+   "title": "FIA European Championship",
+   "start": "2027-05-13",
+   "end": "2027-05-16",
+   "location": "Silverstone"
+  },
+  {
+   "id": "national-kart-cup-2027-05-21-round-3",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "Round 3",
+   "start": "2027-05-21",
+   "end": "2027-05-23",
+   "location": "Three Sisters"
+  },
+  {
+   "id": "daytona-milton-keynes-24-hours-2027-05-28-daytona-24-hours",
+   "seriesId": "daytona-milton-keynes-24-hours",
+   "series": "Daytona Milton Keynes 24 Hours",
+   "color": "#3BD16F",
+   "title": "Daytona 24 Hours",
+   "start": "2027-05-28",
+   "end": "2027-05-30",
+   "location": "Daytona Milton Keynes"
+  },
+  {
+   "id": "super-one-series-2027-06-05-rounds-5---6",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "Rounds 5 & 6",
+   "start": "2027-06-05",
+   "end": "2027-06-06",
+   "location": "Clay Pigeon"
+  },
+  {
+   "id": "access-karting-2027-06-12-round-2",
+   "seriesId": "access-karting",
+   "series": "Access Karting",
+   "color": "#3BD16F",
+   "title": "Round 2",
+   "start": "2027-06-12",
+   "end": "2027-06-13",
+   "location": "Glan y Gors"
+  },
+  {
+   "id": "national-kart-cup-2027-06-18-round-4",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "Round 4",
+   "start": "2027-06-18",
+   "end": "2027-06-20",
+   "location": "Forest Edge"
+  },
+  {
+   "id": "super-one-series-2027-07-03-rounds-7---8",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "Rounds 7 & 8",
+   "start": "2027-07-03",
+   "end": "2027-07-04",
+   "location": "Fulbeck"
+  },
+  {
+   "id": "24-hour-series-2027-07-09-le-mans-24h",
+   "seriesId": "24-hour-series",
+   "series": "24 Hour Series",
+   "color": "#3BB3E0",
+   "title": "Le Mans 24H",
+   "start": "2027-07-09",
+   "end": "2027-07-11",
+   "location": "Karting des 24 Heures, Le Mans, France"
+  },
+  {
+   "id": "national-kart-cup-2027-07-16-o-plate",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "O Plate",
+   "start": "2027-07-16",
+   "end": "2027-07-18",
+   "location": "Llandow"
+  },
+  {
+   "id": "super-one-series-2027-07-31-rounds-9---10",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "Rounds 9 & 10",
+   "start": "2027-07-31",
+   "end": "2027-08-01",
+   "location": "Whilton Mill"
+  },
+  {
+   "id": "24-hour-series-2027-08-06-british-24h",
+   "seriesId": "24-hour-series",
+   "series": "24 Hour Series",
+   "color": "#3BB3E0",
+   "title": "British 24H",
+   "start": "2027-08-06",
+   "end": "2027-08-08",
+   "location": "Teesside Autodrome, Middlesbrough"
+  },
+  {
+   "id": "national-kart-cup-2027-08-13-round-5",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "Round 5",
+   "start": "2027-08-13",
+   "end": "2027-08-15",
+   "location": "Glan y Gors"
+  },
+  {
+   "id": "super-one-series-2027-08-28-rounds-11---12",
+   "seriesId": "super-one-series",
+   "series": "Super One Series",
+   "color": "#F2A93B",
+   "title": "Rounds 11 & 12",
+   "start": "2027-08-28",
+   "end": "2027-08-29",
+   "location": "Shenington"
+  },
+  {
+   "id": "24-hour-series-2027-09-03-spa-24h--date-tbc-",
+   "seriesId": "24-hour-series",
+   "series": "24 Hour Series",
+   "color": "#3BB3E0",
+   "title": "Spa 24H (date TBC)",
+   "start": "2027-09-03",
+   "end": "2027-09-05",
+   "location": "Spa-Francorchamps, Belgium"
+  },
+  {
+   "id": "access-karting-2027-09-11-round-5",
+   "seriesId": "access-karting",
+   "series": "Access Karting",
+   "color": "#3BD16F",
+   "title": "Round 5",
+   "start": "2027-09-11",
+   "end": "2027-09-12",
+   "location": "Fulbeck"
+  },
+  {
+   "id": "national-kart-cup-2027-09-25-round-6",
+   "seriesId": "national-kart-cup",
+   "series": "NKC National Kart Cup",
+   "color": "#F2A93B",
+   "title": "Round 6",
+   "start": "2027-09-25",
+   "end": "2027-09-26",
+   "location": "Dunkeswell"
+  },
+  {
+   "id": "access-karting-2027-10-16-round-6",
+   "seriesId": "access-karting",
+   "series": "Access Karting",
+   "color": "#3BD16F",
+   "title": "Round 6",
+   "start": "2027-10-16",
+   "end": "2027-10-17",
+   "location": "Ellough Park"
+  }
+ ]
+}

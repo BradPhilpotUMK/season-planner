@@ -108,6 +108,28 @@ header.top h1{font-family:var(--display);font-weight:700;font-size:clamp(17px,5.
 .more{font-size:10px;color:var(--muted);text-align:center;margin-top:2px}
 .day.clash::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:repeating-linear-gradient(90deg,var(--kerb) 0 5px,var(--kerbW) 5px 10px)}
 
+.bradbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-bottom:12px;padding:10px 14px;border-radius:14px;border:1px solid #F5C54255;background:linear-gradient(90deg,#3A3220,var(--surface));color:inherit;font:inherit}
+.bradbtn img,.bradcard .bh img{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#111;flex:none;box-shadow:0 0 0 2px #F5C542}
+.bradbtn b{display:block;font-family:var(--display);font-size:17px}
+.bradbtn small,.bradcard .bh small{display:block;color:var(--muted);font-size:13px}
+.bradbtn em{margin-left:auto;font-style:normal;color:#F5C542;font-size:22px}
+.bradcard{border:1px solid #F5C54266;border-radius:14px;background:var(--surface);margin-bottom:12px;overflow:hidden}
+.bradcard .bh{display:flex;align-items:center;gap:12px;padding:12px 14px;background:linear-gradient(90deg,#3A3220,var(--surface))}
+.bradcard .bh b{font-family:var(--display);font-size:17px}
+.bradcard .bh .btn{margin-left:auto}
+.bradlist{max-height:320px;overflow-y:auto}
+.bradrow{display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--line);border-left:4px solid var(--c)}
+.bradrow .nm{flex:1;min-width:0;background:none;border:none;text-align:left;padding:0;color:inherit;font:inherit}
+.bradrow strong{display:block;font-size:15px}
+.bradrow small{display:block;color:var(--muted);font-size:13px}
+.day.brad{box-shadow:inset 0 0 0 2px #F5C542;background:#F5C5421F;border-radius:6px}
+.day .bdot{position:absolute;top:4px;right:4px;width:7px;height:7px;border-radius:50%;background:#F5C542}
+.bradm{margin-top:8px;border:1px solid #F5C54266;border-radius:12px;background:#F5C54212;padding:4px 12px 8px}
+.bradm .bmh{font-family:var(--display);font-size:13px;color:#F5C542;margin:6px 0 2px;letter-spacing:.03em;text-transform:uppercase}
+.bmr{display:flex;gap:10px;padding:6px 0;border-top:1px solid #F5C54233;font-size:14px}
+.bmh+.bmr{border-top:none}
+.bmr b{flex:none;width:112px;font-weight:600}
+.bmr small{display:block;color:var(--muted);font-size:12px}
 .evlist{margin-top:8px;display:flex;flex-direction:column;gap:6px}
 .ev{display:flex;gap:10px;align-items:stretch;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:0;overflow:hidden}
 .ev .stripe{width:6px;background:var(--c);flex:none}
@@ -230,9 +252,9 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 .wbar span.nf::before,.wbar span.nf::after{content:"";position:absolute;left:50%;top:50%;width:70%;max-width:9px;height:2px;border-radius:1px;background:var(--kerb);transform:translate(-50%,-50%) rotate(45deg)}
 .wbar span.nf::after{transform:translate(-50%,-50%) rotate(-45deg)}
 .wmore{display:block;margin-top:8px;font-size:13px;color:var(--accent)}
-#wfull{position:fixed;inset:0;z-index:60;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:calc(12px + env(safe-area-inset-top,0px)) 14px calc(24px + env(safe-area-inset-bottom,0px));display:none}
+#wfull{position:fixed;inset:0;z-index:60;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 14px calc(24px + env(safe-area-inset-bottom,0px));display:none}
 #wfull.on{display:block}
-#wfull .wfh{position:sticky;top:calc(-12px - env(safe-area-inset-top,0px));background:var(--bg);display:flex;align-items:center;gap:10px;padding:8px 0 10px;z-index:2}
+#wfull .wfh{position:sticky;top:0;background:var(--bg);display:flex;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 0 10px;margin:0 -14px;padding-left:14px;padding-right:14px;z-index:5;box-shadow:0 6px 10px -6px rgba(0,0,0,.6)}
 #wfull .wfh h2{font-family:var(--display);font-size:22px;margin:0;flex:1}
 #wfull .wfh small{display:block;font-family:inherit;font-size:13px;color:var(--muted);font-weight:400}
 #wfull .wfm{font-family:var(--display);font-size:15px;font-weight:700;color:var(--muted);margin:14px 2px 6px;letter-spacing:.04em;text-transform:uppercase}
@@ -361,6 +383,7 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
       <div class="tape-row" id="tape"></div>
       <div class="tape-l" id="tapeL"></div>
     </div>
+    <div id="bradBox"></div>
     <div id="clashBar"></div>
     <div class="chips" id="chips"></div>
     <div id="months"></div>
@@ -496,7 +519,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792276216";
+const BUILD="1792305899";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -625,6 +648,8 @@ function save(){
   clearTimeout(saveT);
   saveT=setTimeout(()=>{if(ref)ref.set({json:JSON.stringify(S),updated:Date.now()}).catch(()=>{})},500);
 }
+let BRAD=null,bradMode=false;
+async function loadBrad(){try{const r=await fetch("data/brad.json",{cache:"no-cache"});if(r.ok){BRAD=await r.json();render()}}catch(e){}}
 async function loadMaster(){
   try{const r=await fetch("data/races.json",{cache:"no-cache"});if(!r.ok)return;applyMaster(await r.json());save();render()}catch(e){}
 }
@@ -653,7 +678,7 @@ function applyMaster(M){migrateRental();
   S.series=S.series.filter(x=>!x.master||mids.has(x.id)||x.racing||S.events.some(e=>e.seriesId===x.id&&(e.racing===true||e.notes)));
   S.masterUpdated=M.updated||"";
 }
-async function connect(){await loadMaster();return;
+async function connect(){loadBrad();await loadMaster();return;
   if(!window.claude||!claude.use)return;
   try{
     const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
@@ -721,6 +746,7 @@ function tickCountdown(){
   if(!cdTimer)cdTimer=setInterval(tickCountdown,1000);
 }
 function renderTop(){
+  renderBrad();
   const C=computeClashes();
   const up=S.events.filter(e=>visible(e)&&isRacing(e)&&e.kind!=="release"&&dn(e.end||e.start)>=TODAY).sort((a,b)=>dn(a.start)-dn(b.start));
   const n=up[0];
@@ -747,8 +773,22 @@ function renderTop(){
   $("#chips").innerHTML=S.series.filter(s=>!isClub(s)||s.racing||S.events.some(e=>e.seriesId===s.id&&e.racing===true)).map(s=>`<button class="chip${S.hidden.includes(s.id)?" off":""}" data-toggle="${s.id}" style="--c:${s.color}"><i></i>${esc(s.name)}</button>`).join("");
 }
 
+/* ---------- where's Brad racing? ---------- */
+function bradRaces(){return (BRAD&&Array.isArray(BRAD.races)?BRAD.races:[]).filter(r=>dn(r.end||r.start)>=TODAY)}
+function bradDays(){const s=new Set();if(!bradMode)return s;bradRaces().forEach(r=>{for(let d=dn(r.start);d<=dn(r.end||r.start);d++)s.add(d)});return s}
+function bradWhen(r){const s=r.start,t=r.end||r.start;return s===t?fmt(s,{weekday:"short",day:"numeric",month:"short"}):`${fmt(s,{day:"numeric",month:"short"})} to ${fmt(t,{day:"numeric",month:"short"})}`}
+function renderBrad(){
+  const box=$("#bradBox");if(!box)return;
+  const R=bradRaces();
+  if(!R.length){box.innerHTML="";bradMode=false;return}
+  const av=$("#umkLogo")?.src||"";
+  if(!bradMode){box.innerHTML=`<button class="bradbtn" data-brad="1"><img alt="" src="${av}"><span><b>Where's Brad racing?</b><small>Highlight Brad's ${R.length} upcoming races on the calendar</small></span><em>›</em></button>`;return}
+  const rows=R.map(r=>{const mine=S.events.find(e=>e.id===r.id),going=mine&&isRacing(mine);
+    return `<div class="bradrow" style="--c:${esc(r.color||"#E5007E")}"><button class="nm" data-bradjump="${r.start}"><strong>${esc(r.series&&r.series!==r.title?r.series+": "+r.title:r.title)}</strong><small>${bradWhen(r)}${r.location?", "+esc(r.location):""}</small></button>${mine?`<button class="tick${going?" on":""}" data-race="${mine.id}" aria-pressed="${!!going}"><i>${going?"✓":""}</i>${going?"Going":"Me too"}</button>`:""}</div>`}).join("");
+  box.innerHTML=`<div class="bradcard"><div class="bh"><img alt="" src="${av}"><div><b>Where Brad's racing</b><small>${R.length} races, highlighted in gold below${BRAD.updated?". Updated "+new Date(BRAD.updated).toLocaleDateString("en-GB",{day:"numeric",month:"short"}):""}</small></div><button class="btn" data-brad="0">Done</button></div><div class="bradlist">${rows}</div></div>`;
+}
 function renderMonths(){
-  const C=computeClashes();
+  const C=computeClashes(),BD=bradDays();
   const ms=rangeMonths();
   $("#months").innerHTML=ms.map(([y,m],mi)=>{
     const a=Math.round(Date.UTC(y,m,1)/864e5),dim=new Date(Date.UTC(y,m+1,0)).getUTCDate(),b=a+dim-1;
@@ -772,11 +812,13 @@ function renderMonths(){
       }
       const extra=here.filter(x=>laneOf[x.id]>=3).length;
       const nOpt=others.filter(e=>dn(e.start)<=day&&dn(e.end||e.start)>=day).length;
-      const cls=["day",col>=5?"we":"",here.length?"has":"",day===TODAY?"today":"",C.days.has(day)?"clash":""].join(" ");
-      cells+=`<button class="${cls}" data-day="${isoOf(day)}" aria-label="${fmt(isoOf(day),{weekday:"long",day:"numeric",month:"long"})}${here.length?", "+here.length+" events":""}"><span class="dn">${d+1}</span><span class="lanes">${bars}</span>${extra?`<span class="more">+${extra}</span>`:""}${nOpt?`<span class="opts">${nOpt} on</span>`:""}</button>`;
+      const cls=["day",col>=5?"we":"",here.length?"has":"",day===TODAY?"today":"",C.days.has(day)?"clash":"",BD.has(day)?"brad":""].join(" ");
+      cells+=`<button class="${cls}" data-day="${isoOf(day)}" aria-label="${fmt(isoOf(day),{weekday:"long",day:"numeric",month:"long"})}${here.length?", "+here.length+" events":""}"><span class="dn">${d+1}</span>${BD.has(day)?`<span class="bdot" aria-label="Brad racing"></span>`:""}<span class="lanes">${bars}</span>${extra?`<span class="more">+${extra}</span>`:""}${nOpt?`<span class="opts">${nOpt} on</span>`:""}</button>`;
     }
     const list=(evs.length?`<div class="evlist">${evs.map(e=>evRow(e,C)).join("")}</div>`:`<div class="empty-month">No races ticked this month</div>`)+(others.length?`<div class="othermonth">${others.length} other club round${others.length>1?"s":""} on. <button data-tab="week">Pick from Weekends</button></div>`:"");
-    return `<section class="month" id="m${mi}"><h2>${MONTHS[m]} <span>${y}</span></h2><div class="grid">${cells}</div>${list}</section>`;
+    const bm=bradMode?bradRaces().filter(r=>dn(r.start)<=b&&dn(r.end||r.start)>=a):[];
+    const bl=bm.length?`<div class="bradm"><div class="bmh">Brad's racing</div>${bm.map(r=>`<div class="bmr"><b>${bradWhen(r)}</b><span>${esc(r.series&&r.series!==r.title?r.series+": "+r.title:r.title)}${r.location?`<small>${esc(r.location)}</small>`:""}</span></div>`).join("")}</div>`:"";
+    return `<section class="month" id="m${mi}"><h2>${MONTHS[m]} <span>${y}</span></h2><div class="grid">${cells}</div>${bl}${list}</section>`;
   }).join("");
 }
 
@@ -1359,6 +1401,8 @@ document.addEventListener("click",ev=>{
   if(d.wf){wFilter=d.wf;renderWeekends();return}
   if(d.askex){askQ(d.askex);return}
   if(d.logo){pickLogo(d.logo);return}
+  if(d.brad!==undefined&&t.dataset.brad!==undefined&&(d.brad==="1"||d.brad==="0")){bradMode=d.brad==="1";render();if(bradMode)$("#bradBox").scrollIntoView({block:"start",behavior:"smooth"});return}
+  if(d.bradjump){const iso=d.bradjump,dt=new Date(iso+"T00:00:00Z"),ms=rangeMonths(),i=ms.findIndex(([y,m])=>y===dt.getUTCFullYear()&&m===dt.getUTCMonth());if(i>=0)document.getElementById("m"+i)?.scrollIntoView({behavior:"smooth"});return}
   if(d.backup){backup();return}
   if(d.cal){calSheet();return}
   if(d.icsadd){icsAdd();return}
