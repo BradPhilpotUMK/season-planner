@@ -418,7 +418,7 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
   <section class="panel" id="p-series">
     <p class="hint">Add the series you're racing, then add their dates with Add date. UK club, rental and track dates fill in automatically.</p>
     <div class="addseries">
-      <input type="text" id="newSeries" placeholder="Series name, e.g. Super One Senior Rotax" autocomplete="off">
+      <input type="text" id="newSeries" placeholder="Series name, e.g. GX-UK Seniors" autocomplete="off">
       <button class="btn primary" id="addSeriesBtn">Add</button>
     </div>
     <div class="suggest" id="suggest"></div>
@@ -519,7 +519,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792306388";
+const BUILD="1792306516";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -879,14 +879,17 @@ function renderSeries(){
 /* an empty series you added yourself that's already in the shared list (e.g. "Super One Senior Rotax" vs "Super One Series") */
   function coreName(n){return n.toLowerCase().replace(/\(.*?\)/g," ").replace(/\b(19|20)\d\d\b/g," ").replace(/\b(series|senior|seniors|junior|juniors|cadet|rotax|max|iame|x30|honda|tkm|championships?|karting|kart|club|racing|uk|the|national)\b/g," ").replace(/[^a-z0-9]+/g," ").trim()}
   function sharedMatch(s){
-    const c=coreName(s.name);if(c.length<4)return null;
+    const c=coreName(s.name);if(c.length<3)return null;
     const cw=c.split(" ");
-  return S.series.find(x=>{if(!x.master||x.id===s.id||!isClub(x))return false;const m=coreName(x.name);if(m.length<4)return false;if(m===c)return true;
+  return S.series.find(x=>{if(!x.master||x.id===s.id||!isClub(x))return false;const m=coreName(x.name);if(m.length<3)return false;if(m===c)return true;
     const mw=m.split(" "),[a,b]=cw.length<=mw.length?[cw,mw]:[mw,cw];return a[0]===b[0]&&a.every(w=>b.includes(w))})||null;
   }
     const mine=S.series.filter(s=>!isClub(s));
   $("#seriesList").innerHTML=mine.length?mine.map(s=>{
     const n=S.events.filter(e=>e.seriesId===s.id).length;
+    const dup=n?sharedMatch(s):null;
+    if(dup){const dn2=S.events.filter(e=>e.seriesId===dup.id).length;
+      return `<div class="card" style="--c:${s.color}"><h3>${badge(s,32)}${esc(s.name)}</h3><p>${n} event${n>1?"s":""} in your calendar. The app also has these under <b>${esc(dup.name)}</b>${dn2?` (${dn2} date${dn2>1?"s":""})`:""}, which gets date changes every week. Merge to keep one copy: your ticks and notes move across.</p><div class="row"><button class="btn primary" data-merge="${s.id}" data-into="${dup.id}">Merge into ${esc(dup.name)}</button><button class="btn" data-addto="${s.id}">Add date</button><button class="btn" data-editser="${s.id}">Edit</button><button class="btn ghost danger" data-rmseries="${s.id}">Remove</button></div></div>`}
     const twin=!n?sharedMatch(s):null;
     if(twin){const tn=S.events.filter(e=>e.seriesId===twin.id).length;
       return `<div class="card" style="--c:${s.color}"><h3>${badge(s,32)}${esc(s.name)}</h3><p>The dates are already in the app under <b>${esc(twin.name)}</b>${tn?` (${tn} date${tn>1?"s":""})`:""}. Tick the rounds you're doing there, then you can remove this one.</p><div class="row"><button class="btn primary" data-club="${twin.id}">Show ${esc(twin.name)}</button><button class="btn" data-editser="${s.id}">Edit</button><button class="btn ghost danger" data-rmseries="${s.id}">Remove</button></div></div>`}
@@ -1076,6 +1079,20 @@ function clubSheet(id){
 function setSeriesKind(s,kind){
   if(kind==="rental"&&s.kind!=="rental")S.events.forEach(e=>{if(e.seriesId===s.id&&e.racing===undefined)e.racing=true});
   s.kind=kind;
+}
+/* fold one of your own series into the shared copy of the same series */
+function mergeSeries(fromId,intoId){
+  const from=ser(fromId),into=ser(intoId);if(!from||!into)return;
+  let moved=0,matched=0;
+  S.events.filter(e=>e.seriesId===fromId).forEach(e=>{
+    const s=dn(e.start),t=dn(e.end||e.start);
+    const m=S.events.find(x=>x.seriesId===intoId&&dn(x.start)<=t+1&&dn(x.end||x.start)>=s-1);
+    const going=e.racing!==false;
+    if(m){m.racing=going;if(e.notes&&!m.notes)m.notes=e.notes;S.events=S.events.filter(x=>x!==e);matched++}
+    else{e.seriesId=intoId;if(e.racing===undefined)e.racing=true;moved++}
+  });
+  S.series=S.series.filter(x=>x.id!==fromId);S.hidden=S.hidden.filter(h=>h!==fromId);
+  save();render();toast(`Merged into ${into.name}${moved?`. ${moved} extra date${moved>1?"s":""} kept`:""}`);
 }
 function editSeries(id){
   const s=ser(id);if(!s)return;const club=isClub(s);
@@ -1420,6 +1437,7 @@ document.addEventListener("click",ev=>{
   if(d.icssend){icsSend();return}
   if(d.restore){const inp=document.createElement("input");inp.type="file";inp.accept="application/json,.json";inp.onchange=async()=>{const f=inp.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x.series)||!Array.isArray(x.events))throw 0;S=normal(x);save();render();await loadMaster();toast("Backup restored")}catch(e){toast("That file isn't a Season Planner backup")}};inp.click();return}
   if(d.pickclash){clashSheet(d.pickclash.split(","),d.cl||"");return}
+  if(d.merge){mergeSeries(d.merge,d.into);return}
   if(d.editser){editSeries(d.editser);return}
   if(d.splashup){if(assets)uploadSplash();return}
   if(d.splashrm){const o=S.splash;S.splash=null;save();splashBtns();if(o&&assets)assets.delete(o).catch(()=>{});toast("Back to the drawn track");return}
