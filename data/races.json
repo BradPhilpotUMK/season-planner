@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T06:10Z",
+ "updated": "2026-10-21T19:08Z",
  "series": [
   {
    "id": "access-karting",
@@ -427,7 +427,9 @@
    "kind": "rental",
    "color": "#3BD16F",
    "short": "MK24",
-   "checked": 1792390215717
+   "checked": 1792609710397,
+   "logoUrl": "logos/daytona-milton-keynes-24-hours.png",
+   "note": "2027 date confirmed (29-30 May)"
   },
   {
    "id": "kart-silverstone-24-hours",
@@ -2893,10 +2895,10 @@
    "kind": "race"
   },
   {
-   "id": "daytona-milton-keynes-24-hours-2027-05-28-daytona-24-hours",
+   "id": "daytona-milton-keynes-24-hours-2027-05-29-daytona-24-hours",
    "seriesId": "daytona-milton-keynes-24-hours",
    "title": "Daytona 24 Hours",
-   "start": "2027-05-28",
+   "start": "2027-05-29",
    "end": "2027-05-30",
    "location": "Daytona Milton Keynes",
    "kind": "race"
