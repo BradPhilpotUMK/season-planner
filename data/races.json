@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T19:08Z",
+ "updated": "2026-10-26T06:19Z",
  "series": [
   {
    "id": "access-karting",
@@ -28,7 +28,7 @@
    "kind": "national",
    "color": "#3BB3E0",
    "short": "UKC",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet",
    "logoUrl": "logos/rmc-ukc.png"
   },
@@ -39,7 +39,7 @@
    "kind": "club",
    "color": "#8B6CF0",
    "short": "RHPK",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "R9 7 Nov confirmed; 2027 dates not published yet",
    "logoUrl": "logos/rye-house-prokart-endurance.png"
   },
@@ -49,7 +49,7 @@
    "venue": "Whilton Mill, Northamptonshire",
    "kind": "club",
    "color": "#E040C8",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -58,7 +58,7 @@
    "venue": "Shenington, Oxfordshire",
    "kind": "club",
    "color": "#3BD16F",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -67,7 +67,7 @@
    "venue": "PFi, Lincolnshire",
    "kind": "club",
    "color": "#F2A93B",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -76,7 +76,7 @@
    "venue": "Fulbeck, Lincolnshire",
    "kind": "club",
    "color": "#3BB3E0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -85,7 +85,7 @@
    "venue": "Kimbolton, Cambridgeshire",
    "kind": "club",
    "color": "#8B6CF0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -94,8 +94,8 @@
    "venue": "Rye House, Hertfordshire",
    "kind": "club",
    "color": "#F26B3A",
-   "checked": 1792390215717,
-   "note": "2026 season ended (R8 Sep 20); 2027 dates not published yet"
+   "checked": 1792995590857,
+   "note": "London Cup 31 Oct-1 Nov; 2027 dates not published yet"
   },
   {
    "id": "buckmore-park-kart-club",
@@ -103,7 +103,7 @@
    "venue": "Buckmore Park, Kent",
    "kind": "club",
    "color": "#22C3B0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Run by Champions Kart Club; 2027 dates not published yet"
   },
   {
@@ -112,7 +112,7 @@
    "venue": "Bayford Meadows, Kent",
    "kind": "club",
    "color": "#D9D23A",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -121,7 +121,7 @@
    "venue": "Lydd, Kent",
    "kind": "club",
    "color": "#FF5C8A",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -130,7 +130,7 @@
    "venue": "Forest Edge, Hampshire",
    "kind": "club",
    "color": "#4C7DFF",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -139,7 +139,7 @@
    "venue": "Clay Pigeon, Dorset",
    "kind": "club",
    "color": "#E040C8",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -148,7 +148,7 @@
    "venue": "Ellough Park, Suffolk",
    "kind": "club",
    "color": "#3BD16F",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Iron League is a hire-kart league (under Ellough Park rental); 2027 not published"
   },
   {
@@ -157,7 +157,7 @@
    "venue": "Hooton Park, Cheshire",
    "kind": "club",
    "color": "#F2A93B",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "No upcoming dates listed (site shows 2022 only); 2027 not published"
   },
   {
@@ -166,7 +166,7 @@
    "venue": "Three Sisters, Wigan",
    "kind": "club",
    "color": "#3BB3E0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "3S120 Team Enduro is rental (under Three Sisters rental); winter dates to follow"
   },
   {
@@ -175,7 +175,7 @@
    "venue": "Warden Law, Sunderland",
    "kind": "club",
    "color": "#8B6CF0",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "No SDKC race calendar found; Warden Law 2026 calendar lists no SDKC meetings"
   },
   {
@@ -184,7 +184,7 @@
    "venue": "Rowrah, Cumbria",
    "kind": "club",
    "color": "#F26B3A",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -193,7 +193,7 @@
    "venue": "Glan y Gors, Wales",
    "kind": "club",
    "color": "#22C3B0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Dragon KC lists only test days; no club race meetings"
   },
   {
@@ -202,7 +202,7 @@
    "venue": "Llandow, Wales",
    "kind": "club",
    "color": "#D9D23A",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Only practice days listed; no club race meetings found"
   },
   {
@@ -211,7 +211,7 @@
    "venue": "Larkhall Circuit International, Larkhall",
    "kind": "club",
    "color": "#FF5C8A",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "WSKC club meeting per MSUK permit list; 2027 dates not published yet"
   },
   {
@@ -220,7 +220,7 @@
    "venue": "Lochgelly, Fife",
    "kind": "club",
    "color": "#4C7DFF",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "Now Scottish Karting Academy; races at ESKC meetings, no own dates found"
   },
   {
@@ -229,7 +229,7 @@
    "venue": "Golspie, Highlands",
    "kind": "club",
    "color": "#E040C8",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "NSKC 2026 final round was 26 Sep; 2027 not published"
   },
   {
@@ -238,7 +238,7 @@
    "venue": "Nutts Corner, Northern Ireland",
    "kind": "club",
    "color": "#3BD16F",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -247,7 +247,7 @@
    "venue": "National championship",
    "kind": "national",
    "color": "#3D52E0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 calendar from superoneseries.com",
    "logoUrl": "logos/super-one-series.png",
    "brand": "#3D52E0"
@@ -258,8 +258,8 @@
    "venue": "National championship",
    "kind": "national",
    "color": "#3BB3E0",
-   "checked": 1792390215717,
-   "note": "2026 season ended 10 Oct; 2027 dates not published yet",
+   "checked": 1792995590857,
+   "note": "2027 calendar published (Motorsport Timing)",
    "logoUrl": "logos/wera-tools-british-kart-championships.png"
   },
   {
@@ -268,7 +268,7 @@
    "venue": "National event",
    "kind": "national",
    "color": "#8B6CF0",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2026 event was 30 Jul-2 Aug; 2027 dates not published yet",
    "logoUrl": "logos/kartmasters-british-grand-prix.png"
   },
@@ -278,7 +278,7 @@
    "venue": "Teesside Autodrome, Middlesbrough",
    "kind": "club",
    "color": "#F26B3A",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Adds winter Enduro + Winter Series; 2027 sprint season not published"
   },
   {
@@ -288,7 +288,7 @@
    "kind": "club",
    "color": "#2F6BFF",
    "short": "TWS",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Bambino to Senior, two stroke and four stroke"
   },
   {
@@ -298,7 +298,7 @@
    "kind": "rental",
    "color": "#22C3B0",
    "short": "BRKC",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Single weekend event; UK qualifier for the Kart World Championship"
   },
   {
@@ -308,8 +308,8 @@
    "kind": "rental",
    "color": "#D9D23A",
    "short": "BIKC",
-   "checked": 1792390215717,
-   "note": "National Finals venue not stated; 2027 not published"
+   "checked": 1792995590857,
+   "note": "National Finals at TeamSport Warrington; 2027 not published"
   },
   {
    "id": "club100-sprint-championship",
@@ -318,8 +318,8 @@
    "kind": "rental",
    "color": "#FF5C8A",
    "short": "C100",
-   "checked": 1791784067293,
-   "note": "2027 National rounds not re-confirmed (rate limited)"
+   "checked": 1792995590857,
+   "note": "2027 Senior Sprint National calendar (10 rounds)"
   },
   {
    "id": "british-universities-karting-championship",
@@ -328,7 +328,7 @@
    "kind": "rental",
    "color": "#4C7DFF",
    "short": "BUKC",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "2026-27 dates not published yet"
   },
   {
@@ -338,7 +338,7 @@
    "kind": "rental",
    "color": "#E040C8",
    "short": "SWS",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "2027 UK dates not published yet"
   },
   {
@@ -348,7 +348,7 @@
    "kind": "rental",
    "color": "#3BD16F",
    "short": "SWS",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027: 4 finals (Helsinki, Gran Canaria, Enclos, Pomposa); dates not in text"
   },
   {
@@ -358,7 +358,7 @@
    "kind": "rental",
    "color": "#3BB3E0",
    "short": "24H",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "24H Karting Championship (Teesside Motorsports)"
   },
   {
@@ -368,7 +368,7 @@
    "kind": "rental",
    "color": "#E10600",
    "short": "S25",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "No dated 2026/2027 edition found"
   },
   {
@@ -378,7 +378,7 @@
    "kind": "rental",
    "color": "#F5A623",
    "short": "BG25",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "2027 date not published yet"
   },
   {
@@ -388,7 +388,7 @@
    "kind": "rental",
    "color": "#7ED321",
    "short": "GK24",
-   "checked": 1791784067293
+   "checked": 1792995590857
   },
   {
    "id": "dutch-24h",
@@ -397,7 +397,7 @@
    "kind": "rental",
    "color": "#4A90E2",
    "short": "NL24",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Oct 2026 edition date not stated on site; 2027 not published"
   },
   {
@@ -407,7 +407,7 @@
    "kind": "rental",
    "color": "#BD10E0",
    "short": "IT24",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "2027 date not published yet (2026 edition was 14-15 Mar)"
   },
   {
@@ -417,7 +417,7 @@
    "kind": "rental",
    "color": "#50E3C2",
    "short": "JE25",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "2027 date not published yet"
   },
   {
@@ -427,7 +427,7 @@
    "kind": "rental",
    "color": "#3BD16F",
    "short": "MK24",
-   "checked": 1792609710397,
+   "checked": 1792995590857,
    "logoUrl": "logos/daytona-milton-keynes-24-hours.png",
    "note": "2027 date confirmed (29-30 May)"
   },
@@ -438,7 +438,7 @@
    "kind": "rental",
    "color": "#F2A93B",
    "short": "KS24",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 date provisional, not confirmed yet"
   },
   {
@@ -448,7 +448,7 @@
    "kind": "rtrack",
    "color": "#22C3B0",
    "short": "DMK",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Daytona 24 Hours listed under its own series"
   },
   {
@@ -458,7 +458,7 @@
    "kind": "rtrack",
    "color": "#D9D23A",
    "short": "DSP",
-   "checked": 1792390215717
+   "checked": 1792995590857
   },
   {
    "id": "daytona-tamworth",
@@ -467,8 +467,8 @@
    "kind": "rtrack",
    "color": "#4C7DFF",
    "short": "DTA",
-   "checked": 1792390215717,
-   "note": "Season 2 only; 2027 season 1 not published"
+   "checked": 1792995590857,
+   "note": "Season 2 rounds to Jan 2027; 2027 season 1 not published"
   },
   {
    "id": "brighton-karting",
@@ -477,7 +477,7 @@
    "kind": "rtrack",
    "color": "#E040C8",
    "short": "BRI",
-   "checked": 1791784067293,
+   "checked": 1792995590857,
    "note": "Kartmaster dates listed without a year; no dated upcoming rounds"
   },
   {
@@ -487,7 +487,7 @@
    "kind": "rtrack",
    "color": "#3BD16F",
    "short": "BP",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "24 Hours 2027 date TBA; no other dated race events published"
   },
   {
@@ -497,7 +497,7 @@
    "kind": "rtrack",
    "color": "#F2A93B",
    "short": "KS",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Championship R7 29 Nov; 2027 dates not published yet"
   },
   {
@@ -507,7 +507,7 @@
    "kind": "rtrack",
    "color": "#3BB3E0",
    "short": "TA",
-   "checked": 1791490020751,
+   "checked": 1792995590857,
    "note": "2027 calendar partly published"
   },
   {
@@ -517,7 +517,7 @@
    "kind": "rtrack",
    "color": "#F26B3A",
    "short": "TS",
-   "checked": 1791490020751,
+   "checked": 1792995590857,
    "note": "2027 BIKC dates not published yet"
   },
   {
@@ -527,8 +527,8 @@
    "kind": "rtrack",
    "color": "#22C3B0",
    "short": "THX",
-   "checked": 1792390215717,
-   "note": "2027 dates not published yet"
+   "checked": 1792995590857,
+   "note": "Endurance races to Dec 2026; 2027 dates not published yet"
   },
   {
    "id": "forest-edge-rental",
@@ -537,7 +537,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "FE",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "No race events"
   },
   {
@@ -547,7 +547,7 @@
    "kind": "rtrack",
    "color": "#4C7DFF",
    "short": "CP",
-   "checked": 1791494792653,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet (owner-driver CPKC/ProKart rounds excluded)"
   },
   {
@@ -557,7 +557,7 @@
    "kind": "rtrack",
    "color": "#E040C8",
    "short": "EP",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "League nights to Dec 2026; 2027 not published yet"
   },
   {
@@ -567,7 +567,7 @@
    "kind": "rtrack",
    "color": "#3BD16F",
    "short": "WM",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "No dated rental race events (WMKC rounds listed under the club)"
   },
   {
@@ -577,8 +577,8 @@
    "kind": "rtrack",
    "color": "#F2A93B",
    "short": "RH",
-   "checked": 1791488991936,
-   "note": "2027 dates not published yet"
+   "checked": 1792995590857,
+   "note": "2027 Junior Drivers Club cup dates published"
   },
   {
    "id": "hooton-park-rental",
@@ -587,7 +587,7 @@
    "kind": "rtrack",
    "color": "#3BB3E0",
    "short": "HP",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "No upcoming race events listed; 2027 not published"
   },
   {
@@ -597,7 +597,7 @@
    "kind": "rtrack",
    "color": "#8B6CF0",
    "short": "3S",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Winter sprint dates to follow; 2027 not published"
   },
   {
@@ -607,8 +607,8 @@
    "kind": "rtrack",
    "color": "#F26B3A",
    "short": "WL",
-   "checked": 1792390215717,
-   "note": "KNE Sprint round dates only in image; 2027 R1 'February' (no date); ProKart 6hr not re-ver"
+   "checked": 1792995590857,
+   "note": "KNE Winter Race Day 6 Dec; 2027 KNE Sprint dates not published"
   },
   {
    "id": "glan-y-gors-rental",
@@ -617,7 +617,7 @@
    "kind": "rtrack",
    "color": "#22C3B0",
    "short": "GYG",
-   "checked": 1791490020751,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -627,7 +627,7 @@
    "kind": "rtrack",
    "color": "#D9D23A",
    "short": "LCI",
-   "checked": 1791494792653,
+   "checked": 1792995590857,
    "note": "Rental championship calendar only as image; no clearly dated race events found"
   },
   {
@@ -637,7 +637,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "BM",
-   "checked": 1791490020751,
+   "checked": 1792995590857,
    "note": "Dates to Mar 2027 published"
   },
   {
@@ -647,7 +647,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "SCK",
-   "checked": 1791495622231,
+   "checked": 1792995590857,
    "note": "Winter series dates not published yet"
   },
   {
@@ -657,7 +657,7 @@
    "kind": "rtrack",
    "color": "#D9D23A",
    "short": "STR",
-   "checked": 1791495622231,
+   "checked": 1792995590857,
    "note": "Runs SCSS/Non Owners Cup series (R7 27 Sep 2026) and Winter Cup; no dated rounds in window"
   },
   {
@@ -667,8 +667,8 @@
    "kind": "rtrack",
    "color": "#3BD16F",
    "short": "ANC",
-   "checked": 1791493114941,
-   "note": "Monthly evening racing; later dates not listed"
+   "checked": 1792995590857,
+   "note": "Sunday Championship to Dec 2026; 2027 not published"
   },
   {
    "id": "red-lodge-karting",
@@ -677,7 +677,7 @@
    "kind": "rtrack",
    "color": "#F2A93B",
    "short": "RL",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -687,7 +687,7 @@
    "kind": "rtrack",
    "color": "#3BB3E0",
    "short": "HER",
-   "checked": 1791495622231,
+   "checked": 1792995590857,
    "note": "Runs junior/open GP/endurance championships; 2026/27 winter dates not yet published"
   },
   {
@@ -697,7 +697,7 @@
    "kind": "rtrack",
    "color": "#F26B3A",
    "short": "BRE",
-   "checked": 1791495622231,
+   "checked": 1792995590857,
    "note": "Runs race leagues and Essex Endurance Championship; no dates published"
   },
   {
@@ -707,7 +707,7 @@
    "kind": "rtrack",
    "color": "#22C3B0",
    "short": "CRO",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "Site lists monthly leagues but no dated calendar"
   },
   {
@@ -717,7 +717,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "PFi",
-   "checked": 1791494792653,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -727,7 +727,7 @@
    "kind": "rtrack",
    "color": "#3BD16F",
    "short": "DUN",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Winter cups to Feb 2027; Rental Winter Cup R3 date not published"
   },
   {
@@ -736,7 +736,9 @@
    "venue": "Warwick",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "ASW"
+   "short": "ASW",
+   "checked": 1792995590857,
+   "note": "Team Championship final 29 Nov; 2027 not published"
   },
   {
    "id": "castle-combe-karting",
@@ -745,7 +747,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "CC",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -755,7 +757,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "SEV",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Monthly Pro70/open races; only Spring Team Endurance dated"
   },
   {
@@ -765,7 +767,7 @@
    "kind": "rtrack",
    "color": "#3BD16F",
    "short": "WIG",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "Monthly championships (final Fri/Sun of month) but calendar only in booking system; no dated list readable"
   },
   {
@@ -774,7 +776,9 @@
    "venue": "UK, indoor",
    "kind": "rtrack",
    "color": "#3BB3E0",
-   "short": "ABK"
+   "short": "ABK",
+   "checked": 1792995590857,
+   "note": "Championships mentioned but no dated calendar published"
   },
   {
    "id": "xtreme-karting-edinburgh-falkirk",
@@ -783,7 +787,7 @@
    "kind": "rtrack",
    "color": "#8B6CF0",
    "short": "XK",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Members Championship rounds; GP events undated"
   },
   {
@@ -792,7 +796,9 @@
    "venue": "Exeter, Devon",
    "kind": "rtrack",
    "color": "#4C7DFF",
-   "short": "RW"
+   "short": "RW",
+   "checked": 1792995590857,
+   "note": "Devon Kart Club monthly (first Tuesday); no dated calendar"
   },
   {
    "id": "formula-fast-karting",
@@ -801,7 +807,7 @@
    "kind": "rtrack",
    "color": "#22C3B0",
    "short": "FF",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Hosts BRKC (own series); no other dated race events"
   },
   {
@@ -811,7 +817,7 @@
    "kind": "rtrack",
    "color": "#D9D23A",
    "short": "AIK",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "Only 2024 events listed"
   },
   {
@@ -821,7 +827,7 @@
    "kind": "rtrack",
    "color": "#4C7DFF",
    "short": "ISK",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "No race events"
   },
   {
@@ -831,7 +837,7 @@
    "kind": "rtrack",
    "color": "#F2A93B",
    "short": "EIS",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "Only 2024 championship shown"
   },
   {
@@ -841,7 +847,7 @@
    "kind": "rtrack",
    "color": "#3BB3E0",
    "short": "TKR",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "NWKC 2026 calendar; 2027 not published"
   },
   {
@@ -851,7 +857,7 @@
    "kind": "rtrack",
    "color": "#8B6CF0",
    "short": "RVK",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "Grid League 6 rounds, no dates published"
   },
   {
@@ -861,7 +867,7 @@
    "kind": "rtrack",
    "color": "#3BB3E0",
    "short": "GTK",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "No race events"
   },
   {
@@ -870,7 +876,9 @@
    "venue": "Ballymoney, Northern Ireland",
    "kind": "rtrack",
    "color": "#F26B3A",
-   "short": "KSB"
+   "short": "KSB",
+   "checked": 1792995590857,
+   "note": "No dated race events published"
   },
   {
    "id": "west-wales-karting",
@@ -879,7 +887,7 @@
    "kind": "rtrack",
    "color": "#FF5C8A",
    "short": "WWK",
-   "checked": 1791495622231,
+   "checked": 1792995590857,
    "note": "Mentions adult race leagues; no dates published"
   },
   {
@@ -889,7 +897,7 @@
    "kind": "rental",
    "color": "#4C7DFF",
    "short": "C73",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -899,7 +907,7 @@
    "kind": "rental",
    "color": "#E040C8",
    "short": "FAT",
-   "checked": 1791493114941,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -909,7 +917,7 @@
    "kind": "rental",
    "color": "#3BB3E0",
    "short": "EKS",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "2027 dates not published yet"
   },
   {
@@ -918,7 +926,9 @@
    "venue": "South of England, multiple venues",
    "kind": "rental",
    "color": "#FF5C8A",
-   "short": "SRK"
+   "short": "SRK",
+   "checked": 1792995590857,
+   "note": "Round dates not published on site"
   },
   {
    "id": "teesside-winter-enduro",
@@ -927,7 +937,7 @@
    "kind": "rental",
    "color": "#29A8E0",
    "short": "TWE",
-   "checked": 1792390215717,
+   "checked": 1792995590857,
    "note": "Owner and hire Pro karts"
   }
  ],
@@ -1500,6 +1510,15 @@
    "kind": "race"
   },
   {
+   "id": "daytona-tamworth-2026-10-29-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 6",
+   "start": "2026-10-29",
+   "end": "2026-10-29",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
    "id": "daytona-sandown-park-2026-10-30-junior-n32-cup-ii",
    "seriesId": "daytona-sandown-park",
    "title": "Junior N32 Cup II",
@@ -1563,6 +1582,15 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-kart-racing-club-2026-10-31-london-cup",
+   "seriesId": "rye-house-kart-racing-club",
+   "title": "London Cup",
+   "start": "2026-10-31",
+   "end": "2026-11-01",
+   "location": "Rye House",
+   "kind": "race"
+  },
+  {
    "id": "cumbria-kart-racing-club-2026-11-01-club-championship-ro",
    "seriesId": "cumbria-kart-racing-club",
    "title": "Club Championship Round 6",
@@ -1614,6 +1642,15 @@
    "start": "2026-11-01",
    "end": "2026-11-01",
    "location": "Forest Edge",
+   "kind": "race"
+  },
+  {
+   "id": "warden-law-rental-2026-11-01-bpec-6-hours-of-ward",
+   "seriesId": "warden-law-rental",
+   "title": "BPEC 6 Hours of Warden Law",
+   "start": "2026-11-01",
+   "end": "2026-11-01",
+   "location": "Warden Law",
    "kind": "race"
   },
   {
@@ -1806,6 +1843,15 @@
    "kind": "race"
   },
   {
+   "id": "daytona-tamworth-2026-11-12-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 7",
+   "start": "2026-11-12",
+   "end": "2026-11-12",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
    "id": "rye-house-rental-2026-11-13-sutton-cup-r9",
    "seriesId": "rye-house-rental",
    "title": "Sutton Cup R9",
@@ -1829,7 +1875,7 @@
    "title": "National Finals",
    "start": "2026-11-14",
    "end": "2026-11-15",
-   "location": "TeamSport (venue TBC)",
+   "location": "TeamSport Warrington",
    "kind": "race"
   },
   {
@@ -1950,6 +1996,15 @@
    "kind": "race"
   },
   {
+   "id": "karting-at-ancaster-2026-11-19-thursday-evening-rac",
+   "seriesId": "karting-at-ancaster",
+   "title": "Thursday Evening Racing",
+   "start": "2026-11-19",
+   "end": "2026-11-19",
+   "location": "Ancaster Leisure",
+   "kind": "race"
+  },
+  {
    "id": "ellough-park-rental-2026-11-20-kids-club-cadet---ju",
    "seriesId": "ellough-park-rental",
    "title": "Kids Club Cadet & Junior",
@@ -2049,6 +2104,24 @@
    "kind": "race"
   },
   {
+   "id": "thruxton-karting-2026-11-22-2-hour-endurance",
+   "seriesId": "thruxton-karting",
+   "title": "2 Hour Endurance",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Thruxton Karting",
+   "kind": "race"
+  },
+  {
+   "id": "karting-at-ancaster-2026-11-22-sunday-championship",
+   "seriesId": "karting-at-ancaster",
+   "title": "Sunday Championship",
+   "start": "2026-11-22",
+   "end": "2026-11-22",
+   "location": "Ancaster Leisure",
+   "kind": "race"
+  },
+  {
    "id": "ellough-park-rental-2026-11-24-junior-pro-league",
    "seriesId": "ellough-park-rental",
    "title": "Junior Pro League",
@@ -2100,6 +2173,15 @@
    "start": "2026-11-26",
    "end": "2026-11-26",
    "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-11-26-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 8",
+   "start": "2026-11-26",
+   "end": "2026-11-26",
+   "location": "Daytona Tamworth",
    "kind": "race"
   },
   {
@@ -2202,6 +2284,15 @@
    "kind": "race"
   },
   {
+   "id": "adventure-sports-warwick-2026-11-29-5-hour-team-enduranc",
+   "seriesId": "adventure-sports-warwick",
+   "title": "5 Hour Team Endurance Race",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "location": "Mr Karting, Adventure Sports Warwick",
+   "kind": "race"
+  },
+  {
    "id": "ellough-park-rental-2026-11-30-open-league",
    "seriesId": "ellough-park-rental",
    "title": "Open League",
@@ -2235,6 +2326,15 @@
    "start": "2026-12-03",
    "end": "2026-12-03",
    "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-12-03-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 9",
+   "start": "2026-12-03",
+   "end": "2026-12-03",
+   "location": "Daytona Tamworth",
    "kind": "race"
   },
   {
@@ -2409,6 +2509,15 @@
    "kind": "race"
   },
   {
+   "id": "thruxton-karting-2026-12-13-2-hour-endurance",
+   "seriesId": "thruxton-karting",
+   "title": "2 Hour Endurance",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "location": "Thruxton Karting",
+   "kind": "race"
+  },
+  {
    "id": "ellough-park-rental-2026-12-14-open-league",
    "seriesId": "ellough-park-rental",
    "title": "Open League",
@@ -2433,6 +2542,15 @@
    "start": "2026-12-17",
    "end": "2026-12-17",
    "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2026-12-17-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 10",
+   "start": "2026-12-17",
+   "end": "2026-12-17",
+   "location": "Daytona Tamworth",
    "kind": "race"
   },
   {
@@ -2508,6 +2626,15 @@
    "kind": "race"
   },
   {
+   "id": "karting-at-ancaster-2026-12-20-sunday-championship",
+   "seriesId": "karting-at-ancaster",
+   "title": "Sunday Championship",
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "location": "Ancaster Leisure",
+   "kind": "race"
+  },
+  {
    "id": "teesside-motorsports-winter-series-2026-12-28-round-2",
    "seriesId": "teesside-motorsports-winter-series",
    "title": "Round 2",
@@ -2568,6 +2695,15 @@
    "start": "2027-01-07",
    "end": "2027-01-07",
    "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "daytona-tamworth-2027-01-07-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 11",
+   "start": "2027-01-07",
+   "end": "2027-01-07",
+   "location": "Daytona Tamworth",
    "kind": "race"
   },
   {
@@ -2634,6 +2770,15 @@
    "kind": "race"
   },
   {
+   "id": "daytona-tamworth-2027-01-21-thursday-night-leagu",
+   "seriesId": "daytona-tamworth",
+   "title": "Thursday Night League Round 12",
+   "start": "2027-01-21",
+   "end": "2027-01-21",
+   "location": "Daytona Tamworth",
+   "kind": "race"
+  },
+  {
    "id": "daytona-sandown-park-2027-01-24-inkart-round-8",
    "seriesId": "daytona-sandown-park",
    "title": "InKart Round 8",
@@ -2688,6 +2833,33 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-02-02-fangio-cup-winter-cu",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup Winter Cup",
+   "start": "2027-02-02",
+   "end": "2027-02-02",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-02-04-mexico-cup-winter-cu",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup Winter Cup",
+   "start": "2027-02-04",
+   "end": "2027-02-04",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-02-05-monza-cup-winter-cup",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup Winter Cup",
+   "start": "2027-02-05",
+   "end": "2027-02-05",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "bayford-meadows-rental-2027-02-06-superpro-winter-cup-",
    "seriesId": "bayford-meadows-rental",
    "title": "SuperPro Winter Cup Round 3",
@@ -2715,12 +2887,57 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-02-09-bugatti-cup-winter-c",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup Winter Cup",
+   "start": "2027-02-09",
+   "end": "2027-02-09",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-02-11-imola-cup-winter-cup",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup Winter Cup",
+   "start": "2027-02-11",
+   "end": "2027-02-11",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-02-12-rotax-o-plate",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Rotax O Plate",
+   "start": "2027-02-12",
+   "end": "2027-02-14",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-02-12-spa-cup-winter-cup",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup Winter Cup",
+   "start": "2027-02-12",
+   "end": "2027-02-12",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "club100-sprint-championship-2027-02-14-senior-sprint-nation",
    "seriesId": "club100-sprint-championship",
    "title": "Senior Sprint National Round 1",
    "start": "2027-02-14",
    "end": "2027-02-14",
    "location": "Buckmore Park",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-02-18-lightning-cup-winter",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup Winter Cup",
+   "start": "2027-02-18",
+   "end": "2027-02-18",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2751,6 +2968,33 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-03-02-fangio-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R1",
+   "start": "2027-03-02",
+   "end": "2027-03-02",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-03-04-mexico-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R1",
+   "start": "2027-03-04",
+   "end": "2027-03-04",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-03-05-monza-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R1",
+   "start": "2027-03-05",
+   "end": "2027-03-05",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "bayford-meadows-rental-2027-03-06-superpro-winter-cup-",
    "seriesId": "bayford-meadows-rental",
    "title": "SuperPro Winter Cup Round 4",
@@ -2769,12 +3013,57 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-03-09-bugatti-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R1",
+   "start": "2027-03-09",
+   "end": "2027-03-09",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-03-11-imola-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R1",
+   "start": "2027-03-11",
+   "end": "2027-03-11",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-03-12-spa-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R1",
+   "start": "2027-03-12",
+   "end": "2027-03-12",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-03-18-lightning-cup-r1",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R1",
+   "start": "2027-03-18",
+   "end": "2027-03-18",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "national-kart-cup-2027-03-19-round-1",
    "seriesId": "national-kart-cup",
    "title": "Round 1",
    "start": "2027-03-19",
    "end": "2027-03-21",
    "location": "Clay Pigeon",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-03-19-iame-o-plate",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "IAME O Plate",
+   "start": "2027-03-19",
+   "end": "2027-03-21",
+   "location": "Kart Silverstone",
    "kind": "race"
   },
   {
@@ -2787,12 +3076,39 @@
    "kind": "race"
   },
   {
+   "id": "wera-tools-british-kart-championships-2027-03-26-event-1---rotax",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 1 - Rotax",
+   "start": "2027-03-26",
+   "end": "2027-03-28",
+   "location": "Warden Law",
+   "kind": "race"
+  },
+  {
    "id": "super-one-series-2027-03-27--o--plate",
    "seriesId": "super-one-series",
    "title": "'O' Plate",
    "start": "2027-03-27",
    "end": "2027-03-28",
    "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-04-01-mexico-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R2",
+   "start": "2027-04-01",
+   "end": "2027-04-01",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-04-02-monza-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R2",
+   "start": "2027-04-02",
+   "end": "2027-04-02",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2805,12 +3121,66 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-04-06-fangio-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R2",
+   "start": "2027-04-06",
+   "end": "2027-04-06",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-04-08-event-2---iame--kz2-",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 2 - IAME, KZ2, Honda",
+   "start": "2027-04-08",
+   "end": "2027-04-10",
+   "location": "Kart Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-04-08-imola-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R2",
+   "start": "2027-04-08",
+   "end": "2027-04-08",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-04-09-spa-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R2",
+   "start": "2027-04-09",
+   "end": "2027-04-09",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "club100-sprint-championship-2027-04-11-senior-sprint-nation",
    "seriesId": "club100-sprint-championship",
    "title": "Senior Sprint National Round 2",
    "start": "2027-04-11",
    "end": "2027-04-11",
    "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-04-13-bugatti-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R2",
+   "start": "2027-04-13",
+   "end": "2027-04-13",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-04-15-lightning-cup-r2",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R2",
+   "start": "2027-04-15",
+   "end": "2027-04-15",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2850,12 +3220,75 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-05-04-fangio-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R3",
+   "start": "2027-05-04",
+   "end": "2027-05-04",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-05-06-mexico-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R3",
+   "start": "2027-05-06",
+   "end": "2027-05-06",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "spanish-24-hours-karting-2027-05-07-campillos-24-hour",
    "seriesId": "24-hour-series",
    "title": "Campillos 24H",
    "start": "2027-05-07",
    "end": "2027-05-09",
    "location": "Kart Center Campillos, Spain",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-05-07-monza-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R3",
+   "start": "2027-05-07",
+   "end": "2027-05-07",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-05-11-bugatti-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R3",
+   "start": "2027-05-11",
+   "end": "2027-05-11",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-05-13-imola-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R3",
+   "start": "2027-05-13",
+   "end": "2027-05-13",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-05-14-spa-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R3",
+   "start": "2027-05-14",
+   "end": "2027-05-14",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-05-20-lightning-cup-r3",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R3",
+   "start": "2027-05-20",
+   "end": "2027-05-20",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2895,12 +3328,57 @@
    "kind": "race"
   },
   {
+   "id": "wera-tools-british-kart-championships-2027-05-28-event-3---rotax",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 3 - Rotax",
+   "start": "2027-05-28",
+   "end": "2027-05-30",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
    "id": "daytona-milton-keynes-24-hours-2027-05-29-daytona-24-hours",
    "seriesId": "daytona-milton-keynes-24-hours",
    "title": "Daytona 24 Hours",
    "start": "2027-05-29",
    "end": "2027-05-30",
    "location": "Daytona Milton Keynes",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-06-01-fangio-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R4",
+   "start": "2027-06-01",
+   "end": "2027-06-01",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-06-03-mexico-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R4",
+   "start": "2027-06-03",
+   "end": "2027-06-03",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-06-04-event-4---iame--hond",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 4 - IAME, Honda",
+   "start": "2027-06-04",
+   "end": "2027-06-06",
+   "location": "Whilton Mill",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-06-04-monza-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R4",
+   "start": "2027-06-04",
+   "end": "2027-06-04",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2913,12 +3391,48 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-06-08-bugatti-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R4",
+   "start": "2027-06-08",
+   "end": "2027-06-08",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-06-10-imola-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R4",
+   "start": "2027-06-10",
+   "end": "2027-06-10",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-06-11-spa-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R4",
+   "start": "2027-06-11",
+   "end": "2027-06-11",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "access-karting-2027-06-12-round-2",
    "seriesId": "access-karting",
    "title": "Round 2",
    "start": "2027-06-12",
    "end": "2027-06-13",
    "location": "Glan y Gors",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-06-17-lightning-cup-r4",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R4",
+   "start": "2027-06-17",
+   "end": "2027-06-17",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2931,12 +3445,39 @@
    "kind": "race"
   },
   {
+   "id": "wera-tools-british-kart-championships-2027-06-18-event-5---rotax",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 5 - Rotax",
+   "start": "2027-06-18",
+   "end": "2027-06-20",
+   "location": "PF International",
+   "kind": "race"
+  },
+  {
    "id": "club100-sprint-championship-2027-06-20-senior-sprint-nation",
    "seriesId": "club100-sprint-championship",
    "title": "Senior Sprint National Round 4",
    "start": "2027-06-20",
    "end": "2027-06-20",
    "location": "Lydd",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-07-01-mexico-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R5",
+   "start": "2027-07-01",
+   "end": "2027-07-01",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-07-02-monza-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R5",
+   "start": "2027-07-02",
+   "end": "2027-07-02",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2958,12 +3499,66 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-07-06-fangio-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R5",
+   "start": "2027-07-06",
+   "end": "2027-07-06",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-07-08-event-6---iame--kz2-",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 6 - IAME, KZ2, Honda",
+   "start": "2027-07-08",
+   "end": "2027-07-10",
+   "location": "Warden Law",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-07-08-imola-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R5",
+   "start": "2027-07-08",
+   "end": "2027-07-08",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "24-hour-series-2027-07-09-le-mans-24h",
    "seriesId": "24-hour-series",
    "title": "Le Mans 24H",
    "start": "2027-07-09",
    "end": "2027-07-11",
    "location": "Karting des 24 Heures, Le Mans, France",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-07-09-spa-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R5",
+   "start": "2027-07-09",
+   "end": "2027-07-09",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-07-13-bugatti-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R5",
+   "start": "2027-07-13",
+   "end": "2027-07-13",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-07-15-lightning-cup-r5",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R5",
+   "start": "2027-07-15",
+   "end": "2027-07-15",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -2994,12 +3589,48 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-08-03-fangio-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R6",
+   "start": "2027-08-03",
+   "end": "2027-08-03",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-08-05-mexico-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R6",
+   "start": "2027-08-05",
+   "end": "2027-08-05",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "24-hour-series-2027-08-06-british-24h",
    "seriesId": "24-hour-series",
    "title": "British 24H",
    "start": "2027-08-06",
    "end": "2027-08-08",
    "location": "Teesside Autodrome, Middlesbrough",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-08-06-event-7---iame--hond",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 7 - IAME, Honda, KZ2",
+   "start": "2027-08-06",
+   "end": "2027-08-08",
+   "location": "Kimbolton",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-08-06-monza-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R6",
+   "start": "2027-08-06",
+   "end": "2027-08-06",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -3012,6 +3643,24 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-08-10-bugatti-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R6",
+   "start": "2027-08-10",
+   "end": "2027-08-10",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-08-12-imola-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R6",
+   "start": "2027-08-12",
+   "end": "2027-08-12",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "national-kart-cup-2027-08-13-round-5",
    "seriesId": "national-kart-cup",
    "title": "Round 5",
@@ -3021,12 +3670,39 @@
    "kind": "race"
   },
   {
+   "id": "wera-tools-british-kart-championships-2027-08-13-event-8---rotax",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 8 - Rotax",
+   "start": "2027-08-13",
+   "end": "2027-08-15",
+   "location": "Larkhall",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-08-13-spa-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R6",
+   "start": "2027-08-13",
+   "end": "2027-08-13",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "access-karting-2027-08-14-round-4",
    "seriesId": "access-karting",
    "title": "Round 4",
    "start": "2027-08-14",
    "end": "2027-08-15",
    "location": "Rowrah",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-08-19-lightning-cup-r6",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R6",
+   "start": "2027-08-19",
+   "end": "2027-08-19",
+   "location": "Rye House Kart Raceway",
    "kind": "race"
   },
   {
@@ -3048,6 +3724,15 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-09-02-mexico-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R7",
+   "start": "2027-09-02",
+   "end": "2027-09-02",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "24-hour-series-2027-09-03-spa-24h--date-tbc-",
    "seriesId": "24-hour-series",
    "title": "Spa 24H (date TBC)",
@@ -3057,12 +3742,75 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-09-03-monza-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R7",
+   "start": "2027-09-03",
+   "end": "2027-09-03",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-09-07-fangio-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R7",
+   "start": "2027-09-07",
+   "end": "2027-09-07",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-09-09-imola-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R7",
+   "start": "2027-09-09",
+   "end": "2027-09-09",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-09-10-spa-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R7",
+   "start": "2027-09-10",
+   "end": "2027-09-10",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "access-karting-2027-09-11-round-5",
    "seriesId": "access-karting",
    "title": "Round 5",
    "start": "2027-09-11",
    "end": "2027-09-12",
    "location": "Fulbeck",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-09-14-bugatti-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R7",
+   "start": "2027-09-14",
+   "end": "2027-09-14",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-09-16-lightning-cup-r7",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R7",
+   "start": "2027-09-16",
+   "end": "2027-09-16",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-09-17-event-9---iame--hond",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 9 - IAME, Honda",
+   "start": "2027-09-17",
+   "end": "2027-09-19",
+   "location": "PF International",
    "kind": "race"
   },
   {
@@ -3084,6 +3832,69 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-10-01-monza-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R8",
+   "start": "2027-10-01",
+   "end": "2027-10-01",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-10-05-fangio-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R8",
+   "start": "2027-10-05",
+   "end": "2027-10-05",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-10-07-mexico-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R8",
+   "start": "2027-10-07",
+   "end": "2027-10-07",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-10-08-spa-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R8",
+   "start": "2027-10-08",
+   "end": "2027-10-08",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-10-12-bugatti-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R8",
+   "start": "2027-10-12",
+   "end": "2027-10-12",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "wera-tools-british-kart-championships-2027-10-14-event-10---rotax--kz",
+   "seriesId": "wera-tools-british-kart-championships",
+   "title": "Event 10 - Rotax, KZ2",
+   "start": "2027-10-14",
+   "end": "2027-10-16",
+   "location": "Kart Silverstone",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-10-14-imola-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R8",
+   "start": "2027-10-14",
+   "end": "2027-10-14",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "access-karting-2027-10-16-round-6",
    "seriesId": "access-karting",
    "title": "Round 6",
@@ -3093,12 +3904,93 @@
    "kind": "race"
   },
   {
+   "id": "rye-house-rental-2027-10-21-lightning-cup-r8",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R8",
+   "start": "2027-10-21",
+   "end": "2027-10-21",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
    "id": "club100-sprint-championship-2027-10-31-senior-sprint-nation",
    "seriesId": "club100-sprint-championship",
    "title": "Senior Sprint National Round 9",
    "start": "2027-10-31",
    "end": "2027-10-31",
    "location": "Warden Law",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-02-fangio-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Fangio Cup R9",
+   "start": "2027-11-02",
+   "end": "2027-11-02",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-04-mexico-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Mexico Cup R9",
+   "start": "2027-11-04",
+   "end": "2027-11-04",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-05-monza-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Monza Cup R9",
+   "start": "2027-11-05",
+   "end": "2027-11-05",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-09-bugatti-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Bugatti Cup R9",
+   "start": "2027-11-09",
+   "end": "2027-11-09",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-11-imola-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Imola Cup R9",
+   "start": "2027-11-11",
+   "end": "2027-11-11",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-12-spa-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Spa Cup R9",
+   "start": "2027-11-12",
+   "end": "2027-11-12",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "rye-house-rental-2027-11-18-lightning-cup-r9",
+   "seriesId": "rye-house-rental",
+   "title": "Lightning Cup R9",
+   "start": "2027-11-18",
+   "end": "2027-11-18",
+   "location": "Rye House Kart Raceway",
+   "kind": "race"
+  },
+  {
+   "id": "club100-sprint-championship-2027-11-28-senior-sprint-nation",
+   "seriesId": "club100-sprint-championship",
+   "title": "Senior Sprint National Round 10",
+   "start": "2027-11-28",
+   "end": "2027-11-28",
+   "location": "Kart Silverstone",
    "kind": "race"
   }
  ],
