@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T06:19Z",
+ "updated": "2026-10-27T17:25Z",
  "series": [
   {
    "id": "access-karting",
@@ -931,6 +931,16 @@
    "note": "Round dates not published on site"
   },
   {
+   "id": "daniel-ricciardo-series",
+   "name": "Daniel Ricciardo Series (DRS)",
+   "venue": "UK, multiple venues",
+   "kind": "rental",
+   "color": "#F5A623",
+   "short": "DRS",
+   "checked": 1793121955863,
+   "note": "2027 calendar page up but dates not readable yet; DRS40/50 arrive-and-drive cadets, DRS100/125 own DRS kart"
+  },
+  {
    "id": "teesside-winter-enduro",
    "name": "Teesside Winter Enduro",
    "venue": "Teesside Autodrome, Middlesbrough",
@@ -1588,6 +1598,15 @@
    "start": "2026-10-31",
    "end": "2026-11-01",
    "location": "Rye House",
+   "kind": "race"
+  },
+  {
+   "id": "daniel-ricciardo-series-2026-10-31-round-8",
+   "seriesId": "daniel-ricciardo-series",
+   "title": "Round 8",
+   "start": "2026-10-31",
+   "end": "2026-11-01",
+   "location": "Kart Silverstone",
    "kind": "race"
   },
   {
