@@ -9,7 +9,8 @@
    "color": "#3BD16F",
    "checked": 1791784067293,
    "logoUrl": "logos/access-karting.png",
-   "note": "Rds 4-6 2027 not re-confirmed (AlphaTiming list shows to Rd 3)"
+   "note": "Rds 4-6 2027 not re-confirmed (AlphaTiming list shows to Rd 3)",
+   "book": "https://accesskarting.alphatiming.co.uk/championships"
   },
   {
    "id": "national-kart-cup",
@@ -19,7 +20,8 @@
    "color": "#F2A93B",
    "short": "NKC",
    "checked": 1791494792653,
-   "logoUrl": "logos/national-kart-cup.png"
+   "logoUrl": "logos/national-kart-cup.png",
+   "book": "https://nkc.alphatiming.co.uk/register/events"
   },
   {
    "id": "rmc-ukc",
@@ -30,7 +32,8 @@
    "short": "UKC",
    "checked": 1792995590857,
    "note": "2027 dates not published yet",
-   "logoUrl": "logos/rmc-ukc.png"
+   "logoUrl": "logos/rmc-ukc.png",
+   "book": "https://ukc.alphatiming.co.uk/championships"
   },
   {
    "id": "rye-house-prokart-endurance",
@@ -41,7 +44,9 @@
    "short": "RHPK",
    "checked": 1792995590857,
    "note": "R9 7 Nov confirmed; 2027 dates not published yet",
-   "logoUrl": "logos/rye-house-prokart-endurance.png"
+   "logoUrl": "logos/rye-house-prokart-endurance.png",
+   "book": "https://rhpk.co.uk/",
+   "phone": "01992 460895"
   },
   {
    "id": "whilton-mill-kart-club",
@@ -50,7 +55,8 @@
    "kind": "club",
    "color": "#E040C8",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://wmkc.alphatiming.co.uk/users/sign_in"
   },
   {
    "id": "shenington-kart-racing-club",
@@ -59,7 +65,8 @@
    "kind": "club",
    "color": "#3BD16F",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "http://sheningtonkrc.co.uk/"
   },
   {
    "id": "trent-valley-kart-club",
@@ -68,7 +75,8 @@
    "kind": "club",
    "color": "#F2A93B",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://www.trakentries.co.uk/clubclone/club.asp?C=14"
   },
   {
    "id": "fulbeck-kart-club",
@@ -77,7 +85,8 @@
    "kind": "club",
    "color": "#3BB3E0",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://fkc.alphatiming.co.uk/users/sign_in"
   },
   {
    "id": "hunts-kart-racing-club",
@@ -86,7 +95,8 @@
    "kind": "club",
    "color": "#8B6CF0",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://hkrc.co.uk/hkrc-calendar/"
   },
   {
    "id": "rye-house-kart-racing-club",
@@ -95,7 +105,9 @@
    "kind": "club",
    "color": "#F26B3A",
    "checked": 1792995590857,
-   "note": "London Cup 31 Oct-1 Nov; 2027 dates not published yet"
+   "note": "London Cup 31 Oct-1 Nov; 2027 dates not published yet",
+   "book": "https://rhkc.alphatiming.co.uk/register/events",
+   "phone": "01992 460895"
   },
   {
    "id": "buckmore-park-kart-club",
@@ -104,7 +116,8 @@
    "kind": "club",
    "color": "#22C3B0",
    "checked": 1792995590857,
-   "note": "Run by Champions Kart Club; 2027 dates not published yet"
+   "note": "Run by Champions Kart Club; 2027 dates not published yet",
+   "book": "https://www.kartacademy.co.uk/champions-kart-club/"
   },
   {
    "id": "bayford-meadows-kart-club",
@@ -113,7 +126,8 @@
    "kind": "club",
    "color": "#D9D23A",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://bmkr.alphatiming.co.uk/users/sign_in"
   },
   {
    "id": "lydd-kart-club",
@@ -122,7 +136,9 @@
    "kind": "club",
    "color": "#FF5C8A",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://lyddkartcircuit.com/owner-driver/",
+   "phone": "01797 321747"
   },
   {
    "id": "forest-edge-kart-club",
@@ -131,7 +147,8 @@
    "kind": "club",
    "color": "#4C7DFF",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://fekc.alphatiming.co.uk/users/sign_in"
   },
   {
    "id": "clay-pigeon-kart-club",
@@ -140,7 +157,8 @@
    "kind": "club",
    "color": "#E040C8",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "http://www.claypigeonkartclub.com"
   },
   {
    "id": "ellough-park-kart-club-racing",
@@ -149,7 +167,9 @@
    "kind": "club",
    "color": "#3BD16F",
    "checked": 1792995590857,
-   "note": "Iron League is a hire-kart league (under Ellough Park rental); 2027 not published"
+   "note": "Iron League is a hire-kart league (under Ellough Park rental); 2027 not published",
+   "book": "https://www.elloughpark.co.uk/owner-drivers",
+   "phone": "01502 717718"
   },
   {
    "id": "hooton-park-kart-club",
@@ -158,7 +178,8 @@
    "kind": "club",
    "color": "#F2A93B",
    "checked": 1792995590857,
-   "note": "No upcoming dates listed (site shows 2022 only); 2027 not published"
+   "note": "No upcoming dates listed (site shows 2022 only); 2027 not published",
+   "book": "https://chkrc.alphatiming.co.uk/register/events"
   },
   {
    "id": "three-sisters-kart-club-racing",
@@ -167,7 +188,9 @@
    "kind": "club",
    "color": "#3BB3E0",
    "checked": 1792995590857,
-   "note": "3S120 Team Enduro is rental (under Three Sisters rental); winter dates to follow"
+   "note": "3S120 Team Enduro is rental (under Three Sisters rental); winter dates to follow",
+   "book": "https://threesisterscircuit.co.uk/adults/owner-driver",
+   "phone": "01942 719030"
   },
   {
    "id": "sunderland-and-district-kart-club",
@@ -176,7 +199,9 @@
    "kind": "club",
    "color": "#8B6CF0",
    "checked": 1792995590857,
-   "note": "No SDKC race calendar found; Warden Law 2026 calendar lists no SDKC meetings"
+   "note": "No SDKC race calendar found; Warden Law 2026 calendar lists no SDKC meetings",
+   "book": "https://kartingnortheast.com/",
+   "phone": "0191 521 4050"
   },
   {
    "id": "cumbria-kart-racing-club",
@@ -185,7 +210,8 @@
    "kind": "club",
    "color": "#F26B3A",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://ckrc.alphatiming.co.uk/register/msa"
   },
   {
    "id": "glan-y-gors-kart-club",
@@ -194,7 +220,8 @@
    "kind": "club",
    "color": "#22C3B0",
    "checked": 1792995590857,
-   "note": "Dragon KC lists only test days; no club race meetings"
+   "note": "Dragon KC lists only test days; no club race meetings",
+   "book": "https://gygkarting.com/dragon-kart-club-dkc"
   },
   {
    "id": "llandow-kart-club",
@@ -203,7 +230,9 @@
    "kind": "club",
    "color": "#D9D23A",
    "checked": 1792995590857,
-   "note": "Only practice days listed; no club race meetings found"
+   "note": "Only practice days listed; no club race meetings found",
+   "book": "https://llandow.alphatiming.co.uk/",
+   "phone": "01446 796460"
   },
   {
    "id": "larkhall-kart-club-racing",
@@ -212,7 +241,8 @@
    "kind": "club",
    "color": "#FF5C8A",
    "checked": 1792995590857,
-   "note": "WSKC club meeting per MSUK permit list; 2027 dates not published yet"
+   "note": "WSKC club meeting per MSUK permit list; 2027 dates not published yet",
+   "book": "https://members.wskc.co.uk/register/"
   },
   {
    "id": "fife-kart-club",
@@ -221,7 +251,8 @@
    "kind": "club",
    "color": "#4C7DFF",
    "checked": 1792995590857,
-   "note": "Now Scottish Karting Academy; races at ESKC meetings, no own dates found"
+   "note": "Now Scottish Karting Academy; races at ESKC meetings, no own dates found",
+   "book": "https://www.eskc.net/"
   },
   {
    "id": "highland-kart-club",
@@ -230,7 +261,8 @@
    "kind": "club",
    "color": "#E040C8",
    "checked": 1792995590857,
-   "note": "NSKC 2026 final round was 26 Sep; 2027 not published"
+   "note": "NSKC 2026 final round was 26 Sep; 2027 not published",
+   "book": "https://www.nskc.co.uk/"
   },
   {
    "id": "nutts-corner-kart-club-racing",
@@ -239,7 +271,8 @@
    "kind": "club",
    "color": "#3BD16F",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://www.ulsterkarting.club/"
   },
   {
    "id": "super-one-series",
@@ -250,7 +283,9 @@
    "checked": 1792995590857,
    "note": "2027 calendar from superoneseries.com",
    "logoUrl": "logos/super-one-series.png",
-   "brand": "#3D52E0"
+   "brand": "#3D52E0",
+   "book": "https://superone.alphatiming.co.uk/users/sign_in",
+   "phone": "01928 740090"
   },
   {
    "id": "wera-tools-british-kart-championships",
@@ -260,7 +295,8 @@
    "color": "#3BB3E0",
    "checked": 1792995590857,
    "note": "2027 calendar published (Motorsport Timing)",
-   "logoUrl": "logos/wera-tools-british-kart-championships.png"
+   "logoUrl": "logos/wera-tools-british-kart-championships.png",
+   "book": "https://britishkartchampionships.org/events"
   },
   {
    "id": "kartmasters-british-grand-prix",
@@ -270,7 +306,8 @@
    "color": "#8B6CF0",
    "checked": 1792995590857,
    "note": "2026 event was 30 Jul-2 Aug; 2027 dates not published yet",
-   "logoUrl": "logos/kartmasters-british-grand-prix.png"
+   "logoUrl": "logos/kartmasters-british-grand-prix.png",
+   "book": "https://tvkc.co.uk/race-calendar"
   },
   {
    "id": "teesside-autodrome-karting",
@@ -279,7 +316,9 @@
    "kind": "club",
    "color": "#F26B3A",
    "checked": 1792995590857,
-   "note": "Adds winter Enduro + Winter Series; 2027 sprint season not published"
+   "note": "Adds winter Enduro + Winter Series; 2027 sprint season not published",
+   "book": "https://teessidemotorsports.co.uk/karting/owner-driver/owner-driver-dates",
+   "phone": "01642 231117"
   },
   {
    "id": "teesside-motorsports-winter-series",
@@ -289,7 +328,9 @@
    "color": "#2F6BFF",
    "short": "TWS",
    "checked": 1792995590857,
-   "note": "Bambino to Senior, two stroke and four stroke"
+   "note": "Bambino to Senior, two stroke and four stroke",
+   "book": "https://teessidemotorsports.co.uk/the-winter-series-2026/",
+   "phone": "01642 231117"
   },
   {
    "id": "british-rental-kart-championship",
@@ -299,7 +340,9 @@
    "color": "#22C3B0",
    "short": "BRKC",
    "checked": 1792995590857,
-   "note": "Single weekend event; UK qualifier for the Kart World Championship"
+   "note": "Single weekend event; UK qualifier for the Kart World Championship",
+   "book": "https://brkc.co.uk/enter-brkc",
+   "phone": "01908 904111"
   },
   {
    "id": "british-indoor-karting-championship",
@@ -309,7 +352,8 @@
    "color": "#D9D23A",
    "short": "BIKC",
    "checked": 1792995590857,
-   "note": "National Finals at TeamSport Warrington; 2027 not published"
+   "note": "National Finals at TeamSport Warrington; 2027 not published",
+   "book": "https://www.team-sport.co.uk/go-kart-racing-events/bikc"
   },
   {
    "id": "club100-sprint-championship",
@@ -319,7 +363,8 @@
    "color": "#FF5C8A",
    "short": "C100",
    "checked": 1792995590857,
-   "note": "2027 Senior Sprint National calendar (10 rounds)"
+   "note": "2027 Senior Sprint National calendar (10 rounds)",
+   "book": "https://club100.co.uk/"
   },
   {
    "id": "british-universities-karting-championship",
@@ -329,7 +374,8 @@
    "color": "#4C7DFF",
    "short": "BUKC",
    "checked": 1792995590857,
-   "note": "2026-27 dates not published yet"
+   "note": "2026-27 dates not published yet",
+   "book": "https://bukc.co.uk/"
   },
   {
    "id": "sodi-world-series-uk",
@@ -339,7 +385,8 @@
    "color": "#E040C8",
    "short": "SWS",
    "checked": 1792995590857,
-   "note": "2027 UK dates not published yet"
+   "note": "2027 UK dates not published yet",
+   "book": "https://www.sodiwseries.com/en-gb"
   },
   {
    "id": "sodi-world-finals",
@@ -349,7 +396,8 @@
    "color": "#3BD16F",
    "short": "SWS",
    "checked": 1792995590857,
-   "note": "2027: 4 finals (Helsinki, Gran Canaria, Enclos, Pomposa); dates not in text"
+   "note": "2027: 4 finals (Helsinki, Gran Canaria, Enclos, Pomposa); dates not in text",
+   "book": "https://www.sodiwseries.com/en-gb"
   },
   {
    "id": "24-hour-series",
@@ -359,7 +407,9 @@
    "color": "#3BB3E0",
    "short": "24H",
    "checked": 1792995590857,
-   "note": "24H Karting Championship (Teesside Motorsports)"
+   "note": "24H Karting Championship (Teesside Motorsports)",
+   "book": "https://teessidemotorsports.co.uk/karting/24hr-karting/24hr-karts/",
+   "phone": "01642 231117"
   },
   {
    "id": "sicily-25-hours",
@@ -379,7 +429,8 @@
    "color": "#F5A623",
    "short": "BG25",
    "checked": 1792995590857,
-   "note": "2027 date not published yet"
+   "note": "2027 date not published yet",
+   "book": "https://app.karting-events.com/season-reservations"
   },
   {
    "id": "karting-genk-24-hours",
@@ -388,7 +439,8 @@
    "kind": "rental",
    "color": "#7ED321",
    "short": "GK24",
-   "checked": 1792995590857
+   "checked": 1792995590857,
+   "book": "https://www.kartinggenk.be/"
   },
   {
    "id": "dutch-24h",
@@ -398,7 +450,8 @@
    "color": "#4A90E2",
    "short": "NL24",
    "checked": 1792995590857,
-   "note": "Oct 2026 edition date not stated on site; 2027 not published"
+   "note": "Oct 2026 edition date not stated on site; 2027 not published",
+   "book": "https://www.kartcentrumlelystad.nl/en/dutch24h"
   },
   {
    "id": "crg-24-hours-karting-italy",
@@ -408,7 +461,8 @@
    "color": "#BD10E0",
    "short": "IT24",
    "checked": 1792995590857,
-   "note": "2027 date not published yet (2026 edition was 14-15 Mar)"
+   "note": "2027 date not published yet (2026 edition was 14-15 Mar)",
+   "book": "https://kartcrg.com/"
   },
   {
    "id": "wek-25-hours-jesolo",
@@ -418,7 +472,8 @@
    "color": "#50E3C2",
    "short": "JE25",
    "checked": 1792995590857,
-   "note": "2027 date not published yet"
+   "note": "2027 date not published yet",
+   "book": "https://pista-azzurra.com/en/eventi"
   },
   {
    "id": "daytona-milton-keynes-24-hours",
@@ -429,7 +484,9 @@
    "short": "MK24",
    "checked": 1792995590857,
    "logoUrl": "logos/daytona-milton-keynes-24-hours.png",
-   "note": "2027 date confirmed (29-30 May)"
+   "note": "2027 date confirmed (29-30 May)",
+   "book": "https://daytona.co.uk/",
+   "phone": "0330 332 7870"
   },
   {
    "id": "kart-silverstone-24-hours",
@@ -439,7 +496,8 @@
    "color": "#F2A93B",
    "short": "KS24",
    "checked": 1792995590857,
-   "note": "2027 date provisional, not confirmed yet"
+   "note": "2027 date provisional, not confirmed yet",
+   "book": "https://www.silverstone.co.uk/events/brscc-24-hour"
   },
   {
    "id": "daytona-milton-keynes",
@@ -449,7 +507,9 @@
    "color": "#22C3B0",
    "short": "DMK",
    "checked": 1792995590857,
-   "note": "Daytona 24 Hours listed under its own series"
+   "note": "Daytona 24 Hours listed under its own series",
+   "book": "https://daytona.co.uk/locations/milton-keynes/",
+   "phone": "0330 332 7870"
   },
   {
    "id": "daytona-sandown-park",
@@ -458,7 +518,9 @@
    "kind": "rtrack",
    "color": "#D9D23A",
    "short": "DSP",
-   "checked": 1792995590857
+   "checked": 1792995590857,
+   "book": "https://daytona.co.uk/locations/sandown-park/",
+   "phone": "0330 332 7870"
   },
   {
    "id": "daytona-tamworth",
@@ -468,7 +530,9 @@
    "color": "#4C7DFF",
    "short": "DTA",
    "checked": 1792995590857,
-   "note": "Season 2 rounds to Jan 2027; 2027 season 1 not published"
+   "note": "Season 2 rounds to Jan 2027; 2027 season 1 not published",
+   "book": "https://daytona.co.uk/locations/tamworth/",
+   "phone": "0330 332 7870"
   },
   {
    "id": "brighton-karting",
@@ -478,7 +542,8 @@
    "color": "#E040C8",
    "short": "BRI",
    "checked": 1792995590857,
-   "note": "Kartmaster dates listed without a year; no dated upcoming rounds"
+   "note": "Kartmaster dates listed without a year; no dated upcoming rounds",
+   "book": "https://www.brightonkarting.co.uk/kartmaster-championship"
   },
   {
    "id": "buckmore-park-rental",
@@ -488,7 +553,9 @@
    "color": "#3BD16F",
    "short": "BP",
    "checked": 1792995590857,
-   "note": "24 Hours 2027 date TBA; no other dated race events published"
+   "note": "24 Hours 2027 date TBA; no other dated race events published",
+   "book": "https://booking.buckmore.co.uk/",
+   "phone": "01634 201562"
   },
   {
    "id": "kart-silverstone",
@@ -498,7 +565,8 @@
    "color": "#F2A93B",
    "short": "KS",
    "checked": 1792995590857,
-   "note": "Championship R7 29 Nov; 2027 dates not published yet"
+   "note": "Championship R7 29 Nov; 2027 dates not published yet",
+   "book": "https://www.kart.silverstone.co.uk/championships"
   },
   {
    "id": "teesside-autodrome-rental",
@@ -508,7 +576,9 @@
    "color": "#3BB3E0",
    "short": "TA",
    "checked": 1792995590857,
-   "note": "2027 calendar partly published"
+   "note": "2027 calendar partly published",
+   "book": "https://teessidemotorsports.co.uk/events-activities-calendar/",
+   "phone": "01642 231117"
   },
   {
    "id": "teamsport-go-karting-all-venues",
@@ -518,7 +588,8 @@
    "color": "#F26B3A",
    "short": "TS",
    "checked": 1792995590857,
-   "note": "2027 BIKC dates not published yet"
+   "note": "2027 BIKC dates not published yet",
+   "book": "https://www.team-sport.co.uk/"
   },
   {
    "id": "thruxton-karting",
@@ -528,7 +599,8 @@
    "color": "#22C3B0",
    "short": "THX",
    "checked": 1792995590857,
-   "note": "Endurance races to Dec 2026; 2027 dates not published yet"
+   "note": "Endurance races to Dec 2026; 2027 dates not published yet",
+   "book": "https://www.thruxtonkarting.co.uk/"
   },
   {
    "id": "forest-edge-rental",
@@ -538,7 +610,8 @@
    "color": "#FF5C8A",
    "short": "FE",
    "checked": 1792995590857,
-   "note": "No race events"
+   "note": "No race events",
+   "book": "https://fekc.co.uk/"
   },
   {
    "id": "clay-pigeon-rental",
@@ -548,7 +621,8 @@
    "color": "#4C7DFF",
    "short": "CP",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet (owner-driver CPKC/ProKart rounds excluded)"
+   "note": "2027 dates not published yet (owner-driver CPKC/ProKart rounds excluded)",
+   "book": "https://www.claypigeonraceway.com/enter-race-meeting"
   },
   {
    "id": "ellough-park-rental",
@@ -558,7 +632,9 @@
    "color": "#E040C8",
    "short": "EP",
    "checked": 1792995590857,
-   "note": "League nights to Dec 2026; 2027 not published yet"
+   "note": "League nights to Dec 2026; 2027 not published yet",
+   "book": "https://flow.alphatiming.co.uk/elloughpark",
+   "phone": "01502 717718"
   },
   {
    "id": "whilton-mill-rental",
@@ -568,7 +644,8 @@
    "color": "#3BD16F",
    "short": "WM",
    "checked": 1792995590857,
-   "note": "No dated rental race events (WMKC rounds listed under the club)"
+   "note": "No dated rental race events (WMKC rounds listed under the club)",
+   "book": "https://www.whiltonmill.co.uk/whats-on"
   },
   {
    "id": "rye-house-rental",
@@ -578,7 +655,9 @@
    "color": "#F2A93B",
    "short": "RH",
    "checked": 1792995590857,
-   "note": "2027 Junior Drivers Club cup dates published"
+   "note": "2027 Junior Drivers Club cup dates published",
+   "book": "https://www.rye-house.co.uk/",
+   "phone": "01992 460895"
   },
   {
    "id": "hooton-park-rental",
@@ -588,7 +667,8 @@
    "color": "#3BB3E0",
    "short": "HP",
    "checked": 1792995590857,
-   "note": "No upcoming race events listed; 2027 not published"
+   "note": "No upcoming race events listed; 2027 not published",
+   "book": "https://chkrc.alphatiming.co.uk/register/events"
   },
   {
    "id": "three-sisters-rental",
@@ -598,7 +678,9 @@
    "color": "#8B6CF0",
    "short": "3S",
    "checked": 1792995590857,
-   "note": "Winter sprint dates to follow; 2027 not published"
+   "note": "Winter sprint dates to follow; 2027 not published",
+   "book": "https://threesisterscircuit.co.uk/adults/open",
+   "phone": "01942 719030"
   },
   {
    "id": "warden-law-rental",
@@ -608,7 +690,9 @@
    "color": "#F26B3A",
    "short": "WL",
    "checked": 1792995590857,
-   "note": "KNE Winter Race Day 6 Dec; 2027 KNE Sprint dates not published"
+   "note": "KNE Winter Race Day 6 Dec; 2027 KNE Sprint dates not published",
+   "book": "https://kartingnortheast.com/booking-start",
+   "phone": "0191 521 4050"
   },
   {
    "id": "glan-y-gors-rental",
@@ -618,7 +702,8 @@
    "color": "#22C3B0",
    "short": "GYG",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://gygkarting.com/"
   },
   {
    "id": "mansell-raceway-rental",
@@ -628,7 +713,8 @@
    "color": "#D9D23A",
    "short": "LCI",
    "checked": 1792995590857,
-   "note": "Rental championship calendar only as image; no clearly dated race events found"
+   "note": "Rental championship calendar only as image; no clearly dated race events found",
+   "book": "https://booking.larkhallcircuit.com/"
   },
   {
    "id": "bayford-meadows-rental",
@@ -638,7 +724,8 @@
    "color": "#FF5C8A",
    "short": "BM",
    "checked": 1792995590857,
-   "note": "Dates to Mar 2027 published"
+   "note": "Dates to Mar 2027 published",
+   "book": "https://bayfordmeadows.co.uk/"
   },
   {
    "id": "south-coast-karting",
@@ -648,7 +735,9 @@
    "color": "#FF5C8A",
    "short": "SCK",
    "checked": 1792995590857,
-   "note": "Winter series dates not published yet"
+   "note": "Winter series dates not published yet",
+   "book": "https://www.southcoastkarting.co.uk/",
+   "phone": "01202 577733"
   },
   {
    "id": "stretton-circuit",
@@ -658,7 +747,8 @@
    "color": "#D9D23A",
    "short": "STR",
    "checked": 1792995590857,
-   "note": "Runs SCSS/Non Owners Cup series (R7 27 Sep 2026) and Winter Cup; no dated rounds in window"
+   "note": "Runs SCSS/Non Owners Cup series (R7 27 Sep 2026) and Winter Cup; no dated rounds in window",
+   "book": "https://flow.alphatiming.co.uk/stretton-circuit"
   },
   {
    "id": "karting-at-ancaster",
@@ -668,7 +758,9 @@
    "color": "#3BD16F",
    "short": "ANC",
    "checked": 1792995590857,
-   "note": "Sunday Championship to Dec 2026; 2027 not published"
+   "note": "Sunday Championship to Dec 2026; 2027 not published",
+   "book": "https://flow.alphatiming.co.uk/ancasterleisure/book",
+   "phone": "01400 230306"
   },
   {
    "id": "red-lodge-karting",
@@ -678,7 +770,9 @@
    "color": "#F2A93B",
    "short": "RL",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://www.redlodgekarting.com/racing",
+   "phone": "01638 552316"
   },
   {
    "id": "herefordshire-raceway",
@@ -688,7 +782,9 @@
    "color": "#3BB3E0",
    "short": "HER",
    "checked": 1792995590857,
-   "note": "Runs junior/open GP/endurance championships; 2026/27 winter dates not yet published"
+   "note": "Runs junior/open GP/endurance championships; 2026/27 winter dates not yet published",
+   "book": "https://www.herefordshireraceway.org.uk/championships/",
+   "phone": "01544 318334"
   },
   {
    "id": "brentwood-karting",
@@ -698,7 +794,9 @@
    "color": "#F26B3A",
    "short": "BRE",
    "checked": 1792995590857,
-   "note": "Runs race leagues and Essex Endurance Championship; no dates published"
+   "note": "Runs race leagues and Essex Endurance Championship; no dates published",
+   "book": "https://brentwood-karting.co.uk/",
+   "phone": "01277 260001"
   },
   {
    "id": "karttrak-cromer",
@@ -708,7 +806,8 @@
    "color": "#22C3B0",
    "short": "CRO",
    "checked": 1792995590857,
-   "note": "Site lists monthly leagues but no dated calendar"
+   "note": "Site lists monthly leagues but no dated calendar",
+   "book": "https://www.karttrak.co.uk/"
   },
   {
    "id": "pf-international-rental",
@@ -718,7 +817,9 @@
    "color": "#FF5C8A",
    "short": "PFi",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://kartpfi.com/bookings",
+   "phone": "01636 626747"
   },
   {
    "id": "dunkeswell-rental",
@@ -728,7 +829,9 @@
    "color": "#3BD16F",
    "short": "DUN",
    "checked": 1792995590857,
-   "note": "Winter cups to Feb 2027; Rental Winter Cup R3 date not published"
+   "note": "Winter cups to Feb 2027; Rental Winter Cup R3 date not published",
+   "book": "https://www.dunkeswellraceway.co.uk/events/list",
+   "phone": "01404 891450"
   },
   {
    "id": "adventure-sports-warwick",
@@ -738,7 +841,9 @@
    "color": "#F26B3A",
    "short": "ASW",
    "checked": 1792995590857,
-   "note": "Team Championship final 29 Nov; 2027 not published"
+   "note": "Team Championship final 29 Nov; 2027 not published",
+   "book": "https://mrkarting.co.uk/teamchampionship",
+   "phone": "01926 491948"
   },
   {
    "id": "castle-combe-karting",
@@ -748,7 +853,8 @@
    "color": "#FF5C8A",
    "short": "CC",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://castlecombekarting.co.uk/"
   },
   {
    "id": "st-eval-kart-circuit",
@@ -758,7 +864,8 @@
    "color": "#FF5C8A",
    "short": "SEV",
    "checked": 1792995590857,
-   "note": "Monthly Pro70/open races; only Spring Team Endurance dated"
+   "note": "Monthly Pro70/open races; only Spring Team Endurance dated",
+   "book": "https://www.stevalkartcircuit.com/booking"
   },
   {
    "id": "wight-karting",
@@ -768,7 +875,9 @@
    "color": "#3BD16F",
    "short": "WIG",
    "checked": 1792995590857,
-   "note": "Monthly championships (final Fri/Sun of month) but calendar only in booking system; no dated list readable"
+   "note": "Monthly championships (final Fri/Sun of month) but calendar only in booking system; no dated list readable",
+   "book": "https://www.wightkarting.co.uk/race-series",
+   "phone": "01983 565366"
   },
   {
    "id": "absolutely-karting-bristol-maidenhead",
@@ -778,7 +887,9 @@
    "color": "#3BB3E0",
    "short": "ABK",
    "checked": 1792995590857,
-   "note": "Championships mentioned but no dated calendar published"
+   "note": "Championships mentioned but no dated calendar published",
+   "book": "https://absolutely-karting.co.uk/",
+   "phone": "0300 303 3548"
   },
   {
    "id": "xtreme-karting-edinburgh-falkirk",
@@ -788,7 +899,8 @@
    "color": "#8B6CF0",
    "short": "XK",
    "checked": 1792995590857,
-   "note": "Members Championship rounds; GP events undated"
+   "note": "Members Championship rounds; GP events undated",
+   "book": "https://xtremekarting.co.uk/"
   },
   {
    "id": "raceworld-karting",
@@ -798,7 +910,9 @@
    "color": "#4C7DFF",
    "short": "RW",
    "checked": 1792995590857,
-   "note": "Devon Kart Club monthly (first Tuesday); no dated calendar"
+   "note": "Devon Kart Club monthly (first Tuesday); no dated calendar",
+   "book": "https://www.raceworld-karting.co.uk/track-diary",
+   "phone": "01395 233397"
   },
   {
    "id": "formula-fast-karting",
@@ -808,7 +922,9 @@
    "color": "#22C3B0",
    "short": "FF",
    "checked": 1792995590857,
-   "note": "Hosts BRKC (own series); no other dated race events"
+   "note": "Hosts BRKC (own series); no other dated race events",
+   "book": "https://formulafast.co.uk/",
+   "phone": "01908 904111"
   },
   {
    "id": "anglia-indoor-karting",
@@ -818,7 +934,9 @@
    "color": "#D9D23A",
    "short": "AIK",
    "checked": 1792995590857,
-   "note": "Only 2024 events listed"
+   "note": "Only 2024 events listed",
+   "book": "https://angliakarting.com/",
+   "phone": "01473 240087"
   },
   {
    "id": "indoor-super-karting",
@@ -828,7 +946,8 @@
    "color": "#4C7DFF",
    "short": "ISK",
    "checked": 1792995590857,
-   "note": "No race events"
+   "note": "No race events",
+   "book": "http://www.indoorsuperkarting.co.uk/"
   },
   {
    "id": "eddie-irvine-sports",
@@ -838,7 +957,9 @@
    "color": "#F2A93B",
    "short": "EIS",
    "checked": 1792995590857,
-   "note": "Only 2024 championship shown"
+   "note": "Only 2024 championship shown",
+   "book": "https://www.eddieirvinesports.com/karting-packages",
+   "phone": "028 9145 1457"
   },
   {
    "id": "teamkarting-rochdale",
@@ -848,7 +969,9 @@
    "color": "#3BB3E0",
    "short": "TKR",
    "checked": 1792995590857,
-   "note": "NWKC 2026 calendar; 2027 not published"
+   "note": "NWKC 2026 calendar; 2027 not published",
+   "book": "https://teamkarting.co.uk/nwkc",
+   "phone": "01706 310999"
   },
   {
    "id": "raceview-karting",
@@ -858,7 +981,8 @@
    "color": "#8B6CF0",
    "short": "RVK",
    "checked": 1792995590857,
-   "note": "Grid League 6 rounds, no dates published"
+   "note": "Grid League 6 rounds, no dates published",
+   "phone": "028 2565 1000"
   },
   {
    "id": "gt-karting-leeds",
@@ -868,7 +992,8 @@
    "color": "#3BB3E0",
    "short": "GTK",
    "checked": 1792995590857,
-   "note": "No race events"
+   "note": "No race events",
+   "book": "http://gtkarting.co.uk/book-now/"
   },
   {
    "id": "kartsport-ballymoney",
@@ -888,7 +1013,9 @@
    "color": "#FF5C8A",
    "short": "WWK",
    "checked": 1792995590857,
-   "note": "Mentions adult race leagues; no dates published"
+   "note": "Mentions adult race leagues; no dates published",
+   "book": "https://westwaleskarting.com/booking/competitions/",
+   "phone": "01437 769555"
   },
   {
    "id": "club73-karting-championships",
@@ -898,7 +1025,8 @@
    "color": "#4C7DFF",
    "short": "C73",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://www.club73karting.co.uk/book-now"
   },
   {
    "id": "fat-karting-league-uk",
@@ -908,7 +1036,8 @@
    "color": "#E040C8",
    "short": "FAT",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://fat-kartingleague.com/hubs"
   },
   {
    "id": "elite-karting-series",
@@ -918,7 +1047,8 @@
    "color": "#3BB3E0",
    "short": "EKS",
    "checked": 1792995590857,
-   "note": "2027 dates not published yet"
+   "note": "2027 dates not published yet",
+   "book": "https://elitekartingseries.co.uk/"
   },
   {
    "id": "southern-rental-kart-championship",
@@ -928,7 +1058,8 @@
    "color": "#FF5C8A",
    "short": "SRK",
    "checked": 1792995590857,
-   "note": "Round dates not published on site"
+   "note": "Round dates not published on site",
+   "book": "https://www.srkchampionship.com/"
   },
   {
    "id": "daniel-ricciardo-series",
@@ -938,7 +1069,9 @@
    "color": "#F5A623",
    "short": "DRS",
    "checked": 1793121955863,
-   "note": "2027 calendar page up but dates not readable yet; DRS40/50 arrive-and-drive cadets, DRS100/125 own DRS kart"
+   "note": "2027 calendar page up but dates not readable yet; DRS40/50 arrive-and-drive cadets, DRS100/125 own DRS kart",
+   "book": "https://drs.alphatiming.co.uk/register/events",
+   "phone": "01527 889595"
   },
   {
    "id": "teesside-winter-enduro",
@@ -948,7 +1081,9 @@
    "color": "#29A8E0",
    "short": "TWE",
    "checked": 1792995590857,
-   "note": "Owner and hire Pro karts"
+   "note": "Owner and hire Pro karts",
+   "book": "https://teessidemotorsports.co.uk/winter-enduro-2026-27-race-all-winter-at-teesside-motorsports/",
+   "phone": "01642 231117"
   }
  ],
  "events": [

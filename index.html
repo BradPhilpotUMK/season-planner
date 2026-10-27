@@ -202,6 +202,9 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .sheet h2{font-family:var(--display);font-size:21px;margin:0 0 4px;font-weight:700}
 .sheet-inner{max-width:560px;margin:0 auto}
 .actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;flex-wrap:wrap}
+.book{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 14px}
+.book a{text-decoration:none;display:inline-flex;align-items:center;gap:6px;color:inherit}
+.book a.primary{color:#fff}
 .found{display:flex;flex-direction:column;gap:6px;margin-top:10px}
 .found label{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px}
 .found input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent);flex:none}
@@ -522,7 +525,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1792308419";
+const BUILD="1793126081";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -665,7 +668,7 @@ function applyMaster(M){migrateRental();
   M.series.forEach(ms=>{if(rm.has(ms.id))return;
     let s=S.series.find(x=>x.id===ms.id);
     if(!s){S.series.push(Object.assign({},ms,{racing:false,master:true},ms.brand?{color:ms.brand}:{}));return}
-    s.master=true;["venue","short","kind","checked","note","logoUrl"].forEach(k=>{if(ms[k]!==undefined)s[k]=ms[k]});if(ms.brand&&!s.userColor)s.color=ms.brand;
+    s.master=true;["venue","short","kind","checked","note","logoUrl","book","phone"].forEach(k=>{if(ms[k]!==undefined)s[k]=ms[k];else if(k==="book"||k==="phone")delete s[k]});if(ms.brand&&!s.userColor)s.color=ms.brand;
     if(!s.userEdited)s.name=ms.name;
   });
   const prev=new Map(S.events.filter(e=>e.source==="master").map(e=>[e.id,e]));
@@ -673,7 +676,7 @@ function applyMaster(M){migrateRental();
   const seen=new Set();
   M.events.forEach(me=>{if(rm.has(me.seriesId))return;seen.add(me.id);
     const p=prev.get(me.id),e=Object.assign({},me,{source:"master",confirmed:true});
-    if(p){if(p.racing!==undefined)e.racing=p.racing;if(p.notes)e.notes=p.notes}
+    if(p){if(p.racing!==undefined)e.racing=p.racing;if(p.notes)e.notes=p.notes;if(p.userBook)e.userBook=p.userBook;if(p.userPhone)e.userPhone=p.userPhone}
     S.events.push(e)});
   prev.forEach((p,id)=>{if(!seen.has(id)&&(p.racing===true||p.notes))S.events.push(p)});
   /* drop entries the shared list no longer has, unless you're racing in them */
@@ -1076,6 +1079,7 @@ function clubSheet(id){
   const evs=S.events.filter(e=>e.seriesId===c.id&&dn(e.end||e.start)>=TODAY).sort((a,b)=>dn(a.start)-dn(b.start));
   const nR=evs.filter(isRacing).length;
   openSheet(`<div class="logoedit">${badge(c,56)}<div><h2 style="margin:0">${esc(c.name)}</h2>${assets?`<button class="btn ghost" style="padding:4px 0" data-logo="${c.id}">${c.logo?"Change logo":"Add logo"}</button>`:""}</div></div><p class="hint">${esc(c.venue||"")}${evs.length?`. ${evs.length} round${evs.length>1?"s":""}, racing ${nR}.`:"."}${c.note&&!evs.length?" "+esc(c.note):""}</p>
+  ${bookHtml(null,c)}
   <div class="row" style="margin-bottom:10px"><button class="tick${c.racing?" on":""}" style="--c:${c.color}" data-serrace="${c.id}"><i>${c.racing?"✓":""}</i>Racing every round</button>${sample&&mcp?`<button class="btn" data-scanone="${c.id}">Check for dates</button>`:""}<button class="btn" data-addto="${c.id}">Add a date</button><button class="btn" data-editser="${c.id}">Edit</button></div>
   <div class="dayopts" data-club="${c.id}" style="border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)">${evs.length?evs.map(e=>optRow(e,true)).join(""):`<div class="none" style="padding:14px">No races found yet. Tap Check for dates, or add them yourself.</div>`}</div>`);
 }
@@ -1113,6 +1117,8 @@ function editSeries(id){
   <label class="f" for="eN">Name</label><input type="text" id="eN" value="${esc(s.name)}">
   <label class="f" for="eV">${club?"Circuit and area":"Country or main venue (optional)"}</label><input type="text" id="eV" value="${esc(s.venue||"")}" placeholder="${club?"Whilton Mill, Northamptonshire":"e.g. Sicily, Italy"}">
   ${!s.master&&(s.kind==="mine"||!s.kind||s.kind==="rental")?`<label class="f">Show it under</label><div class="row" id="eK"><button type="button" class="btn${s.kind==="rental"?"":" primary"}" data-ek="mine">Owner</button><button type="button" class="btn${s.kind==="rental"?" primary":""}" data-ek="rental">Rental</button></div>`:""}
+  <label class="f" for="eBk">Booking link</label><input type="text" id="eBk" inputmode="url" value="${esc(s.userBook||"")}" placeholder="${esc(okUrl(s.book)||"Website where you enter or book")}">
+  <label class="f" for="ePh">Booking phone</label><input type="text" id="ePh" inputmode="tel" value="${esc(s.userPhone||"")}" placeholder="${esc(s.phone||"Optional")}">
   <label class="f">Colour</label><div class="row" id="eC">${COLORS.map(c=>`<button type="button" data-ecol="${c}" aria-label="Colour ${c}" style="width:34px;height:34px;border-radius:50%;border:3px solid ${c===s.color?"var(--text)":"transparent"};background:${c};padding:0"></button>`).join("")}</div>
   <div class="actions"><button class="btn" id="eCancel">Cancel</button><button class="btn primary" id="eSave">Save changes</button></div>`);
   let col=s.color,kind=s.kind;
@@ -1124,6 +1130,7 @@ function editSeries(id){
     if(S.series.some(x=>x.id!==id&&x.name.toLowerCase()===n.toLowerCase())){toast("Another series already has that name");return}
     const old=s.name;S.events.forEach(e=>{if(e.seriesId===id&&e.title===old)e.title=n});
     if(n!==s.name)s.userEdited=true;if(col!==s.color)s.userColor=true;s.name=n;s.venue=$("#eV").value.trim();s.color=col;
+    const ub=$("#eBk").value.trim(),up=$("#ePh").value.trim();if(ub)s.userBook=ub;else delete s.userBook;if(up)s.userPhone=up;else delete s.userPhone;
     if(kind&&kind!==s.kind){setSeriesKind(s,kind);save();render();toast(kind==="rental"?"Moved to Rental":"Moved to Owner");closeSheet();return}
     save();render();toast("Changes saved");
     if(club)clubSheet(id);else closeSheet();
@@ -1260,11 +1267,25 @@ function openSheet(html){$("#sheetBody").innerHTML=html;$("#scrim").classList.ad
 function closeSheet(){sheetCtl?.abort();sheetCtl=null;$("#scrim").classList.remove("on");$("#sheet").classList.remove("on")}
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("on"),2200)}
 
+/* ---------- booking: a link and/or phone number from the event, else its series ---------- */
+function okUrl(u){u=String(u||"").trim();if(!u)return "";if(!/^https?:\/\//i.test(u))u="https://"+u;try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:""}catch(e){return ""}}
+function bookInfo(e,s){
+  s=s||(e&&ser(e.seriesId));
+  const url=okUrl(e?.userBook||e?.book||s?.userBook||s?.book);
+  const phone=String(e?.userPhone||e?.phone||s?.userPhone||s?.phone||"").trim();
+  return {url,phone};
+}
+function bookHtml(e,s){
+  const {url,phone}=bookInfo(e,s);if(!url&&!phone)return "";
+  const tel=phone.replace(/[^\d+]/g,"");
+  return `<div class="book">${url?`<a class="btn primary" href="${esc(url)}" target="_blank" rel="noopener">Book online</a>`:""}${tel?`<a class="btn" href="tel:${esc(tel)}">Call ${esc(phone)}</a>`:""}</div>`;
+}
 function eventForm(e,preset){
   const ev=e||Object.assign({id:null,title:"",seriesId:"",kind:"race",start:todayIso,end:todayIso,location:"",confirmed:true,notes:""},preset||{});
   const C=computeClashes();
   const clashWith=e?C.clashes.filter(c=>c.a.id===e.id||c.b.id===e.id).map(c=>c.a.id===e.id?c.b:c.a):[];
   openSheet(`<h2>${e?"Edit event":"Add event"}</h2>
+  ${e?bookHtml(e):""}
   ${clashWith.length?`<p class="note" style="color:var(--kerb)">Clashes with ${clashWith.map(x=>esc(x.title)).join(", ")}</p>`:""}
   <label class="f" for="fT">Title</label><input type="text" id="fT" value="${esc(ev.title)}" placeholder="Round 1, Whilton Mill">
   <div class="two"><div><label class="f" for="fS">Series</label><select id="fS"><option value="">None</option>${S.series.map(s=>`<option value="${s.id}"${s.id===ev.seriesId?" selected":""}>${esc(s.name)}</option>`).join("")}</select></div>
@@ -1272,6 +1293,7 @@ function eventForm(e,preset){
   <div class="two"><div><label class="f" for="fA">Starts</label><input type="date" id="fA" value="${esc(ev.start)}"></div><div><label class="f" for="fB">Ends</label><input type="date" id="fB" value="${esc(ev.end||ev.start)}"></div></div>
   <label class="f" for="fL">Where</label><input type="text" id="fL" value="${esc(ev.location)}" placeholder="Circuit or venue">
   <label class="f" for="fN">Notes</label><input type="text" id="fN" value="${esc(ev.notes)}" placeholder="Entry deadline, who's filming, etc.">
+  <div class="two"><div><label class="f" for="fBk">Booking link</label><input type="text" id="fBk" inputmode="url" value="${esc(ev.userBook||"")}" placeholder="${esc(bookInfo(e||ev).url||"Optional")}"></div><div><label class="f" for="fPh">Booking phone</label><input type="text" id="fPh" inputmode="tel" value="${esc(ev.userPhone||"")}" placeholder="${esc(bookInfo(e||ev).phone||"Optional")}"></div></div>
   <label class="check"><input type="checkbox" id="fC"${ev.confirmed?" checked":""}> Date confirmed</label>
   <label class="check"><input type="checkbox" id="fR"${isRacing(ev)?" checked":""}> I'm racing this</label>
   <div class="actions">${e?`<button class="btn ghost danger" id="fDel">Delete</button>`:""}<button class="btn" id="fCancel">Cancel</button><button class="btn primary" id="fSave">${e?"Save changes":"Add event"}</button></div>`);
@@ -1283,6 +1305,8 @@ function eventForm(e,preset){
     if(!title){$("#fT").focus();return}
     if(!validIso(a)){$("#fA").focus();return}
     const o={id:ev.id||uid(),title,seriesId:$("#fS").value,kind:$("#fK").value,start:a,end:b<a?a:b,location:$("#fL").value.trim(),notes:$("#fN").value.trim(),confirmed:$("#fC").checked,racing:$("#fR").checked,source:ev.source||"manual"};
+    if(ev.book)o.book=ev.book;if(ev.phone)o.phone=ev.phone;
+    const ub=$("#fBk").value.trim(),up=$("#fPh").value.trim();if(ub)o.userBook=ub;if(up)o.userPhone=up;
     if(e)S.events=S.events.map(x=>x.id===e.id?o:x);else S.events.push(o);
     save();render();closeSheet();toast(e?"Changes saved":"Event added");
   };
