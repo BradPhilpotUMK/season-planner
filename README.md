@@ -13,6 +13,6 @@ Hosted on Netlify. Every push to `main` goes live automatically.
 
 Both apps share `sw.js` for offline use and `fonts/f1.ttf`.
 
-## USA version
+## USA and Europe versions
 
-Tap the UK or US flag next to the logo to switch. The USA version reads `data/races-us.json` (same shape as `data/races.json`) and keeps its own saved calendar on the device. Weekends, clashes, booking and shop work the same; "Where's Brad racing?" is UK only.
+Tap the flag next to the logo to switch between UK, Europe and USA. The Europe version reads `data/races-eu.json` and the USA version reads `data/races-us.json` (same shape as `data/races.json`) and keeps its own saved calendar on the device. Weekends, clashes, booking and shop work the same; "Where's Brad racing?" is UK only.
