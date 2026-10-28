@@ -208,6 +208,10 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .shopbar .tl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .shopbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 8px 10px;border-radius:11px;background:#0F1114;border:1px solid rgba(255,255,255,.08);color:#fff;text-decoration:none;transition:transform .12s}
 .shopbar a:active{transform:scale(.97)}
+/* carbon fibre weave (Xenduri) */
+.shopbar a.cf{background-color:#0e0f11;background-image:linear-gradient(115deg,rgba(255,255,255,.07),rgba(255,255,255,0) 45%,rgba(255,255,255,.04) 70%,rgba(255,255,255,0)),linear-gradient(27deg,#141518 2.5px,transparent 2.5px),linear-gradient(207deg,#141518 2.5px,transparent 2.5px),linear-gradient(27deg,#1b1c20 2.5px,transparent 2.5px),linear-gradient(207deg,#1b1c20 2.5px,transparent 2.5px),linear-gradient(90deg,#16171a 5px,transparent 5px),linear-gradient(#17181b 25%,#131417 25%,#131417 50%,transparent 50%,transparent 75%,#1c1d21 75%,#1c1d21);background-size:100% 100%,10px 10px,10px 10px,10px 10px,10px 10px,10px 10px,10px 10px;background-position:0 0,0 2.5px,5px 0,0 5px,5px 2.5px,0 0,0 0}
+/* asphalt grain (Helmet28) */
+.shopbar a.asp{background-color:#141518;background-image:radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.04),rgba(0,0,0,0) 60%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .62 0 0 0 0 .63 0 0 0 0 .66 0 0 0 .34 -.1'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");background-size:100% 100%,160px 160px}
 .shopbar a img{height:24px;max-width:100%;object-fit:contain;display:block}
 .shopbar a img.xen{height:12px;max-width:58%;margin:6px 0 6px}
 .shopbar a small{font-size:11.5px;opacity:.7}
@@ -442,8 +446,8 @@ document.addEventListener("click",ev=>{const a=ev.target.closest&&ev.target.clos
     </div>
     <div id="bradBox"></div>
     <div class="shopbar" id="shopBar"><div class="sh"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>Shop</div><div class="tl">
-      <a href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img class="xen" src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
-      <a href="https://www.helmet28.com/" target="_blank" rel="noopener" aria-label="Helmets and race kit at Helmet28"><img src="logos/sponsors/helmet28.png" alt="Helmet28"><small>Helmets &amp; race kit</small></a>
+      <a class="cf" href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img class="xen" src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
+      <a class="asp" href="https://www.helmet28.com/" target="_blank" rel="noopener" aria-label="Helmets and race kit at Helmet28"><img src="logos/sponsors/helmet28.png" alt="Helmet28"><small>Helmets &amp; race kit</small></a>
     </div></div>
     <div id="clashBar"></div>
     <div class="chips" id="chips"></div>
@@ -586,7 +590,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793190727";
+const BUILD="1793198265";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
