@@ -1,12 +1,13 @@
 /* Season Planner offline support.
    Pages and race data: try the network first (so updates show straight away), fall back to the saved copy when offline.
    Logos, icons and fonts: use the saved copy, refresh it in the background. */
-const CACHE = "umk-planner-v1";
+const CACHE = "umk-planner-v2";
 const CORE = [
   "./", "index.html", "manifest.webmanifest", "version.json",
   "data/races.json", "data/brad.json",
   "favicon.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "logo.png",
-  "logos/sponsors/helmet28.png", "logos/sponsors/xenduri.png"
+  "logos/sponsors/helmet28.png", "logos/sponsors/xenduri.png", "fonts/f1.ttf",
+  "team/", "team/index.html", "team/manifest.webmanifest", "team/wm.png", "team/icon-180.png", "team/icon-192.png"
 ];
 
 self.addEventListener("install", e => {
@@ -21,9 +22,11 @@ function fresh(req, key) {
   /* network first with a time limit, then the saved copy */
   return new Promise(resolve => {
     let done = false;
-    const fallback = () => caches.match(key, {ignoreSearch: true}).then(r => r || (req.mode === "navigate" ? caches.match("index.html") : null));
+    const fallback = () => caches.match(key, {ignoreSearch: true});
     const t = setTimeout(() => fallback().then(r => { if (r && !done) { done = true; resolve(r); } }), 4000);
     fetch(req.url, {cache: "no-store", credentials: "same-origin"}).then(res => {
+      /* Safari won't show a page the worker hands back after a redirect, so pass on a clean copy */
+      if (res && res.redirected) res = new Response(res.body, {status: res.status, statusText: res.statusText, headers: res.headers});
       if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(key, copy)); }
       clearTimeout(t); if (!done) { done = true; resolve(res); }
     }).catch(() => fallback().then(r => { clearTimeout(t); if (!done) { done = true; resolve(r || Response.error()); } }));
@@ -48,7 +51,12 @@ self.addEventListener("fetch", e => {
   if (url.origin === location.origin) {
     if (url.pathname.startsWith("/_blob/")) return;
     const p = url.pathname.replace(/^\/+/, "");
-    if (req.mode === "navigate" || p === "" || p === "index.html") { e.respondWith(fresh(req, "index.html")); return; }
+    /* each page (the planner at /, the team manager at /team/) is saved under its own name */
+    const isPage = req.mode === "navigate" || p === "" || p.endsWith("/") || p.endsWith("index.html");
+    if (isPage) {
+      const key = p === "" || p.endsWith("/") ? p + "index.html" : (/\.[a-z0-9]+$/i.test(p) ? p : p + "/index.html");
+      e.respondWith(fresh(req, key)); return;
+    }
     if (p === "version.json" || p.startsWith("data/")) { e.respondWith(fresh(req, url.pathname.slice(1))); return; }
     e.respondWith(saved(req));
     return;

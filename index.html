@@ -594,7 +594,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793201983";
+const BUILD="1793206196";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
@@ -1630,7 +1630,7 @@ if(IS_APP)setTimeout(()=>gcEvent("open-as-app","Opened from home screen"),3000);
 if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 $("#dataBtn").onclick=()=>{openSheet(`<h2>Your data</h2><p class="note" style="margin:0 0 14px">Your calendar is saved on this phone only. Save a backup now and then, and use Restore to put it back or move it to a new phone.</p>
   <div class="row"><button class="btn primary" data-backup="1">Save backup</button><button class="btn" data-restore="1">Restore backup</button></div>
-  <h2 style="margin-top:22px">Calendar</h2><p class="note" style="margin:0 0 14px">Add the races you're doing to your iPhone calendar, or send them to someone.</p><div class="row"><button class="btn" data-cal="1">Add to a calendar</button></div>${IS_APP?"":`<h2 style="margin-top:22px">Install the app</h2><p class="note" style="margin:0 0 14px">Put Season Planner on your home screen. It opens full screen and works without signal at the track.</p><div class="row"><button class="btn" id="instFromData">Add to home screen</button></div>`}`);
+  <h2 style="margin-top:22px">Calendar</h2><p class="note" style="margin:0 0 14px">Add the races you're doing to your iPhone calendar, or send them to someone.</p><div class="row"><button class="btn" data-cal="1">Add to a calendar</button></div><h2 style="margin-top:22px">Run an endurance team?</h2><p class="note" style="margin:0 0 14px">The Team manager app tracks which drivers race where, puts coaches and mechanics with each driver, and shows who still needs paying.</p><div class="row"><a class="btn" href="team/" style="text-decoration:none">Open Team manager</a></div>${IS_APP?"":`<h2 style="margin-top:22px">Install the app</h2><p class="note" style="margin:0 0 14px">Put Season Planner on your home screen. It opens full screen and works without signal at the track.</p><div class="row"><button class="btn" id="instFromData">Add to home screen</button></div>`}`);
   const b=$("#instFromData");if(b)b.onclick=()=>{closeSheet();setTimeout(()=>instShow(true),250)}};
 $("#askForm").onsubmit=ev=>{ev.preventDefault();const q=$("#askIn").value;$("#askIn").value="";if(q.trim())askQ(q);else askSheet()};
 $("#ntAdd").onclick=()=>{const n=$("#ntName").value.trim();if(!n)return;if(S.series.some(s=>s.name.toLowerCase()===n.toLowerCase())){toast("Already in the list");return}

@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<script>if(navigator.standalone===true)document.documentElement.classList.add("ios-app")</script>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Use More Kerb Team Manager</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="../favicon.png">
+<meta name="apple-mobile-web-app-title" content="Team Manager">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="For endurance karting team managers: which drivers are racing where, their coaches and mechanics, and who has been paid.">
+<meta name="theme-color" content="#1F2126">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"F1";src:url(../fonts/f1.ttf) format("truetype");font-weight:400 900;font-style:normal;font-display:swap}
+:root{
+  color-scheme:dark;
+  --bg:#1F2126; --surface:#2A2D33; --surface2:#33363D; --line:#3D4149;
+  --text:#F1F0EC; --muted:#9EA3AD; --accent:#E040C8; --go:#3BD16F; --kerb:#E3342F; --gold:#F5C542;
+  --display:"F1","Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;overflow:hidden;background:var(--bg)}
+body{margin:0;height:100%;height:100dvh;overflow:hidden;display:flex;flex-direction:column;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.4;-webkit-tap-highlight-color:transparent}
+html.ios-app body{height:100vh}
+@media (display-mode: standalone){body{height:100vh}}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#scroller{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px 28px}
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:calc(12px + env(safe-area-inset-top,0px)) 0 10px;display:flex;align-items:center;gap:10px}
+.brand{flex:1;min-width:0}
+.brand img{display:block;height:15px;width:auto;margin-bottom:5px}
+.brand h1{font-family:var(--display);font-weight:700;font-size:clamp(20px,6.4vw,28px);line-height:1;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{width:42px;height:42px;flex:none;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font-size:24px;line-height:1;padding:0}
+.iconbtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.panel{display:none}.panel.on{display:block}
+.sect{font-family:var(--display);font-size:18px;font-weight:700;margin:22px 0 8px;display:flex;align-items:baseline;gap:8px}
+.sect span{font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted)}
+.hint{font-size:14px;color:var(--muted);margin:0 0 12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.btn{border:1px solid var(--line);background:var(--surface2);border-radius:10px;padding:9px 13px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.danger{color:var(--kerb)}
+.btn.ghost{background:transparent}
+.btn.sm{padding:6px 10px;font-size:13.5px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=date],input[type=tel],input[type=number],select,textarea{width:100%;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 11px;font-size:16px;min-width:0}
+textarea{min-height:70px;resize:vertical}
+label.f{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
+.add{display:flex;gap:8px;margin:4px 0 14px}
+.add select{width:auto;flex:none}
+.seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px;margin-bottom:12px}
+.seg button{flex:1;border:none;background:none;border-radius:8px;padding:7px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--surface2);color:var(--text)}
+.tick{flex:none;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 11px 5px 7px;background:var(--surface2);font-size:13px;font-weight:600}
+.tick i{width:16px;height:16px;border-radius:50%;border:2px solid var(--muted);display:grid;place-items:center;font-style:normal;font-size:11px;line-height:1}
+.tick.on{background:var(--c,var(--accent));border-color:var(--c,var(--accent));color:#fff}
+.tick.on i{border-color:#fff;background:#fff;color:var(--c,var(--accent))}
+.tick.paid{--c:var(--go)}
+.none{color:var(--muted);font-size:14px;padding:6px 2px}
+.toast{position:fixed;left:50%;bottom:calc(104px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1}
+
+/* next race */
+.nx{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer}
+.nx .lbl{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nx b{display:block;font-family:var(--display);font-size:19px;line-height:1.2;margin:2px 0}
+.nx small{color:var(--muted);font-size:14px}
+.nx .days{float:right;text-align:center;background:var(--surface2);border-radius:10px;padding:8px 12px;margin-left:10px}
+.nx .days b{font-size:28px;margin:0;color:var(--accent)}
+.nx .days span{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stats button{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.stats b{display:block;font-family:var(--display);font-size:22px;line-height:1.1}
+.stats span{font-size:12px;color:var(--muted)}
+.stats .warn b{color:var(--gold)}
+
+/* month */
+.mhead{display:flex;align-items:center;gap:8px;margin:18px 0 8px}
+.mhead h2{flex:1;font-family:var(--display);font-weight:700;font-size:22px;margin:0;line-height:1}
+.mhead h2 span{color:var(--muted);font-weight:500}
+.grid{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.dow,.days7{display:grid;grid-template-columns:repeat(7,1fr)}
+.dow span{text-align:center;font-family:var(--display);font-size:12px;color:var(--muted);padding:7px 0}
+.day{border:none;background:transparent;padding:5px 0 6px;min-height:54px;display:flex;flex-direction:column;align-items:center;border-top:1px solid var(--line);gap:4px}
+.day.we{background:var(--surface2)}
+.day.blank{pointer-events:none}
+.day .dn{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;width:24px;line-height:24px;text-align:center}
+.day.has .dn{color:var(--text);font-weight:600}
+.day.today .dn{color:var(--bg);background:var(--accent);border-radius:999px}
+.day .dots{display:flex;gap:3px;flex-wrap:wrap;justify-content:center;max-width:90%}
+.day .dots i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.55}
+.day .dots i.in{background:var(--accent);opacity:1}
+.legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--muted);opacity:.55}
+.legend i.in{background:var(--accent);opacity:1}
+
+/* race cards */
+.rc{display:flex;gap:12px;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;margin-bottom:8px;align-items:flex-start;position:relative}
+.rc.in{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:inset 3px 0 0 var(--accent)}
+.rc .dt{flex:none;width:52px;text-align:center}
+.rc .dt b{display:block;font-family:var(--display);font-size:20px;line-height:1.05}
+.rc .dt span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.rc .wh{flex:1;min-width:0}
+.rc .wh b{display:block;font-weight:600;font-size:15.5px;line-height:1.25;padding-right:4px}
+.rc .wh small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+.rc .people{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line)}
+.pill.d{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.pill.warn{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 45%,var(--line))}
+.pill.ok{color:var(--go);border-color:color-mix(in srgb,var(--go) 45%,var(--line))}
+.bdg{flex:none;width:30px;height:30px;border-radius:8px;overflow:hidden;background:#15171c;display:grid;place-items:center;font-family:var(--display);font-size:11px;font-weight:700;color:#fff}
+.bdg img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* people */
+.pc{display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;margin-bottom:8px}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px;color:#fff;background:var(--c,#555)}
+.pc .wh{flex:1;min-width:0}
+.pc .wh b{display:block;font-weight:600;font-size:15.5px}
+.pc .wh small{display:block;color:var(--muted);font-size:13.5px;margin-top:1px}
+.pc .ar{color:var(--muted);font-size:18px}
+.mini{margin-top:6px;display:flex;flex-direction:column;gap:3px}
+.mini span{font-size:13px;color:var(--text)}
+.mini span em{font-style:normal;color:var(--muted);margin-right:6px}
+
+/* payments */
+.tot{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.tot div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+.tot b{display:block;font-family:var(--display);font-size:24px;line-height:1.1}
+.tot span{font-size:12.5px;color:var(--muted)}
+.tot .due b{color:var(--gold)}.tot .done b{color:var(--go)}
+.pay{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.pay .ph{display:flex;align-items:center;gap:10px;padding:12px}
+.pay .ph .wh{flex:1;min-width:0}
+.pay .ph b{display:block;font-weight:600}
+.pay .ph small{color:var(--muted);font-size:13px}
+.pr{display:flex;align-items:center;gap:10px;padding:10px 12px;border-top:1px solid var(--line)}
+.pr .wh{flex:1;min-width:0}
+.pr .wh b{display:block;font-size:14.5px;font-weight:600;line-height:1.25}
+.pr .wh small{color:var(--muted);font-size:12.5px}
+.pr .amt{font-variant-numeric:tabular-nums;font-weight:600;font-size:14.5px;min-width:52px;text-align:right}
+
+/* race sheet: driver allocation */
+.alloc{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:8px;overflow:hidden}
+.alloc .ah{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.alloc .ah b{flex:1;font-weight:600}
+.alloc .ab{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 12px}
+.alloc .ab label{font-size:12px;color:var(--muted);display:block;margin-bottom:4px}
+.alloc .ab select{padding:8px 9px;font-size:15px}
+.staffpay{display:flex;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--line)}
+.staffpay:first-child{border-top:none}
+.staffpay .wh{flex:1;min-width:0}
+.staffpay .wh b{display:block;font-weight:600;font-size:15px}
+.staffpay .wh small{color:var(--muted);font-size:12.5px}
+.fee{display:flex;align-items:center;gap:4px;width:92px;flex:none}
+.fee span{color:var(--muted)}
+.fee input{padding:7px 8px;font-size:15px;text-align:right}
+.book{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+
+/* sheet */
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
+#scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:51;max-height:90%;overflow-y:auto;background:var(--bg);border-radius:18px 18px 0 0;padding:8px 16px calc(20px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .22s ease}
+.sheet.on{transform:none}
+.sheet .grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:4px auto 10px}
+.sheet h2{font-family:var(--display);font-size:21px;margin:0 0 4px;font-weight:700;line-height:1.2}
+.sheet h3{font-family:var(--display);font-size:16px;margin:20px 0 8px;font-weight:700}
+.sheet .sub{color:var(--muted);font-size:14px;margin:0 0 6px}
+.sheet-inner{max-width:560px;margin:0 auto}
+
+/* tabs */
+nav.tabs{position:relative;flex:none;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding:6px 8px max(18px,env(safe-area-inset-bottom,0px))}
+nav.tabs div{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+nav.tabs button{background:none;border:none;min-height:62px;padding:8px 0;margin:0 2px;min-width:0;border-radius:14px;font-family:var(--display);font-size:10.5px;font-weight:600;color:var(--muted);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+nav.tabs button svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs button.on{background:var(--surface2);color:var(--text)}
+nav.tabs button.on svg{stroke:var(--accent)}
+nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);min-width:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#1a1a1a;font-family:var(--body);font-size:11.5px;font-weight:700;line-height:18px}
+nav.tabs .inst{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;width:calc(100% - 4px);max-width:556px;min-height:0;margin:6px auto 0;padding:10px 14px;border-radius:12px;border:1px solid var(--accent);background:transparent;color:var(--text);font-family:var(--body);font-size:14px;font-weight:600}
+nav.tabs .inst[hidden]{display:none}
+nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:13.5px;text-decoration:none;margin:18px 2px 0}
+@media (prefers-reduced-motion: reduce){.sheet,.toast,#scrim{transition:none}}
+</style>
+<script data-goatcounter="https://usemorekerb.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div id="scroller"><div class="wrap">
+  <header class="top">
+    <div class="brand"><img src="wm.png" alt="Use More Kerb"><h1>Team manager</h1></div>
+    <button class="iconbtn" id="dataBtn" aria-label="Back up or restore your team"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v3h16v-3"/></svg></button>
+    <button class="iconbtn" id="addBtn" aria-label="Add">+</button>
+  </header>
+
+  <section class="panel on" id="p-cal">
+    <div id="nextBox"></div>
+    <div class="stats" id="stats"></div>
+    <div id="monthBox"></div>
+    <div id="monthList"></div>
+  </section>
+
+  <section class="panel" id="p-races">
+    <p class="hint">Endurance races from the Use More Kerb calendar, updated every week. Tap a race to enter your team, pick drivers and put a coach and mechanic with each one.</p>
+    <div class="seg" id="raceSeg"><button class="on" data-rf="up">Upcoming</button><button data-rf="in">Entered</button><button data-rf="past">Past</button></div>
+    <input type="text" id="raceQ" placeholder="Search races or venues" autocomplete="off" style="margin-bottom:12px">
+    <div id="raceList"></div>
+    <button class="btn" id="addRaceBtn" style="margin-top:6px">+ Add a race that isn't listed</button>
+  </section>
+
+  <section class="panel" id="p-drivers">
+    <p class="hint">Your team's drivers. Give each one a usual coach and mechanic and they'll be filled in when you add the driver to a race.</p>
+    <div class="add"><input type="text" id="newDriver" placeholder="Driver name" autocomplete="off" enterkeyhint="done"><button class="btn primary" id="addDriver">Add</button></div>
+    <div id="driverList"></div>
+  </section>
+
+  <section class="panel" id="p-staff">
+    <p class="hint">Coaches and mechanics. Set a usual fee per race to fill in payments automatically.</p>
+    <div class="add"><input type="text" id="newStaff" placeholder="Name" autocomplete="off" enterkeyhint="done"><select id="newRole"><option value="coach">Coach</option><option value="mechanic">Mechanic</option></select><button class="btn primary" id="addStaff">Add</button></div>
+    <div id="staffList"></div>
+  </section>
+
+  <section class="panel" id="p-pay">
+    <div class="tot" id="payTot"></div>
+    <div class="seg" id="paySeg"><button class="on" data-pf="due">Not paid</button><button data-pf="all">All</button></div>
+    <div id="payList"></div>
+  </section>
+
+  <a class="back" href="../">‹ Use More Kerb Season Planner</a>
+</div></div>
+
+<nav class="tabs"><div>
+  <button class="on" data-tab="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button>
+  <button data-tab="races"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Races</button>
+  <button data-tab="drivers"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M6 10h12M12 16v5M8 21h8"/></svg>Drivers</button>
+  <button data-tab="staff"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>Staff</button>
+  <button data-tab="pay"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>Payments<span class="badge" id="payBadge" hidden></span></button>
+</div><button class="inst" id="instBar" hidden><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg>Add app to Home Screen</button></nav>
+
+<div id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div class="sheet-inner" id="sheetBody"></div></div>
+<div class="toast" id="toast"></div>
+<input type="file" id="restoreIn" accept="application/json,.json" hidden>
+
+<script>
+/* ===== Use More Kerb Team Manager =====
+   Everything is saved on this device (localStorage). Race dates come from ../data/races.json. */
+const LS="umk-team-manager-v1", LSR="umk-team-races-cache";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
+const dn=s=>{const [y,m,d]=String(s).split("-").map(Number);return Math.floor(Date.UTC(y,m-1,d)/864e5)};
+const TODAY=(()=>{const n=new Date();return Math.floor(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())/864e5)})();
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const COLORS=["#E040C8","#3BD16F","#4C8DFF","#F5A623","#16C5D9","#F5C542","#B36BFF","#FF6B6B","#9BD13B","#FF8FD8"];
+const money=n=>"£"+(Math.round((+n||0)*100)/100).toLocaleString("en-GB",{minimumFractionDigits:(+n%1)?2:0,maximumFractionDigits:2});
+
+let T={drivers:[],staff:[],races:{},custom:[]};
+let MASTER={series:[],events:[]};
+let tab="cal", raceFilter="up", payFilter="due", monthOff=0;
+
+function load(){try{const r=localStorage.getItem(LS);if(r){const x=JSON.parse(r);T={drivers:x.drivers||[],staff:x.staff||[],races:x.races||{},custom:x.custom||[]}}}catch(e){}
+  try{const r=localStorage.getItem(LSR);if(r)MASTER=JSON.parse(r)}catch(e){}}
+function save(){try{localStorage.setItem(LS,JSON.stringify(T))}catch(e){toast("Couldn't save on this device")}}
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("on"),2200)}
+function gc(path,title){try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:"team-"+path,title:title||path,event:true})}catch(e){}}
+
+/* ---------- endurance races ---------- */
+const ENDURO=/endur|enduro|\b\d+\s*(h|hr|hrs|hour|hours)\b|\bhours?\b|\d+h\b|relay|team race/i;
+function series(id){return MASTER.series.find(s=>s.id===id)}
+function allRaces(){
+  const out=[];
+  for(const e of MASTER.events||[]){const s=series(e.seriesId);
+    if(ENDURO.test(e.title||"")||ENDURO.test(s?.name||""))out.push({...e,src:"m"})}
+  for(const c of T.custom)out.push({...c,src:"c"});
+  /* keep races the team entered even if they drop out of the master list */
+  for(const [id,r] of Object.entries(T.races))if(r.snap&&!out.some(x=>x.id===id))out.push({...r.snap,id,src:"s"});
+  return out.sort((a,b)=>dn(a.start)-dn(b.start)||String(a.title).localeCompare(b.title));
+}
+function raceById(id){return allRaces().find(r=>r.id===id)}
+function rec(id){return T.races[id]||(T.races[id]={entered:false,entries:[],pay:{},note:""})}
+function entered(id){return !!T.races[id]?.entered}
+function isPast(r){return dn(r.end||r.start)<TODAY}
+function dateLabel(r){const a=new Date(dn(r.start)*864e5),b=new Date(dn(r.end||r.start)*864e5);
+  const da=a.getUTCDate(),db=b.getUTCDate();
+  if(dn(r.end||r.start)===dn(r.start))return {big:String(da),small:DOW[a.getUTCDay()]+" "+MON[a.getUTCMonth()],long:DOW[a.getUTCDay()]+" "+da+" "+MON[a.getUTCMonth()]+" "+a.getUTCFullYear()};
+  const same=a.getUTCMonth()===b.getUTCMonth();
+  return {big:da+"-"+db,small:same?MON[a.getUTCMonth()]:MON[a.getUTCMonth()]+"/"+MON[b.getUTCMonth()],long:DOW[a.getUTCDay()]+" "+da+(same?"":" "+MON[a.getUTCMonth()])+" to "+DOW[b.getUTCDay()]+" "+db+" "+MON[b.getUTCMonth()]+" "+b.getUTCFullYear()};}
+function shortDate(r){const a=new Date(dn(r.start)*864e5),b=new Date(dn(r.end||r.start)*864e5);const one=x=>DOW[x.getUTCDay()]+" "+x.getUTCDate()+" "+MON[x.getUTCMonth()];return dn(r.end||r.start)===dn(r.start)?one(a):one(a)+" to "+one(b)}
+function badge(r){const s=series(r.seriesId);
+  if(s?.logoUrl)return `<span class="bdg"><img src="../${esc(s.logoUrl)}" alt="" loading="lazy" onerror="this.parentNode.textContent='${esc(initials(s.name))}'"></span>`;
+  return `<span class="bdg" style="background:${esc(s?.color||"#555")}">${esc(initials(s?.name||r.title))}</span>`}
+function initials(n){return String(n||"?").split(/\s+/).filter(w=>/^[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase()||"?"}
+function okUrl(u){try{const x=new URL(u);return x.protocol==="https:"?x.href:""}catch(e){return ""}}
+
+/* ---------- people helpers ---------- */
+const person=id=>T.staff.find(s=>s.id===id);
+const driver=id=>T.drivers.find(d=>d.id===id);
+function av(p,i){const c=COLORS[(i??T.drivers.concat(T.staff).findIndex(x=>x.id===p.id))%COLORS.length];return `<span class="av" style="--c:${p.color||c}">${esc(initials(p.name))}</span>`}
+/* staff on duty at a race (unique), with fee and paid */
+function staffAt(id){const r=T.races[id];if(!r||!r.entered)return [];
+  const ids=[];for(const e of r.entries){for(const k of ["coach","mechanic"])if(e[k]&&!ids.includes(e[k])&&person(e[k]))ids.push(e[k])}
+  return ids.map(sid=>{const p=person(sid),pay=r.pay[sid]||{};return {sid,p,fee:pay.fee!=null&&pay.fee!==""?+pay.fee:(+p.fee||0),paid:!!pay.paid}})}
+function allDuties(){const out=[];for(const r of allRaces()){if(!entered(r.id))continue;for(const d of staffAt(r.id))out.push({race:r,...d})}return out}
+
+/* ---------- render ---------- */
+function render(){renderCal();renderRaces();renderDrivers();renderStaff();renderPay()}
+function raceCard(r){
+  const R=T.races[r.id],inn=R?.entered,dl=dateLabel(r);
+  let people="";
+  if(inn){const ds=R.entries.map(e=>driver(e.driver)).filter(Boolean);
+    people=`<div class="people">${ds.length?ds.map(d=>`<span class="pill d">${esc(d.name)}</span>`).join(""):`<span class="pill warn">No drivers yet</span>`}${(()=>{const due=staffAt(r.id).filter(x=>!x.paid).length;return due?`<span class="pill warn">${due} to pay</span>`:staffAt(r.id).length?`<span class="pill ok">Staff paid</span>`:""})()}</div>`}
+  const s=series(r.seriesId);
+  return `<button class="rc${inn?" in":""}" data-race="${esc(r.id)}"><span class="dt"><b>${esc(dl.big)}</b><span>${esc(dl.small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${esc([r.location,s&&s.name!==r.location?s.name:""].filter(Boolean).join(" · "))}</small>${people}</span>${badge(r)}</button>`}
+
+function renderCal(){
+  const races=allRaces(),up=races.filter(r=>!isPast(r)&&entered(r.id));
+  const nx=up[0];
+  $("#nextBox").innerHTML=nx?(()=>{const d=dn(nx.start)-TODAY,R=T.races[nx.id],ds=R.entries.map(e=>driver(e.driver)).filter(Boolean);
+    return `<div class="nx" data-race="${esc(nx.id)}"><div class="days"><b>${d<=0?"Now":d}</b><span>${d<=0?"RACING":d===1?"DAY":"DAYS"}</span></div><span class="lbl">Next team race</span><b>${esc(nx.title)}</b><small>${esc(dateLabel(nx).long)}${nx.location?", "+esc(nx.location):""}</small><div class="people" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;clear:both">${ds.length?ds.map(x=>`<span class="pill d">${esc(x.name)}</span>`).join(""):`<span class="pill warn">No drivers picked yet</span>`}</div></div>`})()
+    :`<div class="nx" data-tab="races"><span class="lbl">Get started</span><b>${T.drivers.length?"Enter your first race":"Add your drivers, then enter races"}</b><small>${T.drivers.length?"Open Races and tap one to enter your team.":"Start in Drivers, then add your coaches and mechanics in Staff."}</small></div>`;
+  const due=allDuties().filter(x=>!x.paid);
+  $("#stats").innerHTML=`<button data-tab="races"><b>${up.length}</b><span>races entered</span></button><button data-tab="drivers"><b>${T.drivers.length}</b><span>drivers</span></button><button data-tab="pay" class="${due.length?"warn":""}"><b>${due.length?money(due.reduce((a,x)=>a+x.fee,0)):"£0"}</b><span>to pay</span></button>`;
+  /* month grid */
+  const now=new Date(),m0=new Date(Date.UTC(now.getFullYear(),now.getMonth()+monthOff,1)),y=m0.getUTCFullYear(),m=m0.getUTCMonth();
+  const first=dn(`${y}-${m+1}-1`),len=new Date(Date.UTC(y,m+1,0)).getUTCDate(),lead=(new Date(first*864e5).getUTCDay()+6)%7;
+  const inMonth=races.filter(r=>{const a=dn(r.start),b=dn(r.end||r.start);return b>=first&&a<first+len});
+  let cells="";for(let i=0;i<lead;i++)cells+=`<span class="day blank"></span>`;
+  for(let d=1;d<=len;d++){const x=first+d-1,wd=(lead+d-1)%7,on=inMonth.filter(r=>dn(r.start)<=x&&dn(r.end||r.start)>=x);
+    cells+=`<button class="day${wd>=5?" we":""}${on.length?" has":""}${x===TODAY?" today":""}" data-day="${x}" ${on.length?"":"disabled"}><span class="dn">${d}</span><span class="dots">${on.slice(0,4).map(r=>`<i class="${entered(r.id)?"in":""}"></i>`).join("")}</span></button>`}
+  $("#monthBox").innerHTML=`<div class="mhead"><h2>${MONTHS[m]} <span>${y}</span></h2><button class="iconbtn" data-mo="-1" aria-label="Previous month">‹</button><button class="iconbtn" data-mo="1" aria-label="Next month">›</button></div>
+   <div class="grid"><div class="dow">${["M","T","W","T","F","S","S"].map(x=>`<span>${x}</span>`).join("")}</div><div class="days7">${cells}</div></div>
+   <div class="legend"><span><i class="in"></i>Team entered</span><span><i></i>Other endurance races</span></div>`;
+  $("#monthList").innerHTML=`<h2 class="sect">${MONTHS[m]} races <span>${inMonth.length?inMonth.length+" endurance":""}</span></h2>`+(inMonth.length?inMonth.map(raceCard).join(""):`<p class="none">No endurance races this month.</p>`);
+}
+function renderRaces(){
+  const q=($("#raceQ").value||"").trim().toLowerCase();
+  let list=allRaces();
+  if(raceFilter==="up")list=list.filter(r=>!isPast(r));
+  if(raceFilter==="in")list=list.filter(r=>entered(r.id)&&!isPast(r));
+  if(raceFilter==="past")list=list.filter(r=>isPast(r)&&(entered(r.id)||r.src!=="m")).reverse();
+  if(q)list=list.filter(r=>(r.title+" "+(r.location||"")+" "+(series(r.seriesId)?.name||"")).toLowerCase().includes(q));
+  let html="",lastM="";
+  for(const r of list){const d=new Date(dn(r.start)*864e5),k=MONTHS[d.getUTCMonth()]+" "+d.getUTCFullYear();if(k!==lastM){html+=`<h2 class="sect">${k}</h2>`;lastM=k}html+=raceCard(r)}
+  $("#raceList").innerHTML=html||`<p class="none">${raceFilter==="in"?"No races entered yet. Open Upcoming and tap a race to enter your team.":raceFilter==="past"?"No past team races yet.":(MASTER.events.length?"No races match.":"Loading races…")}</p>`;
+}
+function driverRaces(id,upOnly=true){return allRaces().filter(r=>entered(r.id)&&(!upOnly||!isPast(r))&&T.races[r.id].entries.some(e=>e.driver===id))}
+function renderDrivers(){
+  $("#driverList").innerHTML=T.drivers.length?T.drivers.map((d,i)=>{const rs=driverRaces(d.id),c=person(d.coach),mk=person(d.mechanic);
+    return `<button class="pc" data-driver="${d.id}">${av(d,i)}<span class="wh"><b>${esc(d.name)}</b><small>${[c?"Coach: "+esc(c.name):"",mk?"Mechanic: "+esc(mk.name):""].filter(Boolean).join(" · ")||"No usual coach or mechanic"}</small>${rs.length?`<span class="mini">${rs.slice(0,3).map(r=>`<span><em>${esc(shortDate(r))}</em>${esc(r.title)}</span>`).join("")}${rs.length>3?`<span><em>+${rs.length-3} more</em></span>`:""}</span>`:`<span class="mini"><span><em>No races yet</em></span></span>`}</span><span class="ar">›</span></button>`}).join("")
+    :`<p class="none">No drivers yet. Add your first one above.</p>`;
+}
+function renderStaff(){
+  const sec=(role,title)=>{const L=T.staff.filter(s=>s.role===role);
+    return `<h2 class="sect">${title} <span>${L.length||""}</span></h2>`+(L.length?L.map((p,i)=>{const du=allDuties().filter(x=>x.sid===p.id),up=du.filter(x=>!isPast(x.race)),owe=du.filter(x=>!x.paid);
+      const drs=T.drivers.filter(d=>d[role]===p.id).map(d=>d.name);
+      return `<button class="pc" data-staff="${p.id}">${av(p)}<span class="wh"><b>${esc(p.name)}</b><small>${[p.fee?money(p.fee)+" per race":"",drs.length?"Usually with "+esc(drs.join(", ")):""].filter(Boolean).join(" · ")||"Tap to add a fee and phone number"}</small><span class="people" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px"><span class="pill">${up.length} race${up.length===1?"":"s"} coming up</span>${owe.length?`<span class="pill warn">${money(owe.reduce((a,x)=>a+x.fee,0))} to pay</span>`:du.length?`<span class="pill ok">All paid</span>`:""}</span></span><span class="ar">›</span></button>`}).join(""):`<p class="none">No ${title.toLowerCase()} yet.</p>`)};
+  $("#staffList").innerHTML=sec("coach","Coaches")+sec("mechanic","Mechanics");
+}
+function renderPay(){
+  const du=allDuties(),due=du.filter(x=>!x.paid),paid=du.filter(x=>x.paid);
+  $("#payTot").innerHTML=`<div class="due"><b>${money(due.reduce((a,x)=>a+x.fee,0))}</b><span>${due.length} payment${due.length===1?"":"s"} still to make</span></div><div class="done"><b>${money(paid.reduce((a,x)=>a+x.fee,0))}</b><span>paid so far</span></div>`;
+  const b=$("#payBadge");b.hidden=!due.length;b.textContent=due.length;
+  const list=payFilter==="due"?due:du;
+  const by={};for(const x of list)(by[x.sid]=by[x.sid]||[]).push(x);
+  $("#payList").innerHTML=Object.keys(by).length?Object.entries(by).map(([sid,L])=>{const p=person(sid),owe=L.filter(x=>!x.paid);
+    return `<div class="pay"><div class="ph">${av(p)}<span class="wh"><b>${esc(p.name)}</b><small>${p.role==="coach"?"Coach":"Mechanic"}${owe.length?(owe.reduce((a,x)=>a+x.fee,0)?" · "+money(owe.reduce((a,x)=>a+x.fee,0))+" to pay":" · fee not set"):" · all paid"}</small></span>${owe.length>1?`<button class="btn sm" data-payall="${sid}">Mark all paid</button>`:""}</div>
+      ${L.map(x=>{const dl=dateLabel(x.race),ds=T.races[x.race.id].entries.filter(e=>e.coach===sid||e.mechanic===sid).map(e=>driver(e.driver)?.name).filter(Boolean);
+        return `<div class="pr"><span class="wh"><b>${esc(x.race.title)}</b><small>${esc(shortDate(x.race))}${ds.length?" · with "+esc(ds.join(", ")):""}</small></span><span class="amt">${x.fee?money(x.fee):"No fee"}</span><button class="tick paid${x.paid?" on":""}" data-paid="${esc(x.race.id)}|${sid}"><i>${x.paid?"✓":""}</i>Paid</button></div>`}).join("")}</div>`}).join("")
+    :`<p class="none">${payFilter==="due"?(du.length?"Everyone's been paid.":"Nothing to pay yet. Payments appear here when you put coaches or mechanics with drivers at a race."):"No payments yet."}</p>`;
+}
+
+/* ---------- sheets ---------- */
+function openSheet(html){$("#sheetBody").innerHTML=html;$("#scrim").classList.add("on");$("#sheet").classList.add("on");$("#sheet").scrollTop=0}
+function closeSheet(){$("#scrim").classList.remove("on");$("#sheet").classList.remove("on")}
+$("#scrim").onclick=closeSheet;
+
+function raceSheet(id){
+  const r=raceById(id);if(!r)return;const R=T.races[id],inn=!!R?.entered,s=series(r.seriesId);
+  const url=okUrl(s?.book||""),tel=String(s?.phone||"").replace(/[^\d+]/g,"");
+  const coaches=T.staff.filter(x=>x.role==="coach"),mechs=T.staff.filter(x=>x.role==="mechanic");
+  const opt=(L,v)=>`<option value="">None</option>`+L.map(p=>`<option value="${p.id}"${p.id===v?" selected":""}>${esc(p.name)}</option>`).join("");
+  let body=`<div style="display:flex;gap:12px;align-items:flex-start">${badge(r)}<div style="flex:1;min-width:0"><h2>${esc(r.title)}</h2><p class="sub">${esc(dateLabel(r).long)}${r.location?"<br>"+esc(r.location):""}${s?"<br>"+esc(s.name):""}</p></div></div>
+    ${url||tel?`<div class="book">${url?`<a class="btn primary sm" href="${esc(url)}" target="_blank" rel="noopener">Book online</a>`:""}${tel?`<a class="btn sm" href="tel:${esc(tel)}">Call ${esc(s.phone)}</a>`:""}</div>`:""}
+    <div class="row" style="margin:12px 0 4px"><button class="tick${inn?" on":""}" data-enter="${esc(id)}"><i>${inn?"✓":""}</i>${inn?"Team entered":"Enter the team"}</button></div>`;
+  if(inn){
+    body+=`<h3>Drivers racing</h3>`;
+    if(!T.drivers.length)body+=`<p class="none">Add drivers in the Drivers tab first.</p>`;
+    body+=T.drivers.map((d,i)=>{const e=R.entries.find(x=>x.driver===d.id);
+      return `<div class="alloc"><div class="ah">${av(d,i)}<b>${esc(d.name)}</b><button class="tick${e?" on":""}" data-racing="${esc(id)}|${d.id}"><i>${e?"✓":""}</i>Racing</button></div>${e?`<div class="ab"><div><label>Coach</label><select data-alloc="${esc(id)}|${d.id}|coach">${opt(coaches,e.coach)}</select></div><div><label>Mechanic</label><select data-alloc="${esc(id)}|${d.id}|mechanic">${opt(mechs,e.mechanic)}</select></div></div>`:""}</div>`}).join("");
+    const st=staffAt(id);
+    body+=`<h3>Staff payments for this race</h3>`+(st.length?`<div class="card" style="padding:4px 12px">${st.map(x=>`<div class="staffpay">${av(x.p)}<span class="wh"><b>${esc(x.p.name)}</b><small>${x.p.role==="coach"?"Coach":"Mechanic"}</small></span><label class="fee"><span>£</span><input type="number" inputmode="decimal" min="0" step="5" value="${x.fee||""}" placeholder="0" data-fee="${esc(id)}|${x.sid}" aria-label="Fee for ${esc(x.p.name)}"></label><button class="tick paid${x.paid?" on":""}" data-paid="${esc(id)}|${x.sid}"><i>${x.paid?"✓":""}</i>Paid</button></div>`).join("")}</div>`:`<p class="none">Pick a coach or mechanic for a driver and they'll show up here to pay.</p>`);
+    body+=`<h3>Notes</h3><textarea id="raceNote" data-note="${esc(id)}" placeholder="Kart numbers, stint plan, hotel…">${esc(R.note||"")}</textarea>`;
+  }
+  if(r.src==="c")body+=`<div class="row" style="margin-top:16px"><button class="btn sm" data-editcustom="${esc(id)}">Edit race</button><button class="btn danger sm" data-delcustom="${esc(id)}">Delete race</button></div>`;
+  openSheet(body);
+  const n=$("#raceNote");if(n)n.oninput=()=>{rec(id).note=n.value;save()};
+  document.querySelectorAll("[data-fee]").forEach(inp=>inp.oninput=()=>{const [rid,sid]=inp.dataset.fee.split("|");const p=rec(rid).pay[sid]=rec(rid).pay[sid]||{};p.fee=inp.value===""?"":+inp.value;save();render()});
+  document.querySelectorAll("[data-alloc]").forEach(sel=>sel.onchange=()=>{const [rid,did,k]=sel.dataset.alloc.split("|");const e=rec(rid).entries.find(x=>x.driver===did);if(e){e[k]=sel.value||"";save();render();raceSheet(rid)}});
+}
+function driverSheet(id){
+  const d=id?driver(id):null;const coaches=T.staff.filter(x=>x.role==="coach"),mechs=T.staff.filter(x=>x.role==="mechanic");
+  const opt=(L,v)=>`<option value="">None</option>`+L.map(p=>`<option value="${p.id}"${p.id===v?" selected":""}>${esc(p.name)}</option>`).join("");
+  const rs=d?driverRaces(d.id):[];
+  openSheet(`<h2>${d?esc(d.name):"New driver"}</h2>
+    <label class="f">Name</label><input type="text" id="dName" value="${esc(d?.name||"")}" autocomplete="off">
+    <label class="f">Phone (optional)</label><input type="tel" id="dPhone" value="${esc(d?.phone||"")}">
+    <div class="row" style="gap:8px;margin-top:2px"><div style="flex:1;min-width:130px"><label class="f">Usual coach</label><select id="dCoach">${opt(coaches,d?.coach)}</select></div><div style="flex:1;min-width:130px"><label class="f">Usual mechanic</label><select id="dMech">${opt(mechs,d?.mechanic)}</select></div></div>
+    <label class="f">Notes</label><textarea id="dNote" placeholder="Weight, seat size, licence…">${esc(d?.note||"")}</textarea>
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="dSave">Save</button>${d?`<button class="btn danger" id="dDel">Remove driver</button>`:""}${d?.phone?`<a class="btn" href="tel:${esc(d.phone.replace(/[^\d+]/g,""))}">Call</a>`:""}</div>
+    ${d?`<h3>Races coming up</h3>${rs.length?rs.map(raceCard).join(""):`<p class="none">Not entered in any races yet.</p>`}`:""}`);
+  $("#dSave").onclick=()=>{const name=$("#dName").value.trim();if(!name){toast("Add a name");return}
+    const x=d||{id:uid()};Object.assign(x,{name,phone:$("#dPhone").value.trim(),coach:$("#dCoach").value,mechanic:$("#dMech").value,note:$("#dNote").value});
+    if(!d)T.drivers.push(x);save();render();closeSheet();toast(d?"Saved":"Driver added")};
+  if(d)$("#dDel").onclick=()=>{if(!confirm(`Remove ${d.name} from the team? They'll be taken off any races too.`))return;
+    T.drivers=T.drivers.filter(x=>x.id!==d.id);for(const r of Object.values(T.races))r.entries=r.entries.filter(e=>e.driver!==d.id);save();render();closeSheet()};
+}
+function staffSheet(id,role){
+  const p=id?person(id):null;const du=p?allDuties().filter(x=>x.sid===p.id):[];
+  openSheet(`<h2>${p?esc(p.name):"New "+(role==="mechanic"?"mechanic":"coach")}</h2>
+    <label class="f">Name</label><input type="text" id="sName" value="${esc(p?.name||"")}" autocomplete="off">
+    <label class="f">Role</label><select id="sRole"><option value="coach"${(p?.role||role)==="coach"?" selected":""}>Coach</option><option value="mechanic"${(p?.role||role)==="mechanic"?" selected":""}>Mechanic</option></select>
+    <div class="row" style="gap:8px"><div style="flex:1;min-width:130px"><label class="f">Phone (optional)</label><input type="tel" id="sPhone" value="${esc(p?.phone||"")}"></div><div style="flex:1;min-width:110px"><label class="f">Usual fee per race (£)</label><input type="number" inputmode="decimal" min="0" step="5" id="sFee" value="${p?.fee||""}" placeholder="0"></div></div>
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="sSave">Save</button>${p?`<button class="btn danger" id="sDel">Remove</button>`:""}${p?.phone?`<a class="btn" href="tel:${esc(p.phone.replace(/[^\d+]/g,""))}">Call</a>`:""}</div>
+    ${p?`<h3>Races and payments</h3>${du.length?`<div class="card" style="padding:0;overflow:hidden">${du.map(x=>{const dl=dateLabel(x.race);return `<div class="pr" style="border-top:none;border-bottom:1px solid var(--line)"><span class="wh"><b>${esc(x.race.title)}</b><small>${esc(shortDate(x.race))}</small></span><span class="amt">${x.fee?money(x.fee):"No fee"}</span><button class="tick paid${x.paid?" on":""}" data-paid="${esc(x.race.id)}|${p.id}"><i>${x.paid?"✓":""}</i>Paid</button></div>`}).join("")}</div>`:`<p class="none">Not with any drivers at a race yet.</p>`}`:""}`);
+  $("#sSave").onclick=()=>{const name=$("#sName").value.trim();if(!name){toast("Add a name");return}
+    const x=p||{id:uid()};const fee=$("#sFee").value;Object.assign(x,{name,role:$("#sRole").value,phone:$("#sPhone").value.trim(),fee:fee===""?0:+fee});
+    if(!p)T.staff.push(x);
+    /* role changed: take them off the other job */
+    if(p)for(const r of Object.values(T.races))for(const e of r.entries){const other=x.role==="coach"?"mechanic":"coach";if(e[other]===x.id)e[other]=""}
+    if(p)for(const d of T.drivers){const other=x.role==="coach"?"mechanic":"coach";if(d[other]===x.id)d[other]=""}
+    save();render();closeSheet();toast(p?"Saved":"Added")};
+  if(p)$("#sDel").onclick=()=>{if(!confirm(`Remove ${p.name}? They'll be taken off any races too.`))return;
+    T.staff=T.staff.filter(x=>x.id!==p.id);for(const r of Object.values(T.races)){for(const e of r.entries){if(e.coach===p.id)e.coach="";if(e.mechanic===p.id)e.mechanic=""}delete r.pay[p.id]}
+    for(const d of T.drivers){if(d.coach===p.id)d.coach="";if(d.mechanic===p.id)d.mechanic=""}save();render();closeSheet()};
+}
+function customSheet(id){
+  const c=id?T.custom.find(x=>x.id===id):null;
+  openSheet(`<h2>${c?"Edit race":"Add a race"}</h2><p class="sub">For endurance races that aren't on the list.</p>
+    <label class="f">Race name</label><input type="text" id="cTitle" value="${esc(c?.title||"")}" placeholder="e.g. 6 Hours of Whilton Mill">
+    <div class="row" style="gap:8px"><div style="flex:1;min-width:140px"><label class="f">Start date</label><input type="date" id="cStart" value="${esc(c?.start||"")}"></div><div style="flex:1;min-width:140px"><label class="f">End date (optional)</label><input type="date" id="cEnd" value="${esc(c&&c.end!==c.start?c.end:"")}"></div></div>
+    <label class="f">Track</label><input type="text" id="cLoc" value="${esc(c?.location||"")}" placeholder="e.g. Whilton Mill">
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="cSave">${c?"Save":"Add race"}</button></div>`);
+  $("#cSave").onclick=()=>{const title=$("#cTitle").value.trim(),start=$("#cStart").value;if(!title||!start){toast("Add a name and start date");return}
+    let end=$("#cEnd").value||start;if(dn(end)<dn(start))end=start;
+    const x=c||{id:"c-"+uid(),seriesId:""};Object.assign(x,{title,start,end,location:$("#cLoc").value.trim()});
+    if(!c){T.custom.push(x);const R=rec(x.id);R.entered=true;prefillSnap(x.id)}save();render();raceSheet(x.id);toast(c?"Saved":"Race added and entered")};
+}
+function prefillSnap(id){const r=raceById(id);if(r&&T.races[id])T.races[id].snap={title:r.title,start:r.start,end:r.end,location:r.location,seriesId:r.seriesId||""}}
+
+function dataSheet(){
+  openSheet(`<h2>Your team data</h2><p class="sub" style="margin-bottom:14px">Your drivers, staff, races and payments are saved on this phone only. Save a backup now and then, and use Restore to move it to another phone.</p>
+    <div class="row"><button class="btn primary" id="bk">Save backup</button><button class="btn" id="rs">Restore backup</button></div>
+    <h3>Install the app</h3><p class="sub">${IS_APP?"You're using the installed app.":(IS_IOS?"In Safari, tap Share then Add to Home Screen. It opens full screen and works without signal at the track.":"Open your browser menu and choose Install app or Add to Home screen.")}</p>
+    ${instEv?`<button class="btn" id="instGo">Install</button>`:""}`);
+  $("#bk").onclick=backup;$("#rs").onclick=()=>$("#restoreIn").click();
+  const ig=$("#instGo");if(ig)ig.onclick=doInstall;
+}
+async function backup(){
+  const blob=new Blob([JSON.stringify({app:"umk-team-manager",v:1,saved:new Date().toISOString(),data:T},null,1)],{type:"application/json"});
+  const name="team-manager-backup-"+new Date().toISOString().slice(0,10)+".json";
+  try{const f=new File([blob],name,{type:"application/json"});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"Team manager backup"});toast("Backup saved");return}}catch(e){if(e&&e.name==="AbortError")return}
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);toast("Backup saved");
+}
+$("#restoreIn").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;
+  try{const x=JSON.parse(await f.text()),d=x.data||x;if(!Array.isArray(d.drivers)||!Array.isArray(d.staff))throw 0;
+    if(!confirm("Replace the team on this phone with this backup?"))return;
+    T={drivers:d.drivers,staff:d.staff,races:d.races||{},custom:d.custom||[]};save();render();closeSheet();toast("Team restored")}
+  catch(e){toast("That file isn't a team manager backup")}};
+
+/* ---------- events ---------- */
+function setTab(t){tab=t;document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+t));
+  document.querySelectorAll("nav.tabs [data-tab]").forEach(b=>b.classList.toggle("on",b.dataset.tab===t));$("#scroller").scrollTop=0}
+document.addEventListener("click",ev=>{
+  const t=ev.target.closest("[data-tab],[data-race],[data-driver],[data-staff],[data-mo],[data-day],[data-rf],[data-pf],[data-enter],[data-racing],[data-paid],[data-payall],[data-editcustom],[data-delcustom]");if(!t)return;
+  const d=t.dataset;
+  if(d.tab){closeSheet();setTab(d.tab);return}
+  if(d.race){raceSheet(d.race);return}
+  if(d.driver){driverSheet(d.driver);return}
+  if(d.staff){staffSheet(d.staff);return}
+  if(d.mo){monthOff+=+d.mo;renderCal();return}
+  if(d.day){const x=+d.day,on=allRaces().filter(r=>dn(r.start)<=x&&dn(r.end||r.start)>=x);if(on.length===1)raceSheet(on[0].id);else{const dt=new Date(x*864e5);openSheet(`<h2>${DOW[dt.getUTCDay()]} ${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}</h2><p class="sub" style="margin-bottom:12px">${on.length} endurance races</p>${on.map(raceCard).join("")}`)}return}
+  if(d.rf){raceFilter=d.rf;document.querySelectorAll("#raceSeg button").forEach(b=>b.classList.toggle("on",b===t));renderRaces();return}
+  if(d.pf){payFilter=d.pf;document.querySelectorAll("#paySeg button").forEach(b=>b.classList.toggle("on",b===t));renderPay();return}
+  if(d.enter){const id=d.enter,R=rec(id);R.entered=!R.entered;if(R.entered){prefillSnap(id);gc("enter","Entered a race")}save();render();raceSheet(id);return}
+  if(d.racing){const [rid,did]=d.racing.split("|"),R=rec(rid),i=R.entries.findIndex(e=>e.driver===did);
+    if(i>=0)R.entries.splice(i,1);else{const dr=driver(did);R.entries.push({driver:did,coach:person(dr?.coach)?dr.coach:"",mechanic:person(dr?.mechanic)?dr.mechanic:""})}
+    save();render();raceSheet(rid);return}
+  if(d.paid){const [rid,sid]=d.paid.split("|"),R=rec(rid),p=R.pay[sid]=R.pay[sid]||{};p.paid=!p.paid;if(p.paid&&(p.fee==null||p.fee===""))p.fee=+(person(sid)?.fee||0);save();render();
+    t.classList.toggle("on",p.paid);t.querySelector("i").textContent=p.paid?"✓":"";if(p.paid)toast("Marked as paid");return}
+  if(d.payall){for(const x of allDuties().filter(x=>x.sid===d.payall&&!x.paid)){const p=rec(x.race.id).pay[x.sid]=rec(x.race.id).pay[x.sid]||{};p.paid=true;if(p.fee==null||p.fee==="")p.fee=x.fee}save();render();toast("All marked as paid");return}
+  if(d.editcustom){customSheet(d.editcustom);return}
+  if(d.delcustom){if(!confirm("Delete this race?"))return;T.custom=T.custom.filter(x=>x.id!==d.delcustom);delete T.races[d.delcustom];save();render();closeSheet();return}
+});
+$("#raceQ").oninput=renderRaces;
+const addDriver=()=>{const n=$("#newDriver").value.trim();if(!n)return;T.drivers.push({id:uid(),name:n,coach:"",mechanic:"",phone:"",note:""});$("#newDriver").value="";save();render();toast(n+" added")};
+$("#addDriver").onclick=addDriver;$("#newDriver").onkeydown=e=>{if(e.key==="Enter")addDriver()};
+const addStaff=()=>{const n=$("#newStaff").value.trim();if(!n)return;T.staff.push({id:uid(),name:n,role:$("#newRole").value,phone:"",fee:0});$("#newStaff").value="";save();render();toast(n+" added")};
+$("#addStaff").onclick=addStaff;$("#newStaff").onkeydown=e=>{if(e.key==="Enter")addStaff()};
+$("#addRaceBtn").onclick=()=>customSheet();
+$("#dataBtn").onclick=dataSheet;
+$("#addBtn").onclick=()=>{if(tab==="drivers")driverSheet();else if(tab==="staff")staffSheet(null,"coach");else if(tab==="races")customSheet();
+  else openSheet(`<h2>Add</h2><div style="display:grid;gap:8px;margin-top:10px"><button class="btn" id="aD">Driver</button><button class="btn" id="aC">Coach</button><button class="btn" id="aM">Mechanic</button><button class="btn" id="aR">Race that isn't listed</button></div>`),
+  (()=>{const g=(s,f)=>{const b=$(s);if(b)b.onclick=f};g("#aD",()=>driverSheet());g("#aC",()=>staffSheet(null,"coach"));g("#aM",()=>staffSheet(null,"mechanic"));g("#aR",()=>customSheet())})()};
+
+/* ---------- install ---------- */
+const IS_APP=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+const IS_IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+let instEv=null;
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e});
+async function doInstall(){if(!instEv)return;const e=instEv;instEv=null;e.prompt();try{const r=await e.userChoice;gc("install-"+r.outcome)}catch(x){}closeSheet()}
+if(!IS_APP){const ib=$("#instBar");ib.hidden=false;ib.onclick=()=>{if(instEv)doInstall();else dataSheet()}}
+if(IS_APP)setTimeout(()=>gc("open-as-app","Team manager opened from home screen"),3000);
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))addEventListener("load",()=>navigator.serviceWorker.register("../sw.js").catch(()=>{}));
+
+/* ---------- start ---------- */
+async function loadRaces(){try{const r=await fetch("../data/races.json",{cache:"no-cache"});if(!r.ok)return;const d=await r.json();
+  MASTER={series:d.series||[],events:d.events||[]};try{localStorage.setItem(LSR,JSON.stringify(MASTER))}catch(e){}
+  for(const [id,R] of Object.entries(T.races))if(R.entered&&raceById(id))prefillSnap(id);save();render()}catch(e){}}
+load();render();loadRaces();
+setInterval(()=>{const n=new Date();if(n.getHours()===0&&n.getMinutes()===0)location.reload()},60000);
+</script>
+</body>
+</html>
