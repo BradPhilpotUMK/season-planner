@@ -114,7 +114,7 @@ label.f{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
 .rc.past{opacity:.45;filter:grayscale(.85)}
 .rc.past .pill.warn{display:none}
 .day.past .dn{opacity:.4;font-weight:500}.day.past .dots i{filter:grayscale(1);opacity:.35}
-.rc.in{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:inset 3px 0 0 var(--accent)}
+.rc.in{border-color:color-mix(in srgb,var(--tc,var(--accent)) 55%,var(--line));box-shadow:inset 4px 0 0 var(--tc,var(--accent))}
 .rc .dt{flex:none;width:52px;text-align:center}
 .rc .dt b{display:block;font-family:var(--display);font-size:20px;line-height:1.05}
 .rc .dt span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
@@ -172,6 +172,22 @@ label.f{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
 .fee{display:flex;align-items:center;gap:4px;width:92px;flex:none}
 .fee span{color:var(--muted)}
 .fee input{padding:7px 8px;font-size:15px;text-align:right}
+.tpill{background:color-mix(in srgb,var(--tc) 16%,var(--surface2));border-color:color-mix(in srgb,var(--tc) 55%,var(--line));color:var(--text)}
+.tpill.empty{opacity:.85}
+.tblk{border-left:4px solid var(--tc);padding-left:12px;margin:18px 0 6px;border-radius:2px}
+.tblk .th{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+.tblk .th .tn{color:var(--text)}
+.tblk .th .tc{font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted);flex:1}
+.feecard{padding:10px 12px;margin:2px 0 8px}
+.feecard .fh{display:flex;align-items:center;gap:8px;padding-bottom:8px}
+.feecard .fh b{flex:1;font-weight:600}
+.feecard .fr{display:flex;align-items:center;gap:6px;padding:8px 0;border-top:1px solid var(--line)}
+.feecard .fr .wh{flex:1;min-width:0;font-size:14.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feecard .fr .fee{width:84px}
+.feecard .fr.isfree .wh{color:var(--muted)}
+.freetag{width:84px;text-align:center;font-size:13px;color:var(--muted)}
+.tick.sm{padding:4px 9px 4px 6px;font-size:12.5px}
+.feecard .fsum{font-size:13px;color:var(--muted);padding-top:8px;border-top:1px solid var(--line)}
 .book{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
 
 /* sheet */
@@ -239,6 +255,7 @@ nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-
 
   <section class="panel" id="p-pay">
     <div class="tot" id="payTot"></div>
+    <div class="seg" id="payKind"><button class="on" data-pk="staff">Paying staff</button><button data-pk="drivers">Driver entry fees</button></div>
     <div class="seg" id="paySeg"><button class="on" data-pf="due">Not paid</button><button data-pf="all">All</button></div>
     <div id="payList"></div>
   </section>
@@ -271,12 +288,12 @@ const TODAY=(()=>{const n=new Date();return Math.floor(Date.UTC(n.getFullYear(),
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 const DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-const COLORS=["#E040C8","#3BD16F","#4C8DFF","#F5A623","#16C5D9","#F5C542","#B36BFF","#FF6B6B","#9BD13B","#FF8FD8"];
+const COLORS=["#E040C8","#3BD16F","#4C8DFF","#F5A623","#16C5D9","#F5C542","#B36BFF","#FF6B6B","#9BD13B","#FF8FD8","#E3342F","#F1F0EC"];
 const money=n=>"£"+(Math.round((+n||0)*100)/100).toLocaleString("en-GB",{minimumFractionDigits:(+n%1)?2:0,maximumFractionDigits:2});
 
 let T={teams:[],drivers:[],staff:[],races:{},custom:[]};
 let MASTER={series:[],events:[]};
-let tab="cal", raceFilter="up", payFilter="due", monthOff=0;
+let tab="cal", raceFilter="up", payFilter="due", payKind="staff", monthOff=0;
 
 function load(){try{const r=localStorage.getItem(LS);if(r)T=normal(JSON.parse(r))}catch(e){}
   try{const r=localStorage.getItem(LSR);if(r)MASTER=JSON.parse(r)}catch(e){}}
@@ -323,7 +340,7 @@ function okUrl(u){try{const x=new URL(u);return x.protocol==="https:"?x.href:""}
 /* ---------- people helpers ---------- */
 const person=id=>T.staff.find(s=>s.id===id);
 const driver=id=>T.drivers.find(d=>d.id===id);
-function av(p,i){const c=COLORS[(i??T.drivers.concat(T.staff).findIndex(x=>x.id===p.id))%COLORS.length];return `<span class="av" style="--c:${p.color||c}">${esc(initials(p.name))}</span>`}
+function av(p,i){const c=COLORS[Math.max(0,i??T.drivers.concat(T.staff).findIndex(x=>x.id===p.id))%COLORS.length];const tc=p.team&&team(p.team)?.color;return `<span class="av" style="--c:${p.color||tc||c}">${esc(initials(p.name))}</span>`}
 /* staff on duty at a race (unique), with fee and paid */
 function staffAt(id){const r=T.races[id];if(!r||!r.entered)return [];
   const ids=[];for(const e of r.entries){for(const k of ["coach","mechanic"])if(e[k]&&!ids.includes(e[k])&&person(e[k]))ids.push(e[k])}
@@ -333,13 +350,14 @@ function allDuties(){const out=[];for(const r of allRaces()){if(!entered(r.id))c
 /* ---------- render ---------- */
 function render(){renderCal();renderRaces();renderDrivers();renderStaff();renderPay()}
 function teamPills(R){return R.teams.map(team).filter(Boolean).map(tm=>{const ds=R.entries.filter(e=>e.team===tm.id).map(e=>driver(e.driver)?.name).filter(Boolean);
-  return `<span class="pill d${ds.length?"":" warn"}">${teamDot(tm)}${esc(tm.name)}${ds.length?" · "+esc(ds.join(", ")):" · no drivers yet"}</span>`}).join("")}
+  return `<span class="pill d tpill${ds.length?"":" empty"}" style="--tc:${esc(tm.color)}">${teamDot(tm)}${esc(tm.name)}${ds.length?" · "+esc(ds.join(", ")):" · no drivers yet"}</span>`}).join("")}
 function raceCard(r){
   const R=T.races[r.id],inn=R?.entered,dl=dateLabel(r);
   let people="";
-  if(inn){people=`<div class="people">${teamPills(R)}${(()=>{const due=staffAt(r.id).filter(x=>!x.paid).length;return due?`<span class="pill warn">${due} to pay</span>`:staffAt(r.id).length?`<span class="pill ok">Staff paid</span>`:""})()}</div>`}
+  if(inn){people=`<div class="people">${teamPills(R)}${(()=>{const due=staffAt(r.id).filter(x=>!x.paid).length;const owed=R.entries.filter(e=>!e.free&&+e.share>0&&!e.paidIn).length;return (due?`<span class="pill warn">${due} to pay</span>`:staffAt(r.id).length?`<span class="pill ok">Staff paid</span>`:"")+(owed?`<span class="pill warn">${owed} entry fee${owed>1?"s":""} owed</span>`:"")})()}</div>`}
   const s=series(r.seriesId);
-  return `<button class="rc${inn?" in":""}${isPast(r)?" past":""}" data-race="${esc(r.id)}"><span class="dt"><b>${esc(dl.big)}</b><span>${esc(dl.small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${esc([r.location,s&&s.name!==r.location?s.name:""].filter(Boolean).join(" · "))}</small>${people}</span>${badge(r)}</button>`}
+  const tcol=inn?(team(R.teams[0])?.color||"var(--accent)"):"";
+  return `<button class="rc${inn?" in":""}${isPast(r)?" past":""}" data-race="${esc(r.id)}"${tcol?` style="--tc:${esc(tcol)}"`:""}><span class="dt"><b>${esc(dl.big)}</b><span>${esc(dl.small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${esc([r.location,s&&s.name!==r.location?s.name:""].filter(Boolean).join(" · "))}</small>${people}</span>${badge(r)}</button>`}
 
 function renderCal(){
   const races=allRaces(),up=races.filter(r=>!isPast(r)&&entered(r.id));
@@ -378,7 +396,7 @@ function renderRaces(){
 }
 function driverRaces(id,upOnly=true){return allRaces().filter(r=>entered(r.id)&&(!upOnly||!isPast(r))&&T.races[r.id].entries.some(e=>e.driver===id))}
 function renderDrivers(){
-  $("#teamList").innerHTML=`<h2 class="sect">Teams <span>${T.teams.length||""}</span></h2><div class="row" style="margin-bottom:6px">${T.teams.map(tm=>`<button class="pill" data-team="${tm.id}" style="padding:7px 12px;font-size:14px">${teamDot(tm)}${esc(tm.name)}</button>`).join("")}<button class="btn sm" data-team="">+ Add team</button></div>${T.teams.length?"":`<p class="hint" style="margin-top:6px">Run several teams, like KBR 1 and KBR 2? Add each one here.</p>`}<h2 class="sect">Drivers <span>${T.drivers.length||""}</span></h2>`;
+  $("#teamList").innerHTML=`<h2 class="sect">Teams <span>${T.teams.length||""}</span></h2><div class="row" style="margin-bottom:6px">${T.teams.map(tm=>`<button class="pill tpill" data-team="${tm.id}" style="--tc:${esc(tm.color)};padding:7px 12px;font-size:14px">${teamDot(tm)}${esc(tm.name)}<span style="opacity:.6;margin-left:4px">✎</span></button>`).join("")}<button class="btn sm" data-team="">+ Add team</button></div>${T.teams.length?"":`<p class="hint" style="margin-top:6px">Run several teams, like KBR 1 and KBR 2? Add each one here.</p>`}<h2 class="sect">Drivers <span>${T.drivers.length||""}</span></h2>`;
   $("#driverList").innerHTML=T.drivers.length?T.drivers.map((d,i)=>{const rs=driverRaces(d.id),c=person(d.coach),mk=person(d.mechanic);
     return `<button class="pc" data-driver="${d.id}">${av(d,i)}<span class="wh"><b>${esc(d.name)}</b><small>${[team(d.team)?esc(team(d.team).name):"",c?"Coach: "+esc(c.name):"",mk?"Mechanic: "+esc(mk.name):""].filter(Boolean).join(" · ")||"No usual team, coach or mechanic"}</small>${rs.length?`<span class="mini">${rs.slice(0,3).map(r=>`<span><em>${esc(shortDate(r))}</em>${esc(r.title)}</span>`).join("")}${rs.length>3?`<span><em>+${rs.length-3} more</em></span>`:""}</span>`:`<span class="mini"><span><em>No races yet</em></span></span>`}</span><span class="ar">›</span></button>`}).join("")
     :`<p class="none">No drivers yet. Add your first one above.</p>`;
@@ -391,9 +409,11 @@ function renderStaff(){
   $("#staffList").innerHTML=sec("coach","Coaches")+sec("mechanic","Mechanics");
 }
 function renderPay(){
+  const dd=driverDues().filter(x=>!x.free),ddue=dd.filter(x=>!x.paid);
   const du=allDuties(),due=du.filter(x=>!x.paid),paid=du.filter(x=>x.paid);
+  {const b=$("#payBadge"),n=due.length+ddue.length;b.hidden=!n;b.textContent=n}
+  if(payKind==="drivers")return renderDriverFees();
   $("#payTot").innerHTML=`<div class="due"><b>${money(due.reduce((a,x)=>a+x.fee,0))}</b><span>${due.length} payment${due.length===1?"":"s"} still to make</span></div><div class="done"><b>${money(paid.reduce((a,x)=>a+x.fee,0))}</b><span>paid so far</span></div>`;
-  const b=$("#payBadge");b.hidden=!due.length;b.textContent=due.length;
   const list=payFilter==="due"?due:du;
   const by={};for(const x of list)(by[x.sid]=by[x.sid]||[]).push(x);
   $("#payList").innerHTML=Object.keys(by).length?Object.entries(by).map(([sid,L])=>{const p=person(sid),owe=L.filter(x=>!x.paid);
@@ -403,8 +423,19 @@ function renderPay(){
     :`<p class="none">${payFilter==="due"?(du.length?"Everyone's been paid.":"Nothing to pay yet. Payments appear here when you put coaches or mechanics with drivers at a race."):"No payments yet."}</p>`;
 }
 
+function renderDriverFees(){
+  const all=driverDues(),L=all.filter(x=>!x.free),due=L.filter(x=>!x.paid),got=L.filter(x=>x.paid);
+  $("#payTot").innerHTML=`<div class="due"><b>${money(due.reduce((a,x)=>a+x.amt,0))}</b><span>${due.length} driver payment${due.length===1?"":"s"} still owed</span></div><div class="done"><b>${money(got.reduce((a,x)=>a+x.amt,0))}</b><span>collected so far</span></div>`;
+  const list=payFilter==="due"?due:all;
+  const by={};for(const x of list)(by[x.d.id]=by[x.d.id]||[]).push(x);
+  $("#payList").innerHTML=Object.keys(by).length?Object.entries(by).map(([did,R])=>{const d=driver(did),owe=R.filter(x=>!x.paid&&!x.free);
+    return `<div class="pay"><div class="ph">${av(d)}<span class="wh"><b>${esc(d.name)}</b><small>${owe.length?money(owe.reduce((a,x)=>a+x.amt,0))+" owed":"all paid"}</small></span></div>
+      ${R.map(x=>`<div class="pr"><span class="wh"><b>${esc(x.race.title)}</b><small>${esc(shortDate(x.race))}${x.tm&&T.teams.length>1?" · "+esc(x.tm.name):""}</small></span>${x.free?`<span class="amt" style="color:var(--muted)">Free</span>`:`<span class="amt">${money(x.amt)}</span><button class="tick paid${x.paid?" on":""}" data-dpaid="${esc(x.race.id)}|${did}"><i>${x.paid?"✓":""}</i>Paid</button>`}</div>`).join("")}</div>`}).join("")
+    :`<p class="none">${payFilter==="due"?(all.length?"Every driver has paid.":"No entry fees yet. Open a race, enter the entry cost for a team and tap Split evenly."):"No entry fees yet."}</p>`;
+}
+
 /* ---------- sheets ---------- */
-function openSheet(html){$("#sheetBody").innerHTML=html;$("#scrim").classList.add("on");$("#sheet").classList.add("on");$("#sheet").scrollTop=0}
+function openSheet(html){const sh=$("#sheet"),keep=sh.classList.contains("on")&&sh.dataset.k===String(html.slice(0,120));const top=sh.scrollTop;$("#sheetBody").innerHTML=html;$("#scrim").classList.add("on");sh.classList.add("on");sh.dataset.k=String(html.slice(0,120));sh.scrollTop=keep?top:0}
 function closeSheet(){$("#scrim").classList.remove("on");$("#sheet").classList.remove("on")}
 $("#scrim").onclick=closeSheet;
 
@@ -422,12 +453,16 @@ function raceSheet(id){
       const mine=R.entries.filter(e=>e.team===tid);
       const usual=T.drivers.filter(d=>d.team===tid&&!racingIds.includes(d.id));
       const others=T.drivers.filter(d=>!racingIds.includes(d.id)&&d.team!==tid);
-      body+=`<h3 style="display:flex;align-items:center;gap:8px">${teamDot(tm)}${esc(tm.name)} <span style="font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted)">${mine.length} driver${mine.length===1?"":"s"}</span></h3>`;
+      body+=`<div class="tblk" style="--tc:${esc(tm.color)}"><h3 class="th">${teamDot(tm)}<span class="tn">${esc(tm.name)}</span><span class="tc">${mine.length} driver${mine.length===1?"":"s"}</span><button class="btn sm ghost" data-editteam="${tid}|${esc(id)}" aria-label="Edit ${esc(tm.name)}">Edit</button></h3>`;
       body+=mine.map(e=>{const d=driver(e.driver);if(!d)return "";
         return `<div class="alloc"><div class="ah">${av(d)}<b>${esc(d.name)}</b><button class="tick on" data-racing="${esc(id)}|${d.id}|${tid}"><i>✓</i>Racing</button></div><div class="ab"><div><label>Coach</label><select data-alloc="${esc(id)}|${d.id}|coach">${opt(coaches,e.coach,"coach")}</select></div><div><label>Mechanic</label><select data-alloc="${esc(id)}|${d.id}|mechanic">${opt(mechs,e.mechanic,"mechanic")}</select></div></div></div>`}).join("");
       body+=usual.map(d=>`<div class="alloc" style="opacity:.75"><div class="ah">${av(d)}<b>${esc(d.name)}</b><button class="tick" data-racing="${esc(id)}|${d.id}|${tid}"><i></i>Racing</button></div></div>`).join("");
       if(others.length)body+=`<select data-adddrv="${esc(id)}|${tid}" style="margin:2px 0 6px"><option value="">+ Add ${T.drivers.length?"another":"a"} driver to ${esc(tm.name)}…</option>${others.map(d=>`<option value="${d.id}">${esc(d.name)}${d.team&&team(d.team)?" ("+esc(team(d.team).name)+")":""}</option>`).join("")}</select>`;
-      body+=`<div class="add" style="margin:4px 0 10px"><input type="text" placeholder="New driver for ${esc(tm.name)}" autocomplete="off" enterkeyhint="done" data-newdrv="${esc(id)}|${tid}"><button class="btn primary sm" data-newdrvgo="${esc(id)}|${tid}">Add</button></div>`;
+      if(mine.length){const f=feeOf(id,tid),got=mine.filter(e=>e.paidIn&&!e.free).reduce((a,e)=>a+(+e.share||0),0),tot=mine.filter(e=>!e.free).reduce((a,e)=>a+(+e.share||0),0);
+        body+=`<div class="card feecard"><div class="fh"><b>Entry fee</b><label class="fee" style="width:110px"><span>£</span><input type="number" inputmode="decimal" min="0" step="10" placeholder="Total" value="${f.cost===""||f.cost==null?"":f.cost}" data-cost="${esc(id)}|${tid}" aria-label="Total entry cost for ${esc(tm.name)}"></label><button class="btn sm" data-split="${esc(id)}|${tid}">Split evenly</button></div>
+          ${mine.map(e=>{const d=driver(e.driver);if(!d)return "";return `<div class="fr${e.free?" isfree":""}"><span class="wh">${esc(d.name)}</span>${e.free?`<span class="freetag">Free</span>`:`<label class="fee"><span>£</span><input type="number" inputmode="decimal" min="0" step="5" value="${+e.share?e.share:""}" placeholder="0" data-share="${esc(id)}|${d.id}" aria-label="${esc(d.name)}'s share"></label>`}<button class="tick sm${e.free?" on":""}" style="--c:#6b7280" data-free="${esc(id)}|${d.id}"><i>${e.free?"✓":""}</i>Free</button>${e.free?"":`<button class="tick sm paid${e.paidIn?" on":""}" data-dpaid="${esc(id)}|${d.id}"><i>${e.paidIn?"✓":""}</i>Paid</button>`}</div>`}).join("")}
+          <div class="fsum">${tot?`${money(got)} of ${money(tot)} collected${+f.cost&&Math.abs(tot-(+f.cost))>0.009?` · <span style="color:var(--gold)">shares add up to ${money(tot)}, entry is ${money(+f.cost)}</span>`:""}`:"Enter the total and tap Split evenly, or type each driver's share."}</div></div>`}
+      body+=`<div class="add" style="margin:4px 0 10px"><input type="text" placeholder="New driver for ${esc(tm.name)}" autocomplete="off" enterkeyhint="done" data-newdrv="${esc(id)}|${tid}"><button class="btn primary sm" data-newdrvgo="${esc(id)}|${tid}">Add</button></div></div>`;
     }
     const st=staffAt(id);
     body+=`<h3>Staff payments for this race</h3>`+(st.length?`<div class="card" style="padding:4px 12px">${st.map(x=>`<div class="staffpay">${av(x.p)}<span class="wh"><b>${esc(x.p.name)}</b><small>${x.p.role==="coach"?"Coach":"Mechanic"}</small></span><label class="fee"><span>£</span><input type="number" inputmode="decimal" min="0" step="5" value="${x.fee||""}" placeholder="0" data-fee="${esc(id)}|${x.sid}" aria-label="Fee for ${esc(x.p.name)}"></label><button class="tick paid${x.paid?" on":""}" data-paid="${esc(id)}|${x.sid}"><i>${x.paid?"✓":""}</i>Paid</button></div>`).join("")}</div>`:`<p class="none">Pick a coach or mechanic for a driver and they'll show up here to pay.</p>`);
@@ -442,20 +477,38 @@ function raceSheet(id){
     let v=sel.value||"";
     if(v==="__new"){const n=(prompt(`New ${k}'s name`)||"").trim();if(!n){raceSheet(rid);return}const p={id:uid(),name:n,role:k,phone:"",fee:0};T.staff.push(p);v=p.id;toast(n+" added to Staff")}
     e[k]=v;save();render();raceSheet(rid)});
+  document.querySelectorAll("[data-cost]").forEach(inp=>{inp.oninput=()=>{const [rid,tid]=inp.dataset.cost.split("|");feeOf(rid,tid).cost=inp.value===""?"":+inp.value;save()};
+    inp.onchange=()=>{const [rid,tid]=inp.dataset.cost.split("|");resplit(rid,tid);save();render();raceSheet(rid)}});
+  document.querySelectorAll("[data-share]").forEach(inp=>{inp.oninput=()=>{const [rid,did]=inp.dataset.share.split("|"),e=rec(rid).entries.find(x=>x.driver===did);if(!e)return;e.share=inp.value===""?0:+inp.value;feeOf(rid,e.team).auto=false;save();render()};
+    inp.onchange=()=>{const [rid]=inp.dataset.share.split("|");const sc=$("#sheet").scrollTop;raceSheet(rid);$("#sheet").scrollTop=sc}});
   const addNew=(inp)=>{const n=inp.value.trim();if(!n)return;const [rid,tid]=inp.dataset.newdrv.split("|");const d={id:uid(),name:n,team:tid,coach:"",mechanic:"",phone:"",note:""};T.drivers.push(d);addEntry(rid,d.id,tid);save();render();raceSheet(rid);toast(n+" added")};
   document.querySelectorAll("[data-newdrv]").forEach(inp=>inp.onkeydown=ev=>{if(ev.key==="Enter")addNew(inp)});
   document.querySelectorAll("[data-newdrvgo]").forEach(b=>b.onclick=()=>addNew(document.querySelector(`[data-newdrv="${b.dataset.newdrvgo}"]`)));
 }
+/* ---------- driver entry fees ----------
+   Each team in a race can have an entry cost. Split evenly divides it between that team's drivers who aren't racing for free;
+   the manager can then change any driver's share by hand. */
+function feeOf(rid,tid){const R=rec(rid);R.fees=R.fees||{};return R.fees[tid]||(R.fees[tid]={cost:"",auto:false})}
+function splitFees(rid,tid){const R=rec(rid),f=feeOf(rid,tid),L=R.entries.filter(e=>e.team===tid),pay=L.filter(e=>!e.free),cost=Math.round((+f.cost||0)*100);
+  L.forEach(e=>{if(e.free)e.share=0});if(!pay.length)return;
+  const each=Math.floor(cost/pay.length),rem=cost-each*pay.length;pay.forEach((e,i)=>e.share=(each+(i<rem?1:0))/100);f.auto=true}
+function resplit(rid,tid){const f=rec(rid).fees?.[tid];if(f&&f.auto)splitFees(rid,tid)}
+function driverDues(){const out=[];for(const r of allRaces()){if(!entered(r.id))continue;const R=T.races[r.id];
+  for(const e of R.entries){const d=driver(e.driver);if(!d)continue;if(!e.free&&!(+e.share>0))continue;out.push({race:r,e,d,tm:team(e.team),amt:e.free?0:+e.share,paid:!!e.paidIn,free:!!e.free})}}return out}
 function addEntry(rid,did,tid){const R=rec(rid);R.entries=R.entries.filter(e=>e.driver!==did);const dr=driver(did);
-  R.entries.push({driver:did,team:tid,coach:person(dr?.coach)?dr.coach:"",mechanic:person(dr?.mechanic)?dr.mechanic:""})}
+  R.entries.push({driver:did,team:tid,coach:person(dr?.coach)?dr.coach:"",mechanic:person(dr?.mechanic)?dr.mechanic:"",share:0,free:false,paidIn:false});resplit(rid,tid)}
 function teamSheet(id,thenRace){
   const tm=id?team(id):null;
   openSheet(`<h2>${tm?esc(tm.name):"New team"}</h2><p class="sub">Run more than one team? Add each one, like KBR 1 and KBR 2, and enter whichever teams are racing at each event.</p>
     <label class="f">Team name</label><input type="text" id="tName" value="${esc(tm?.name||"")}" placeholder="e.g. KBR 1" autocomplete="off" enterkeyhint="done">
-    <label class="f">Colour</label><div class="row" id="tCols">${COLORS.map(c=>`<button type="button" data-col="${c}" aria-label="Colour" style="width:30px;height:30px;border-radius:50%;border:2px solid ${c===(tm?.color||COLORS[T.teams.length%COLORS.length])?"#fff":"transparent"};background:${c};padding:0"></button>`).join("")}</div>
+    <label class="f">Colour highlight</label><div class="row" id="tCols">${COLORS.map(c=>`<button type="button" data-col="${c}" aria-label="Colour ${c}" style="width:32px;height:32px;border-radius:50%;border:3px solid ${c===(tm?.color||COLORS[T.teams.length%COLORS.length])?"#fff":"transparent"};box-shadow:0 0 0 1px var(--line);background:${c};padding:0"></button>`).join("")}<label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)"><input type="color" id="tCustom" value="${esc(tm?.color||"#E040C8")}" style="width:34px;height:34px;border:none;background:none;padding:0">Any colour</label></div>
+    <div id="tPrev" style="margin-top:14px"></div>
     <div class="row" style="margin-top:14px"><button class="btn primary" id="tSave">${tm?"Save":"Add team"}</button>${tm?`<button class="btn danger" id="tDel">Delete team</button>`:""}</div>`);
   let col=tm?.color||COLORS[T.teams.length%COLORS.length];
-  document.querySelectorAll("#tCols [data-col]").forEach(b=>b.onclick=()=>{col=b.dataset.col;document.querySelectorAll("#tCols [data-col]").forEach(x=>x.style.borderColor=x===b?"#fff":"transparent")});
+  const prev=()=>{$("#tPrev").innerHTML=`<span class="pill d tpill" style="--tc:${esc(col)}">${teamDot({color:col})}${esc($("#tName").value.trim()||"Team name")} · preview</span>`};
+  document.querySelectorAll("#tCols [data-col]").forEach(b=>b.onclick=()=>{col=b.dataset.col;document.querySelectorAll("#tCols [data-col]").forEach(x=>x.style.borderColor=x===b?"#fff":"transparent");prev()});
+  $("#tCustom").oninput=e=>{col=e.target.value;document.querySelectorAll("#tCols [data-col]").forEach(x=>x.style.borderColor="transparent");prev()};
+  $("#tName").addEventListener("input",prev);prev();
   const go=()=>{const name=$("#tName").value.trim();if(!name){toast("Add a team name");return}
     const x=tm||{id:uid()};Object.assign(x,{name,color:col});if(!tm)T.teams.push(x);
     if(!tm&&thenRace){const R=rec(thenRace);if(!R.teams.includes(x.id))R.teams.push(x.id);R.entered=true;prefillSnap(thenRace)}
@@ -540,7 +593,7 @@ $("#restoreIn").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="
 function setTab(t){tab=t;document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+t));
   document.querySelectorAll("nav.tabs [data-tab]").forEach(b=>b.classList.toggle("on",b.dataset.tab===t));$("#scroller").scrollTop=0}
 document.addEventListener("click",ev=>{
-  const t=ev.target.closest("[data-tab],[data-race],[data-driver],[data-staff],[data-mo],[data-day],[data-rf],[data-pf],[data-teamin],[data-newteam],[data-team],[data-racing],[data-paid],[data-payall],[data-editcustom],[data-delcustom]");if(!t)return;
+  const t=ev.target.closest("[data-tab],[data-race],[data-driver],[data-staff],[data-mo],[data-day],[data-rf],[data-pf],[data-teamin],[data-newteam],[data-editteam],[data-team],[data-racing],[data-split],[data-free],[data-dpaid],[data-pk],[data-paid],[data-payall],[data-editcustom],[data-delcustom]");if(!t)return;
   const d=t.dataset;
   if(d.tab){closeSheet();setTab(d.tab);return}
   if(d.race){raceSheet(d.race);return}
@@ -555,10 +608,16 @@ document.addEventListener("click",ev=>{
     else{R.teams.push(tid);prefillSnap(id);gc("enter","Entered a race");for(const dr of T.drivers)if(dr.team===tid&&!R.entries.some(e=>e.driver===dr.id))addEntry(id,dr.id,tid)}
     R.entered=R.teams.length>0;save();render();raceSheet(id);return}
   if(d.newteam!==undefined){teamSheet(null,d.newteam||null);return}
+  if(d.editteam){const [tid,rid]=d.editteam.split("|");teamSheet(tid,rid);return}
   if(d.team!==undefined){teamSheet(d.team||null);return}
   if(d.racing){const [rid,did,tid]=d.racing.split("|"),R=rec(rid),i=R.entries.findIndex(e=>e.driver===did&&e.team===tid);
-    if(i>=0)R.entries.splice(i,1);else addEntry(rid,did,tid)
+    if(i>=0){R.entries.splice(i,1);resplit(rid,tid)}else addEntry(rid,did,tid)
     save();render();raceSheet(rid);return}
+  if(d.split){const [rid,tid]=d.split.split("|"),f=feeOf(rid,tid);if(!(+f.cost>0)){toast("Enter the entry cost first");return}splitFees(rid,tid);save();render();raceSheet(rid);toast("Split evenly");return}
+  if(d.free){const [rid,did]=d.free.split("|"),e=rec(rid).entries.find(x=>x.driver===did);if(!e)return;e.free=!e.free;if(e.free){e.share=0;e.paidIn=false}resplit(rid,e.team);save();render();raceSheet(rid);return}
+  if(d.dpaid){const [rid,did]=d.dpaid.split("|"),e=rec(rid).entries.find(x=>x.driver===did);if(!e)return;e.paidIn=!e.paidIn;save();render();
+    if(t.closest("#sheet"))raceSheet(rid);else{t.classList.toggle("on",e.paidIn);t.querySelector("i").textContent=e.paidIn?"✓":""}if(e.paidIn)toast("Marked as paid");return}
+  if(d.pk){payKind=d.pk;document.querySelectorAll("#payKind button").forEach(b=>b.classList.toggle("on",b===t));renderPay();return}
   if(d.paid){const [rid,sid]=d.paid.split("|"),R=rec(rid),p=R.pay[sid]=R.pay[sid]||{};p.paid=!p.paid;if(p.paid&&(p.fee==null||p.fee===""))p.fee=+(person(sid)?.fee||0);save();render();
     t.classList.toggle("on",p.paid);t.querySelector("i").textContent=p.paid?"✓":"";if(p.paid)toast("Marked as paid");return}
   if(d.payall){for(const x of allDuties().filter(x=>x.sid===d.payall&&!x.paid)){const p=rec(x.race.id).pay[x.sid]=rec(x.race.id).pay[x.sid]||{};p.paid=true;if(p.fee==null||p.fee==="")p.fee=x.fee}save();render();toast("All marked as paid");return}
