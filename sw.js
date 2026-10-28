@@ -1,7 +1,7 @@
 /* Season Planner offline support.
    Pages and race data: try the network first (so updates show straight away), fall back to the saved copy when offline.
    Logos, icons and fonts: use the saved copy, refresh it in the background. */
-const CACHE = "umk-planner-v2";
+const CACHE = "umk-planner-v3";
 const CORE = [
   "./", "index.html", "manifest.webmanifest", "version.json",
   "data/races.json", "data/brad.json",
@@ -33,6 +33,19 @@ function fresh(req, key) {
   });
 }
 
+function page(req, key) {
+  /* pages open instantly from the saved copy (so the opening animation plays straight away, even on poor signal);
+     the newest version is fetched in the background and used next time. First visit: straight from the network. */
+  return caches.match(key, {ignoreSearch: true}).then(hit => {
+    const net = fetch(req.url, {cache: "no-store", credentials: "same-origin"}).then(res => {
+      if (res && res.redirected) res = new Response(res.body, {status: res.status, statusText: res.statusText, headers: res.headers});
+      if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(key, copy)); }
+      return res;
+    }).catch(() => hit || Response.error());
+    return hit || net;
+  });
+}
+
 function saved(req) {
   /* saved copy straight away, refreshed in the background */
   return caches.match(req).then(hit => {
@@ -55,7 +68,7 @@ self.addEventListener("fetch", e => {
     const isPage = req.mode === "navigate" || p === "" || p.endsWith("/") || p.endsWith("index.html");
     if (isPage) {
       const key = p === "" || p.endsWith("/") ? p + "index.html" : (/\.[a-z0-9]+$/i.test(p) ? p : p + "/index.html");
-      e.respondWith(fresh(req, key)); return;
+      e.respondWith(page(req, key)); return;
     }
     if (p === "version.json" || p.startsWith("data/")) { e.respondWith(fresh(req, url.pathname.slice(1))); return; }
     e.respondWith(saved(req));

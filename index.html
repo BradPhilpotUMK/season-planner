@@ -612,10 +612,14 @@ function setRegion(c){if(!REGIONS[c]||c===REGION.code)return;try{localStorage.se
 const LS=REGION.ls;
 const SUGGEST=REGION.suggest;
 const WEB=true;
-const BUILD="1793216073";
+const BUILD="1793224297";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
-  if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
+  /* a newer version is out: swap to it quietly the next time the app goes into the background,
+     so opening the app is never interrupted by a reload (the saved copy already has the new version for next time) */
+  if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){
+    const go=()=>{if(document.visibilityState==="hidden")location.replace(location.pathname+"?v"+v)};
+    document.addEventListener("visibilitychange",go)}}catch(e){}})();
 const LOGO=document.getElementById("umkLogo").src;
 const BRAND=document.getElementById("umkStack").src;
 
