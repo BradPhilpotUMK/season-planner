@@ -178,6 +178,18 @@ label.f{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
 .tblk .th{display:flex;align-items:center;gap:8px;margin:0 0 8px}
 .tblk .th .tn{color:var(--text)}
 .tblk .th .tc{font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted);flex:1}
+.tcard{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc);border-radius:14px;padding:12px 14px;margin-bottom:12px}
+.tch{display:flex;align-items:center;gap:8px}
+.tch b{flex:1;font-family:var(--display);font-size:19px}
+.tch i{width:12px!important;height:12px!important}
+.tcm{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:2px 0 4px}
+.tcd{font-size:13.5px;margin-bottom:6px}
+.tr{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--line);padding:9px 0}
+.tr .dt{width:46px;flex:none;text-align:center}.tr .dt b{display:block;font-family:var(--display);font-size:17px;line-height:1.05}.tr .dt span{font-size:11px;color:var(--muted);text-transform:uppercase}
+.tr .wh{flex:1;min-width:0}.tr .wh b{display:block;font-size:14.5px;font-weight:600}.tr .wh small{font-size:13px;color:var(--muted)}
+.tr .ar{color:var(--muted)}
+.tr.past{opacity:.5}
+.tpast summary{cursor:pointer;font-size:13px;color:var(--muted);padding:8px 0 4px;list-style:revert}
 .feecard{padding:10px 12px;margin:2px 0 8px}
 .feecard .fh{display:flex;align-items:center;gap:8px;padding-bottom:8px}
 .feecard .fh b{flex:1;font-weight:600}
@@ -203,8 +215,8 @@ label.f{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
 
 /* tabs */
 nav.tabs{position:relative;flex:none;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding:6px 8px max(18px,env(safe-area-inset-bottom,0px))}
-nav.tabs div{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
-nav.tabs button{background:none;border:none;min-height:62px;padding:8px 0;margin:0 2px;min-width:0;border-radius:14px;font-family:var(--display);font-size:10.5px;font-weight:600;color:var(--muted);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+nav.tabs div{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+nav.tabs button{background:none;border:none;min-height:62px;padding:8px 0;margin:0 1px;letter-spacing:-.02em;min-width:0;border-radius:14px;font-family:var(--display);font-size:10.5px;font-weight:600;color:var(--muted);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
 nav.tabs button svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 nav.tabs button.on{background:var(--surface2);color:var(--text)}
 nav.tabs button.on svg{stroke:var(--accent)}
@@ -240,6 +252,12 @@ nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-
     <button class="btn" id="addRaceBtn" style="margin-top:6px">+ Add a race that isn't listed</button>
   </section>
 
+  <section class="panel" id="p-teams">
+    <p class="hint">Your teams, their drivers and the races each one is entered in. Tap a race to change who's driving.</p>
+    <div id="teamsPanel"></div>
+    <button class="btn" data-team="" style="margin-top:6px">+ Add team</button>
+  </section>
+
   <section class="panel" id="p-drivers">
     <p class="hint">Your teams and drivers. Give each driver a usual team, coach and mechanic and they'll be filled in when you add them to a race.</p>
     <div id="teamList"></div>
@@ -266,6 +284,7 @@ nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-
 <nav class="tabs"><div>
   <button class="on" data-tab="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button>
   <button data-tab="races"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Races</button>
+  <button data-tab="teams"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6M10.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/></svg>Teams</button>
   <button data-tab="drivers"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M6 10h12M12 16v5M8 21h8"/></svg>Drivers</button>
   <button data-tab="staff"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>Staff</button>
   <button data-tab="pay"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>Payments<span class="badge" id="payBadge" hidden></span></button>
@@ -348,7 +367,7 @@ function staffAt(id){const r=T.races[id];if(!r||!r.entered)return [];
 function allDuties(){const out=[];for(const r of allRaces()){if(!entered(r.id))continue;for(const d of staffAt(r.id))out.push({race:r,...d})}return out}
 
 /* ---------- render ---------- */
-function render(){renderCal();renderRaces();renderDrivers();renderStaff();renderPay()}
+function render(){renderCal();renderRaces();renderTeams();renderDrivers();renderStaff();renderPay()}
 function teamPills(R){return R.teams.map(team).filter(Boolean).map(tm=>{const ds=R.entries.filter(e=>e.team===tm.id).map(e=>driver(e.driver)?.name).filter(Boolean);
   return `<span class="pill d tpill${ds.length?"":" empty"}" style="--tc:${esc(tm.color)}">${teamDot(tm)}${esc(tm.name)}${ds.length?" · "+esc(ds.join(", ")):" · no drivers yet"}</span>`}).join("")}
 function raceCard(r){
@@ -395,6 +414,21 @@ function renderRaces(){
   $("#raceList").innerHTML=html||`<p class="none">${raceFilter==="in"?"No races entered yet. Open Upcoming and tap a race to enter your team.":raceFilter==="past"?"No past team races yet.":(MASTER.events.length?"No races match.":"Loading races…")}</p>`;
 }
 function driverRaces(id,upOnly=true){return allRaces().filter(r=>entered(r.id)&&(!upOnly||!isPast(r))&&T.races[r.id].entries.some(e=>e.driver===id))}
+function renderTeams(){
+  const races=allRaces();
+  $("#teamsPanel").innerHTML=T.teams.length?T.teams.map(tm=>{
+    const mine=races.filter(r=>T.races[r.id]?.teams?.includes(tm.id)),up=mine.filter(r=>!isPast(r)),past=mine.filter(isPast);
+    const usual=T.drivers.filter(d=>d.team===tm.id).map(d=>d.name);
+    const owed=mine.reduce((a,r)=>a+T.races[r.id].entries.filter(e=>e.team===tm.id&&!e.free&&+e.share>0&&!e.paidIn).reduce((x,e)=>x+(+e.share),0),0);
+    const row=r=>{const ds=T.races[r.id].entries.filter(e=>e.team===tm.id).map(e=>driver(e.driver)?.name).filter(Boolean);
+      return `<button class="tr${isPast(r)?" past":""}" data-race="${esc(r.id)}"><span class="dt"><b>${esc(dateLabel(r).big)}</b><span>${esc(dateLabel(r).small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${ds.length?esc(ds.join(", ")):`<span style="color:var(--gold)">No drivers yet</span>`}</small></span><span class="ar">›</span></button>`};
+    return `<div class="tcard" style="--tc:${esc(tm.color)}"><div class="tch">${teamDot(tm)}<b>${esc(tm.name)}</b><button class="btn sm ghost" data-team="${tm.id}">Edit</button></div>
+      <div class="tcm"><span>${up.length} race${up.length===1?"":"s"} coming up</span>${past.length?`<span>${past.length} raced</span>`:""}${owed?`<span style="color:var(--gold)">${money(owed)} entry fees owed</span>`:""}</div>
+      <div class="tcd">${usual.length?"Drivers: "+esc(usual.join(", ")):`<span style="color:var(--muted)">No usual drivers. Set a driver's team in Drivers.</span>`}</div>
+      ${up.length?up.map(row).join(""):`<p class="none" style="padding:8px 0 2px">Not entered in any upcoming races. Open a race in Races and tick ${esc(tm.name)}.</p>`}
+      ${past.length?`<details class="tpast"><summary>Already raced (${past.length})</summary>${past.slice().reverse().map(row).join("")}</details>`:""}</div>`}).join("")
+    :`<p class="none">No teams yet. Add one, like KBR 1, then enter it in races.</p>`;
+}
 function renderDrivers(){
   $("#teamList").innerHTML=`<h2 class="sect">Teams <span>${T.teams.length||""}</span></h2><div class="row" style="margin-bottom:6px">${T.teams.map(tm=>`<button class="pill tpill" data-team="${tm.id}" style="--tc:${esc(tm.color)};padding:7px 12px;font-size:14px">${teamDot(tm)}${esc(tm.name)}<span style="opacity:.6;margin-left:4px">✎</span></button>`).join("")}<button class="btn sm" data-team="">+ Add team</button></div>${T.teams.length?"":`<p class="hint" style="margin-top:6px">Run several teams, like KBR 1 and KBR 2? Add each one here.</p>`}<h2 class="sect">Drivers <span>${T.drivers.length||""}</span></h2>`;
   $("#driverList").innerHTML=T.drivers.length?T.drivers.map((d,i)=>{const rs=driverRaces(d.id),c=person(d.coach),mk=person(d.mechanic);
@@ -631,7 +665,7 @@ const addStaff=()=>{const n=$("#newStaff").value.trim();if(!n)return;T.staff.pus
 $("#addStaff").onclick=addStaff;$("#newStaff").onkeydown=e=>{if(e.key==="Enter")addStaff()};
 $("#addRaceBtn").onclick=()=>customSheet();
 $("#dataBtn").onclick=dataSheet;
-$("#addBtn").onclick=()=>{if(tab==="drivers")driverSheet();else if(tab==="staff")staffSheet(null,"coach");else if(tab==="races")customSheet();
+$("#addBtn").onclick=()=>{if(tab==="teams")teamSheet();else if(tab==="drivers")driverSheet();else if(tab==="staff")staffSheet(null,"coach");else if(tab==="races")customSheet();
   else openSheet(`<h2>Add</h2><div style="display:grid;gap:8px;margin-top:10px"><button class="btn" id="aT">Team</button><button class="btn" id="aD">Driver</button><button class="btn" id="aC">Coach</button><button class="btn" id="aM">Mechanic</button><button class="btn" id="aR">Race that isn't listed</button></div>`),
   (()=>{const g=(s,f)=>{const b=$(s);if(b)b.onclick=f};g("#aT",()=>teamSheet());g("#aD",()=>driverSheet());g("#aC",()=>staffSheet(null,"coach"));g("#aM",()=>staffSheet(null,"mechanic"));g("#aR",()=>customSheet())})()};
 
