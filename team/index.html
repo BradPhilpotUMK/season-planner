@@ -108,6 +108,9 @@ label.f{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
 
 /* race cards */
 .rc{display:flex;gap:12px;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;margin-bottom:8px;align-items:flex-start;position:relative}
+.rc.past{opacity:.45;filter:grayscale(.85)}
+.rc.past .pill.warn{display:none}
+.day.past .dn{opacity:.4;font-weight:500}.day.past .dots i{filter:grayscale(1);opacity:.35}
 .rc.in{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:inset 3px 0 0 var(--accent)}
 .rc .dt{flex:none;width:52px;text-align:center}
 .rc .dt b{display:block;font-family:var(--display);font-size:20px;line-height:1.05}
@@ -323,7 +326,7 @@ function raceCard(r){
   if(inn){const ds=R.entries.map(e=>driver(e.driver)).filter(Boolean);
     people=`<div class="people">${ds.length?ds.map(d=>`<span class="pill d">${esc(d.name)}</span>`).join(""):`<span class="pill warn">No drivers yet</span>`}${(()=>{const due=staffAt(r.id).filter(x=>!x.paid).length;return due?`<span class="pill warn">${due} to pay</span>`:staffAt(r.id).length?`<span class="pill ok">Staff paid</span>`:""})()}</div>`}
   const s=series(r.seriesId);
-  return `<button class="rc${inn?" in":""}" data-race="${esc(r.id)}"><span class="dt"><b>${esc(dl.big)}</b><span>${esc(dl.small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${esc([r.location,s&&s.name!==r.location?s.name:""].filter(Boolean).join(" · "))}</small>${people}</span>${badge(r)}</button>`}
+  return `<button class="rc${inn?" in":""}${isPast(r)?" past":""}" data-race="${esc(r.id)}"><span class="dt"><b>${esc(dl.big)}</b><span>${esc(dl.small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${esc([r.location,s&&s.name!==r.location?s.name:""].filter(Boolean).join(" · "))}</small>${people}</span>${badge(r)}</button>`}
 
 function renderCal(){
   const races=allRaces(),up=races.filter(r=>!isPast(r)&&entered(r.id));
@@ -339,7 +342,7 @@ function renderCal(){
   const inMonth=races.filter(r=>{const a=dn(r.start),b=dn(r.end||r.start);return b>=first&&a<first+len});
   let cells="";for(let i=0;i<lead;i++)cells+=`<span class="day blank"></span>`;
   for(let d=1;d<=len;d++){const x=first+d-1,wd=(lead+d-1)%7,on=inMonth.filter(r=>dn(r.start)<=x&&dn(r.end||r.start)>=x);
-    cells+=`<button class="day${wd>=5?" we":""}${on.length?" has":""}${x===TODAY?" today":""}" data-day="${x}" ${on.length?"":"disabled"}><span class="dn">${d}</span><span class="dots">${on.slice(0,4).map(r=>`<i class="${entered(r.id)?"in":""}"></i>`).join("")}</span></button>`}
+    cells+=`<button class="day${wd>=5?" we":""}${on.length?" has":""}${x===TODAY?" today":""}${x<TODAY?" past":""}" data-day="${x}" ${on.length?"":"disabled"}><span class="dn">${d}</span><span class="dots">${on.slice(0,4).map(r=>`<i class="${entered(r.id)?"in":""}"></i>`).join("")}</span></button>`}
   $("#monthBox").innerHTML=`<div class="mhead"><h2>${MONTHS[m]} <span>${y}</span></h2><button class="iconbtn" data-mo="-1" aria-label="Previous month">‹</button><button class="iconbtn" data-mo="1" aria-label="Next month">›</button></div>
    <div class="grid"><div class="dow">${["M","T","W","T","F","S","S"].map(x=>`<span>${x}</span>`).join("")}</div><div class="days7">${cells}</div></div>
    <div class="legend"><span><i class="in"></i>Team entered</span><span><i></i>Other endurance races</span></div>`;
