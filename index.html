@@ -586,7 +586,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793189965";
+const BUILD="1793190727";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
@@ -1678,7 +1678,7 @@ function showSplash(){
 function hideSplash(){const sp=$("#splash");clearTimeout(sp._t);sp.classList.add("out")}
 /* KZ two-stroke revving up and snapping up a gear, made in code (no sound file) */
 function kzGraph(C){
-  const t0=0.02,out=C.createGain();out.gain.value=0.3;out.connect(C.destination);
+  const t0=0.02,out=C.createGain();out.gain.value=0.075;out.connect(C.destination);
   // engine voice: saw + square, distorted, filtered like an exhaust
   const shaper=C.createWaveShaper(),curve=new Float32Array(1024);
   for(let i=0;i<1024;i++){const x=i/512-1;curve[i]=Math.tanh(3.2*x)}shaper.curve=curve;
@@ -1719,7 +1719,7 @@ function kzGraph(C){
 }
 /* Render once to a WAV and play it like a video: iPhones play that even with the silent switch on */
 let kzAudio=null;
-const KZ_SRC="kz.mp3";
+const KZ_SRC="kz-quiet.mp3";
 async function prepKZ(){
   try{const a=new Audio(KZ_SRC);a.preload="auto";a.volume=0.9;kzAudio=a;return}catch(e){}
   try{
