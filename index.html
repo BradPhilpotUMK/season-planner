@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>if(navigator.standalone===true){document.documentElement.classList.add("ios-app");
+  const fitApp=()=>{const port=innerHeight>=innerWidth,full=port?Math.max(screen.width,screen.height):Math.min(screen.width,screen.height);
+    document.documentElement.style.setProperty("--appH",Math.max(innerHeight,full)+"px")};
+  fitApp();addEventListener("resize",fitApp);addEventListener("orientationchange",()=>setTimeout(fitApp,300))}</script>
 <meta charset="utf-8">
 <meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -235,7 +239,8 @@ nav.tabs .instbar[hidden]{display:none}
 nav.tabs .instbar svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* home-screen app: fill the whole screen (iOS can leave a gap under the tab bar) */
 @media (display-mode: standalone){html,body{height:100%}body{position:fixed;inset:0;height:auto}}
-html.ios-app,html.ios-app body{height:100%}html.ios-app body{position:fixed;inset:0;height:auto}
+/* iPhone home-screen apps can report a viewport shorter than the screen (by the status bar height), leaving a band under the tabs */
+html.ios-app{background:var(--surface)}html.ios-app body{position:fixed;top:0;left:0;right:0;bottom:auto;height:var(--appH,100%)}
 .inst{position:fixed;left:12px;right:12px;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:55;display:flex;gap:12px;align-items:flex-start;padding:14px 14px 14px 12px;border-radius:16px;background:var(--surface2);border:1px solid var(--line);box-shadow:0 12px 36px rgba(0,0,0,.45);transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .3s,opacity .3s;max-width:520px;margin:0 auto}
 .inst.on{transform:none;opacity:1;pointer-events:auto}
 .inst>img{width:48px;height:48px;border-radius:12px;flex:none}
@@ -583,7 +588,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793188067";
+const BUILD="1793188203";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -1608,7 +1613,7 @@ function instShow(force){
 $("#instX").onclick=()=>{$("#inst").classList.remove("on");try{localStorage.setItem("umk-install-later",String(Date.now()))}catch(e){}};
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e});
 addEventListener("appinstalled",()=>{$("#inst").classList.remove("on");$("#instBar").hidden=true;gcEvent("install-done","Installed as an app")});
-if(navigator.standalone===true)document.documentElement.classList.add("ios-app");
+
 if(!IS_APP){const ib=$("#instBar");ib.hidden=false;ib.onclick=()=>{gcEvent("install-bar","Tapped Add app to Home Screen");instShow(true)}}
 /* pop the install card up about a second after the opening screen goes */
 (function waitSplash(n){const sp=$("#splash");if(n<40&&sp&&!sp.classList.contains("out")){setTimeout(()=>waitSplash(n+1),200);return}
