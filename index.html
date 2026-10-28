@@ -588,10 +588,10 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793188203";
+const BUILD="1793188264";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
-  if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
+  if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
 const LOGO=document.getElementById("umkLogo").src;
 const BRAND=document.getElementById("umkStack").src;
 
@@ -1761,7 +1761,7 @@ async function uploadSplash(){
 function applySkin(){S.skin="";document.documentElement.dataset.skin="";const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=S.skin==="pink"?"#D8159E":"#1F2126"}
 
 try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
-loadLocal();applySkin();showSplash();if(seedClubs())save();render();connect();
+loadLocal();applySkin();{let skip=false;try{skip=sessionStorage.getItem("umk-skip-splash")==="1";sessionStorage.removeItem("umk-skip-splash")}catch(e){}if(skip){$("#splash").style.transition="none";hideSplash()}else showSplash()}if(seedClubs())save();render();connect();
 })();
 </script>
 <div id="wfull" role="dialog" aria-modal="true" aria-label="Your season"></div>

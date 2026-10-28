@@ -23,7 +23,7 @@ function fresh(req, key) {
     let done = false;
     const fallback = () => caches.match(key, {ignoreSearch: true}).then(r => r || (req.mode === "navigate" ? caches.match("index.html") : null));
     const t = setTimeout(() => fallback().then(r => { if (r && !done) { done = true; resolve(r); } }), 4000);
-    fetch(req).then(res => {
+    fetch(req.url, {cache: "no-store", credentials: "same-origin"}).then(res => {
       if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(key, copy)); }
       clearTimeout(t); if (!done) { done = true; resolve(res); }
     }).catch(() => fallback().then(r => { clearTimeout(t); if (!done) { done = true; resolve(r || Response.error()); } }));
