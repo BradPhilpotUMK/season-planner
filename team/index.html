@@ -14,7 +14,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="description" content="For endurance karting team managers: which drivers are racing where, their coaches and mechanics, and who has been paid.">
-<meta name="theme-color" content="#1F2126">
+<meta name="theme-color" content="#15161A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,7 +22,8 @@
 @font-face{font-family:"F1";src:url(../fonts/f1.ttf) format("truetype");font-weight:400 900;font-style:normal;font-display:swap}
 :root{
   color-scheme:dark;
-  --bg:#1F2126; --surface:#2A2D33; --surface2:#33363D; --line:#3D4149;
+  /* darker than the season planner so the two apps feel different */
+  --bg:#15161A; --surface:#202227; --surface2:#2A2C32; --line:#33363D;
   --text:#F1F0EC; --muted:#9EA3AD; --accent:#E040C8; --go:#3BD16F; --kerb:#E3342F; --gold:#F5C542;
   --display:"F1","Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -41,7 +42,9 @@ button{cursor:pointer}
 header.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:calc(12px + env(safe-area-inset-top,0px)) 0 10px;display:flex;align-items:center;gap:10px}
 .brand{flex:1;min-width:0}
 .brand img{display:block;height:15px;width:auto;margin-bottom:5px}
-.brand h1{font-family:var(--display);font-weight:700;font-size:clamp(20px,6.4vw,28px);line-height:1;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand h1{font-family:var(--display);font-weight:700;font-size:clamp(20px,6.4vw,28px);line-height:1.1;margin:0;white-space:nowrap;display:flex;align-items:center;gap:.3em}
+.brand h1 span{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.brand h1 .hs{width:1.4em;height:1.4em;flex:none;margin:-.12em 0}
 .iconbtn{width:42px;height:42px;flex:none;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font-size:24px;line-height:1;padding:0}
 .iconbtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .panel{display:none}.panel.on{display:block}
@@ -201,7 +204,7 @@ nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-
 <body>
 <div id="scroller"><div class="wrap">
   <header class="top">
-    <div class="brand"><img src="wm.png" alt="Use More Kerb"><h1>Team manager</h1></div>
+    <div class="brand"><img src="wm.png" alt="Use More Kerb"><h1><svg class="hs" viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21.5v-4.5a11 11 0 0 1 22 0v4.5" fill="none" stroke="#F1F0EC" stroke-width="4.4" stroke-linecap="round"/><path d="M14.6 7.4a11 11 0 0 1 10.8 0" fill="none" stroke="#F5C542" stroke-width="4.4" stroke-linecap="round"/><rect x="2.5" y="17" width="12" height="15.5" rx="4.5" fill="#F5C542"/><rect x="25.5" y="17" width="12" height="15.5" rx="4.5" fill="#F5C542"/><rect x="6" y="20.5" width="5" height="8.5" rx="2.2" fill="#15161A" opacity=".3"/><rect x="29" y="20.5" width="5" height="8.5" rx="2.2" fill="#15161A" opacity=".3"/><path d="M8.5 32.5c0 3.4 2.8 5 6.8 5h3.6" fill="none" stroke="#F1F0EC" stroke-width="3.2" stroke-linecap="round"/><rect x="18" y="34" width="9" height="6" rx="3" fill="#E040C8"/></svg><span>Team manager</span></h1></div>
     <button class="iconbtn" id="dataBtn" aria-label="Back up or restore your team"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v3h16v-3"/></svg></button>
     <button class="iconbtn" id="addBtn" aria-label="Add">+</button>
   </header>
