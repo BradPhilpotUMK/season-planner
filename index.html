@@ -208,6 +208,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .shopbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 8px 10px;border-radius:11px;background:#0F1114;border:1px solid rgba(255,255,255,.08);color:#fff;text-decoration:none;transition:transform .12s}
 .shopbar a:active{transform:scale(.97)}
 .shopbar a img{height:24px;max-width:100%;object-fit:contain;display:block}
+.shopbar a img.xen{height:15px;max-width:72%;margin:4px 0 5px}
 .shopbar a small{font-size:11.5px;opacity:.7}
 .shop{display:grid;gap:10px;margin:0 0 6px}
 .shop a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:inherit;text-decoration:none}
@@ -412,7 +413,7 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
     </div>
     <div id="bradBox"></div>
     <div class="shopbar" id="shopBar"><div class="sh"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>Shop</div><div class="tl">
-      <a href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
+      <a href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img class="xen" src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
       <a href="https://www.helmet28.com/" target="_blank" rel="noopener" aria-label="Helmets and race kit at Helmet28"><img src="logos/sponsors/helmet28.png" alt="Helmet28"><small>Helmets &amp; race kit</small></a>
     </div></div>
     <div id="clashBar"></div>
@@ -555,7 +556,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793186551";
+const BUILD="1793186679";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
