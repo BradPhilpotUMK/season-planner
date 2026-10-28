@@ -217,7 +217,7 @@ nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-
   </section>
 
   <section class="panel" id="p-races">
-    <p class="hint">Endurance races from the Use More Kerb calendar, updated every week. Tap a race to enter your team, pick drivers and put a coach and mechanic with each one.</p>
+    <p class="hint">Endurance races from the Use More Kerb calendar, updated every week. Tap a race to enter one or more of your teams, pick drivers and put a coach and mechanic with each one.</p>
     <div class="seg" id="raceSeg"><button class="on" data-rf="up">Upcoming</button><button data-rf="in">Entered</button><button data-rf="past">Past</button></div>
     <input type="text" id="raceQ" placeholder="Search races or venues" autocomplete="off" style="margin-bottom:12px">
     <div id="raceList"></div>
@@ -225,7 +225,8 @@ nav.tabs .inst svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-
   </section>
 
   <section class="panel" id="p-drivers">
-    <p class="hint">Your team's drivers. Give each one a usual coach and mechanic and they'll be filled in when you add the driver to a race.</p>
+    <p class="hint">Your teams and drivers. Give each driver a usual team, coach and mechanic and they'll be filled in when you add them to a race.</p>
+    <div id="teamList"></div>
     <div class="add"><input type="text" id="newDriver" placeholder="Driver name" autocomplete="off" enterkeyhint="done"><button class="btn primary" id="addDriver">Add</button></div>
     <div id="driverList"></div>
   </section>
@@ -273,12 +274,20 @@ const DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 const COLORS=["#E040C8","#3BD16F","#4C8DFF","#F5A623","#16C5D9","#F5C542","#B36BFF","#FF6B6B","#9BD13B","#FF8FD8"];
 const money=n=>"£"+(Math.round((+n||0)*100)/100).toLocaleString("en-GB",{minimumFractionDigits:(+n%1)?2:0,maximumFractionDigits:2});
 
-let T={drivers:[],staff:[],races:{},custom:[]};
+let T={teams:[],drivers:[],staff:[],races:{},custom:[]};
 let MASTER={series:[],events:[]};
 let tab="cal", raceFilter="up", payFilter="due", monthOff=0;
 
-function load(){try{const r=localStorage.getItem(LS);if(r){const x=JSON.parse(r);T={drivers:x.drivers||[],staff:x.staff||[],races:x.races||{},custom:x.custom||[]}}}catch(e){}
+function load(){try{const r=localStorage.getItem(LS);if(r)T=normal(JSON.parse(r))}catch(e){}
   try{const r=localStorage.getItem(LSR);if(r)MASTER=JSON.parse(r)}catch(e){}}
+/* teams: a manager can run several (KBR 1, KBR 2…). A race keeps the list of teams entered and each driver entry says which team they drive for. */
+function normal(x){const t={teams:x.teams||[],drivers:x.drivers||[],staff:x.staff||[],races:x.races||{},custom:x.custom||[]};
+  for(const R of Object.values(t.races)){R.entries=R.entries||[];R.pay=R.pay||{};
+    if(!R.teams){R.teams=[];if(R.entered){let def=t.teams[0];if(!def){def={id:uid(),name:"My team",color:COLORS[0]};t.teams.push(def)}R.teams=[def.id];R.entries.forEach(e=>e.team=def.id)}}
+    R.teams=R.teams.filter(id=>t.teams.some(x=>x.id===id));R.entries=R.entries.filter(e=>R.teams.includes(e.team));R.entered=R.teams.length>0}
+  return t}
+const team=id=>T.teams.find(x=>x.id===id);
+function teamDot(tm){return `<i style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${esc(tm?.color||"#888")};flex:none"></i>`}
 function save(){try{localStorage.setItem(LS,JSON.stringify(T))}catch(e){toast("Couldn't save on this device")}}
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("on"),2200)}
 function gc(path,title){try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:"team-"+path,title:title||path,event:true})}catch(e){}}
@@ -296,8 +305,8 @@ function allRaces(){
   return out.sort((a,b)=>dn(a.start)-dn(b.start)||String(a.title).localeCompare(b.title));
 }
 function raceById(id){return allRaces().find(r=>r.id===id)}
-function rec(id){return T.races[id]||(T.races[id]={entered:false,entries:[],pay:{},note:""})}
-function entered(id){return !!T.races[id]?.entered}
+function rec(id){return T.races[id]||(T.races[id]={entered:false,teams:[],entries:[],pay:{},note:""})}
+function entered(id){return !!T.races[id]?.teams?.length}
 function isPast(r){return dn(r.end||r.start)<TODAY}
 function dateLabel(r){const a=new Date(dn(r.start)*864e5),b=new Date(dn(r.end||r.start)*864e5);
   const da=a.getUTCDate(),db=b.getUTCDate();
@@ -323,20 +332,21 @@ function allDuties(){const out=[];for(const r of allRaces()){if(!entered(r.id))c
 
 /* ---------- render ---------- */
 function render(){renderCal();renderRaces();renderDrivers();renderStaff();renderPay()}
+function teamPills(R){return R.teams.map(team).filter(Boolean).map(tm=>{const ds=R.entries.filter(e=>e.team===tm.id).map(e=>driver(e.driver)?.name).filter(Boolean);
+  return `<span class="pill d${ds.length?"":" warn"}">${teamDot(tm)}${esc(tm.name)}${ds.length?" · "+esc(ds.join(", ")):" · no drivers yet"}</span>`}).join("")}
 function raceCard(r){
   const R=T.races[r.id],inn=R?.entered,dl=dateLabel(r);
   let people="";
-  if(inn){const ds=R.entries.map(e=>driver(e.driver)).filter(Boolean);
-    people=`<div class="people">${ds.length?ds.map(d=>`<span class="pill d">${esc(d.name)}</span>`).join(""):`<span class="pill warn">No drivers yet</span>`}${(()=>{const due=staffAt(r.id).filter(x=>!x.paid).length;return due?`<span class="pill warn">${due} to pay</span>`:staffAt(r.id).length?`<span class="pill ok">Staff paid</span>`:""})()}</div>`}
+  if(inn){people=`<div class="people">${teamPills(R)}${(()=>{const due=staffAt(r.id).filter(x=>!x.paid).length;return due?`<span class="pill warn">${due} to pay</span>`:staffAt(r.id).length?`<span class="pill ok">Staff paid</span>`:""})()}</div>`}
   const s=series(r.seriesId);
   return `<button class="rc${inn?" in":""}${isPast(r)?" past":""}" data-race="${esc(r.id)}"><span class="dt"><b>${esc(dl.big)}</b><span>${esc(dl.small)}</span></span><span class="wh"><b>${esc(r.title)}</b><small>${esc([r.location,s&&s.name!==r.location?s.name:""].filter(Boolean).join(" · "))}</small>${people}</span>${badge(r)}</button>`}
 
 function renderCal(){
   const races=allRaces(),up=races.filter(r=>!isPast(r)&&entered(r.id));
   const nx=up[0];
-  $("#nextBox").innerHTML=nx?(()=>{const d=dn(nx.start)-TODAY,R=T.races[nx.id],ds=R.entries.map(e=>driver(e.driver)).filter(Boolean);
-    return `<div class="nx" data-race="${esc(nx.id)}"><div class="days"><b>${d<=0?"Now":d}</b><span>${d<=0?"RACING":d===1?"DAY":"DAYS"}</span></div><span class="lbl">Next team race</span><b>${esc(nx.title)}</b><small>${esc(dateLabel(nx).long)}${nx.location?", "+esc(nx.location):""}</small><div class="people" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;clear:both">${ds.length?ds.map(x=>`<span class="pill d">${esc(x.name)}</span>`).join(""):`<span class="pill warn">No drivers picked yet</span>`}</div></div>`})()
-    :`<div class="nx" data-tab="races"><span class="lbl">Get started</span><b>${T.drivers.length?"Enter your first race":"Add your drivers, then enter races"}</b><small>${T.drivers.length?"Open Races and tap one to enter your team.":"Start in Drivers, then add your coaches and mechanics in Staff."}</small></div>`;
+  $("#nextBox").innerHTML=nx?(()=>{const d=dn(nx.start)-TODAY,R=T.races[nx.id];
+    return `<div class="nx" data-race="${esc(nx.id)}"><div class="days"><b>${d<=0?"Now":d}</b><span>${d<=0?"RACING":d===1?"DAY":"DAYS"}</span></div><span class="lbl">Next team race</span><b>${esc(nx.title)}</b><small>${esc(dateLabel(nx).long)}${nx.location?", "+esc(nx.location):""}</small><div class="people" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;clear:both">${teamPills(R)}</div></div>`})()
+    :`<div class="nx" data-tab="races"><span class="lbl">Get started</span><b>${!T.teams.length?"Name your team, add drivers, then enter races":T.drivers.length?"Enter your first race":"Add your drivers, then enter races"}</b><small>${!T.teams.length?"Start in Drivers: add a team (or several, like KBR 1 and KBR 2), then your drivers.":T.drivers.length?"Open Races and tap one to enter your team.":"Add drivers in Drivers, then your coaches and mechanics in Staff."}</small></div>`;
   const due=allDuties().filter(x=>!x.paid);
   $("#stats").innerHTML=`<button data-tab="races"><b>${up.length}</b><span>races entered</span></button><button data-tab="drivers"><b>${T.drivers.length}</b><span>drivers</span></button><button data-tab="pay" class="${due.length?"warn":""}"><b>${due.length?money(due.reduce((a,x)=>a+x.fee,0)):"£0"}</b><span>to pay</span></button>`;
   /* month grid */
@@ -368,8 +378,9 @@ function renderRaces(){
 }
 function driverRaces(id,upOnly=true){return allRaces().filter(r=>entered(r.id)&&(!upOnly||!isPast(r))&&T.races[r.id].entries.some(e=>e.driver===id))}
 function renderDrivers(){
+  $("#teamList").innerHTML=`<h2 class="sect">Teams <span>${T.teams.length||""}</span></h2><div class="row" style="margin-bottom:6px">${T.teams.map(tm=>`<button class="pill" data-team="${tm.id}" style="padding:7px 12px;font-size:14px">${teamDot(tm)}${esc(tm.name)}</button>`).join("")}<button class="btn sm" data-team="">+ Add team</button></div>${T.teams.length?"":`<p class="hint" style="margin-top:6px">Run several teams, like KBR 1 and KBR 2? Add each one here.</p>`}<h2 class="sect">Drivers <span>${T.drivers.length||""}</span></h2>`;
   $("#driverList").innerHTML=T.drivers.length?T.drivers.map((d,i)=>{const rs=driverRaces(d.id),c=person(d.coach),mk=person(d.mechanic);
-    return `<button class="pc" data-driver="${d.id}">${av(d,i)}<span class="wh"><b>${esc(d.name)}</b><small>${[c?"Coach: "+esc(c.name):"",mk?"Mechanic: "+esc(mk.name):""].filter(Boolean).join(" · ")||"No usual coach or mechanic"}</small>${rs.length?`<span class="mini">${rs.slice(0,3).map(r=>`<span><em>${esc(shortDate(r))}</em>${esc(r.title)}</span>`).join("")}${rs.length>3?`<span><em>+${rs.length-3} more</em></span>`:""}</span>`:`<span class="mini"><span><em>No races yet</em></span></span>`}</span><span class="ar">›</span></button>`}).join("")
+    return `<button class="pc" data-driver="${d.id}">${av(d,i)}<span class="wh"><b>${esc(d.name)}</b><small>${[team(d.team)?esc(team(d.team).name):"",c?"Coach: "+esc(c.name):"",mk?"Mechanic: "+esc(mk.name):""].filter(Boolean).join(" · ")||"No usual team, coach or mechanic"}</small>${rs.length?`<span class="mini">${rs.slice(0,3).map(r=>`<span><em>${esc(shortDate(r))}</em>${esc(r.title)}</span>`).join("")}${rs.length>3?`<span><em>+${rs.length-3} more</em></span>`:""}</span>`:`<span class="mini"><span><em>No races yet</em></span></span>`}</span><span class="ar">›</span></button>`}).join("")
     :`<p class="none">No drivers yet. Add your first one above.</p>`;
 }
 function renderStaff(){
@@ -387,7 +398,7 @@ function renderPay(){
   const by={};for(const x of list)(by[x.sid]=by[x.sid]||[]).push(x);
   $("#payList").innerHTML=Object.keys(by).length?Object.entries(by).map(([sid,L])=>{const p=person(sid),owe=L.filter(x=>!x.paid);
     return `<div class="pay"><div class="ph">${av(p)}<span class="wh"><b>${esc(p.name)}</b><small>${p.role==="coach"?"Coach":"Mechanic"}${owe.length?(owe.reduce((a,x)=>a+x.fee,0)?" · "+money(owe.reduce((a,x)=>a+x.fee,0))+" to pay":" · fee not set"):" · all paid"}</small></span>${owe.length>1?`<button class="btn sm" data-payall="${sid}">Mark all paid</button>`:""}</div>
-      ${L.map(x=>{const dl=dateLabel(x.race),ds=T.races[x.race.id].entries.filter(e=>e.coach===sid||e.mechanic===sid).map(e=>driver(e.driver)?.name).filter(Boolean);
+      ${L.map(x=>{const dl=dateLabel(x.race),ds=T.races[x.race.id].entries.filter(e=>e.coach===sid||e.mechanic===sid).map(e=>driver(e.driver)?driver(e.driver).name+(T.teams.length>1&&team(e.team)?" ("+team(e.team).name+")":""):"").filter(Boolean);
         return `<div class="pr"><span class="wh"><b>${esc(x.race.title)}</b><small>${esc(shortDate(x.race))}${ds.length?" · with "+esc(ds.join(", ")):""}</small></span><span class="amt">${x.fee?money(x.fee):"No fee"}</span><button class="tick paid${x.paid?" on":""}" data-paid="${esc(x.race.id)}|${sid}"><i>${x.paid?"✓":""}</i>Paid</button></div>`}).join("")}</div>`}).join("")
     :`<p class="none">${payFilter==="due"?(du.length?"Everyone's been paid.":"Nothing to pay yet. Payments appear here when you put coaches or mechanics with drivers at a race."):"No payments yet."}</p>`;
 }
@@ -401,15 +412,23 @@ function raceSheet(id){
   const r=raceById(id);if(!r)return;const R=T.races[id],inn=!!R?.entered,s=series(r.seriesId);
   const url=okUrl(s?.book||""),tel=String(s?.phone||"").replace(/[^\d+]/g,"");
   const coaches=T.staff.filter(x=>x.role==="coach"),mechs=T.staff.filter(x=>x.role==="mechanic");
-  const opt=(L,v)=>`<option value="">None</option>`+L.map(p=>`<option value="${p.id}"${p.id===v?" selected":""}>${esc(p.name)}</option>`).join("");
+  const opt=(L,v,role)=>`<option value="">None</option>`+L.map(p=>`<option value="${p.id}"${p.id===v?" selected":""}>${esc(p.name)}</option>`).join("")+(role?`<option value="__new">+ New ${role}…</option>`:"");
   let body=`<div style="display:flex;gap:12px;align-items:flex-start">${badge(r)}<div style="flex:1;min-width:0"><h2>${esc(r.title)}</h2><p class="sub">${esc(dateLabel(r).long)}${r.location?"<br>"+esc(r.location):""}${s?"<br>"+esc(s.name):""}</p></div></div>
     ${url||tel?`<div class="book">${url?`<a class="btn primary sm" href="${esc(url)}" target="_blank" rel="noopener">Book online</a>`:""}${tel?`<a class="btn sm" href="tel:${esc(tel)}">Call ${esc(s.phone)}</a>`:""}</div>`:""}
-    <div class="row" style="margin:12px 0 4px"><button class="tick${inn?" on":""}" data-enter="${esc(id)}"><i>${inn?"✓":""}</i>${inn?"Team entered":"Enter the team"}</button></div>`;
+    <h3>Teams in this race</h3><div class="row">${T.teams.map(tm=>{const on=!!R?.teams?.includes(tm.id);return `<button class="tick${on?" on":""}" style="--c:${esc(tm.color)}" data-teamin="${esc(id)}|${tm.id}"><i>${on?"✓":""}</i>${esc(tm.name)}</button>`}).join("")}<button class="btn sm" data-newteam="${esc(id)}">+ ${T.teams.length?"New team":"Name your team"}</button></div>`;
   if(inn){
-    body+=`<h3>Drivers racing</h3>`;
-    if(!T.drivers.length)body+=`<p class="none">Add drivers in the Drivers tab first.</p>`;
-    body+=T.drivers.map((d,i)=>{const e=R.entries.find(x=>x.driver===d.id);
-      return `<div class="alloc"><div class="ah">${av(d,i)}<b>${esc(d.name)}</b><button class="tick${e?" on":""}" data-racing="${esc(id)}|${d.id}"><i>${e?"✓":""}</i>Racing</button></div>${e?`<div class="ab"><div><label>Coach</label><select data-alloc="${esc(id)}|${d.id}|coach">${opt(coaches,e.coach)}</select></div><div><label>Mechanic</label><select data-alloc="${esc(id)}|${d.id}|mechanic">${opt(mechs,e.mechanic)}</select></div></div>`:""}</div>`}).join("");
+    const racingIds=R.entries.map(e=>e.driver);
+    for(const tid of R.teams){const tm=team(tid);if(!tm)continue;
+      const mine=R.entries.filter(e=>e.team===tid);
+      const usual=T.drivers.filter(d=>d.team===tid&&!racingIds.includes(d.id));
+      const others=T.drivers.filter(d=>!racingIds.includes(d.id)&&d.team!==tid);
+      body+=`<h3 style="display:flex;align-items:center;gap:8px">${teamDot(tm)}${esc(tm.name)} <span style="font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted)">${mine.length} driver${mine.length===1?"":"s"}</span></h3>`;
+      body+=mine.map(e=>{const d=driver(e.driver);if(!d)return "";
+        return `<div class="alloc"><div class="ah">${av(d)}<b>${esc(d.name)}</b><button class="tick on" data-racing="${esc(id)}|${d.id}|${tid}"><i>✓</i>Racing</button></div><div class="ab"><div><label>Coach</label><select data-alloc="${esc(id)}|${d.id}|coach">${opt(coaches,e.coach,"coach")}</select></div><div><label>Mechanic</label><select data-alloc="${esc(id)}|${d.id}|mechanic">${opt(mechs,e.mechanic,"mechanic")}</select></div></div></div>`}).join("");
+      body+=usual.map(d=>`<div class="alloc" style="opacity:.75"><div class="ah">${av(d)}<b>${esc(d.name)}</b><button class="tick" data-racing="${esc(id)}|${d.id}|${tid}"><i></i>Racing</button></div></div>`).join("");
+      if(others.length)body+=`<select data-adddrv="${esc(id)}|${tid}" style="margin:2px 0 6px"><option value="">+ Add ${T.drivers.length?"another":"a"} driver to ${esc(tm.name)}…</option>${others.map(d=>`<option value="${d.id}">${esc(d.name)}${d.team&&team(d.team)?" ("+esc(team(d.team).name)+")":""}</option>`).join("")}</select>`;
+      body+=`<div class="add" style="margin:4px 0 10px"><input type="text" placeholder="New driver for ${esc(tm.name)}" autocomplete="off" enterkeyhint="done" data-newdrv="${esc(id)}|${tid}"><button class="btn primary sm" data-newdrvgo="${esc(id)}|${tid}">Add</button></div>`;
+    }
     const st=staffAt(id);
     body+=`<h3>Staff payments for this race</h3>`+(st.length?`<div class="card" style="padding:4px 12px">${st.map(x=>`<div class="staffpay">${av(x.p)}<span class="wh"><b>${esc(x.p.name)}</b><small>${x.p.role==="coach"?"Coach":"Mechanic"}</small></span><label class="fee"><span>£</span><input type="number" inputmode="decimal" min="0" step="5" value="${x.fee||""}" placeholder="0" data-fee="${esc(id)}|${x.sid}" aria-label="Fee for ${esc(x.p.name)}"></label><button class="tick paid${x.paid?" on":""}" data-paid="${esc(id)}|${x.sid}"><i>${x.paid?"✓":""}</i>Paid</button></div>`).join("")}</div>`:`<p class="none">Pick a coach or mechanic for a driver and they'll show up here to pay.</p>`);
     body+=`<h3>Notes</h3><textarea id="raceNote" data-note="${esc(id)}" placeholder="Kart numbers, stint plan, hotel…">${esc(R.note||"")}</textarea>`;
@@ -418,7 +437,33 @@ function raceSheet(id){
   openSheet(body);
   const n=$("#raceNote");if(n)n.oninput=()=>{rec(id).note=n.value;save()};
   document.querySelectorAll("[data-fee]").forEach(inp=>inp.oninput=()=>{const [rid,sid]=inp.dataset.fee.split("|");const p=rec(rid).pay[sid]=rec(rid).pay[sid]||{};p.fee=inp.value===""?"":+inp.value;save();render()});
-  document.querySelectorAll("[data-alloc]").forEach(sel=>sel.onchange=()=>{const [rid,did,k]=sel.dataset.alloc.split("|");const e=rec(rid).entries.find(x=>x.driver===did);if(e){e[k]=sel.value||"";save();render();raceSheet(rid)}});
+  document.querySelectorAll("[data-adddrv]").forEach(sel=>sel.onchange=()=>{if(!sel.value)return;const [rid,tid]=sel.dataset.adddrv.split("|");addEntry(rid,sel.value,tid);save();render();raceSheet(rid)});
+  document.querySelectorAll("[data-alloc]").forEach(sel=>sel.onchange=()=>{const [rid,did,k]=sel.dataset.alloc.split("|");const e=rec(rid).entries.find(x=>x.driver===did);if(!e)return;
+    let v=sel.value||"";
+    if(v==="__new"){const n=(prompt(`New ${k}'s name`)||"").trim();if(!n){raceSheet(rid);return}const p={id:uid(),name:n,role:k,phone:"",fee:0};T.staff.push(p);v=p.id;toast(n+" added to Staff")}
+    e[k]=v;save();render();raceSheet(rid)});
+  const addNew=(inp)=>{const n=inp.value.trim();if(!n)return;const [rid,tid]=inp.dataset.newdrv.split("|");const d={id:uid(),name:n,team:tid,coach:"",mechanic:"",phone:"",note:""};T.drivers.push(d);addEntry(rid,d.id,tid);save();render();raceSheet(rid);toast(n+" added")};
+  document.querySelectorAll("[data-newdrv]").forEach(inp=>inp.onkeydown=ev=>{if(ev.key==="Enter")addNew(inp)});
+  document.querySelectorAll("[data-newdrvgo]").forEach(b=>b.onclick=()=>addNew(document.querySelector(`[data-newdrv="${b.dataset.newdrvgo}"]`)));
+}
+function addEntry(rid,did,tid){const R=rec(rid);R.entries=R.entries.filter(e=>e.driver!==did);const dr=driver(did);
+  R.entries.push({driver:did,team:tid,coach:person(dr?.coach)?dr.coach:"",mechanic:person(dr?.mechanic)?dr.mechanic:""})}
+function teamSheet(id,thenRace){
+  const tm=id?team(id):null;
+  openSheet(`<h2>${tm?esc(tm.name):"New team"}</h2><p class="sub">Run more than one team? Add each one, like KBR 1 and KBR 2, and enter whichever teams are racing at each event.</p>
+    <label class="f">Team name</label><input type="text" id="tName" value="${esc(tm?.name||"")}" placeholder="e.g. KBR 1" autocomplete="off" enterkeyhint="done">
+    <label class="f">Colour</label><div class="row" id="tCols">${COLORS.map(c=>`<button type="button" data-col="${c}" aria-label="Colour" style="width:30px;height:30px;border-radius:50%;border:2px solid ${c===(tm?.color||COLORS[T.teams.length%COLORS.length])?"#fff":"transparent"};background:${c};padding:0"></button>`).join("")}</div>
+    <div class="row" style="margin-top:14px"><button class="btn primary" id="tSave">${tm?"Save":"Add team"}</button>${tm?`<button class="btn danger" id="tDel">Delete team</button>`:""}</div>`);
+  let col=tm?.color||COLORS[T.teams.length%COLORS.length];
+  document.querySelectorAll("#tCols [data-col]").forEach(b=>b.onclick=()=>{col=b.dataset.col;document.querySelectorAll("#tCols [data-col]").forEach(x=>x.style.borderColor=x===b?"#fff":"transparent")});
+  const go=()=>{const name=$("#tName").value.trim();if(!name){toast("Add a team name");return}
+    const x=tm||{id:uid()};Object.assign(x,{name,color:col});if(!tm)T.teams.push(x);
+    if(!tm&&thenRace){const R=rec(thenRace);if(!R.teams.includes(x.id))R.teams.push(x.id);R.entered=true;prefillSnap(thenRace)}
+    save();render();if(thenRace)raceSheet(thenRace);else closeSheet();toast(tm?"Saved":name+" added")};
+  $("#tSave").onclick=go;$("#tName").onkeydown=e=>{if(e.key==="Enter")go()};
+  if(tm)$("#tDel").onclick=()=>{if(!confirm(`Delete ${tm.name}? It will be taken out of any races, with its drivers' places there.`))return;
+    T.teams=T.teams.filter(x=>x.id!==tm.id);for(const R of Object.values(T.races)){R.teams=(R.teams||[]).filter(t=>t!==tm.id);R.entries=R.entries.filter(e=>e.team!==tm.id);R.entered=R.teams.length>0}
+    for(const d of T.drivers)if(d.team===tm.id)d.team="";save();render();closeSheet()};
 }
 function driverSheet(id){
   const d=id?driver(id):null;const coaches=T.staff.filter(x=>x.role==="coach"),mechs=T.staff.filter(x=>x.role==="mechanic");
@@ -426,13 +471,14 @@ function driverSheet(id){
   const rs=d?driverRaces(d.id):[];
   openSheet(`<h2>${d?esc(d.name):"New driver"}</h2>
     <label class="f">Name</label><input type="text" id="dName" value="${esc(d?.name||"")}" autocomplete="off">
+    ${T.teams.length?`<label class="f">Usual team</label><select id="dTeam"><option value="">None</option>${T.teams.map(t=>`<option value="${t.id}"${t.id===d?.team?" selected":""}>${esc(t.name)}</option>`).join("")}</select>`:""}
     <label class="f">Phone (optional)</label><input type="tel" id="dPhone" value="${esc(d?.phone||"")}">
     <div class="row" style="gap:8px;margin-top:2px"><div style="flex:1;min-width:130px"><label class="f">Usual coach</label><select id="dCoach">${opt(coaches,d?.coach)}</select></div><div style="flex:1;min-width:130px"><label class="f">Usual mechanic</label><select id="dMech">${opt(mechs,d?.mechanic)}</select></div></div>
     <label class="f">Notes</label><textarea id="dNote" placeholder="Weight, seat size, licence…">${esc(d?.note||"")}</textarea>
     <div class="row" style="margin-top:14px"><button class="btn primary" id="dSave">Save</button>${d?`<button class="btn danger" id="dDel">Remove driver</button>`:""}${d?.phone?`<a class="btn" href="tel:${esc(d.phone.replace(/[^\d+]/g,""))}">Call</a>`:""}</div>
     ${d?`<h3>Races coming up</h3>${rs.length?rs.map(raceCard).join(""):`<p class="none">Not entered in any races yet.</p>`}`:""}`);
   $("#dSave").onclick=()=>{const name=$("#dName").value.trim();if(!name){toast("Add a name");return}
-    const x=d||{id:uid()};Object.assign(x,{name,phone:$("#dPhone").value.trim(),coach:$("#dCoach").value,mechanic:$("#dMech").value,note:$("#dNote").value});
+    const x=d||{id:uid()};Object.assign(x,{name,team:$("#dTeam")?$("#dTeam").value:(x.team||""),phone:$("#dPhone").value.trim(),coach:$("#dCoach").value,mechanic:$("#dMech").value,note:$("#dNote").value});
     if(!d)T.drivers.push(x);save();render();closeSheet();toast(d?"Saved":"Driver added")};
   if(d)$("#dDel").onclick=()=>{if(!confirm(`Remove ${d.name} from the team? They'll be taken off any races too.`))return;
     T.drivers=T.drivers.filter(x=>x.id!==d.id);for(const r of Object.values(T.races))r.entries=r.entries.filter(e=>e.driver!==d.id);save();render();closeSheet()};
@@ -466,7 +512,7 @@ function customSheet(id){
   $("#cSave").onclick=()=>{const title=$("#cTitle").value.trim(),start=$("#cStart").value;if(!title||!start){toast("Add a name and start date");return}
     let end=$("#cEnd").value||start;if(dn(end)<dn(start))end=start;
     const x=c||{id:"c-"+uid(),seriesId:""};Object.assign(x,{title,start,end,location:$("#cLoc").value.trim()});
-    if(!c){T.custom.push(x);const R=rec(x.id);R.entered=true;prefillSnap(x.id)}save();render();raceSheet(x.id);toast(c?"Saved":"Race added and entered")};
+    if(!c){T.custom.push(x);if(T.teams.length===1){const R=rec(x.id);R.teams=[T.teams[0].id];R.entered=true;prefillSnap(x.id)}}save();render();raceSheet(x.id);toast(c?"Saved":"Race added")};
 }
 function prefillSnap(id){const r=raceById(id);if(r&&T.races[id])T.races[id].snap={title:r.title,start:r.start,end:r.end,location:r.location,seriesId:r.seriesId||""}}
 
@@ -487,14 +533,14 @@ async function backup(){
 $("#restoreIn").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;
   try{const x=JSON.parse(await f.text()),d=x.data||x;if(!Array.isArray(d.drivers)||!Array.isArray(d.staff))throw 0;
     if(!confirm("Replace the team on this phone with this backup?"))return;
-    T={drivers:d.drivers,staff:d.staff,races:d.races||{},custom:d.custom||[]};save();render();closeSheet();toast("Team restored")}
+    T=normal(d);save();render();closeSheet();toast("Team restored")}
   catch(e){toast("That file isn't a team manager backup")}};
 
 /* ---------- events ---------- */
 function setTab(t){tab=t;document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+t));
   document.querySelectorAll("nav.tabs [data-tab]").forEach(b=>b.classList.toggle("on",b.dataset.tab===t));$("#scroller").scrollTop=0}
 document.addEventListener("click",ev=>{
-  const t=ev.target.closest("[data-tab],[data-race],[data-driver],[data-staff],[data-mo],[data-day],[data-rf],[data-pf],[data-enter],[data-racing],[data-paid],[data-payall],[data-editcustom],[data-delcustom]");if(!t)return;
+  const t=ev.target.closest("[data-tab],[data-race],[data-driver],[data-staff],[data-mo],[data-day],[data-rf],[data-pf],[data-teamin],[data-newteam],[data-team],[data-racing],[data-paid],[data-payall],[data-editcustom],[data-delcustom]");if(!t)return;
   const d=t.dataset;
   if(d.tab){closeSheet();setTab(d.tab);return}
   if(d.race){raceSheet(d.race);return}
@@ -504,9 +550,14 @@ document.addEventListener("click",ev=>{
   if(d.day){const x=+d.day,on=allRaces().filter(r=>dn(r.start)<=x&&dn(r.end||r.start)>=x);if(on.length===1)raceSheet(on[0].id);else{const dt=new Date(x*864e5);openSheet(`<h2>${DOW[dt.getUTCDay()]} ${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}</h2><p class="sub" style="margin-bottom:12px">${on.length} endurance races</p>${on.map(raceCard).join("")}`)}return}
   if(d.rf){raceFilter=d.rf;document.querySelectorAll("#raceSeg button").forEach(b=>b.classList.toggle("on",b===t));renderRaces();return}
   if(d.pf){payFilter=d.pf;document.querySelectorAll("#paySeg button").forEach(b=>b.classList.toggle("on",b===t));renderPay();return}
-  if(d.enter){const id=d.enter,R=rec(id);R.entered=!R.entered;if(R.entered){prefillSnap(id);gc("enter","Entered a race")}save();render();raceSheet(id);return}
-  if(d.racing){const [rid,did]=d.racing.split("|"),R=rec(rid),i=R.entries.findIndex(e=>e.driver===did);
-    if(i>=0)R.entries.splice(i,1);else{const dr=driver(did);R.entries.push({driver:did,coach:person(dr?.coach)?dr.coach:"",mechanic:person(dr?.mechanic)?dr.mechanic:""})}
+  if(d.teamin){const [id,tid]=d.teamin.split("|"),R=rec(id),on=R.teams.includes(tid);
+    if(on){const n=R.entries.filter(e=>e.team===tid).length;if(n&&!confirm(`Take ${team(tid)?.name} out of this race? Its ${n} driver place${n>1?"s":""} here will be removed.`))return;R.teams=R.teams.filter(x=>x!==tid);R.entries=R.entries.filter(e=>e.team!==tid)}
+    else{R.teams.push(tid);prefillSnap(id);gc("enter","Entered a race");for(const dr of T.drivers)if(dr.team===tid&&!R.entries.some(e=>e.driver===dr.id))addEntry(id,dr.id,tid)}
+    R.entered=R.teams.length>0;save();render();raceSheet(id);return}
+  if(d.newteam!==undefined){teamSheet(null,d.newteam||null);return}
+  if(d.team!==undefined){teamSheet(d.team||null);return}
+  if(d.racing){const [rid,did,tid]=d.racing.split("|"),R=rec(rid),i=R.entries.findIndex(e=>e.driver===did&&e.team===tid);
+    if(i>=0)R.entries.splice(i,1);else addEntry(rid,did,tid)
     save();render();raceSheet(rid);return}
   if(d.paid){const [rid,sid]=d.paid.split("|"),R=rec(rid),p=R.pay[sid]=R.pay[sid]||{};p.paid=!p.paid;if(p.paid&&(p.fee==null||p.fee===""))p.fee=+(person(sid)?.fee||0);save();render();
     t.classList.toggle("on",p.paid);t.querySelector("i").textContent=p.paid?"✓":"";if(p.paid)toast("Marked as paid");return}
@@ -522,8 +573,8 @@ $("#addStaff").onclick=addStaff;$("#newStaff").onkeydown=e=>{if(e.key==="Enter")
 $("#addRaceBtn").onclick=()=>customSheet();
 $("#dataBtn").onclick=dataSheet;
 $("#addBtn").onclick=()=>{if(tab==="drivers")driverSheet();else if(tab==="staff")staffSheet(null,"coach");else if(tab==="races")customSheet();
-  else openSheet(`<h2>Add</h2><div style="display:grid;gap:8px;margin-top:10px"><button class="btn" id="aD">Driver</button><button class="btn" id="aC">Coach</button><button class="btn" id="aM">Mechanic</button><button class="btn" id="aR">Race that isn't listed</button></div>`),
-  (()=>{const g=(s,f)=>{const b=$(s);if(b)b.onclick=f};g("#aD",()=>driverSheet());g("#aC",()=>staffSheet(null,"coach"));g("#aM",()=>staffSheet(null,"mechanic"));g("#aR",()=>customSheet())})()};
+  else openSheet(`<h2>Add</h2><div style="display:grid;gap:8px;margin-top:10px"><button class="btn" id="aT">Team</button><button class="btn" id="aD">Driver</button><button class="btn" id="aC">Coach</button><button class="btn" id="aM">Mechanic</button><button class="btn" id="aR">Race that isn't listed</button></div>`),
+  (()=>{const g=(s,f)=>{const b=$(s);if(b)b.onclick=f};g("#aT",()=>teamSheet());g("#aD",()=>driverSheet());g("#aC",()=>staffSheet(null,"coach"));g("#aM",()=>staffSheet(null,"mechanic"));g("#aR",()=>customSheet())})()};
 
 /* ---------- install ---------- */
 const IS_APP=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
