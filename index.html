@@ -389,6 +389,16 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 @media (prefers-reduced-motion: reduce){#splash *{animation-duration:.01s!important;animation-delay:0s!important}}
 @media (prefers-reduced-motion: reduce){.sheet,.toast{transition:none}}
 </style>
+<!-- visitor counts: usemorekerb.goatcounter.com -->
+<script data-goatcounter="https://usemorekerb.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+/* count taps on shop and booking links as GoatCounter events */
+document.addEventListener("click",ev=>{const a=ev.target.closest&&ev.target.closest(".shopbar a,.shop a,.book a,a.bk");if(!a)return;
+  let host="";try{host=a.href.startsWith("tel:")?"phone":new URL(a.href).hostname.replace(/^www\./,"")}catch(e){}
+  const kind=a.closest(".shopbar,.shop")?"shop":(a.href.startsWith("tel:")?"call":"book");
+  try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:kind+"-"+host,title:a.getAttribute("aria-label")||a.textContent.trim(),event:true})}catch(e){}
+},true);
+</script>
 </head>
 <body>
 <div id="splash" aria-hidden="true"><canvas class="bg" id="splashCv"></canvas><div class="shade"></div><div class="grain"></div>
@@ -556,7 +566,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793186679";
+const BUILD="1793186805";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
