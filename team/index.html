@@ -349,11 +349,15 @@ function renderRaces(){
   const q=($("#raceQ").value||"").trim().toLowerCase();
   let list=allRaces();
   if(raceFilter==="up")list=list.filter(r=>!isPast(r));
-  if(raceFilter==="in")list=list.filter(r=>entered(r.id)&&!isPast(r));
+  /* entered: upcoming races first, then ones already run (newest first) */
+  if(raceFilter==="in"){const L=list.filter(r=>entered(r.id));list=L.filter(r=>!isPast(r)).concat(L.filter(isPast).reverse())}
   if(raceFilter==="past")list=list.filter(r=>isPast(r)&&(entered(r.id)||r.src!=="m")).reverse();
   if(q)list=list.filter(r=>(r.title+" "+(r.location||"")+" "+(series(r.seriesId)?.name||"")).toLowerCase().includes(q));
   let html="",lastM="";
-  for(const r of list){const d=new Date(dn(r.start)*864e5),k=MONTHS[d.getUTCMonth()]+" "+d.getUTCFullYear();if(k!==lastM){html+=`<h2 class="sect">${k}</h2>`;lastM=k}html+=raceCard(r)}
+  let pastHead=false;
+  for(const r of list){
+    if(raceFilter==="in"&&isPast(r)&&!pastHead){html+=`<h2 class="sect" style="margin-top:30px">Already raced</h2>`;pastHead=true;lastM=""}
+    const d=new Date(dn(r.start)*864e5),k=MONTHS[d.getUTCMonth()]+" "+d.getUTCFullYear();if(k!==lastM&&!(raceFilter==="in"&&isPast(r))){html+=`<h2 class="sect">${k}</h2>`;lastM=k}html+=raceCard(r)}
   $("#raceList").innerHTML=html||`<p class="none">${raceFilter==="in"?"No races entered yet. Open Upcoming and tap a race to enter your team.":raceFilter==="past"?"No past team races yet.":(MASTER.events.length?"No races match.":"Loading races…")}</p>`;
 }
 function driverRaces(id,upOnly=true){return allRaces().filter(r=>entered(r.id)&&(!upOnly||!isPast(r))&&T.races[r.id].entries.some(e=>e.driver===id))}
