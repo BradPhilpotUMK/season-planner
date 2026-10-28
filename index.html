@@ -203,6 +203,11 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .sheet h2{font-family:var(--display);font-size:21px;margin:0 0 4px;font-weight:700}
 .sheet-inner{max-width:560px;margin:0 auto}
 .actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;flex-wrap:wrap}
+.teamlink{display:flex;align-items:center;gap:12px;margin:-4px 0 14px;padding:10px 14px 10px 10px;border-radius:14px;border:1px solid color-mix(in srgb,#F5C542 45%,var(--line));background:var(--surface);color:var(--text);text-decoration:none}
+.teamlink[hidden]{display:none}
+.teamlink img{width:38px;height:38px;border-radius:9px;flex:none}
+.teamlink span{flex:1;min-width:0}.teamlink b{display:block;font-family:var(--display);font-size:15px;line-height:1.2}.teamlink small{display:block;color:var(--muted);font-size:13px}
+.teamlink i{font-style:normal;color:#F5C542;font-size:20px}
 .shopbar{margin:-4px 0 14px;padding:10px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg,var(--surface),var(--surface2))}
 .shopbar .sh{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin:0 4px 8px}
 .shopbar .tl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -449,6 +454,7 @@ document.addEventListener("click",ev=>{const a=ev.target.closest&&ev.target.clos
       <div class="tape-l" id="tapeL"></div>
     </div>
     <div id="bradBox"></div>
+    <a class="teamlink" id="teamLink" href="team/" hidden><img src="team/icon-192.png" alt=""><span><b>Team manager</b><small>Your endurance team, staff and payments</small></span><i>›</i></a>
     <div class="shopbar" id="shopBar"><div class="sh"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>Shop</div><div class="tl">
       <a class="cf" href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img class="xen" src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
       <a class="asp" href="https://www.helmet28.com/" target="_blank" rel="noopener" aria-label="Helmets and race kit at Helmet28"><img src="logos/sponsors/helmet28.png" alt="Helmet28"><small>Helmets &amp; race kit</small></a>
@@ -594,7 +600,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793206196";
+const BUILD="1793206384";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
@@ -1620,6 +1626,8 @@ $("#instX").onclick=()=>{$("#inst").classList.remove("on");try{localStorage.setI
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e});
 addEventListener("appinstalled",()=>{$("#inst").classList.remove("on");$("#instBar").hidden=true;gcEvent("install-done","Installed as an app")});
 
+/* shortcut back to the Team manager for anyone who has used it */
+{let t=false;try{t=!!localStorage.getItem("umk-team-manager-v1")||/\/team\/?$/.test(new URL(document.referrer).pathname)}catch(e){}if(t)$("#teamLink").hidden=false}
 {const sc=$("#shopCode");if(sc)sc.onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText("USEMOREKERB");ok=true}catch(e){}
   toast(ok?"Code USEMOREKERB copied":"Use code USEMOREKERB at checkout");gcEvent("shop-code","Copied USEMOREKERB")}}
 if(!IS_APP){const ib=$("#instBar");ib.hidden=false;ib.onclick=()=>{gcEvent("install-bar","Tapped Add app to Home Screen");instShow(true)}}
