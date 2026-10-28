@@ -740,10 +740,13 @@ function drawPitWall(cv){
       r.s.forEach((c,k)=>{x.fillStyle=c;x.fillRect(x0+colW*.6+k*12*dpr,yy+8*dpr,9*dpr,2.5*dpr)});}
     x.globalAlpha=1;requestAnimationFrame(frame)})(start);
 }
+/* team radio crackle when the opening screen is tapped (phones only allow sound after a tap) */
+let radio=null;try{radio=new Audio("radio.mp3");radio.preload="auto"}catch(e){}
+function playRadio(){try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}try{if(radio){radio.currentTime=0;const p=radio.play();if(p&&p.catch)p.catch(()=>{})}}catch(e){}}
 function hideSplash(){const sp=$("#splash");if(!sp)return;clearTimeout(sp._t);sp.classList.add("out");setTimeout(()=>{if(sp.classList.contains("out"))sp.style.display="none"},800)}
 (function(){const sp=$("#splash");let skip=false;try{skip=sessionStorage.getItem("umk-team-splash")==="1";sessionStorage.setItem("umk-team-splash","1")}catch(e){}
   if(skip&&!IS_APP){sp.remove();return}
-  try{drawPitWall($("#splashCv"))}catch(e){}sp.onclick=hideSplash;sp._t=setTimeout(hideSplash,2800)})();
+  try{drawPitWall($("#splashCv"))}catch(e){}sp.onclick=()=>{if(!sp.classList.contains("out"))playRadio();hideSplash()};sp._t=setTimeout(hideSplash,2800)})();
 
 /* ---------- start ---------- */
 async function loadRaces(){try{const r=await fetch("../data/races.json",{cache:"no-cache"});if(!r.ok)return;const d=await r.json();
