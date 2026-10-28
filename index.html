@@ -454,7 +454,7 @@ document.addEventListener("click",ev=>{const a=ev.target.closest&&ev.target.clos
       <div class="tape-l" id="tapeL"></div>
     </div>
     <div id="bradBox"></div>
-    <a class="teamlink" id="teamLink" href="team/" hidden><img src="team/icon-192.png" alt=""><span><b>Team manager</b><small>Your endurance team, staff and payments</small></span><i>›</i></a>
+    <a class="teamlink" id="teamLink" href="team/"><img src="team/icon-192.png" alt=""><span><b>Team manager</b><small>Run an endurance team? Drivers, staff and payments</small></span><i>›</i></a>
     <div class="shopbar" id="shopBar"><div class="sh"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>Shop</div><div class="tl">
       <a class="cf" href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img class="xen" src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
       <a class="asp" href="https://www.helmet28.com/" target="_blank" rel="noopener" aria-label="Helmets and race kit at Helmet28"><img src="logos/sponsors/helmet28.png" alt="Helmet28"><small>Helmets &amp; race kit</small></a>
@@ -600,7 +600,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793206384";
+const BUILD="1793208890";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v)){try{sessionStorage.setItem("umk-skip-splash","1")}catch(e){}location.replace(location.pathname+"?v"+v)}}catch(e){}})();
@@ -1627,7 +1627,6 @@ addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e});
 addEventListener("appinstalled",()=>{$("#inst").classList.remove("on");$("#instBar").hidden=true;gcEvent("install-done","Installed as an app")});
 
 /* shortcut back to the Team manager for anyone who has used it */
-{let t=false;try{t=!!localStorage.getItem("umk-team-manager-v1")||/\/team\/?$/.test(new URL(document.referrer).pathname)}catch(e){}if(t)$("#teamLink").hidden=false}
 {const sc=$("#shopCode");if(sc)sc.onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText("USEMOREKERB");ok=true}catch(e){}
   toast(ok?"Code USEMOREKERB copied":"Use code USEMOREKERB at checkout");gcEvent("shop-code","Copied USEMOREKERB")}}
 if(!IS_APP){const ib=$("#instBar");ib.hidden=false;ib.onclick=()=>{gcEvent("install-bar","Tapped Add app to Home Screen");instShow(true)}}
