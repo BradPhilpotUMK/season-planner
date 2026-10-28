@@ -356,6 +356,8 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
 .bdg.emo{background:var(--surface2);font-size:calc(var(--z,30px)*.62);text-shadow:none}
 .bdg.img{background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
 .bdg.img img{width:100%;height:100%;object-fit:contain;padding:2px}
+.bdg.img.tile{background:#15171c;box-shadow:none}
+.bdg.img.tile img{object-fit:cover;padding:0}
 .opt.grey .bdg:not(.img){filter:saturate(.25) brightness(.85)}
 .ev .what .tt{display:flex;align-items:center;gap:8px}
 .logoedit{display:flex;align-items:center;gap:12px;margin:2px 0 12px}
@@ -581,7 +583,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793187973";
+const BUILD="1793188067";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -675,7 +677,7 @@ function badge(s,z){
   if(s&&!s.logo&&!s.logoUrl){const c=seriesCountry(s);if(c)return flagBadge(c,z)}
   const col=s?.color||"#9EA3AD",n=parseInt(col.slice(1),16),lum=(0.299*(n>>16)+0.587*(n>>8&255)+0.114*(n&255))/255;
   const st=`--z:${z||30}px;--c:${col};${lum>0.62?"color:#1C1D21;text-shadow:none":""}`;
-  if(s?.logo||s?.logoUrl)return `<span class="bdg img" style="${st}"><img alt="" src="${s.logo?"/_blob/"+encodeURIComponent(s.logo):esc(s.logoUrl)}" loading="lazy" onerror="this.parentNode.className='bdg';this.parentNode.textContent='${esc(initials(s)).replace(/'/g,"")}'"></span>`;
+  if(s?.logo||s?.logoUrl)return `<span class="bdg img${s.logo?"":" tile"}" style="${st}"><img alt="" src="${s.logo?"/_blob/"+encodeURIComponent(s.logo):esc(s.logoUrl)}" loading="lazy" onerror="this.parentNode.className='bdg';this.parentNode.textContent='${esc(initials(s)).replace(/'/g,"")}'"></span>`;
   const ini=initials(s),fs=ini.length>=4?";font-size:calc(var(--z,30px)*.28)":ini.length===3?";font-size:calc(var(--z,30px)*.32)":"";
   return `<span class="bdg" style="${st}${fs}" aria-hidden="true">${esc(ini)}</span>`;
 }
