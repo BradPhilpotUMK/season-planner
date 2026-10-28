@@ -202,6 +202,15 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .sheet h2{font-family:var(--display);font-size:21px;margin:0 0 4px;font-weight:700}
 .sheet-inner{max-width:560px;margin:0 auto}
 .actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;flex-wrap:wrap}
+.shopbar{display:flex;align-items:center;gap:10px;width:100%;margin:-4px 0 14px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:inherit;font:inherit;font-size:13.5px;text-align:left;cursor:pointer}
+.shopbar svg{flex:none;opacity:.85}.shopbar span{opacity:.85}.shopbar b{font-weight:600;opacity:1}.shopbar i{margin-left:auto;font-style:normal;opacity:.6;font-size:17px}
+.shop{display:grid;gap:10px;margin:0 0 6px}
+.shop a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:inherit;text-decoration:none}
+.shop a:active{transform:scale(.99)}
+.shop .lg{width:92px;height:44px;flex:none;border-radius:10px;background:#111317;display:grid;place-items:center;padding:6px 8px;box-sizing:border-box}
+.shop .lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.shop b{display:block;font-size:15px}.shop small{display:block;opacity:.7;font-size:12.5px;margin-top:2px}
+.shop .ar{margin-left:auto;opacity:.6;font-size:18px}
 .book{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 14px}
 .bk{flex:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px 5px 9px;border-radius:999px;font-size:12.5px;font-weight:700;line-height:1;text-decoration:none;white-space:nowrap;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 50%,transparent);background:color-mix(in srgb,var(--accent) 12%,transparent);transition:background .15s}
 .bk:active,.bk:hover{background:color-mix(in srgb,var(--accent) 24%,transparent)}
@@ -397,9 +406,12 @@ button.wsum{display:block;width:100%;text-align:left;color:inherit;font:inherit;
       <div class="tape-l" id="tapeL"></div>
     </div>
     <div id="bradBox"></div>
+    <button class="shopbar" id="shopBtn" aria-label="Shop merch and race kit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg><span>Shop <b>Use More Kerb</b> merch &amp; <b>Helmet28</b> kit</span><i>›</i></button>
     <div id="clashBar"></div>
     <div class="chips" id="chips"></div>
     <div id="months"></div>
+    <h2 class="sect">Shop</h2>
+    <div id="shopBox"></div>
     <h2 class="sect">Your data</h2>
     <div class="card"><p style="margin-top:0">Your calendar is saved on this device. Save a backup now and then, and use it to move your calendar to a new phone.</p><div class="row"><button class="btn" data-backup="1">Save backup</button><button class="btn" data-restore="1">Restore backup</button></div></div>
   </section>
@@ -535,7 +547,7 @@ const MONTHS=["January","February","March","April","May","June","July","August",
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const LS="umk-season-planner-web-v1";
 const WEB=true;
-const BUILD="1793185536";
+const BUILD="1793185771";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   if(v&&v!==BUILD&&!new URLSearchParams(location.search).has("v"+v))location.replace(location.pathname+"?v"+v)}catch(e){}})();
@@ -1274,6 +1286,14 @@ ${calendarContext()}`;
 
 /* ---------- sheet ---------- */
 let sheetCtl=null;
+/* ---------- shop: Brad's merch and sponsor kit ---------- */
+const SHOPS=[
+  {name:"Use More Kerb merch",sub:"Tees, caps and visor stickers by Xenduri Sport",url:"https://xenduri.com/collections/bradphilpotmotorsport",logo:"wm"},
+  {name:"Helmet28",sub:"Zamp helmets, gloves and race kit",url:"https://www.helmet28.com/",logo:"logos/sponsors/helmet28.png"}];
+function shopHtml(){const wm=document.querySelector("#brand img.wm");
+  return `<div class="shop">${SHOPS.map(x=>{const src=x.logo==="wm"?(wm?wm.src:""):x.logo;
+    return `<a href="${x.url}" target="_blank" rel="noopener"><span class="lg">${src?`<img src="${src}" alt="">`:""}</span><span><b>${esc(x.name)}</b><small>${esc(x.sub)}</small></span><span class="ar">›</span></a>`}).join("")}</div>`}
+function shopSheet(){openSheet(`<h2>Shop</h2><p class="note" style="margin:0 0 14px">Grab some Use More Kerb merch, or kit yourself out at Helmet28. Thanks for supporting the channel.</p>${shopHtml()}`)}
 function openSheet(html){$("#sheetBody").innerHTML=html;$("#scrim").classList.add("on");$("#sheet").classList.add("on")}
 function closeSheet(){sheetCtl?.abort();sheetCtl=null;$("#scrim").classList.remove("on");$("#sheet").classList.remove("on")}
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("on"),2200)}
@@ -1529,6 +1549,8 @@ document.addEventListener("click",ev=>{
   }
 });
 $("#addBtn").onclick=()=>eventForm(null);
+$("#shopBtn").onclick=shopSheet;
+{const b=$("#shopBox");if(b)b.innerHTML=shopHtml()}
 $("#dataBtn").onclick=()=>openSheet(`<h2>Your data</h2><p class="note" style="margin:0 0 14px">Your calendar is saved on this phone only. Save a backup now and then, and use Restore to put it back or move it to a new phone.</p>
   <div class="row"><button class="btn primary" data-backup="1">Save backup</button><button class="btn" data-restore="1">Restore backup</button></div>
   <h2 style="margin-top:22px">Calendar</h2><p class="note" style="margin:0 0 14px">Add the races you're doing to your iPhone calendar, or send them to someone.</p><div class="row"><button class="btn" data-cal="1">Add to a calendar</button></div>`);
