@@ -218,11 +218,11 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 8px);display:inline-bl
 .sheet h2{font-family:var(--display);font-size:21px;margin:0 0 4px;font-weight:700}
 .sheet-inner{max-width:560px;margin:0 auto}
 .actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;flex-wrap:wrap}
-.teamlink{display:flex;align-items:center;gap:12px;margin:-4px 0 14px;padding:10px 14px 10px 10px;border-radius:14px;border:1px solid color-mix(in srgb,#F5C542 45%,var(--line));background:var(--surface);color:var(--text);text-decoration:none}
+.teamlink{display:flex;align-items:center;gap:12px;margin:-4px 0 14px;--tl:#F5C542;padding:10px 14px 10px 10px;border-radius:14px;border:1px solid color-mix(in srgb,var(--tl) 45%,var(--line));background:var(--surface);color:var(--text);text-decoration:none}
 .teamlink[hidden]{display:none}
 .teamlink img{width:38px;height:38px;border-radius:9px;flex:none}
 .teamlink span{flex:1;min-width:0}.teamlink b{display:block;font-family:var(--display);font-size:15px;line-height:1.2}.teamlink small{display:block;color:var(--muted);font-size:13px}
-.teamlink i{font-style:normal;color:#F5C542;font-size:20px}
+.teamlink i{font-style:normal;color:var(--tl);font-size:20px}
 .shopbar{margin:-4px 0 14px;padding:10px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg,var(--surface),var(--surface2))}
 .shopbar .sh{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin:0 4px 8px}
 .shopbar .tl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -481,6 +481,7 @@ document.addEventListener("click",ev=>{const a=ev.target.closest&&ev.target.clos
     </div>
     <div id="bradBox"></div>
     <a class="teamlink" id="teamLink" href="team/"><img src="team/icon-192.png" alt=""><span><b>Team manager</b><small>Run an endurance team? Drivers, staff and payments</small></span><i>›</i></a>
+    <a class="teamlink" id="setupLink" href="setup/" style="--tl:#3BD16F"><img src="setup/icon-192.png" alt=""><span><b>Setup coach</b><small>Ask what your kart is doing, get driving and setup fixes</small></span><i>›</i></a>
     <div class="shopbar" id="shopBar"><div class="sh"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>Shop</div><div class="tl">
       <a class="cf" href="https://xenduri.com/collections/bradphilpotmotorsport" target="_blank" rel="noopener" aria-label="Use More Kerb merch at Xenduri"><img class="xen" src="logos/sponsors/xenduri.png" alt="Xenduri"><small>Use More Kerb merch</small></a>
       <a class="asp" href="https://www.helmet28.com/" target="_blank" rel="noopener" aria-label="Helmets and race kit at Helmet28"><img src="logos/sponsors/helmet28.png" alt="Helmet28"><small>Helmets &amp; race kit</small></a>
@@ -635,7 +636,7 @@ function setRegion(c){if(!REGIONS[c]||c===REGION.code)return;try{localStorage.se
 const LS=REGION.ls;
 const SUGGEST=REGION.suggest;
 const WEB=true;
-const BUILD="1793225771";
+const BUILD="1793400011";
 /* Load the newest version: phones may keep an old saved copy of the page */
 (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
   /* a newer version is out: swap to it quietly the next time the app goes into the background,

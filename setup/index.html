@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<style>html,body{background:#0b0b0c}</style>
+<script>if(navigator.standalone===true)document.documentElement.classList.add("ios-app")</script>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Use More Kerb Setup Coach</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="../favicon.png">
+<meta name="apple-mobile-web-app-title" content="Setup Coach">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="startup/640x1136.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="startup/750x1334.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1242x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1125x2436.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="startup/828x1792.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1242x2688.png">
+<link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1170x2532.png">
+<link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1284x2778.png">
+<link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1179x2556.png">
+<link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1290x2796.png">
+<link rel="apple-touch-startup-image" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1206x2622.png">
+<link rel="apple-touch-startup-image" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1320x2868.png">
+<link rel="apple-touch-startup-image" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1080x2340.png">
+<link rel="apple-touch-startup-image" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="startup/1260x2736.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="Kart setup and driving coach: describe your handling problem by voice or text and get driving and setup fixes.">
+<meta name="theme-color" content="#121614">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+@font-face{font-family:"F1";src:url(../fonts/f1.ttf) format("truetype");font-weight:400 900;font-style:normal;font-display:swap}
+:root{
+  color-scheme:dark;
+  /* green-tinted dark so it feels different from the planner and team manager */
+  --bg:#121614; --surface:#1B201D; --surface2:#242A26; --line:#303833;
+  --text:#F1F0EC; --muted:#9AA59E; --accent:#3BD16F; --accent2:#E040C8; --gold:#F5C542; --kerb:#E3342F;
+  --display:"F1","Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;overflow:hidden;background:var(--bg)}
+body{margin:0;height:100%;height:100dvh;overflow:hidden;display:flex;flex-direction:column;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+html.ios-app body{height:100vh}
+@media (display-mode: standalone){body{height:100vh}}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#scroller{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px 28px}
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:calc(12px + env(safe-area-inset-top,0px)) 0 10px;display:flex;align-items:center;gap:10px}
+.brand{flex:1;min-width:0}
+.brand img{display:block;height:15px;width:auto;margin-bottom:5px}
+.brand h1{font-family:var(--display);font-weight:700;font-size:clamp(20px,6.4vw,28px);line-height:1.1;margin:0;white-space:nowrap;display:flex;align-items:center;gap:.3em}
+.brand h1 svg{width:1.15em;height:1.15em;flex:none}
+/* rental toggle */
+.mode{flex:none;display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.mode button{border:none;background:none;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+.mode button.on{background:var(--accent);color:#0c1a10}
+.mode button.on[data-mode="rental"]{background:var(--gold)}
+/* ask box */
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;margin:2px 0 12px}
+.ask label{display:block;font-family:var(--display);font-size:18px;font-weight:700;margin:0 2px 8px}
+.askrow{display:flex;gap:8px;align-items:flex-end}
+.askrow textarea{flex:1;min-height:52px;max-height:140px;resize:none;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:16px;line-height:1.35}
+.mic{flex:none;width:52px;height:52px;border-radius:50%;border:none;background:var(--accent);color:#0c1a10;display:grid;place-items:center;position:relative}
+.mic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mic.live{background:var(--kerb);color:#fff}
+.mic.live::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--kerb);animation:ping 1.2s ease-out infinite}
+@keyframes ping{0%{opacity:.9;transform:scale(.85)}100%{opacity:0;transform:scale(1.35)}}
+.gobtn{flex:none;height:52px;border-radius:12px;border:none;background:var(--surface2);border:1px solid var(--line);padding:0 14px;font-weight:700}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:5px 11px;font-size:13px;font-weight:600;color:var(--muted)}
+.chip.on{color:#0c1a10;background:var(--accent);border-color:var(--accent)}
+.listening{font-size:13px;color:var(--kerb);margin:8px 2px 0;min-height:0}
+.hint{font-size:14px;color:var(--muted);margin:0 0 12px}
+.sect{font-family:var(--display);font-size:18px;font-weight:700;margin:22px 0 8px}
+.examples{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.examples button{flex:none;border:1px dashed var(--line);background:transparent;border-radius:999px;padding:7px 12px;font-size:13.5px;color:var(--text)}
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.cats button{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:11px 12px;font-weight:600;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.cats button i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+/* answer cards */
+.ans{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.ans.top{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.ah{padding:13px 14px 4px;display:flex;align-items:flex-start;gap:10px}
+.ah b{flex:1;font-family:var(--display);font-size:19px;line-height:1.2}
+.ph{flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px;margin-top:2px}
+.what{padding:2px 14px 6px;color:var(--muted);font-size:14.5px;margin:0}
+.blk{padding:8px 14px 10px;border-top:1px solid var(--line)}
+.blk h4{margin:2px 0 6px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:7px}
+.blk h4 svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.blk.drive h4{color:var(--accent)}
+.blk.setup h4{color:var(--accent2)}
+.blk.check h4{color:var(--gold)}
+.blk.cond h4{color:#16C5D9}
+.blk ol,.blk ul{margin:0;padding-left:20px}
+.blk li{margin:5px 0;font-size:15px}
+.blk li small{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+.more{display:block;width:100%;border:none;background:none;color:var(--muted);font-size:13.5px;padding:10px 14px;border-top:1px solid var(--line);text-align:left}
+.also{display:flex;gap:6px;flex-wrap:wrap;margin:-2px 0 14px}
+.also button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 11px;font-size:13px}
+.ai{background:linear-gradient(135deg,color-mix(in srgb,var(--accent2) 18%,var(--surface)),var(--surface));border:1px solid color-mix(in srgb,var(--accent2) 45%,var(--line));border-radius:16px;padding:13px 14px;margin:6px 0 14px}
+.ai .row{display:flex;align-items:center;gap:10px}
+.ai b{flex:1;font-size:15px}
+.ai small{display:block;color:var(--muted);font-size:13px;font-weight:500}
+.ai .btn{border:none;background:var(--accent2);color:#fff;border-radius:10px;padding:9px 13px;font-weight:700;font-size:14px;white-space:nowrap}
+.aitext{margin-top:10px;font-size:15px;white-space:pre-wrap}
+.aitext h5{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin:12px 0 4px}
+.none{color:var(--muted);font-size:14.5px;padding:4px 2px 12px}
+.disclaim{font-size:12.5px;color:var(--muted);margin:16px 2px 0}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:13.5px;text-decoration:none;margin:18px 2px 0}
+.hist{display:flex;flex-direction:column;gap:6px}
+.hist button{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 12px;font-size:14px;color:var(--text)}
+.toast{position:fixed;left:50%;bottom:calc(30px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1}
+html.rental .setuponly{display:none!important}
+/* opening screen */
+#splash{position:fixed;inset:0;z-index:100;background:#0b0d0c;overflow:hidden;display:grid;place-items:center;cursor:pointer;transition:opacity .6s ease,visibility .6s}
+#splash.out{opacity:0;visibility:hidden}
+#splash .grid{position:absolute;inset:-20%;background-image:linear-gradient(rgba(59,209,111,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(59,209,111,.08) 1px,transparent 1px);background-size:34px 34px;transform:perspective(500px) rotateX(55deg);transform-origin:50% 100%;animation:gridmove 2.4s linear infinite}
+#splash .shade{position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 48%,rgba(11,13,12,.94),rgba(11,13,12,.55) 65%,rgba(11,13,12,.2))}
+#splash .lock{position:relative;text-align:center;padding:0 24px}
+#splash .lock img{width:min(46vw,210px);display:block;margin:0 auto 18px;opacity:0;animation:pop .6s .1s cubic-bezier(.2,1.4,.4,1) forwards}
+#splash .wr{width:80px;height:80px;margin:0 auto 14px;opacity:0;animation:spin .8s .3s cubic-bezier(.2,1.2,.4,1) forwards}
+#splash .wr svg{width:100%;height:100%;filter:drop-shadow(0 6px 22px rgba(59,209,111,.35))}
+#splash .ttl{display:block;white-space:nowrap;transform:skewX(-8deg)}
+#splash .w{display:inline-block;font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.04em;font-size:clamp(22px,8vw,44px);opacity:0;animation:slide .55s cubic-bezier(.2,.9,.2,1) forwards}
+#splash .w1{animation-delay:.45s;color:#fff}
+#splash .w2{animation-delay:.6s;color:transparent;-webkit-text-stroke:1.5px var(--accent)}
+#splash .trace{display:block;margin:16px auto 0;width:min(70vw,280px);height:34px;overflow:visible}
+#splash .trace path{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1s .8s ease-out forwards}
+#splash .sub{display:block;margin-top:10px;font-weight:600;text-transform:uppercase;font-size:12px;letter-spacing:.38em;color:rgba(255,255,255,.7);opacity:0;animation:fade .5s 1.2s forwards}
+#splash .spons{position:absolute;left:0;right:0;bottom:calc(30px + env(safe-area-inset-bottom));text-align:center;opacity:0;animation:fade .6s 1s forwards;pointer-events:none}
+#splash .spons span{display:block;color:rgba(255,255,255,.62);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+#splash .spons img{max-height:42px;max-width:min(52vw,210px)}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes spin{from{opacity:0;transform:rotate(-120deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes slide{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@keyframes gridmove{from{background-position:0 0}to{background-position:0 34px}}
+#splash:not(.go),#splash:not(.go) *{animation-play-state:paused!important}
+@media (prefers-reduced-motion: reduce){#splash *{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}.mic.live::after{animation:none}}
+</style>
+<script data-goatcounter="https://usemorekerb.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div id="splash" aria-hidden="true"><div class="grid"></div><div class="shade"></div>
+  <div class="lock"><img src="../team/stack.png" alt=""><div class="wr"><svg viewBox="0 0 40 40"><path d="M26.5 5.5a8 8 0 0 0-9.8 10.2L5.6 26.8a3.6 3.6 0 0 0 5.1 5.1l11.1-11.1A8 8 0 0 0 32 11l-4.8 4.8-4.4-1.2-1.2-4.4z" fill="#3BD16F"/><circle cx="8.2" cy="29.3" r="1.5" fill="#0b0d0c"/></svg></div>
+  <span class="ttl"><span class="w w1">Setup</span> <span class="w w2">Coach</span></span>
+  <svg class="trace" viewBox="0 0 280 34"><path d="M0 26 L40 26 L58 8 L80 28 L104 16 L130 22 L150 6 L172 26 L200 18 L226 24 L250 10 L280 10"/></svg>
+  <span class="sub">Driving · Setup · Fixes</span></div>
+  <div class="spons"><span>With thanks to</span><img src="../logos/sponsors/helmet28.png" alt="Helmet28" onerror="this.parentNode.remove()"></div>
+</div>
+
+<div id="scroller"><div class="wrap">
+  <header class="top">
+    <div class="brand"><img src="../team/wm.png" alt="Use More Kerb"><h1><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M26.5 5.5a8 8 0 0 0-9.8 10.2L5.6 26.8a3.6 3.6 0 0 0 5.1 5.1l11.1-11.1A8 8 0 0 0 32 11l-4.8 4.8-4.4-1.2-1.2-4.4z" fill="#3BD16F"/><circle cx="8.2" cy="29.3" r="1.5" fill="#121614"/></svg><span>Setup coach</span></h1></div>
+    <div class="mode" role="group" aria-label="Kart type"><button data-mode="owner" class="on">Owner</button><button data-mode="rental">Rental</button></div>
+  </header>
+
+  <div class="ask">
+    <label for="q">What's the kart doing?</label>
+    <div class="askrow">
+      <textarea id="q" rows="2" placeholder="e.g. it pushes wide on the way into slow corners" enterkeyhint="search"></textarea>
+      <button class="mic" id="mic" aria-label="Speak your question"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+    </div>
+    <div class="listening" id="listening"></div>
+    <div class="chips" id="conds">
+      <button class="chip" data-cond="dry">Dry</button><button class="chip" data-cond="wet">Wet</button>
+      <button class="chip" data-cond="cold">Cold track</button><button class="chip" data-cond="hot">Hot track</button>
+    </div>
+    <div class="row" style="display:flex;justify-content:flex-end;margin-top:10px"><button class="gobtn" id="goBtn">Find the fix</button></div>
+  </div>
+
+  <div id="results"></div>
+
+  <div id="home">
+    <h2 class="sect">Try asking</h2>
+    <div class="examples" id="examples"></div>
+    <h2 class="sect">Browse problems</h2>
+    <div class="cats" id="cats"></div>
+    <div id="histBox"></div>
+  </div>
+
+  <p class="disclaim">General advice for CIK-style sprint karts and rental karts. Chassis makers differ, so change one thing at a time, note what it did, and check your chassis maker's setup guide. Always check the kart is safe before going out.</p>
+  <a class="back" href="../">‹ Use More Kerb Season Planner</a>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script src="guide.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const LS="umk-setup-coach-v1";
+let ST={mode:"owner",conds:[],hist:[]};
+try{const r=localStorage.getItem(LS);if(r)Object.assign(ST,JSON.parse(r))}catch(e){}
+const save=()=>{try{localStorage.setItem(LS,JSON.stringify(ST))}catch(e){}};
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("on"),2200)}
+function gc(path,title){try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:"setup-"+path,title:title||path,event:true})}catch(e){}}
+const ICON={
+ drive:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.2"/><path d="M12 14.2V21M9.9 11.3 3.4 9.5M14.1 11.3l6.5-1.8"/></svg>',
+ setup:'<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>',
+ check:'<svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>',
+ cond:'<svg viewBox="0 0 24 24"><path d="M20 15.5A4.5 4.5 0 0 0 15.5 11h-1.1A6 6 0 1 0 6 17.4h14"/></svg>'};
+const PHASE={entry:"Turn-in",mid:"Mid-corner",exit:"Exit",straight:"Straights",any:"General"};
+
+/* ---------- matching a question to the guide ---------- */
+const SYN=[ // phrase -> extra words, so everyday descriptions find the right entry
+ [/\b(push(es|ing)?|plough|plow|wash(es)? out|won'?t turn|doesn'?t turn|goes straight on|runs? wide)\b/,"understeer"],
+ [/\b(loose|snap(py)?|spin(s|ning)?|step(s)? out|tail|back end|rear end|comes round|swaps? ends)\b/,"oversteer"],
+ [/\b(turn[- ]?in|entry|into (the )?corners?|braking into|on the brakes)\b/,"entry"],
+ [/\b(apex|mid[- ]?corner|middle of)\b/,"mid"],
+ [/\b(exit|out of (the )?corners?|on the (gas|power|throttle)|accelerat)/,"exit"],
+ [/\b(bounc|hop|chatter|judder|shudder|skip)/,"hop"],
+ [/\b(bog|bind|stick|drag|heavy out)/,"bog"],
+ [/\b(rain|wet|damp|puddle)/,"wet"]];
+function norm(t){return " "+String(t).toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' ]+/g," ").replace(/\s+/g," ")+" "}
+/* words that only say where in the corner it happens: they help rank, but the symptom words decide */
+const GENERIC=new Set(["entry","exit","mid corner","mid-corner","apex","turn in","turn-in","into the corner","braking into","on the power","on throttle","throttle","out of the corner","middle of the corner","braking","engine","slow","line","pace","driving"]);
+function score(p,q){
+  let s=0;const hits=[];
+  for(const k of p.kw){const kk=norm(k);if(q.includes(kk)){s+=GENERIC.has(k)?1:(kk.trim().split(" ").length>1?4:3);hits.push(k)}}
+  if(p.ph!=="any"){const ph=p.ph;if((ph==="entry"&&/ (entry|turn in|turn-in|into the corner|braking) /.test(q))||(ph==="mid"&&/ (mid|apex|middle) /.test(q))||(ph==="exit"&&/ (exit|out of|on the power|throttle) /.test(q))||(ph==="straight"&&/ straight/.test(q)))s+=2}
+  return {s,hits};
+}
+function findFixes(text){
+  let q=norm(text);
+  SYN.forEach(([re,w])=>{if(re.test(q))q+=w+" "});
+  const pool=GUIDE.filter(p=>ST.mode==="owner"||!p.owner);
+  const r=pool.map(p=>({p,...score(p,q)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
+  // understeer/oversteer without a phase: show all three phases' top entries
+  return r;
+}
+
+/* ---------- rendering ---------- */
+function card(p,top,open){
+  const rental=ST.mode==="rental";
+  const drive=rental?(p.rental&&p.rental.length?p.rental.concat(p.drive.slice(0,2)):p.drive):p.drive;
+  const conds=ST.conds.map(c=>p.cond&&p.cond[c]).filter(Boolean);
+  const showAll=open||top;
+  return `<div class="ans${top?" top":""}" id="a-${p.id}">
+    <div class="ah"><b>${esc(p.title)}</b><span class="ph">${esc(PHASE[p.ph]||"")}</span></div>
+    <p class="what">${esc(p.what)}</p>
+    ${conds.length?`<div class="blk cond"><h4>${ICON.cond}In these conditions</h4><ul>${conds.map(c=>`<li>${esc(c)}</li>`).join("")}</ul></div>`:""}
+    ${drive.length?`<div class="blk drive"><h4>${ICON.drive}Fix it with your driving</h4><ol>${drive.map(d=>`<li>${esc(d)}</li>`).join("")}</ol></div>`:""}
+    ${showAll?`${p.setup&&p.setup.length?`<div class="blk setup setuponly"><h4>${ICON.setup}Fix it with setup <span style="color:var(--muted);letter-spacing:0;text-transform:none;font-weight:500">(try one at a time, in this order)</span></h4><ol>${p.setup.map(x=>`<li>${esc(x.do)}<small>${esc(x.why)}</small></li>`).join("")}</ol></div>`:""}
+    ${p.check&&p.check.length?`<div class="blk check"><h4>${ICON.check}Check first</h4><ul>${p.check.map(c=>`<li>${esc(c)}</li>`).join("")}</ul></div>`:""}`
+    :`<button class="more" data-open="${p.id}">${rental?"More detail":"Show setup changes and checks"} ›</button>`}
+  </div>`;
+}
+let lastQ="";
+function search(text,via){
+  text=String(text||"").trim();
+  if(!text){toast("Describe what the kart is doing");return}
+  lastQ=text;
+  const r=findFixes(text);
+  ST.hist=[text].concat(ST.hist.filter(h=>h!==text)).slice(0,6);save();
+  gc(via==="voice"?"ask-voice":"ask-text","Asked the setup coach");
+  const top=r.slice(0,1),rest=r.slice(1).filter(x=>x.s>=3&&x.s>=top[0].s*0.5).slice(0,3);
+  let html="";
+  if(top.length){
+    html+=`<h2 class="sect" style="margin-top:4px">Most likely</h2>`+card(top[0].p,true);
+    if(rest.length)html+=`<h2 class="sect">Could also be</h2>`+rest.map(x=>card(x.p,false)).join("");
+  }else html+=`<p class="none">I couldn't match that to a problem in the guide. Try describing where in the corner it happens (turn-in, mid-corner or exit) and what the kart does (pushes wide, rear steps out, hops, bogs down), or ask the AI coach below.</p>`;
+  html+=aiBox();
+  $("#results").innerHTML=html;$("#home").hidden=true;
+  $("#results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function aiBox(){return `<div class="ai" id="aiBox"><div class="row"><b>Not quite right?<small>Ask the AI coach about your exact situation${ST.mode==="rental"?" (driving only)":""}.</small></b><button class="btn" id="aiGo">Ask the AI</button></div><div class="aitext" id="aiText" hidden></div></div>`}
+async function askAI(){
+  const out=$("#aiText"),btn=$("#aiGo");if(!lastQ)return;
+  out.hidden=false;out.textContent="Thinking…";btn.disabled=true;gc("ask-ai","Asked the AI coach");
+  try{
+    const r=await fetch("/.netlify/functions/coach",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:lastQ.slice(0,600),mode:ST.mode,conditions:ST.conds})});
+    if([404,405,501].includes(r.status)){out.innerHTML=`<span style="color:var(--muted)">AI answers aren't switched on yet. The guide above covers the most common problems.</span>`;return}
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok||!d.answer){out.innerHTML=`<span style="color:var(--muted)">${esc(d.error||"Couldn't get an answer right now. Try again in a moment.")}</span>`;return}
+    out.innerHTML=esc(d.answer).replace(/^#+\s*(.+)$/gm,"<h5>$1</h5>").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
+  }catch(e){out.innerHTML=`<span style="color:var(--muted)">No connection. The guide above works offline.</span>`}
+  finally{btn.disabled=false}
+}
+function home(){
+  const ex=ST.mode==="rental"?["It won't turn into tight corners","I'm slow on the straights","The rear steps out under braking","How do I drive in the wet?","I'm losing time but don't know where"]
+    :["Pushes wide on the way into slow corners","Rear steps out on the power","Kart is hopping mid-corner","Bogs down out of hairpins","Grip drops off after five laps","Engine stutters out of corners"];
+  $("#examples").innerHTML=ex.map(e=>`<button data-ex="${esc(e)}">${esc(e)}</button>`).join("");
+  const cats=GUIDE.filter(p=>ST.mode==="owner"||!p.owner);
+  $("#cats").innerHTML=cats.map(p=>`<button data-browse="${p.id}"><i style="background:${{Handling:"#3BD16F",Speed:"#4C8DFF",Brakes:"#FF6B6B",Tyres:"#F5A623",Wet:"#16C5D9",Engine:"#B36BFF",Driving:"#E040C8"}[p.cat]||"#3BD16F"}"></i>${esc(p.title)}</button>`).join("");
+  $("#histBox").innerHTML=ST.hist.length?`<h2 class="sect">Your recent questions</h2><div class="hist">${ST.hist.map(h=>`<button data-ex="${esc(h)}">${esc(h)}</button>`).join("")}</div>`:"";
+}
+function applyMode(){
+  document.documentElement.classList.toggle("rental",ST.mode==="rental");
+  document.querySelectorAll(".mode button").forEach(b=>b.classList.toggle("on",b.dataset.mode===ST.mode));
+  $("#q").placeholder=ST.mode==="rental"?"e.g. the kart won't turn into the hairpin":"e.g. it pushes wide on the way into slow corners";
+  document.querySelectorAll("#conds .chip").forEach(c=>c.classList.toggle("on",ST.conds.includes(c.dataset.cond)));
+  home();
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click",ev=>{
+  const t=ev.target.closest("[data-mode],[data-cond],[data-ex],[data-browse],[data-open],#goBtn,#aiGo");if(!t)return;
+  const d=t.dataset;
+  if(d.mode){ST.mode=d.mode;save();applyMode();gc("mode-"+d.mode);if(lastQ&&$("#home").hidden)search(lastQ);toast(ST.mode==="rental"?"Rental kart: driving fixes only":"Owner kart: driving and setup");return}
+  if(d.cond){const c=d.cond,on=ST.conds.includes(c);
+    ST.conds=ST.conds.filter(x=>x!==c&&!((c==="dry"&&x==="wet")||(c==="wet"&&x==="dry")||(c==="hot"&&x==="cold")||(c==="cold"&&x==="hot")));if(!on)ST.conds.push(c);save();applyMode();if(lastQ&&$("#home").hidden)search(lastQ);return}
+  if(d.ex!==undefined){$("#q").value=d.ex;search(d.ex);return}
+  if(d.browse){const p=GUIDE.find(x=>x.id===d.browse);lastQ=p.title;$("#results").innerHTML=card(p,true)+aiBox();$("#home").hidden=true;$("#results").scrollIntoView({behavior:"smooth"});return}
+  if(d.open){const p=GUIDE.find(x=>x.id===d.open);const el=$("#a-"+p.id);el.outerHTML=card(p,false,true);return}
+  if(t.id==="goBtn"){search($("#q").value);return}
+  if(t.id==="aiGo"){askAI();return}
+});
+$("#q").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();search($("#q").value)}});
+$("#q").addEventListener("input",()=>{if(!$("#q").value.trim()){$("#results").innerHTML="";$("#home").hidden=false}});
+
+/* ---------- voice ---------- */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,listening=false;
+$("#mic").onclick=()=>{
+  if(!SR){$("#q").focus();toast("Tap the microphone on your keyboard to speak");return}
+  if(listening){rec&&rec.stop();return}
+  rec=new SR();rec.lang=navigator.language||"en-GB";rec.interimResults=true;rec.continuous=false;
+  let final="";
+  rec.onstart=()=>{listening=true;$("#mic").classList.add("live");$("#listening").textContent="Listening… describe what the kart is doing"};
+  rec.onresult=e=>{let txt="";for(const r of e.results){txt+=r[0].transcript;if(r.isFinal)final=txt}$("#q").value=txt};
+  rec.onerror=e=>{$("#listening").textContent=e.error==="not-allowed"?"Microphone blocked. Allow it in your browser settings, or type instead.":"Didn't catch that. Try again or type it."};
+  rec.onend=()=>{listening=false;$("#mic").classList.remove("live");if($("#q").value.trim()){$("#listening").textContent="";search($("#q").value,"voice")}else if(!$("#listening").textContent.startsWith("Mic"))$("#listening").textContent=""};
+  try{rec.start()}catch(e){toast("Couldn't start the microphone")}
+};
+
+/* ---------- opening screen ---------- */
+(function(){const sp=$("#splash");let skip=false;try{skip=sessionStorage.getItem("umk-setup-splash")==="1";sessionStorage.setItem("umk-setup-splash","1")}catch(e){}
+  const app=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  if(skip&&!app){sp.remove();return}
+  const hide=()=>{sp.classList.add("out");setTimeout(()=>sp.remove(),700)};
+  sp.onclick=hide;requestAnimationFrame(()=>requestAnimationFrame(()=>{sp.classList.add("go");setTimeout(hide,2600)}))})();
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))addEventListener("load",()=>navigator.serviceWorker.register("../sw.js").catch(()=>{}));
+applyMode();
+</script>
+</body>
+</html>
