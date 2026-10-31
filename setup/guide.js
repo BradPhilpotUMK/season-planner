@@ -377,3 +377,79 @@ window.GUIDE = [
  check:["Are you consistent? Lap times within 0.2 s of each other before chasing setup."]
 }
 ];
+
+/* ---------- Rotax Senior MAX engine troubleshooting (from Brad's own Rotax notes) ----------
+   "steps" are worked through in order. Remember: an engine needs fuel, spark and compression. */
+window.GUIDE.push(
+{
+ id:"rotax-clicks", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: starter only clicks, engine won't crank",
+ kw:["rotax","starter","starter button","clicks","clicking","only clicks","won't crank","wont crank","doesn't crank","battery","flat battery","starter motor","won't start","wont start","doesn't start","no start"],
+ what:"You press the starter button, it clicks and nothing turns over. Usually the battery, the earth connection or the starter motor.",
+ drive:[],rental:[],setup:[],
+ steps:["Try another fully charged battery.","Check the ground (earth) connection for corrosion or looseness.","If it still doesn't crank, tap the starter motor gently with the back of a hammer.","If that doesn't solve it, the starter motor may be faulty: replace it."],
+ check:["Remember an engine needs three things to run: fuel, spark and compression."]
+},
+{
+ id:"rotax-bendix", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: starter spins fast but the engine doesn't turn",
+ kw:["rotax","starter spins","spins fast","whirs","whirring","starter whines","bendix","engine doesn't turn","won't start","wont start","doesn't start"],
+ what:"The starter motor spins freely but doesn't turn the engine over. Probably a Bendix problem.",
+ drive:[],rental:[],setup:[],
+ steps:["Clean and lubricate the Bendix.","If that doesn't solve it, replace the Bendix."],
+ check:[]
+},
+{
+ id:"rotax-nospark", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: cranks normally but won't start (check spark)",
+ kw:["rotax","cranks","turns over","cranks but won't start","cranks but wont start","won't fire","wont fire","no spark","spark","spark plug","plug","coil","ignition coil","ecu","wiring loom","wiring harness","crank sensor","crankshaft position sensor","pickup sensor","won't start","wont start","doesn't start","no start"],
+ what:"The engine turns over at normal speed but won't fire. Check for spark first.",
+ drive:[],rental:[],setup:[],
+ steps:["Check for spark.","No spark: replace the spark plug.","Still no spark: try another ignition coil.","Still no spark: try another wiring harness (and test again with the second coil). The problem could be either the coil or the harness.","Still no spark: try another crankshaft position sensor.","Still nothing: try another ECU.","If that doesn't work, cry in a fetal position. (Then get the engine to your engine builder.)"],
+ check:["If you do have spark, see 'Rotax: has spark but won't start'."]
+},
+{
+ id:"rotax-sparknostart", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: has spark but won't start",
+ kw:["rotax","has spark","got spark","spark but","won't start","wont start","doesn't start","no start","no fuel","fuel","fuel pump","carb","carburettor","carburetor","floats","choke","flooded","pops","popping","few pops","exhaust blocked","reed","reeds","reed petals","compression","low compression"],
+ what:"You have spark but the engine still won't run, so the problem is fuel, air or compression.",
+ drive:[],rental:[],setup:[],
+ steps:["If the engine is cold, pull the carburettor choke.","Clean the carburettor. Check the floats are fitted correctly and aren't upside down.","Check the carburettor vent hoses aren't blocked.","Check the fuel tank ventilation isn't blocked.","Try another carburettor.","Check fuel is reaching the carburettor (you should see it flowing through the fuel hose). If not, check or replace the fuel pump.","Make sure the fuel pump hoses are connected to the correct ports.","Check for air leaks at the fuel pump connections and hoses. Secure every hose connection with zip ties.","If it tries to start and makes a few pops, make sure the exhaust and exhaust manifold aren't blocked. People often put a cap or cloth over the exhaust and forget it: make sure the engine hasn't sucked it in.","Inspect the reed petals with a torch for cracks or damage.","Check compression with a compression gauge. Low compression points to the piston, rings or cylinder."],
+ check:[]
+},
+{
+ id:"rotax-nopower-exit", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"exit", title:"Rotax: no power coming out of corners",
+ kw:["rotax","no power","lack of power","down on power","flat","no pull","out of corners","out of the corner","exit","exhaust valve","power valve","valve","solenoid","one way valve","one-way valve","vacuum hose","needle","needle position","needle clip","bottom end","slow out of corners"],
+ what:"The engine feels flat accelerating out of corners. Often the exhaust (power) valve isn't working, an air leak in the impulse hoses, or the needle position.",
+ drive:[],rental:[],setup:[],
+ steps:["Make sure the exhaust valve opens and closes properly: it should open at about 8,000 rpm. You can check it on the trolley.","Remove, inspect and clean the power valve.","If the exhaust valve opens immediately, check the vacuum hoses are connected correctly.","If the valve isn't opening or closing properly, check the green one-way valve and replace it if needed.","If it persists, try another solenoid.","If it still persists, try another ECU.","Check the fuel pump impulse hoses and connections for air leaks: you should feel the vacuum pulses in the hose feeding the exhaust valve. Secure all hose connections with zip ties.","Check the carburettor needle position (positions 3 or 4 work well in most conditions) and that the needle clip isn't broken.","Not engine-related, but check the rear axle isn't moving inside its bearings."],
+ check:[]
+},
+{
+ id:"rotax-straight", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"straight", title:"Rotax: problems on the main straight",
+ kw:["rotax","main straight","straight","popping","pops on the straight","lean","rich","bogging on the straight","bogs on the straight","13000","13,000","rpm","revs","not revving","won't rev","wont rev","rev limit","14500","14,500","limiter","telemetry","top end","top speed"],
+ what:"How the engine behaves at the end of the straight tells you what's wrong with the mixture or gearing.",
+ drive:[],rental:[],setup:[],
+ steps:["Engine popping: probably running too lean. Richen it.","Engine bogging before the end of the main straight (rpm stops rising at around 13,000): probably running too rich. Lean it.","Engine not increasing rpm on the main straight: check the telemetry. Rotax engines have an rpm limit of about 14,500. Also check the gearing."],
+ check:["Change the carburation in small steps and re-check on the next run."]
+},
+{
+ id:"rotax-nodrive", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: engine revs but the kart doesn't move",
+ kw:["rotax","revs but","revs up","kart doesn't move","kart doesnt move","won't move","wont move","no drive","clutch","slipping clutch","clutch slipping","flywheel","flywheel nut"],
+ what:"The engine revs freely but the drive isn't reaching the axle.",
+ drive:[],rental:[],setup:[],
+ steps:["Check the clutch.","Check the flywheel is still securely attached to the crankshaft.","The flywheel is held on the crankshaft with a small nut and needs Loctite. Don't attempt this repair yourself unless you're experienced."],
+ check:["Chain still on and the sprockets tight?"]
+},
+{
+ id:"rotax-hot", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: running hot (over 60°C with flaps open)",
+ kw:["rotax","hot","overheating","over heating","temperature","temp","water temp","60","60 degrees","radiator","radiator flaps","flaps","coolant","water pump"],
+ what:"The engine temperature goes above 60°C even with the radiator flaps fully open.",
+ drive:[],rental:[],setup:[],
+ steps:["Check the coolant level.","Check the water pump gears."],
+ check:[]
+},
+{
+ id:"rotax-vibration", cat:"Rotax", engine:"Rotax Senior MAX", owner:true, ph:"any", title:"Rotax: engine vibration",
+ kw:["rotax","vibration","vibrating","vibrates","shaking engine","engine shakes","balance shaft","balancer","timing marks"],
+ what:"The engine vibrates more than normal.",
+ drive:[],rental:[],setup:[],
+ steps:["Check the gears and make sure the balance shaft timing marks are aligned correctly."],
+ check:[]
+});

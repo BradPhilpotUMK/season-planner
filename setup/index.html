@@ -99,6 +99,8 @@ header.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:calc(12
 .blk.drive h4{color:var(--accent)}
 .blk.setup h4{color:var(--accent2)}
 .blk.check h4{color:var(--gold)}
+.blk.steps h4{color:#F5A623}
+.eng{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#F5A623;margin:0 14px 2px;padding:0}
 .blk.cond h4{color:#16C5D9}
 .blk ol,.blk ul{margin:0;padding-left:20px}
 .blk li{margin:5px 0;font-size:15px}
@@ -224,7 +226,7 @@ const SYN=[ // phrase -> extra words, so everyday descriptions find the right en
  [/\b(rain|wet|damp|puddle)/,"wet"]];
 function norm(t){return " "+String(t).toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' ]+/g," ").replace(/\s+/g," ")+" "}
 /* words that only say where in the corner it happens: they help rank, but the symptom words decide */
-const GENERIC=new Set(["entry","exit","mid corner","mid-corner","apex","turn in","turn-in","into the corner","braking into","on the power","on throttle","throttle","out of the corner","middle of the corner","braking","engine","slow","line","pace","driving"]);
+const GENERIC=new Set(["rotax","won't start","wont start","doesn't start","no start","hot","rpm","revs","fuel","spark","straight","entry","exit","mid corner","mid-corner","apex","turn in","turn-in","into the corner","braking into","on the power","on throttle","throttle","out of the corner","middle of the corner","braking","engine","slow","line","pace","driving"]);
 function score(p,q){
   let s=0;const hits=[];
   for(const k of p.kw){const kk=norm(k);if(q.includes(kk)){s+=GENERIC.has(k)?1:(kk.trim().split(" ").length>1?4:3);hits.push(k)}}
@@ -233,9 +235,11 @@ function score(p,q){
 }
 function findFixes(text){
   let q=norm(text);
-  SYN.forEach(([re,w])=>{if(re.test(q))q+=w+" "});
+  const eng=/ (engine|starter|crank|cranks|rotax|motor|carb|spark|bendix|clutch) /.test(q);
+  SYN.forEach(([re,w])=>{if(eng&&(w==="understeer"||w==="oversteer"))return;if(re.test(q))q+=w+" "});
   const pool=GUIDE.filter(p=>ST.mode==="owner"||!p.owner);
-  const r=pool.map(p=>({p,...score(p,q)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
+  const rotax=/ (rotax|max evo|senior max|junior max|dd2) /.test(q);
+  const r=pool.map(p=>{const x=score(p,q);if(p.engine&&rotax&&x.s>2)x.s+=3;if(p.engine&&!rotax)x.s-=1;return {p,...x}}).filter(x=>x.s>1).sort((a,b)=>b.s-a.s);
   // understeer/oversteer without a phase: show all three phases' top entries
   return r;
 }
@@ -248,12 +252,13 @@ function card(p,top,open){
   const showAll=open||top;
   return `<div class="ans${top?" top":""}" id="a-${p.id}">
     <div class="ah"><b>${esc(p.title)}</b><span class="ph">${esc(PHASE[p.ph]||"")}</span></div>
-    <p class="what">${esc(p.what)}</p>
+    ${p.engine?`<span class="eng">${esc(p.engine)}</span>`:""}<p class="what">${esc(p.what)}</p>
     ${conds.length?`<div class="blk cond"><h4>${ICON.cond}In these conditions</h4><ul>${conds.map(c=>`<li>${esc(c)}</li>`).join("")}</ul></div>`:""}
+    ${p.steps&&p.steps.length?`<div class="blk steps"><h4>${ICON.check}Work through these in order</h4><ol>${p.steps.map(d=>`<li>${esc(d)}</li>`).join("")}</ol></div>`:""}
     ${drive.length?`<div class="blk drive"><h4>${ICON.drive}Fix it with your driving</h4><ol>${drive.map(d=>`<li>${esc(d)}</li>`).join("")}</ol></div>`:""}
     ${showAll?`${p.setup&&p.setup.length?`<div class="blk setup setuponly"><h4>${ICON.setup}Fix it with setup <span style="color:var(--muted);letter-spacing:0;text-transform:none;font-weight:500">(try one at a time, in this order)</span></h4><ol>${p.setup.map(x=>`<li>${esc(x.do)}<small>${esc(x.why)}</small></li>`).join("")}</ol></div>`:""}
     ${p.check&&p.check.length?`<div class="blk check"><h4>${ICON.check}Check first</h4><ul>${p.check.map(c=>`<li>${esc(c)}</li>`).join("")}</ul></div>`:""}`
-    :`<button class="more" data-open="${p.id}">${rental?"More detail":"Show setup changes and checks"} ›</button>`}
+    :((p.setup&&p.setup.length)||(p.check&&p.check.length))?`<button class="more" data-open="${p.id}">${rental?"More detail":(p.setup&&p.setup.length?"Show setup changes and checks":"Show checks")} ›</button>`:""}
   </div>`;
 }
 let lastQ="";
@@ -269,7 +274,8 @@ function search(text,via){
   if(top.length){
     html+=`<h2 class="sect" style="margin-top:4px">Most likely</h2>`+card(top[0].p,true);
     if(rest.length)html+=`<h2 class="sect">Could also be</h2>`+rest.map(x=>card(x.p,false)).join("");
-  }else html+=`<p class="none">I couldn't match that to a problem in the guide. Try describing where in the corner it happens (turn-in, mid-corner or exit) and what the kart does (pushes wide, rear steps out, hops, bogs down), or ask the AI coach below.</p>`;
+  }else if(ST.mode==="rental"&&/\b(engine|starter|crank|rotax|carb|spark|clutch|won'?t start)\b/i.test(text))html+=`<p class="none">Engine problems on a rental kart are for the track staff: tell a marshal or the pits. Switch to Owner for engine troubleshooting on your own kart.</p>`;
+  else html+=`<p class="none">I couldn't match that to a problem in the guide. Try describing where in the corner it happens (turn-in, mid-corner or exit) and what the kart does (pushes wide, rear steps out, hops, bogs down), or ask the AI coach below.</p>`;
   html+=aiBox();
   $("#results").innerHTML=html;$("#home").hidden=true;
   $("#results").scrollIntoView({behavior:"smooth",block:"start"});
@@ -292,7 +298,8 @@ function home(){
     :["Pushes wide on the way into slow corners","Rear steps out on the power","Kart is hopping mid-corner","Bogs down out of hairpins","Grip drops off after five laps","Engine stutters out of corners"];
   $("#examples").innerHTML=ex.map(e=>`<button data-ex="${esc(e)}">${esc(e)}</button>`).join("");
   const cats=GUIDE.filter(p=>ST.mode==="owner"||!p.owner);
-  $("#cats").innerHTML=cats.map(p=>`<button data-browse="${p.id}"><i style="background:${{Handling:"#3BD16F",Speed:"#4C8DFF",Brakes:"#FF6B6B",Tyres:"#F5A623",Wet:"#16C5D9",Engine:"#B36BFF",Driving:"#E040C8"}[p.cat]||"#3BD16F"}"></i>${esc(p.title)}</button>`).join("");
+  const btn=p=>`<button data-browse="${p.id}"><i style="background:${{Handling:"#3BD16F",Speed:"#4C8DFF",Brakes:"#FF6B6B",Tyres:"#F5A623",Wet:"#16C5D9",Engine:"#B36BFF",Driving:"#E040C8"}[p.cat]||"#F5A623"}"></i>${esc(p.title.replace(/^Rotax: (.)/,(m,c)=>c.toUpperCase()))}</button>`;
+  $("#cats").innerHTML=cats.filter(p=>!p.engine).map(btn).join("")+(ST.mode==="owner"?`<h2 class="sect" style="grid-column:1/-1;margin-bottom:0">Rotax Senior MAX troubleshooting</h2>${cats.filter(p=>p.engine).map(btn).join("")}`:"");
   $("#histBox").innerHTML=ST.hist.length?`<h2 class="sect">Your recent questions</h2><div class="hist">${ST.hist.map(h=>`<button data-ex="${esc(h)}">${esc(h)}</button>`).join("")}</div>`:"";
 }
 function applyMode(){
