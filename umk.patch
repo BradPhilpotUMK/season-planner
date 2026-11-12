@@ -1,0 +1,542 @@
+From 103f869a1a5915e6fd268f2da638ba59d076a387 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 12 Nov 2026 13:58:46 +0000
+Subject: [PATCH 1/2] Race Post Maker: choose the position colour (7 presets or
+ any colour) and the outline thickness and colour, including no outline
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_015VNHxvPxgc79iAZc2QEA9e
+---
+ index.html            |  2 +-
+ planner/index.html    |  2 +-
+ post/index.html       | 21 +++++++++++++++++++--
+ sw.js                 |  2 +-
+ tools/pages/post.css  |  7 +++++++
+ tools/pages/post.html |  4 ++++
+ tools/pages/post.js   | 10 ++++++++--
+ version.json          |  2 +-
+ 8 files changed, 42 insertions(+), 8 deletions(-)
+
+diff --git a/index.html b/index.html
+index 1a18524..3d5afb6 100644
+--- a/index.html
++++ b/index.html
+@@ -668,7 +668,7 @@ if(!IS_APP){$("#instBar").hidden=false;$("#instBar").onclick=instShow}
+ if(IS_APP)setTimeout(()=>gc("open-as-app","Opened from home screen"),3000);
+ 
+ /* ---------- pick up new versions: check when the app opens or comes back to the front ---------- */
+-const BUILD="1794488470";
++const BUILD="1794491914";
+ /* a newer version has been saved in the background: switch to it when the app is next put away,
+    or straight away when it comes back to the front (iPhone apps often resume instead of reopening) */
+ let newer=false;
+diff --git a/planner/index.html b/planner/index.html
+index ca8f6c6..439b9c9 100644
+--- a/planner/index.html
++++ b/planner/index.html
+@@ -639,7 +639,7 @@ function setRegion(c){if(!REGIONS[c]||c===REGION.code)return;try{localStorage.se
+ const LS=REGION.ls;
+ const SUGGEST=REGION.suggest;
+ const WEB=true;
+-const BUILD="1794488470";
++const BUILD="1794491914";
+ /* Load the newest version: phones may keep an old saved copy of the page */
+ (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
+   /* a newer version is out: swap to it quietly the next time the app goes into the background,
+diff --git a/post/index.html b/post/index.html
+index f2df400..a059277 100644
+--- a/post/index.html
++++ b/post/index.html
+@@ -71,6 +71,13 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+ input[type=range]{padding:0;accent-color:#FF0074;background:none;border:0}
+ .tog{display:flex;align-items:center;gap:8px;font-weight:600}
+ .tog input{width:auto;accent-color:#FF0074}
++.sw{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 4px}
++.sw button,.sw .cust{width:34px;height:34px;border-radius:50%;padding:0;margin:0;border:2px solid #3a3b42;background:var(--c);cursor:pointer;position:relative;display:inline-flex;align-items:center;justify-content:center}
++.sw button.on,.sw .cust.on{border-color:#fff;box-shadow:0 0 0 2px #FF0074}
++.sw .cust{background:conic-gradient(#ff0074,#ffd400,#00be00,#2ea8ff,#ff0074);font-weight:900;color:#fff;text-shadow:0 1px 3px #000;font-size:18px}
++.sw .cust input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;padding:0;border:0}
++.sw.sm button{width:26px;height:26px}
++.sw.sm .note{margin-right:4px}
+ </style>
+ <script data-goatcounter="https://usemorekerb.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+ </head>
+@@ -92,6 +99,10 @@ input[type=range]{padding:0;accent-color:#FF0074;background:none;border:0}
+     <div class="seg" id="fmt"><button data-f="story" class="on">Story / TikTok 9:16</button><button data-f="post">Post 4:5</button></div>
+     <div class="seg" id="style"><button data-s="splat" class="on">Paint splat</button><button data-s="bold">Bold</button><button data-s="clean">Clean</button></div>
+     <div class="stage" id="stage"><canvas id="cv"></canvas><p class="drag" id="dragHint">Drag the photo, text or logo to move them</p></div>
++    <label>Position colour</label>
++    <div class="sw" id="pcol"><button data-c="#ffffff" style="--c:#ffffff" aria-label="White"></button><button data-c="#FF0074" style="--c:#FF0074" aria-label="Pink"></button><button data-c="#00BE00" style="--c:#00BE00" aria-label="Green"></button><button data-c="#FFD400" style="--c:#FFD400" aria-label="Yellow"></button><button data-c="#2EA8FF" style="--c:#2EA8FF" aria-label="Blue"></button><button data-c="#FF6A00" style="--c:#FF6A00" aria-label="Orange"></button><button data-c="#111111" style="--c:#111111" aria-label="Black"></button><label class="cust" aria-label="Pick any colour"><input type="color" id="pcolPick"><span>+</span></label></div>
++    <label for="stroke">Outline <span class="note" id="strokeVal"></span></label><input type="range" id="stroke" min="0" max="30" step="1">
++    <div class="sw sm" id="scol"><span class="note">Outline colour</span><button data-c="#000000" style="--c:#000000" aria-label="Black"></button><button data-c="#ffffff" style="--c:#ffffff" aria-label="White"></button><button data-c="#FF0074" style="--c:#FF0074" aria-label="Pink"></button><button data-c="#00BE00" style="--c:#00BE00" aria-label="Green"></button></div>
+     <label for="zoom">Zoom</label><input type="range" id="zoom" min="1" max="3" step="0.01" value="1">
+     <label class="tog" id="tagRow" hidden><input type="checkbox" id="hideTag"> Hide the "Made with the USE MORE KERB app" tag <span class="tag">Members</span></label>
+     <div class="btns"><button class="btn primary" id="share">Share</button><button class="btn" id="resetPos" type="button">Reset layout</button><button class="btn" id="save">Save image</button></div>
+@@ -110,7 +121,7 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.
+ async function copy(t,ok){let done=false;try{await navigator.clipboard.writeText(t);done=true}catch(e){}toast(done?ok:"Couldn't copy, select the text instead")}
+ if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))addEventListener("load",()=>navigator.serviceWorker.register("../sw.js").catch(()=>{}));
+ const cv=$("#cv"),g=cv.getContext("2d"),KEY="umk-post-v1";
+-const S=Object.assign({fmt:"story",style:"splat",pos:"1",start:"",event:"",track:"",cls:"",extra:"",name:"",handle:"",hideTag:false},store.get(KEY,{}));
++const S=Object.assign({fmt:"story",style:"splat",pos:"1",start:"",event:"",track:"",cls:"",extra:"",name:"",handle:"",hideTag:false,pcol:"#ffffff",stroke:7,scol:"#000000"},store.get(KEY,{}));
+ let photo=null,zoom=1,ox=0,oy=0;
+ const IMG=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src});
+ const A={};
+@@ -125,6 +136,12 @@ stSel.innerHTML+=[...Array(40)].map((_,i)=>`<option value="${i+1}">P${i+1}</opti
+ ["pos","start","event","track","cls","extra","name","handle"].forEach(k=>{const el=$("#"+k);el.value=S[k];el.addEventListener("input",()=>{S[k]=el.value.trim();save();draw()})});
+ $("#hideTag").checked=!!S.hideTag;$("#hideTag").onchange=e=>{S.hideTag=e.target.checked;save();draw()};
+ if(window.UMK&&window.UMK.member)$("#tagRow").hidden=false;
++function swatch(id,key,pick){const set=()=>{let hit=false;$$("#"+id+" button").forEach(b=>{const on=b.dataset.c.toLowerCase()===S[key].toLowerCase();b.classList.toggle("on",on);hit=hit||on});if(pick){$("#"+id+" .cust").classList.toggle("on",!hit);$("#"+pick).value=S[key]}};
++  $$("#"+id+" button").forEach(b=>b.onclick=()=>{S[key]=b.dataset.c;set();save();draw()});
++  if(pick)$("#"+pick).addEventListener("input",e=>{S[key]=e.target.value;set();save();draw()});set()}
++swatch("pcol","pcol","pcolPick");swatch("scol","scol");
++const strokeTxt=()=>$("#strokeVal").textContent=S.stroke==0?"(none)":"";
++$("#stroke").value=S.stroke;strokeTxt();$("#stroke").oninput=e=>{S.stroke=+e.target.value;strokeTxt();save();draw()};
+ function save(){const c={...S};store.set(KEY,c)}
+ $$("#fmt button").forEach(b=>{b.classList.toggle("on",b.dataset.f===S.fmt);b.onclick=()=>{S.fmt=b.dataset.f;$$("#fmt button").forEach(x=>x.classList.toggle("on",x===b));save();draw()}});
+ $$("#style button").forEach(b=>{b.classList.toggle("on",b.dataset.s===S.style);b.onclick=()=>{S.style=b.dataset.s;$$("#style button").forEach(x=>x.classList.toggle("on",x===b));save();draw()}});
+@@ -168,7 +185,7 @@ function draw(){
+   if(st==="bold"){g.save();g.translate(0,baseY-330);g.rotate(-6*Math.PI/180);g.fillStyle=big;g.fillRect(-40,0,W+80,300);g.restore()}
+   const fs=st==="clean"?260:340;g.font=`italic 900 ${fs}px F1, 'Arial Black', sans-serif`;
+   g.save();g.translate(pad,baseY-20);if(st!=="clean")g.rotate(-6*Math.PI/180);
+-  g.lineWidth=14;g.strokeStyle="rgba(0,0,0,.55)";g.strokeText(P,0,0);g.fillStyle="#fff";g.fillText(P,0,0);g.restore();
++  if(S.stroke>0){g.lineJoin="round";g.lineWidth=S.stroke*2;g.strokeStyle=S.scol;g.globalAlpha=S.scol==="#000000"?.7:1;g.strokeText(P,0,0);g.globalAlpha=1}g.fillStyle=S.pcol;g.fillText(P,0,0);g.restore();
+   let y=baseY+70;g.fillStyle="#fff";
+   if(S.event){fit(S.event.toUpperCase(),W-pad*2,64,"italic 900 SZpx F1, 'Arial Black', sans-serif");g.fillText(S.event.toUpperCase(),pad,y);y+=66}
+   if(sub){g.font="600 40px Barlow, sans-serif";g.fillStyle="#e6e6ea";g.fillText(sub,pad,y);y+=58}
+diff --git a/sw.js b/sw.js
+index 8b99975..1eaee58 100644
+--- a/sw.js
++++ b/sw.js
+@@ -1,7 +1,7 @@
+ /* Season Planner offline support.
+    Pages and race data: try the network first (so updates show straight away), fall back to the saved copy when offline.
+    Logos, icons and fonts: use the saved copy, refresh it in the background. */
+-const CACHE = "umk-planner-v35";
++const CACHE = "umk-planner-v36";
+ const CORE = [
+   "./", "index.html", "manifest.webmanifest", "version.json",
+   "data/races.json", "data/brad.json",
+diff --git a/tools/pages/post.css b/tools/pages/post.css
+index b3de26c..5f8e686 100644
+--- a/tools/pages/post.css
++++ b/tools/pages/post.css
+@@ -7,3 +7,10 @@
+ input[type=range]{padding:0;accent-color:#FF0074;background:none;border:0}
+ .tog{display:flex;align-items:center;gap:8px;font-weight:600}
+ .tog input{width:auto;accent-color:#FF0074}
++.sw{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 4px}
++.sw button,.sw .cust{width:34px;height:34px;border-radius:50%;padding:0;margin:0;border:2px solid #3a3b42;background:var(--c);cursor:pointer;position:relative;display:inline-flex;align-items:center;justify-content:center}
++.sw button.on,.sw .cust.on{border-color:#fff;box-shadow:0 0 0 2px #FF0074}
++.sw .cust{background:conic-gradient(#ff0074,#ffd400,#00be00,#2ea8ff,#ff0074);font-weight:900;color:#fff;text-shadow:0 1px 3px #000;font-size:18px}
++.sw .cust input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;padding:0;border:0}
++.sw.sm button{width:26px;height:26px}
++.sw.sm .note{margin-right:4px}
+diff --git a/tools/pages/post.html b/tools/pages/post.html
+index bbe6553..fe47ae3 100644
+--- a/tools/pages/post.html
++++ b/tools/pages/post.html
+@@ -13,6 +13,10 @@
+     <div class="seg" id="fmt"><button data-f="story" class="on">Story / TikTok 9:16</button><button data-f="post">Post 4:5</button></div>
+     <div class="seg" id="style"><button data-s="splat" class="on">Paint splat</button><button data-s="bold">Bold</button><button data-s="clean">Clean</button></div>
+     <div class="stage" id="stage"><canvas id="cv"></canvas><p class="drag" id="dragHint">Drag the photo, text or logo to move them</p></div>
++    <label>Position colour</label>
++    <div class="sw" id="pcol"><button data-c="#ffffff" style="--c:#ffffff" aria-label="White"></button><button data-c="#FF0074" style="--c:#FF0074" aria-label="Pink"></button><button data-c="#00BE00" style="--c:#00BE00" aria-label="Green"></button><button data-c="#FFD400" style="--c:#FFD400" aria-label="Yellow"></button><button data-c="#2EA8FF" style="--c:#2EA8FF" aria-label="Blue"></button><button data-c="#FF6A00" style="--c:#FF6A00" aria-label="Orange"></button><button data-c="#111111" style="--c:#111111" aria-label="Black"></button><label class="cust" aria-label="Pick any colour"><input type="color" id="pcolPick"><span>+</span></label></div>
++    <label for="stroke">Outline <span class="note" id="strokeVal"></span></label><input type="range" id="stroke" min="0" max="30" step="1">
++    <div class="sw sm" id="scol"><span class="note">Outline colour</span><button data-c="#000000" style="--c:#000000" aria-label="Black"></button><button data-c="#ffffff" style="--c:#ffffff" aria-label="White"></button><button data-c="#FF0074" style="--c:#FF0074" aria-label="Pink"></button><button data-c="#00BE00" style="--c:#00BE00" aria-label="Green"></button></div>
+     <label for="zoom">Zoom</label><input type="range" id="zoom" min="1" max="3" step="0.01" value="1">
+     <label class="tog" id="tagRow" hidden><input type="checkbox" id="hideTag"> Hide the "Made with the USE MORE KERB app" tag <span class="tag">Members</span></label>
+     <div class="btns"><button class="btn primary" id="share">Share</button><button class="btn" id="resetPos" type="button">Reset layout</button><button class="btn" id="save">Save image</button></div>
+diff --git a/tools/pages/post.js b/tools/pages/post.js
+index e666389..2677082 100644
+--- a/tools/pages/post.js
++++ b/tools/pages/post.js
+@@ -1,5 +1,5 @@
+ const cv=$("#cv"),g=cv.getContext("2d"),KEY="umk-post-v1";
+-const S=Object.assign({fmt:"story",style:"splat",pos:"1",start:"",event:"",track:"",cls:"",extra:"",name:"",handle:"",hideTag:false},store.get(KEY,{}));
++const S=Object.assign({fmt:"story",style:"splat",pos:"1",start:"",event:"",track:"",cls:"",extra:"",name:"",handle:"",hideTag:false,pcol:"#ffffff",stroke:7,scol:"#000000"},store.get(KEY,{}));
+ let photo=null,zoom=1,ox=0,oy=0;
+ const IMG=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src});
+ const A={};
+@@ -14,6 +14,12 @@ stSel.innerHTML+=[...Array(40)].map((_,i)=>`<option value="${i+1}">P${i+1}</opti
+ ["pos","start","event","track","cls","extra","name","handle"].forEach(k=>{const el=$("#"+k);el.value=S[k];el.addEventListener("input",()=>{S[k]=el.value.trim();save();draw()})});
+ $("#hideTag").checked=!!S.hideTag;$("#hideTag").onchange=e=>{S.hideTag=e.target.checked;save();draw()};
+ if(window.UMK&&window.UMK.member)$("#tagRow").hidden=false;
++function swatch(id,key,pick){const set=()=>{let hit=false;$$("#"+id+" button").forEach(b=>{const on=b.dataset.c.toLowerCase()===S[key].toLowerCase();b.classList.toggle("on",on);hit=hit||on});if(pick){$("#"+id+" .cust").classList.toggle("on",!hit);$("#"+pick).value=S[key]}};
++  $$("#"+id+" button").forEach(b=>b.onclick=()=>{S[key]=b.dataset.c;set();save();draw()});
++  if(pick)$("#"+pick).addEventListener("input",e=>{S[key]=e.target.value;set();save();draw()});set()}
++swatch("pcol","pcol","pcolPick");swatch("scol","scol");
++const strokeTxt=()=>$("#strokeVal").textContent=S.stroke==0?"(none)":"";
++$("#stroke").value=S.stroke;strokeTxt();$("#stroke").oninput=e=>{S.stroke=+e.target.value;strokeTxt();save();draw()};
+ function save(){const c={...S};store.set(KEY,c)}
+ $$("#fmt button").forEach(b=>{b.classList.toggle("on",b.dataset.f===S.fmt);b.onclick=()=>{S.fmt=b.dataset.f;$$("#fmt button").forEach(x=>x.classList.toggle("on",x===b));save();draw()}});
+ $$("#style button").forEach(b=>{b.classList.toggle("on",b.dataset.s===S.style);b.onclick=()=>{S.style=b.dataset.s;$$("#style button").forEach(x=>x.classList.toggle("on",x===b));save();draw()}});
+@@ -57,7 +63,7 @@ function draw(){
+   if(st==="bold"){g.save();g.translate(0,baseY-330);g.rotate(-6*Math.PI/180);g.fillStyle=big;g.fillRect(-40,0,W+80,300);g.restore()}
+   const fs=st==="clean"?260:340;g.font=`italic 900 ${fs}px F1, 'Arial Black', sans-serif`;
+   g.save();g.translate(pad,baseY-20);if(st!=="clean")g.rotate(-6*Math.PI/180);
+-  g.lineWidth=14;g.strokeStyle="rgba(0,0,0,.55)";g.strokeText(P,0,0);g.fillStyle="#fff";g.fillText(P,0,0);g.restore();
++  if(S.stroke>0){g.lineJoin="round";g.lineWidth=S.stroke*2;g.strokeStyle=S.scol;g.globalAlpha=S.scol==="#000000"?.7:1;g.strokeText(P,0,0);g.globalAlpha=1}g.fillStyle=S.pcol;g.fillText(P,0,0);g.restore();
+   let y=baseY+70;g.fillStyle="#fff";
+   if(S.event){fit(S.event.toUpperCase(),W-pad*2,64,"italic 900 SZpx F1, 'Arial Black', sans-serif");g.fillText(S.event.toUpperCase(),pad,y);y+=66}
+   if(sub){g.font="600 40px Barlow, sans-serif";g.fillStyle="#e6e6ea";g.fillText(sub,pad,y);y+=58}
+diff --git a/version.json b/version.json
+index d962bd6..8defc3a 100644
+--- a/version.json
++++ b/version.json
+@@ -1 +1 @@
+-{"build": "1794488470"}
++{"build": "1794491914"}
+-- 
+2.43.0
+
+
+From cb2faa57a3702e02191e18098b827bc9f57590f6 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 12 Nov 2026 14:07:25 +0000
+Subject: [PATCH 2/2] Home-screen install prompt on every page (one-tap install
+ on Android, Open in Safari/Chrome from Instagram/TikTok/Discord, step-by-step
+ for iPhone); carbon fibre background on Season Planner and Standings; Race
+ Post Maker position colour and outline controls
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_015VNHxvPxgc79iAZc2QEA9e
+---
+ gate.js              |   1 +
+ img/carbon.png       | Bin 0 -> 3175 bytes
+ index.html           |   3 +-
+ install.js           | 128 +++++++++++++++++++++++++++++++++++++++++++
+ planner/index.html   |   7 ++-
+ standings/index.html |   4 ++
+ sw.js                |   4 +-
+ team/index.html      |   2 +-
+ version.json         |   2 +-
+ 9 files changed, 145 insertions(+), 6 deletions(-)
+ create mode 100644 img/carbon.png
+ create mode 100644 install.js
+
+diff --git a/gate.js b/gate.js
+index 02e93b6..a533c80 100644
+--- a/gate.js
++++ b/gate.js
+@@ -14,6 +14,7 @@
+     trailer: "JAPL-rYNekY"
+   };
+   var KEY = "umk-pass", D = document, H = D.documentElement, S = D.currentScript;
++  try { var IJ = D.createElement("script"); IJ.src = S.src.replace(/gate\.js(\?.*)?$/, "install.js"); IJ.async = true; D.head.appendChild(IJ); } catch (e) {}
+   var NEED = (S && S.getAttribute("data-need")) || "member";
+   var base = (function () { try { return new URL(".", S.src).href; } catch (e) { return "/"; } })();
+   function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } }
+diff --git a/img/carbon.png b/img/carbon.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2b519c20c4829f5c54c7f219595d3b6da1801659
+GIT binary patch
+literal 3175
+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
+N002ovPDHLkV1jNrJZ1m@
+
+literal 0
+HcmV?d00001
+
+diff --git a/index.html b/index.html
+index 3d5afb6..ee19869 100644
+--- a/index.html
++++ b/index.html
+@@ -659,6 +659,7 @@ const IS_APP=matchMedia("(display-mode: standalone)").matches||navigator.standal
+ const IS_IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+ let instEv=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e});
+ function instShow(){
++  if(window.UMKInstall){UMKInstall.show();return}
+   $("#instTxt").innerHTML=instEv?"One app for the season planner, standings, team manager, setup coach, members championship and store. Works without signal at the track.":IS_IOS?"In Safari, tap <b>Share</b> then <b>Add to Home Screen</b>. One app for everything, and it works without signal at the track.":"Open your browser menu and choose <b>Install app</b> or <b>Add to Home screen</b>.";
+   $("#instAct").innerHTML=instEv?'<button class="inst" id="instGo" style="margin:0">Install</button>':"";
+   const g=$("#instGo");if(g)g.onclick=async()=>{const e=instEv;instEv=null;$("#inst").classList.remove("on");e.prompt();try{const r=await e.userChoice;gc("install-"+r.outcome)}catch(x){}};
+@@ -668,7 +669,7 @@ if(!IS_APP){$("#instBar").hidden=false;$("#instBar").onclick=instShow}
+ if(IS_APP)setTimeout(()=>gc("open-as-app","Opened from home screen"),3000);
+ 
+ /* ---------- pick up new versions: check when the app opens or comes back to the front ---------- */
+-const BUILD="1794491914";
++const BUILD="1794492445";
+ /* a newer version has been saved in the background: switch to it when the app is next put away,
+    or straight away when it comes back to the front (iPhone apps often resume instead of reopening) */
+ let newer=false;
+diff --git a/install.js b/install.js
+new file mode 100644
+index 0000000..b31c702
+--- /dev/null
++++ b/install.js
+@@ -0,0 +1,128 @@
++/* Use More Kerb: get people to add the app to their home screen in as few taps as possible.
++   Loaded on every page by gate.js. Shows a sheet a few seconds after the page opens (not when already running
++   as the app); "Not now" hides it for 3 days. Pages can open it any time with window.UMKInstall.show().
++   - Android Chrome/Edge/Samsung: one Install button that brings up the phone's own install box (2 taps in all).
++   - Inside Instagram, TikTok, Discord, Facebook etc: those can't add apps to the home screen, so one button
++     jumps to Safari (iPhone) or Chrome (Android) on the same page.
++   - iPhone Safari / Chrome: Apple doesn't let websites install themselves, so it shows the exact taps with
++     a pointer at the button to press. */
++(function () {
++  var D = document, H = D.documentElement, ua = navigator.userAgent;
++  var IS_APP = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
++  if (IS_APP) return;
++  var IOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
++  var IPAD = /ipad/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
++  var ANDROID = /android/i.test(ua);
++  var INAPP = /Instagram|FBAN|FBAV|FB_IAB|musical_ly|BytedanceWebview|TikTok|Discord|Snapchat|Twitter|LinkedInApp|Line\/|GSA\//i.test(ua) || (ANDROID && /; wv\)/.test(ua));
++  var CRIOS = /CriOS|FxiOS|EdgiOS/i.test(ua);
++  var SAFARI_V = +((ua.match(/Version\/(\d+)/) || [])[1] || 0);
++  var MOBILE = IOS || ANDROID;
++  var LATER = "umk-install-later", ev = null;
++  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
++  function gc(path, title) { try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({ path: path, title: title || path, event: true }); } catch (e) {} }
++
++  addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); ev = e; });
++  addEventListener("appinstalled", function () { close(); gc("install-done", "Installed as an app"); });
++
++  var SHARE = '<svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg>';
++  var DOTS = '<svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>';
++  var PLUS = '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg>';
++  var css = "#umkI.umkG{padding:0;background:none;min-height:0;color:#fff}#umkI{position:fixed;inset:0;z-index:2147483000;display:none;font-family:Barlow,system-ui,sans-serif;color:#fff}" +
++    "#umkI.on{display:block}#umkI .bg{position:absolute;inset:0;background:rgba(0,0,0,.6);animation:umkIf .2s}" +
++    "#umkI .sh{position:absolute;left:0;right:0;bottom:0;max-width:520px;margin:0 auto;background:#121216 url(" + base() + "img/camo.png) center/cover;border-radius:22px 22px 0 0;border-top:3px solid #FF0074;padding:20px 20px calc(22px + env(safe-area-inset-bottom,0px));box-shadow:0 -12px 40px rgba(0,0,0,.6);animation:umkIu .28s cubic-bezier(.2,.9,.3,1)}" +
++    "#umkI.top .sh{top:0;bottom:auto;border-radius:0 0 22px 22px;border-top:0;border-bottom:3px solid #FF0074;padding-top:calc(18px + env(safe-area-inset-top,0px));animation:umkId .28s cubic-bezier(.2,.9,.3,1)}" +
++    "#umkI .hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}#umkI .hd img{width:54px;height:54px;border-radius:13px;box-shadow:0 4px 14px rgba(0,0,0,.5)}" +
++    "#umkI h2{font:italic 900 21px/1.1 F1,'Arial Black',sans-serif;margin:0}#umkI .hd p{margin:3px 0 0;color:#c9cad0;font-size:13.5px}" +
++    "#umkI .ol{margin:8px 0 0;padding:0;counter-reset:s;text-align:left}#umkI .li{counter-increment:s;display:flex;align-items:center;gap:12px;padding:10px 0;font-size:16px;font-weight:600;line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}#umkI .li b{color:#fff}" +
++    "#umkI .li>i:before{content:counter(s)}#umkI .li>i{font-style:normal;flex:none;width:28px;height:28px;border-radius:50%;background:#FF0074;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}" +
++    "#umkI .ic{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:#2a2b31;vertical-align:middle;margin:0 2px}" +
++    "#umkI .ic svg{width:19px;height:19px;fill:none;stroke:#2EA8FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}#umkI .ic.d svg{fill:#2EA8FF;stroke:none}#umkI .ic.p svg{stroke:#fff}" +
++    "#umkI .go{display:block;width:100%;margin:14px 0 0;padding:15px;border:0;border-radius:14px;background:#FF0074;color:#fff;font:800 17px Barlow,system-ui,sans-serif;text-align:center;text-decoration:none;cursor:pointer;box-shadow:0 6px 18px rgba(255,0,116,.35)}" +
++    "#umkI .no{display:block;width:100%;margin:8px 0 0;padding:10px;border:0;background:none;color:#a4a5ad;font:600 14px Barlow,system-ui,sans-serif;cursor:pointer}" +
++    "#umkI .why{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 4px}#umkI .why span{font-size:12px;font-weight:700;background:rgba(0,190,0,.16);color:#7dff7d;border-radius:999px;padding:4px 9px}" +
++    "#umkI .pt{position:fixed;z-index:2147483001;width:46px;height:46px;pointer-events:none;animation:umkIb 1s ease-in-out infinite}#umkI .pt svg{width:100%;height:100%;fill:#FF0074;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7))}" +
++    "@keyframes umkIf{from{opacity:0}}@keyframes umkIu{from{transform:translateY(100%)}}@keyframes umkId{from{transform:translateY(-100%)}}" +
++    "@keyframes umkIb{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}";
++
++  function base() { var s = D.querySelector('script[src$="install.js"]'); return s ? s.src.replace(/install\.js.*$/, "") : "./"; }
++  var box;
++  function build() {
++    if (box) return;
++    var st = D.createElement("style"); st.textContent = css; D.head.appendChild(st);
++    box = D.createElement("div"); box.id = "umkI"; box.className = "umkG"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "Add the app to your home screen");
++    D.body.appendChild(box);
++  }
++  function close(later) { if (box) box.classList.remove("on"); if (later) ls(LATER, String(Date.now())); }
++  function head(sub) {
++    return '<div class="hd"><img src="' + base() + 'apple-touch-icon.png" alt=""><div><h2>Get the Use More Kerb app</h2><p>' + sub + '</p></div></div>' +
++      '<div class="why"><span>Free</span><span>Opens full screen</span><span>Works with no signal at the track</span></div>';
++  }
++  function pointer(where) {
++    /* arrow pointing at the browser button to press: "down-right", "down-centre", "up-right" */
++    var p = D.createElement("div"); p.className = "pt";
++    var up = where.indexOf("up") === 0;
++    p.innerHTML = '<svg viewBox="0 0 24 24" style="transform:rotate(' + (up ? 180 : 0) + 'deg)"><path d="M12 22 3 11h6V2h6v9h6z"/></svg>';
++    if (up) { p.style.top = "calc(6px + env(safe-area-inset-top,0px))"; } else { p.style.bottom = "calc(4px + env(safe-area-inset-bottom,0px))"; }
++    if (where.indexOf("right") > 0) p.style.right = "14px"; else p.style.left = "calc(50% - 23px)";
++    return p;
++  }
++
++  function show(force) {
++    if (!force) {
++      if (!MOBILE) return false;
++      var t = +ls(LATER) || 0; if (Date.now() - t < 3 * 864e5) return false;
++    }
++    build(); box.className = "umkG";
++    var html = "", top = false, pt = null;
++    if (INAPP && (IOS || ANDROID)) {
++      var url = location.href.split("#")[0];
++      var go = IOS ? "x-safari-" + url : "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" + encodeURIComponent(url) + ";end";
++      html = head("You're in another app's browser, which can't add apps to your home screen.") +
++        '<a class="go" id="umkIgo" href="' + go + '">Open in ' + (IOS ? "Safari" : "Chrome") + '</a>' +
++        '<p style="color:#a4a5ad;font-size:13px;margin:10px 0 0;text-align:center">If nothing happens, tap ' + '<span class="ic d">' + DOTS + '</span> and choose <b>Open in ' + (IOS ? "Safari" : "browser") + '</b>.</p>';
++    } else if (ev) {
++      html = head("One tap and it's on your home screen.") + '<button class="go" id="umkIgo">Install the app</button>';
++    } else if (IOS) {
++      var shareStep = '<div class="li"><i></i><span>Tap <span class="ic">' + SHARE + '</span> <b>Share</b></span></div>';
++      var addStep = '<div class="li"><i></i><span>Tap <span class="ic p">' + PLUS + '</span> <b>Add to Home Screen</b></span></div><div class="li"><i></i><span>Tap <b>Add</b> (top right)</span></div>';
++      if (CRIOS) { html = head("Three taps and it's on your home screen."); html += '<div class="ol">' + shareStep.replace("<b>Share</b>", "<b>Share</b> (top right, by the address)") + addStep + "</div>"; top = false; pt = "up-right"; }
++      else if (IPAD) { html = head("Three taps and it's on your home screen."); html += '<div class="ol">' + shareStep.replace("<b>Share</b>", "<b>Share</b> (top right)") + addStep + "</div>"; pt = "up-right"; }
++      else if (SAFARI_V >= 26) {
++        html = head("Four taps and it's on your home screen.");
++        html += '<div class="ol"><div class="li"><i></i><span>Tap <span class="ic d">' + DOTS + '</span> (bottom right)</span></div>' + shareStep + addStep.replace("Tap <b>Add</b>", "Leave <b>Open as Web App</b> on, tap <b>Add</b>") + "</div>";
++        top = true; pt = "down-right";
++      } else {
++        html = head("Three taps and it's on your home screen.");
++        html += '<div class="ol">' + shareStep.replace("<b>Share</b>", "<b>Share</b> (bottom of the screen)") + addStep.replace("<b>Add to Home Screen</b>", "<b>Add to Home Screen</b> (scroll down a little)") + "</div>";
++        top = true; pt = "down-centre";
++      }
++    } else if (ANDROID) {
++      html = head("Two taps and it's on your home screen.") + '<div class="ol"><div class="li"><i></i><span>Tap <span class="ic d">' + DOTS.replace('cx="5" cy="12"', 'cx="12" cy="5"').replace('cx="19" cy="12"', 'cx="12" cy="19"') + '</span> (top right)</span></div><div class="li"><i></i><span>Tap <b>Add to Home screen</b> or <b>Install app</b></span></div></div>';
++      top = false; pt = "up-right";
++    } else {
++      html = head("Install it from your browser's address bar or menu.") + '<div class="ol"><div class="li"><i></i><span>Look for the <b>Install</b> icon in the address bar, or open the browser menu</span></div><div class="li"><i></i><span>Choose <b>Install</b> or <b>Add to Home screen</b></span></div></div>';
++    }
++    html += '<button class="no" id="umkIno">' + (ev || INAPP ? "Not now" : "Done, or maybe later") + "</button>";
++    box.innerHTML = '<div class="bg"></div><div class="sh">' + html + "</div>";
++    if (top) box.classList.add("top");
++    if (pt) box.appendChild(pointer(pt));
++    box.classList.add("on");
++    box.querySelector(".bg").onclick = function () { close(true); };
++    D.getElementById("umkIno").onclick = function () { close(true); gc("install-later", "Install prompt: not now"); };
++    var g = D.getElementById("umkIgo");
++    if (g && ev) g.onclick = function () { var e = ev; ev = null; close(); e.prompt(); e.userChoice.then(function (r) { gc("install-" + r.outcome, "Install prompt: " + r.outcome); }).catch(function () {}); };
++    else if (g) g.onclick = function () { gc("install-openbrowser", "Install prompt: open in browser"); };
++    gc("install-shown", "Install prompt shown" + (INAPP ? " (in-app browser)" : ev ? " (one tap)" : IOS ? " (iPhone steps)" : ""));
++    return true;
++  }
++  window.UMKInstall = { show: function () { return show(true); }, available: true };
++
++  /* pop up once the opening animation and any sign-in screen are out of the way */
++  function auto(n) {
++    var busy = D.querySelector("#splash:not(.out), .sheet.on") || H.classList.contains("intro");
++    if (busy && n < 60) { setTimeout(function () { auto(n + 1); }, 500); return; }
++    show(false);
++  }
++  function start() { if (/[?&]install=1/.test(location.search)) { setTimeout(function () { show(true); }, 900); return; } setTimeout(function () { auto(0); }, 2500); }
++  if (D.readyState === "loading") D.addEventListener("DOMContentLoaded", start); else start();
++})();
+diff --git a/planner/index.html b/planner/index.html
+index 439b9c9..5ebcce2 100644
+--- a/planner/index.html
++++ b/planner/index.html
+@@ -467,6 +467,10 @@ document.addEventListener("click",ev=>{const a=ev.target.closest&&ev.target.clos
+   try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:kind+"-"+host,title:a.getAttribute("aria-label")||a.textContent.trim(),event:true})}catch(e){}
+ },true);
+ </script>
++<style id="carbon">/* carbon fibre background, with the cards see-through enough to show it */
++html:not([data-skin="pink"]){--surface:rgba(38,40,46,.80);--surface2:rgba(50,53,60,.86)}
++html:not([data-skin="pink"]) body{background:radial-gradient(120% 60% at 50% 0%,rgba(255,0,116,.10),transparent 60%),radial-gradient(120% 50% at 50% 100%,rgba(0,190,0,.06),transparent 60%),url(../img/carbon.png) 0 0/32px 32px,#0b0b0d}
++</style>
+ </head>
+ <body>
+ <div id="splash" aria-hidden="true"><canvas class="bg" id="splashCv"></canvas><div class="shade"></div><div class="grain"></div>
+@@ -639,7 +643,7 @@ function setRegion(c){if(!REGIONS[c]||c===REGION.code)return;try{localStorage.se
+ const LS=REGION.ls;
+ const SUGGEST=REGION.suggest;
+ const WEB=true;
+-const BUILD="1794491914";
++const BUILD="1794492445";
+ /* Load the newest version: phones may keep an old saved copy of the page */
+ (async()=>{try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const v=(await r.json()).build;
+   /* a newer version is out: swap to it quietly the next time the app goes into the background,
+@@ -1660,6 +1664,7 @@ let instEv=null;
+ function gcEvent(path,title){try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path,title:title||path,event:true})}catch(e){}}
+ function instShow(force){
+   if(IS_APP)return false;
++  if(window.UMKInstall){if(force)UMKInstall.show();return true}
+   if(!force){try{const t=+localStorage.getItem("umk-install-later")||0;if(Date.now()-t<14*864e5)return false}catch(e){}}
+   const txt=$("#instTxt"),act=$("#instAct");
+   if(instEv){txt.textContent="It opens full screen, loads instantly and works without signal at the track.";
+diff --git a/standings/index.html b/standings/index.html
+index 1fdb22b..0096f5a 100644
+--- a/standings/index.html
++++ b/standings/index.html
+@@ -66,6 +66,10 @@ td small{display:block;color:var(--muted);font-size:12.5px}
+ .none{color:var(--muted);font-size:14px;padding:4px 0 2px}
+ </style>
+ <script data-goatcounter="https://usemorekerb.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
++<style id="carbon">/* carbon fibre background, with the cards see-through enough to show it */
++html:not([data-skin="pink"]){--surface:rgba(38,40,46,.80);--surface2:rgba(50,53,60,.86)}
++html:not([data-skin="pink"]) body{background:radial-gradient(120% 60% at 50% 0%,rgba(255,0,116,.10),transparent 60%),radial-gradient(120% 50% at 50% 100%,rgba(0,190,0,.06),transparent 60%),url(../img/carbon.png) 0 0/32px 32px,#0b0b0d}
++</style>
+ </head>
+ <body>
+ <div id="scroller"><div class="wrap">
+diff --git a/sw.js b/sw.js
+index 1eaee58..7fed02e 100644
+--- a/sw.js
++++ b/sw.js
+@@ -1,11 +1,11 @@
+ /* Season Planner offline support.
+    Pages and race data: try the network first (so updates show straight away), fall back to the saved copy when offline.
+    Logos, icons and fonts: use the saved copy, refresh it in the background. */
+-const CACHE = "umk-planner-v36";
++const CACHE = "umk-planner-v37";
+ const CORE = [
+   "./", "index.html", "manifest.webmanifest", "version.json",
+   "data/races.json", "data/brad.json",
+-  "gate.js", "brad-logo.png", "img/store-merch.png", "img/camo.png", "img/logo-stacked.png", "img/splat-green.png", "img/splat-pink.png", "img/store-window-2.webp", "img/umk.png", "logos/sponsors/kkc.png", "logos/sponsors/customracewear.png", "favicon.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "logo.png",
++  "gate.js", "install.js", "img/carbon.png", "brad-logo.png", "img/store-merch.png", "img/camo.png", "img/logo-stacked.png", "img/splat-green.png", "img/splat-pink.png", "img/store-window-2.webp", "img/umk.png", "logos/sponsors/kkc.png", "logos/sponsors/customracewear.png", "favicon.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "logo.png",
+   "logos/sponsors/helmet28.png", "logos/sponsors/xenduri.png", "fonts/f1.ttf",
+   "team/", "team/index.html", "sponsor/", "budget/", "teams/", "post/", "logos/sponsors/valor.png", "team/manifest.webmanifest", "team/wm.png", "team/icon-180.png", "team/icon-192.png"
+ ];
+diff --git a/team/index.html b/team/index.html
+index 158e461..599b9a4 100644
+--- a/team/index.html
++++ b/team/index.html
+@@ -737,7 +737,7 @@ const IS_IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform=
+ let instEv=null;
+ addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e});
+ async function doInstall(){if(!instEv)return;const e=instEv;instEv=null;e.prompt();try{const r=await e.userChoice;gc("install-"+r.outcome)}catch(x){}closeSheet()}
+-if(!IS_APP){const ib=$("#instBar");ib.hidden=false;ib.onclick=()=>{if(instEv)doInstall();else dataSheet()}}
++if(!IS_APP){const ib=$("#instBar");ib.hidden=false;ib.onclick=()=>{if(window.UMKInstall)UMKInstall.show();else if(instEv)doInstall();else dataSheet()}}
+ if(IS_APP)setTimeout(()=>gc("open-as-app","Team manager opened from home screen"),3000);
+ if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))addEventListener("load",()=>navigator.serviceWorker.register("../sw.js").catch(()=>{}));
+ 
+diff --git a/version.json b/version.json
+index 8defc3a..9a4d1a2 100644
+--- a/version.json
++++ b/version.json
+@@ -1 +1 @@
+-{"build": "1794491914"}
++{"build": "1794492445"}
+-- 
+2.43.0
+
