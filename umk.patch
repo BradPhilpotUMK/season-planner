@@ -1,6 +1,6 @@
-From 103f869a1a5915e6fd268f2da638ba59d076a387 Mon Sep 17 00:00:00 2001
+From 3bdc5625c58b56c682b6bcc17cbf1aafce09cfd2 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
-Date: Thu, 12 Nov 2026 13:58:46 +0000
+Date: Thu, 12 Nov 2026 15:05:03 +0000
 Subject: [PATCH 1/2] Race Post Maker: choose the position colour (7 presets or
  any colour) and the outline thickness and colour, including no outline
 
@@ -190,9 +190,9 @@ index d962bd6..8defc3a 100644
 2.43.0
 
 
-From cb2faa57a3702e02191e18098b827bc9f57590f6 Mon Sep 17 00:00:00 2001
+From 99103b9e52c21c56057e3a3725c752c10294b65e Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
-Date: Thu, 12 Nov 2026 14:07:25 +0000
+Date: Thu, 12 Nov 2026 15:05:03 +0000
 Subject: [PATCH 2/2] Home-screen install prompt on every page (one-tap install
  on Android, Open in Safari/Chrome from Instagram/TikTok/Discord, step-by-step
  for iPhone); carbon fibre background on Season Planner and Standings; Race
